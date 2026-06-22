@@ -83,6 +83,25 @@
   .pillar .ico{width:48px;height:48px;border-radius:12px;background:rgba(242,169,0,.12);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--amarelo)}
   .pillar h3{font-size:19px;font-weight:700;margin-bottom:8px}
   .pillar p{color:var(--cinza-claro);font-size:14.5px}
+  /* valores */
+  .vals{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:46px}
+  .val{display:flex;gap:15px;background:var(--preto-3);border:1px solid var(--linha);border-radius:16px;padding:24px 22px}
+  .val .vn{flex:0 0 auto;width:34px;height:34px;border-radius:9px;background:rgba(242,169,0,.13);color:var(--amarelo);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px}
+  .val h3{font-size:16.5px;font-weight:700;margin-bottom:5px}
+  .val p{color:var(--cinza-claro);font-size:14px;line-height:1.5}
+  /* propostas resumo */
+  .props{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:46px}
+  .prop{background:linear-gradient(180deg,#161616,#101010);border:1px solid var(--linha);border-radius:16px;padding:24px 20px;
+    transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
+  .prop:hover{border-color:rgba(242,169,0,.4);transform:translateY(-3px)}
+  .prop .pn{font-size:13px;font-weight:800;color:var(--amarelo);letter-spacing:.04em;margin-bottom:9px}
+  .prop h3{font-size:16px;font-weight:700;line-height:1.25;margin-bottom:7px}
+  .prop p{color:var(--cinza-claro);font-size:13.5px;line-height:1.5}
+  .sec-cta-row{margin-top:40px;display:flex;justify-content:center}
+  .btn-outline{display:inline-block;font-weight:800;font-size:14.5px;border-radius:11px;padding:13px 26px;cursor:pointer;
+    background:transparent;color:var(--amarelo);border:1.5px solid var(--amarelo);transition:all .15s}
+  .btn-outline:hover{background:var(--amarelo);color:#1a1304}
 
   /* CTA */
   .cta-band{position:relative;overflow:hidden;border-top:1px solid var(--linha);
@@ -114,6 +133,8 @@
     .mission-grid{grid-template-columns:1fr;gap:40px}
     .mission-art{min-height:260px}.mission-art .r1{width:260px;height:260px}.mission-art .r2{width:180px;height:180px}.mission-art img{width:140px}
     .pillars{grid-template-columns:1fr}
+    .vals{grid-template-columns:1fr;gap:14px}
+    .props{grid-template-columns:1fr;gap:14px}
     .stats-in{grid-template-columns:1fr}.stat{border-right:none;border-bottom:1px solid var(--linha);padding:34px}
     .foot-grid{grid-template-columns:1fr;gap:32px}
     section.block{padding:70px 0}
@@ -146,6 +167,7 @@
     <div class="nav-links" id="navLinks">
       <a href="#movimento">O movimento</a>
       <a href="#pilares">Por que existimos</a>
+      <a href="propostas.html">Propostas</a>
       <a href="#participar">Participar</a>
       <a class="btn" href="grupos.html">Entrar nos grupos</a>
     </div>
@@ -215,6 +237,46 @@
   </div>
 </section>
 
+<section class="block" id="valores">
+  <div class="wrap">
+    <div class="sec-eyebrow">No que acreditamos</div>
+    <h2>Os valores que guiam a Missão.</h2>
+    <div class="vals">
+      <div class="val"><div class="vn">1</div><div>
+        <h3>Administração pública e combate à corrupção</h3>
+        <p>Fim dos privilégios da elite do funcionalismo e dos supersalários, com os recursos redirecionados para a saúde e a educação. Gestão íntegra como princípio ético inegociável.</p></div></div>
+      <div class="val"><div class="vn">2</div><div>
+        <h3>Segurança pública e justiça</h3>
+        <p>Reforma penal séria contra a impunidade e a reincidência, e enfrentamento direto ao tráfico e às facções que dominam territórios.</p></div></div>
+      <div class="val"><div class="vn">3</div><div>
+        <h3>Economia e desenvolvimento regional</h3>
+        <p>Responsabilidade fiscal, inflação sob controle e juros menores para gerar crescimento — com industrialização que leve oportunidade às regiões mais pobres.</p></div></div>
+      <div class="val"><div class="vn">4</div><div>
+        <h3>Direitos sociais e sustentabilidade</h3>
+        <p>Educação básica como prioridade, escolas em tempo integral, saúde preventiva, saneamento universal e equilíbrio entre meio ambiente e desenvolvimento.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="propostas-resumo" style="background:var(--preto-2);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)">
+  <div class="wrap">
+    <div class="sec-eyebrow">Nosso plano</div>
+    <h2>As 7 propostas da Missão.</h2>
+    <div class="props">
+      <div class="prop"><div class="pn">PROPOSTA 1</div><h3>Guerra ao crime organizado</h3><p>Reconhecer que facções exercem domínio territorial e enfrentá-las como ameaça real, não como gangues isoladas.</p></div>
+      <div class="prop"><div class="pn">PROPOSTA 2</div><h3>Direito penal do inimigo</h3><p>Tratamento jurídico diferenciado e ação rápida do Estado contra quem ameaça a soberania nos territórios dominados.</p></div>
+      <div class="prop"><div class="pn">PROPOSTA 3</div><h3>Desfavelização</h3><p>Plano estrutural de habitação, reurbanização, educação e emprego para romper o ciclo que alimenta o crime.</p></div>
+      <div class="prop"><div class="pn">PROPOSTA 4</div><h3>Interiorizar a produção</h3><p>Levar indústria e atividade produtiva ao interior para criar classe média e quebrar a dependência política.</p></div>
+      <div class="prop"><div class="pn">PROPOSTA 5</div><h3>Responsabilidade gerencial</h3><p>Gestores que não entregam melhorias em saúde, educação, saneamento e segurança perdem incentivos e direitos políticos.</p></div>
+      <div class="prop"><div class="pn">PROPOSTA 6</div><h3>Fusão de municípios</h3><p>Cidades que dependem só de repasses para se manter se unem a vizinhas, corrigindo a lógica tributária injusta.</p></div>
+      <div class="prop" style="grid-column:span 3;max-width:none"><div class="pn">PROPOSTA 7</div><h3>Mutirão pelo emprego</h3><p>Onde mais de 30% da população recebe benefício, mutirões de geração de emprego, com foco em devolver autonomia e dignidade pelo trabalho.</p></div>
+    </div>
+    <div class="sec-cta-row">
+      <a class="btn-outline" href="propostas.html">Ver todas as propostas em detalhe</a>
+    </div>
+  </div>
+</section>
+
 <section class="cta-band" id="participar">
   <div class="wrap cta-in">
     <div class="sec-eyebrow" style="display:inline-block">Faça parte</div>
@@ -238,6 +300,7 @@
         <a href="#topo">Início</a>
         <a href="#movimento">O movimento</a>
         <a href="#pilares">Por que existimos</a>
+        <a href="propostas.html">Propostas</a>
         <a href="grupos.html">Entrar nos grupos</a>
       </div>
       <div class="foot-col">
