@@ -46,3 +46,21 @@ nunca ler. Por isso é seguro manter este repositório, mesmo público.
 
 Campos Gerais · Centro Oeste · Noroeste · Norte Central · Norte Pioneiro ·
 Oeste · Sudeste · Sudoeste · Centro-Sul · Curitiba Metropolitana e Litoral
+
+## Pré-candidatos (como editar)
+
+Todos os pré-candidatos ficam em **`candidatos-data.js`** — um único arquivo.
+Para adicionar, remover ou editar alguém, basta mexer nesse arquivo:
+
+- `candidatos.html` mostra a lista (governador em destaque + grids de deputados).
+- Cada card leva para `candidato.html?id=...`, a página de perfil individual.
+- Adicionar um novo pré-candidato = adicionar um bloco na lista do `.js`.
+  A página de perfil dele é criada automaticamente (não precisa criar arquivo novo).
+
+Campos de cada um: `id` (único, sem espaços/acentos), `nome`, `cargo`
+("governador" | "federal" | "estadual"), `cargoLabel`, `cidade`, `foto`
+(caminho da imagem ou "" para o avatar padrão), `instagram`, `bio`
+(texto de apresentação; separe parágrafos com uma linha em branco).
+
+Fotos: salve em `assets/candidatos/` e aponte no campo `foto`,
+ex.: `"assets/candidatos/joao-silva.jpg"`.
