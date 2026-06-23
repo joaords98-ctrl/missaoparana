@@ -18,6 +18,7 @@
 const CANDIDATOS = [
   {
     id: "luiz-franca",
+    pagina: "luiz-franca.html",
     nome: "Luiz Felipe França",
     cargo: "governador",
     cargoLabel: "Governador do Paraná",

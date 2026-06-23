@@ -108,6 +108,7 @@
 const CANDIDATOS = [
   {
     id: "luiz-franca",
+    pagina: "luiz-franca.html",
     nome: "Luiz Felipe França",
     cargo: "governador",
     cargoLabel: "Governador do Paraná",
@@ -216,9 +217,9 @@ const CANDIDATOS = [
       <header class="prof-head wm-rosas"><div class="wrap prof-in">
         <div class="prof-photo"><img src="${foto(c)}" alt="Foto de ${esc(c.nome)}"></div>
         <div class="prof-info">
-          <span class="badge">${esc(c.cargoLabel||'Pré-candidato')}</span>
+          <span class="badge">Pré-candidato</span>
           <h1>${esc(c.nome)}</h1>
-          <div class="cargo">${esc(c.cargoLabel||'')}</div>
+          <div class="cargo">Pré-candidato a ${esc(c.cargoLabel||'')}</div>
           <div class="cidade">${PIN_SVG} ${esc(c.cidade||'')}</div>
           <div class="prof-links">${igBtn}${grupoBtn}</div>
         </div>
