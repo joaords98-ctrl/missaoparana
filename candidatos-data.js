@@ -39,6 +39,20 @@ const CANDIDATOS = [
     ]
   },
 
+  {
+    id: "joao-adolfo",
+    pagina: "joao-adolfo.html",
+    nome: "João Adolfo Padilha Yamane Wendpap",
+    cargo: "vice",
+    cargoLabel: "Vice-Governador do Paraná",
+    cidade: "Paraná",
+    foto: "assets/candidatos/joao-adolfo.jpg",
+    instagram: "https://www.instagram.com/folegodonaufrago/",
+    destaque: "Casado, pai, e crê que a responsabilidade é o caminho democrático.",
+    resumo: "Formado em Jornalismo e Letras, com experiência em direito e economia, defende um vice de trabalho contínuo e dedicado ao mandato.",
+    bio: "João Adolfo Padilha Yamane Wendpap é formado em Jornalismo e Letras, e tem experiência com direito e economia. Crê que o papel do vice deve ser de trabalho contínuo e dedicado ao mandato; diferente do que vem ocorrendo no Paraná, onde a escolha pelos vices é decorativa e de eventual interlocução com grupos e setores."
+  },
+
   // ---------- DEPUTADOS FEDERAIS ----------
   {
     id: "federal-1", nome: "Pré-candidato 1", cargo: "federal",

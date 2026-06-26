@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pré-candidato — Missão Paraná</title>
-<meta name="description" content="Conheça este pré-candidato da Missão no Paraná.">
+<title>João Adolfo Wendpap — Pré-candidato a Vice-Governador | Missão Paraná</title>
+<meta name="description" content="João Adolfo Padilha Yamane Wendpap, pré-candidato a Vice-Governador do Paraná pela Missão. Jornalista e formado em Letras, defende um vice de trabalho contínuo e dedicado ao mandato.">
+<link rel="canonical" href="https://missaoparana.com.br/joao-adolfo.html">
 <meta name="theme-color" content="#0a0a0a">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
@@ -12,8 +13,19 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Missão Paraná">
-<meta property="og:image" content="https://missaoparana.com.br/assets/og-missao.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://missaoparana.com.br/joao-adolfo.html">
+<meta property="og:title" content="João Adolfo Wendpap — Pré-candidato a Vice-Governador do Paraná">
+<meta property="og:description" content="Jornalista e formado em Letras, defende um vice de trabalho contínuo e dedicado ao mandato, não decorativo.">
+<meta property="og:image" content="https://missaoparana.com.br/assets/candidatos/og-joao-adolfo.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="João Adolfo Wendpap, pré-candidato a Vice-Governador do Paraná">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="João Adolfo Wendpap — Pré-candidato a Vice-Governador do Paraná">
+<meta name="twitter:description" content="Jornalista e formado em Letras, defende um vice de trabalho contínuo e dedicado ao mandato.">
+<meta name="twitter:image" content="https://missaoparana.com.br/assets/candidatos/og-joao-adolfo.jpg">
 <style>
   :root{--amarelo:#F2A900;--amarelo-claro:#FFC02E;--preto:#0a0a0a;--preto-2:#121212;--preto-3:#161616;
     --cinza:#6E6E6E;--cinza-claro:#a6a6a6;--branco:#fff;--linha:rgba(255,255,255,.08);}
@@ -101,6 +113,10 @@
     .nav-links{inset:62px 0 auto 0}
     .brand{font-size:16px}.brand img{height:30px}
   }
+
+  .prof-destaque{margin:30px 0 8px;padding:22px 26px;border-left:4px solid var(--amarelo);
+    background:linear-gradient(90deg,rgba(242,169,0,.10),transparent);border-radius:0 14px 14px 0;
+    font-size:20px;line-height:1.45;font-weight:700;color:#fff;max-width:68ch;font-style:normal}
 </style>
 </head>
 <body>
@@ -143,6 +159,20 @@
    ============================================================ */
 
 const CANDIDATOS = [
+  {
+    id: "joao-adolfo",
+    pagina: "joao-adolfo.html",
+    nome: "João Adolfo Padilha Yamane Wendpap",
+    cargo: "vice",
+    cargoLabel: "Vice-Governador do Paraná",
+    cidade: "Paraná",
+    foto: "assets/candidatos/joao-adolfo.jpg",
+    instagram: "https://www.instagram.com/folegodonaufrago/",
+    destaque: "Casado, pai, e crê que a responsabilidade é o caminho democrático.",
+    resumo: "Formado em Jornalismo e Letras, com experiência em direito e economia, defende um vice de trabalho contínuo e dedicado ao mandato.",
+    bio: "João Adolfo Padilha Yamane Wendpap é formado em Jornalismo e Letras, e tem experiência com direito e economia. Crê que o papel do vice deve ser de trabalho contínuo e dedicado ao mandato; diferente do que vem ocorrendo no Paraná, onde a escolha pelos vices é decorativa e de eventual interlocução com grupos e setores."
+  },
+
   {
     id: "luiz-franca",
     pagina: "luiz-franca.html",
@@ -213,8 +243,7 @@ const CANDIDATOS = [
   const PIN_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>';
 
   function getId(){
-    const p = new URLSearchParams(location.search);
-    return p.get('id');
+    return 'joao-adolfo'; // página dedicada
   }
   const AVATAR = "assets/img/img-d2433fe371.png";
   function foto(c){ return c.foto && c.foto.trim() ? c.foto : AVATAR; }
@@ -246,6 +275,7 @@ const CANDIDATOS = [
 
     const parags = (c.bio||'').split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('');
     const resumoHTML = c.resumo ? `<div class="prof-resumo">${esc(c.resumo)}</div>` : '';
+    const destaqueHTML = c.destaque ? `<blockquote class="prof-destaque">${esc(c.destaque)}</blockquote>` : '';
     const trajHTML = (Array.isArray(c.trajetoria) && c.trajetoria.length)
       ? `<div class="traj"><h3>Trajetória</h3><ul>${c.trajetoria.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div>`
       : '';
@@ -265,7 +295,7 @@ const CANDIDATOS = [
       <section class="prof-body"><div class="wrap">
         <div class="sec-eyebrow">Quem é</div>
         <h2>A história de ${esc(c.nome.split(' ').slice(0,2).join(' '))}.</h2>
-        ${resumoHTML}
+        ${destaqueHTML}
         ${parags}
         ${trajHTML}
         <a class="back-link" href="candidatos.html">← Ver todos os pré-candidatos</a>
