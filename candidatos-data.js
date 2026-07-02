@@ -56,25 +56,25 @@ const CANDIDATOS = [
   // ---------- DEPUTADOS FEDERAIS ----------
   {
     id: "yvis-de-oliveira", nome: "Yvis de Oliveira", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/yvis-de-oliveira.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Yvis de Oliveira, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
   },
   {
     id: "gerusa-correa", nome: "Gerusa Correa", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/gerusa-correa.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Gerusa Correa, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
   },
   {
     id: "jessica-this-do-autismo", nome: "Jessica This do Autismo", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/jessica-this-do-autismo.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Jessica This do Autismo, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
   },
   {
     id: "alan-leal", nome: "Alan Leal", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/alan-leal.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Alan Leal, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
   },
@@ -86,19 +86,19 @@ const CANDIDATOS = [
   },
   {
     id: "delegado-eduardo-kruger", nome: "Delegado Eduardo Kruger", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/delegado-eduardo-kruger.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Delegado Eduardo Kruger, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
   },
   {
     id: "ana-xavier", nome: "Ana Xavier", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/ana-xavier.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Ana Xavier, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
   },
   {
     id: "jornalista-isaak-almeida", nome: "Jornalista Isaak Almeida", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/jornalista-isaak-almeida.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Jornalista Isaak Almeida, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
   },
@@ -122,7 +122,7 @@ const CANDIDATOS = [
   },
   {
     id: "glauberson-rocha", nome: "Glauberson Rocha", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/glauberson-rocha.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Glauberson Rocha, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
   },
@@ -146,7 +146,7 @@ const CANDIDATOS = [
   },
   {
     id: "marcello-de-paula", nome: "Marcello de Paula", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/marcello-de-paula.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Marcello de Paula, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
   },
@@ -164,7 +164,7 @@ const CANDIDATOS = [
   },
   {
     id: "matheus-santos-moreira", nome: "Matheus Santos Moreira", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/matheus-santos-moreira.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Matheus Santos Moreira, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
   },
@@ -208,7 +208,7 @@ const CANDIDATOS = [
   // ---------- DEPUTADOS ESTADUAIS ----------
   {
     id: "beatriz-oliveira", nome: "Beatriz Oliveira", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "assets/candidatos/beatriz-oliveira.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Beatriz Oliveira, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
   },
@@ -274,7 +274,7 @@ const CANDIDATOS = [
   },
   {
     id: "paulo-di-melo", nome: "Paulo Di Melo", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "assets/candidatos/paulo-di-melo.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Paulo Di Melo, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
   },
@@ -316,7 +316,7 @@ const CANDIDATOS = [
   },
   {
     id: "carlos-eduardo", nome: "Carlos Eduardo", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "assets/candidatos/carlos-eduardo.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Carlos Eduardo, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
   },
@@ -370,13 +370,13 @@ const CANDIDATOS = [
   },
   {
     id: "felipe-de-castilho", nome: "Felipe de Castilho", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "assets/candidatos/felipe-de-castilho.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Felipe de Castilho, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
   },
   {
     id: "wagner-proenca-junior", nome: "Wagner Proença Junior", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "assets/candidatos/wagner-proenca-junior.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Wagner Proença Junior, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
   },
