@@ -7,7 +7,7 @@
   ],
   "functions": {
     "api/candidato.js": {
-      "includeFiles": "{candidato.html,candidatos-data.js}"
+      "includeFiles": "{candidato-template.html,candidatos-data.js}"
     }
   }
 }

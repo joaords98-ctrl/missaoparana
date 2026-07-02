@@ -36,7 +36,7 @@ module.exports = (req, res) => {
   try {
     const url = new URL(req.url, SITE);
     const id = url.searchParams.get('id') || '';
-    const htmlPath = path.join(process.cwd(), 'candidato.html');
+    const htmlPath = path.join(process.cwd(), 'candidato-template.html');
     let html = fs.readFileSync(htmlPath, 'utf8');
 
     const candidatos = carregarCandidatos();
@@ -66,7 +66,7 @@ module.exports = (req, res) => {
   } catch (err) {
     // Se algo falhar, nunca deixa a página quebrada: serve o HTML original puro.
     try {
-      const htmlPath = path.join(process.cwd(), 'candidato.html');
+      const htmlPath = path.join(process.cwd(), 'candidato-template.html');
       const html = fs.readFileSync(htmlPath, 'utf8');
       res.setHeader('Content-Type', 'text/html; charset=utf-8');
       res.status(200).send(html);
