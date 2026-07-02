@@ -56,25 +56,25 @@ const CANDIDATOS = [
   // ---------- DEPUTADOS FEDERAIS ----------
   {
     id: "yvis-de-oliveira", nome: "Yvis de Oliveira", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/yvis-de-oliveira.jpg",
+    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/yvis-de-oliveira.jpg",
     instagram: "https://www.instagram.com/yvisoliveira_14/",
     bio: "Médica, com pós-graduação em Emergência e atualmente cursando Paliativos, Yvis de Oliveira vive de perto os desafios de um sistema de saúde sobrecarregado e a urgência de quem busca atendimento nas UPAs e hospitais.\n\nÉ pré-candidata a Deputada Federal porque acredita que a gestão pública precisa de quem conhece a realidade do chão da unidade, entende o valor de cada minuto no atendimento e não aceita a insegurança de quem cuida e de quem é cuidado. Defende um Paraná com uma saúde técnica, humana e, acima de tudo, eficiente."
   },
   {
     id: "gerusa-correa", nome: "Gerusa Correa", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/gerusa-correa.jpg",
+    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/gerusa-correa.jpg",
     instagram: "https://www.instagram.com/gerusacorreaoficial/",
     bio: "Mulher, mãe, pastora e coordenadora de projeto social, Gerusa Correa acompanha de perto as dores das famílias paranaenses: os desafios emocionais, os conflitos dentro dos lares e a urgência de valores que sustentem uma sociedade saudável.\n\nSua pré-candidatura nasce desse compromisso claro: defender a família, cuidar das necessidades do próximo e levantar uma voz de equilíbrio, fé e responsabilidade em Brasília. Gerusa não chega como alguém que tem todas as respostas, mas como alguém disposta a aprender, contribuir e representar os princípios em que acredita pela Missão Paraná."
   },
   {
     id: "jessica-this-do-autismo", nome: "Jéssica This Machado", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/jessica-this-do-autismo.jpg",
+    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/jessica-this-do-autismo.jpg",
     instagram: "https://www.instagram.com/prof_this.pr/",
     bio: "Professora e pré-candidata a Deputada Federal, Jéssica This Machado é docente há mais de 10 anos, com trajetória na Educação Infantil, no Ensino Fundamental e, atualmente, no Ensino Superior. Cristã e empresária, é proprietária de uma clínica multidisciplinar em Curitiba, onde foca seu trabalho na alfabetização de crianças especiais, unindo rigor técnico à sensibilidade necessária para o atendimento clínico especializado.\n\nDefensora da Educação, da Inclusão e da Família, acredita que a verdadeira inclusão não acontece apenas no papel, mas no dia a dia, com estrutura, técnica e acolhimento real. Representa uma geração que cansou de aceitar a política tradicional brasileira."
   },
   {
     id: "alan-leal", nome: "Alan Leal", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/alan-leal.jpg",
+    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/alan-leal.jpg",
     instagram: "https://www.instagram.com/alannleal_/",
     bio: "Curitibano, 28 anos, Alan Leal decidiu entrar para a política por acreditar que o Brasil precisa de uma nova geração de representantes: pessoas comuns, próximas da população e dispostas a enfrentar os problemas reais do país. Sua pré-candidatura nasce da vontade de defender liberdade, responsabilidade, honestidade, segurança, incentivo ao empreendedorismo e combate ao desperdício do dinheiro público.\n\nInspirado pelos princípios do Partido Missão, defende menos burocracia, mais transparência, investimento inteligente em segurança pública, combate ao crime organizado, valorização de quem produz e fiscalização firme sobre os gastos do governo. Não é político de carreira: é alguém que decidiu sair da indignação e partir para a ação, e busca representar quem trabalha, empreende, estuda, paga impostos e sente que sua voz não é ouvida em Brasília."
   },
@@ -86,27 +86,27 @@ const CANDIDATOS = [
   },
   {
     id: "delegado-eduardo-kruger", nome: "Delegado Eduardo Kruger", cargo: "senador",
-    cargoLabel: "Senador", cidade: "Paraná", foto: "assets/candidatos/delegado-eduardo-kruger.jpg",
+    cargoLabel: "Senador", cidade: "Araucária, PR", foto: "assets/candidatos/delegado-eduardo-kruger.jpg",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Delegado Eduardo Kruger, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Delegado Eduardo Kruger, delegado de Polícia de Araucária, com 18 anos de experiência no combate à violência contra mulheres. Defende proteção das mulheres, combate à violência sexual infantil e enfrentamento de privilégios institucionais que dificultam responsabilização e transparência."
   },
   {
     id: "ana-xavier", nome: "Ana Lucia Xavier", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/ana-xavier.jpg",
+    cargoLabel: "Deputado Federal", cidade: "Almirante Tamandaré, PR", foto: "assets/candidatos/ana-xavier.jpg",
     instagram: "https://www.instagram.com/analuciapr14/",
     bio: "Contadora e analista de controladoria, Ana Lucia Xavier é pré-candidata a Deputada Federal pelo Partido Missão. Enfrenta, ao lado da pré-campanha, o tratamento de um câncer de mama HER2 — uma luta que reforça sua determinação em representar quem também enfrenta desafios difíceis no dia a dia."
   },
   {
     id: "jornalista-isaak-almeida", nome: "Jornalista Isaak Almeida", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/jornalista-isaak-almeida.jpg",
+    cargoLabel: "Deputado Federal", cidade: "Fazenda Rio Grande, PR", foto: "assets/candidatos/jornalista-isaak-almeida.jpg",
     instagram: "https://www.instagram.com/jornalistaisaakalmeida/",
-    bio: "Em breve mais informações sobre a trajetória de Jornalista Isaak Almeida, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Jornalista Isaak Almeida, jornalista de Fazenda Rio Grande, com experiência em comunicação, serviço público e campanhas eleitorais. Defende saúde, segurança e combate à corrupção, atuando na região sul de Curitiba e Região Metropolitana."
   },
   {
     id: "karen-guerreiro", nome: "Karen Guerreiro", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Santa Izabel do Oeste, PR", foto: "",
     instagram: "https://www.instagram.com/karen.guerreiro7/",
-    bio: "Graduada em Arte e diretora de comunicação, Karen Guerreiro é entusiasta da tecnologia e defensora da educação. Trabalhou em sala de aula e foi coordenadora de projeto social durante boa parte da vida, acreditando na educação como virada de chave e na escola como refúgio de muitas famílias em condição de vulnerabilidade.\n\nHá mais de 20 anos atua também como protetora autônoma de animais, e conhece de perto a dificuldade de quem luta por essa causa. É pré-candidata a Deputada Federal pelo Paraná."
+    bio: "Karen Guerreiro, diretora de arte de Santa Izabel do Oeste, com atuação voluntária em causa animal e ações sociais. Defende desenvolvimento para a juventude, educação técnica e tecnológica, saúde regional, rodovias e proteção animal no Sudoeste do Paraná."
   },
   {
     id: "manu-shtorach", nome: "Emanuelle Shtorach", cargo: "federal",
@@ -116,69 +116,69 @@ const CANDIDATOS = [
   },
   {
     id: "anita-de-biasi", nome: "Anita de Biasi", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Anita de Biasi, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Anita de Biasi, fotógrafa de Curitiba, esposa e mãe, com atuação religiosa e voluntária. Defende segurança pública, educação, economia, empreendedorismo, causa animal e pautas práticas que impactem a vida real das famílias."
   },
   {
     id: "yan-gaudard", nome: "Yan Gaudard", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Paranaguá, PR", foto: "",
     instagram: "https://www.instagram.com/profyangaudard/",
     bio: "Cristão, casado, 33 anos, Yan Gaudard é professor de Português formado pela UNESPAR (Universidade Estadual do Paraná), campus Paranaguá, em Letras – Português/Inglês, com pós-graduação em Docência da Língua Portuguesa para Estrangeiros pela UNINTER. Atualmente leciona Português, Literatura e Redação em um colégio da rede particular de Pontal do Paraná.\n\nMorador de Paranaguá — cidade-mãe do Estado — desde fevereiro de 2018, adotou o município como seu lar e é pré-candidato a Deputado Federal com o avanço educacional de toda a região litorânea como principal bandeira. Para o professor, a educação é o primeiro passo para um futuro glorioso: \"A educação é a chave para abrir a porta dourada da liberdade\" (George Washington Carver)."
   },
   {
     id: "tayna-vieia", nome: "Tayna Vieia", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "São Mateus do Sul, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Tayna Vieia, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Tayna Vieia, decoradora de eventos de São Mateus do Sul, casada, com participação em grupo de jovens da Igreja Católica. Defende segurança para mulheres, artes marciais como ferramenta de defesa pessoal, incentivo ao esporte e atenção às comunidades carentes e pequenas propriedades rurais."
   },
   {
     id: "glauberson-rocha", nome: "Glauberson Rocha", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/glauberson-rocha.jpg",
+    cargoLabel: "Deputado Federal", cidade: "Guarapuava, PR", foto: "assets/candidatos/glauberson-rocha.jpg",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Glauberson Rocha, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Glauberson Rocha, comerciante de Guarapuava, com experiência de 21 anos na Sanepar e liderança em associação de moradores e APP escolar. Defende saneamento básico, segurança pública, infraestrutura e atenção às comunidades mais vulneráveis da região central do Paraná."
   },
   {
     id: "ricardo-cascavel-segura", nome: "Ricardo Cascavel Segura", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Cascavel, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Ricardo Cascavel Segura, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Ricardo Cascavel Segura, corretor de imóveis e ativista político em Cascavel, atua em conselhos e iniciativas ligadas à segurança pública. Defende mais segurança, proteção de crianças, educação e fiscalização do dinheiro público."
   },
   {
     id: "darlon-parana-pop", nome: "Darlon Parana Pop", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Foz do Iguaçu, PR", foto: "",
     instagram: "https://www.instagram.com/darlondutra/",
-    bio: "Em breve mais informações sobre a trajetória de Darlon Parana Pop, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Darlon Parana Pop, empresário de Foz do Iguaçu, com experiência pública e comunitária, fundador do projeto Turma do João, que atende crianças. Suas principais pautas são defesa das mulheres, segurança pública e combate à corrupção, com atuação em Foz do Iguaçu."
   },
   {
     id: "mauricio-franciscon", nome: "Mauricio Franciscon", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Francisco Beltrão, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Mauricio Franciscon, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Mauricio Franciscon, pecuarista e filmmaker de Francisco Beltrão, ex-coordenador municipal do MBL. Defende liberdade econômica, menos burocracia, inovação, eficiência na gestão pública, agro, infraestrutura e combate à corrupção no Sudoeste do Paraná."
   },
   {
     id: "marcello-de-paula", nome: "Marcello de Paula", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/marcello-de-paula.jpg",
+    cargoLabel: "Deputado Federal", cidade: "Umuarama, PR", foto: "assets/candidatos/marcello-de-paula.jpg",
     instagram: "https://www.instagram.com/marcello_de_paula/",
-    bio: "Em breve mais informações sobre a trajetória de Marcello de Paula, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Marcello de Paula, estoquista de Umuarama, com perfil de luta, perseverança e compromisso com a comunidade. Defende segurança pública, educação, cultura, infraestrutura, estradas, redução da maioridade penal e ensino de música nas escolas."
   },
   {
     id: "diogo-costa", nome: "Diogo Costa", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Campo Largo, PR", foto: "",
     instagram: "https://www.instagram.com/diogocosta_pr/",
-    bio: "Em breve mais informações sobre a trajetória de Diogo Costa, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Diogo Costa, empresário de Campo Largo, com trajetória de trabalho desde cedo e experiência em defesa de crianças e adolescentes. Defende desburocratização, redução da carga tributária, combate à violência infantil, assistência social e empreendedorismo."
   },
   {
     id: "caroline-barbosa", nome: "Caroline Barbosa", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Londrina, PR", foto: "",
     instagram: "https://www.instagram.com/carolinecardine/",
-    bio: "Em breve mais informações sobre a trajetória de Caroline Barbosa, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Caroline Barbosa, analista de comércio exterior de Londrina, com trajetória familiar marcada por superação e trabalho. Defende desenvolvimento econômico, infraestrutura, capital humano, comércio internacional, empreendedorismo e visão estratégica para o Paraná."
   },
   {
     id: "matheus-santos-moreira", nome: "Matheus Santos Moreira", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/matheus-santos-moreira.jpg",
+    cargoLabel: "Deputado Federal", cidade: "Arapongas, PR", foto: "assets/candidatos/matheus-santos-moreira.jpg",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Matheus Santos Moreira, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Matheus Santos Moreira, policial legislativo do Senado Federal, natural da região de Arapongas, com trajetória de superação por meio dos estudos. Defende segurança pública, economia, musculação como disciplina e crescimento real para Arapongas e região."
   },
   {
     id: "gabriel-bertolucci", nome: "Gabriel Bertolucci", cargo: "federal",
@@ -188,53 +188,53 @@ const CANDIDATOS = [
   },
   {
     id: "andrey-luiz", nome: "Andrey Luiz", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Siqueira Campos, PR", foto: "",
     instagram: "https://www.instagram.com/andreyluiz.mbl/",
-    bio: "Em breve mais informações sobre a trajetória de Andrey Luiz, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Andrey Luiz, vendedor varejista de Siqueira Campos, com foco em cultura, desenvolvimento e eficiência do Estado. Defende segurança pública, redução de impostos, empreendedorismo e infraestrutura no Norte Pioneiro."
   },
   {
     id: "carlos-eduardo-de-oliveira-gasparim", nome: "Carlos Eduardo de Oliveira Gasparim", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Apucarana, PR", foto: "",
     instagram: "#",
     bio: "Advogado, Carlos Eduardo de Oliveira Gasparim é pré-candidato a Deputado Federal pela Missão com a convicção de que o Brasil não precisa de mais discursos vazios, mas de seriedade, preparo e compromisso verdadeiro com as pessoas. Como advogado, aprendeu que a transformação não acontece por conveniência nem por frases prontas — ela nasce do estudo, da coragem, do trabalho e da defesa firme daquilo que é justo.\n\nAo lado do presidente nacional Renan Santos, defenderá uma reforma administrativa séria, voltada ao corte de gastos e ao aumento da eficiência do Estado, criando condições reais para reduzir impostos e juros e devolver ao cidadão e ao setor produtivo a liberdade de crescer, investir e gerar empregos. Defenderá também o enfrentamento firme ao crime organizado, com coragem, inteligência e autoridade, e a reforma do pacto federativo, para que o dinheiro produzido no Paraná permaneça em maior medida no próprio Estado — impulsionando o desenvolvimento de uma terra que tanto contribui para a economia e o emprego no Brasil."
   },
   {
     id: "guilherme-machado", nome: "Guilherme Machado", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Ponta Grossa, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Guilherme Machado, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Guilherme Machado, médico de Ponta Grossa, com atuação direta no cuidado de pacientes e promoção da saúde. Defende saúde, segurança pública, educação, assistência social e melhoria da qualidade de vida nos Campos Gerais e cidades da 3ª Regional de Saúde."
   },
   {
     id: "marianny-thayla", nome: "Marianny Thayla", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Marianny Thayla, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Marianny Thayla, gerente de projetos de Curitiba e representante da pauta das pessoas com deficiência. Defende acessibilidade plena, proteção da mulher com deficiência, fiscalização do BPC/LOAS, busca ativa de PCDs invisíveis e criação de um observatório de direitos das PCDs no Paraná."
   },
   {
     id: "matheus-zozoloto", nome: "Matheus Zozoloto", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Bandeirantes, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Matheus Zozoloto, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Matheus Zozoloto, servidor público efetivo com atuação no Norte Pioneiro, especialmente Bandeirantes, Jacarezinho e Ibaiti. Defende crianças, adolescentes, idosos, trabalhadores do campo e da indústria, profissionalização, geração de renda e desenvolvimento regional."
   },
 
   // ---------- DEPUTADOS ESTADUAIS ----------
   {
     id: "beatriz-oliveira", nome: "Beatriz Oliveira", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "assets/candidatos/beatriz-oliveira.jpg",
+    cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "assets/candidatos/beatriz-oliveira.jpg",
     instagram: "https://www.instagram.com/beatrizoliveira.pr/",
     bio: "De Curitiba, 23 anos, formada em Direito, Beatriz Oliveira é pré-candidata a Deputada Estadual pelo Paraná pela Missão. Achava mais fácil criticar o sistema, mas decidiu assumir a responsabilidade de tentar fazer diferente — recusando-se a aceitar que o Paraná continue governado pelos mesmos de sempre enquanto a população vive insegura, abandonada e sem voz.\n\nDefende mais segurança pública, com investimento inteligente, valorização das forças policiais e políticas sérias de prevenção ao crime, além de menos gasto público e combate à corrupção. Defende também a desfavelização com dignidade: infraestrutura, saneamento, urbanização e oportunidades para transformar comunidades abandonadas em lugares seguros para viver e crescer."
   },
   {
     id: "mariane-mazzon", nome: "Mariane Mazzon", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Mariane Mazzon, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Mariane Mazzon, gestora e fundadora do Instituto SOS 4 Patas Paraná, referência em resgate e recuperação de animais vítimas de maus-tratos. Defende causa animal, apoio às ONGs, combate ao abandono, fiscalização e políticas públicas de proteção animal na Grande Curitiba."
   },
   {
     id: "erica-de-freitas-goncalves", nome: "Erica de Freitas Gonçalves", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Foz do Iguaçu, PR", foto: "",
     instagram: "https://www.instagram.com/almeida._erica/",
-    bio: "Em breve mais informações sobre a trajetória de Erica de Freitas Gonçalves, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Erica de Freitas Gonçalves, do lar, de Foz do Iguaçu, com perfil cuidador, prático e estável. Defende educação, meio ambiente, educação na primeira infância, infraestrutura e direitos das mulheres, com atuação na região leste e nordeste de Foz."
   },
   {
     id: "lucas-backes", nome: "Lucas Backes", cargo: "estadual",
@@ -244,9 +244,9 @@ const CANDIDATOS = [
   },
   {
     id: "alessandra-lima", nome: "Alessandra Lima", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Colombo, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Alessandra Lima, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Alessandra Lima, promotora comercial de Colombo, com atuação em ações de igreja, voluntariado e atividades políticas do movimento. Defende segurança pública, desfavelização, esporte e desenvolvimento urbano em Colombo."
   },
   {
     id: "milena-mansur", nome: "Milena Mansur", cargo: "estadual",
@@ -256,7 +256,7 @@ const CANDIDATOS = [
   },
   {
     id: "gustavo-camillo", nome: "Gustavo Camillo", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "assets/candidatos/gustavo-camillo.jpg",
+    cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "assets/candidatos/gustavo-camillo.jpg",
     instagram: "https://www.instagram.com/gucamillo/",
     bio: "Jornalista, estudante de Direito e autodenominado \"fiscalizador nº 1 do poder público paranaense\", Gustavo Camillo tem, aos 22 anos e sem cargo público, gerado resultados concretos com suas denúncias nas redes sociais pelo Paraná.\n\nApós denúncias em Curitiba, a prefeitura passou a se mobilizar para tratar da situação dos moradores de rua. Em Pinhais, uma denúncia sua ao Ministério Público levou à exoneração de um secretário com condenação na Justiça. Em Fazenda Rio Grande, expôs supostas nomeações cruzadas entre prefeituras. Em Cianorte, atuou contra o fim do concurso da Guarda Municipal, e em Guaratuba, denunciou ao MP gastos públicos milionários possivelmente superfaturados em shows. É pré-candidato a Deputado Estadual para levar essa fiscalização também para dentro das instituições."
   },
@@ -268,63 +268,63 @@ const CANDIDATOS = [
   },
   {
     id: "rubens-nascimento", nome: "Rubens Nascimento", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Piraquara, PR", foto: "",
     instagram: "https://www.instagram.com/rubensnascimentopr/",
     bio: "Aos 28 anos, marido e pai, Rubens Nascimento é bacharel em Teologia e entusiasta da tecnologia, guiado pela convicção de usar a inovação para dar dignidade a quem sempre foi deixado para trás. Não é político de carreira.\n\nDe Piraquara para o Paraná, é pré-candidato a Deputado Estadual e constrói uma candidatura de quem veio do povo, para servir o povo. Cresceu nas periferias de Curitiba, estudou em escola pública e aprendeu que mudança de verdade começa por quem conhece a realidade — e quem conhece a realidade sabe o que precisa mudar."
   },
   {
     id: "henrique-de-souza", nome: "Henrique de Souza", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "",
     instagram: "https://www.instagram.com/henriquesouzacwb/",
     bio: "Henrique Souza tem 24 anos e, desde 2019, atua como influenciador digital e liderança regional em Curitiba, levando informação com humor, mas sem passar pano: denunciando atrasos em obras, cobrando reparos e expondo os descasos que a população enfrenta todos os dias.\n\nCansado de apenas filmar o problema, decidiu ir além: é pré-candidato a Deputado Estadual para ajudar a resolver de dentro o que sempre cobrou de fora."
   },
   {
     id: "vinicius-ferreira", nome: "Vinicius Ferreira", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Araucária, PR", foto: "",
     instagram: "https://www.instagram.com/viniciusferreirabrasil/",
-    bio: "Em breve mais informações sobre a trajetória de Vinicius Ferreira, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Vinicius Ferreira, corretor de imóveis de Araucária, esposo e pai de quatro filhos. Defende política prática, combate ao crime, liberdade econômica, proteção das pessoas de bem, redução de gastos públicos e diminuição de impostos, com atuação em Curitiba."
   },
   {
     id: "paulo-di-melo", nome: "Paulo Di Melo", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "assets/candidatos/paulo-di-melo.jpg",
+    cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "assets/candidatos/paulo-di-melo.jpg",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Paulo Di Melo, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Paulo Di Melo, empresário de Curitiba, esposo, pai e cristão, com atuação na região sul da capital. Defende fiscalização, denúncia, ação social, justiça, saúde, segurança, assistência social e habitação."
   },
   {
     id: "lude-riesemberg", nome: "Lude Riesemberg", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Guaratuba, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Lude Riesemberg, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Lude Riesemberg, comerciante e confeiteiro de Guaratuba, ligado ao comércio local e ao turismo. Defende o fortalecimento turístico da cidade, melhoria das ruas e acessos, atenção às pessoas em situação de rua e renovação política. Atua principalmente no Centro, Brejatuba, Nereidas, Coroados e pontos turísticos de Guaratuba."
   },
   {
     id: "fernando-garbatchevski", nome: "Fernando Garbatchevski", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Prudentópolis, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Fernando Garbatchevski, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Fernando Garbatchevski, instrutor de lutas e motoboy de Prudentópolis, com trajetória marcada por trabalho, disciplina e superação. Defende segurança pública, combate à corrupção, valorização do trabalhador, redução de impostos e fortalecimento de oportunidades para jovens e trabalhadores autônomos."
   },
   {
     id: "ivo-arthur-goncalves", nome: "Ivo Arthur Gonçalves", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Inácio Martins, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Ivo Arthur Gonçalves, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Ivo Arthur Gonçalves, administrador do setor agropecuário de Inácio Martins, com vivência entre capital e interior. Defende segurança pública, logística, infraestrutura, combate à compra de votos e desenvolvimento para a cidade e região rural."
   },
   {
     id: "mateus-pepice", nome: "Mateus Pepice", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Cascavel, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Mateus Pepice, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Mateus Pepice, auxiliar de tecnologia da informação de Cascavel, com experiência administrativa na gestão pública. Defende segurança pública, tecnologia, smart cities, infraestrutura logística e desenvolvimento no Oeste do Paraná."
   },
   {
     id: "joao-gabriel", nome: "João Gabriel", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Medianeira, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de João Gabriel, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "João Gabriel, advogado de Medianeira, pai e esposo, com atuação no CONSEG e foco em segurança pública. Defende investimentos eficientes em segurança, saúde e educação, especialmente para o Extremo Oeste, incluindo Medianeira, Foz do Iguaçu, Serranópolis, Missal e Itaipulândia."
   },
   {
     id: "natelie-facco", nome: "Natelie Facco", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Pontal do Paraná, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Natelie Facco, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Natelie Facco, estudante de Pontal do Paraná, com perfil determinado e senso de justiça. Defende direita liberal, combate à corrupção, desenvolvimento econômico e melhoria da infraestrutura, com foco em Praia de Leste e Pontal do Paraná."
   },
   {
     id: "carlos-eduardo", nome: "Carlos Eduardo", cargo: "estadual",
@@ -336,60 +336,90 @@ const CANDIDATOS = [
     id: "matheus-manholer", nome: "Matheus Manholer", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Matheus Manholer, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Matheus Manholer, profissional de suporte técnico em tecnologia financeira, empreendedor, casado e pai de Matteo e Moisés. Defende saúde digital, modernização do SUS, empreendedorismo, desburocratização, esporte para juventude e transparência total dos gastos de mandato."
   },
   {
     id: "daymond-pires", nome: "Daymond Pires", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Goioerê, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Daymond Pires, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Daymond Pires, motorista, músico e adestrador, com atuação em Goioerê e Campo Mourão. Defende segurança pública, saúde com mais especialistas em cidades pequenas, acesso a cursos técnicos no interior, causa animal e princípios de liberdade individual."
   },
   {
     id: "kelven-alcantara", nome: "Kelven Alcantara", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Londrina, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Kelven Alcantara, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Kelven Alcantara, programador e cientista de dados de Londrina, com foco em tecnologia, dados e transparência. Defende eficiência estatal, tecnologia pública, combate à corrupção por meio de dados e desenvolvimento econômico."
   },
   {
     id: "aline-franzon", nome: "Aline Franzon", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Apucarana, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Aline Franzon, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Aline Franzon, professora, mãe e empresária, com formação em Estética, Química e experiência acadêmica. Defende saúde da mulher, educação infantil, combate à violência contra a mulher e desenvolvimento para Apucarana e Arapongas."
   },
   {
     id: "eduardo-nunes-gomes", nome: "Eduardo Nunes Gomes", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Cambé, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Eduardo Nunes Gomes, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Eduardo Nunes Gomes, consultor de vendas de Cambé, filho de pai policial militar e mãe policial civil. Defende segurança pública, educação básica, modernização urbana, combate à criminalidade e melhor retorno dos impostos para a estrutura das cidades."
   },
   {
     id: "lucas-leonardo-franca-de-oliveira", nome: "Lucas Leonardo França de Oliveira", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Londrina, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Lucas Leonardo França de Oliveira, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Lucas Leonardo França de Oliveira, biomédico de Londrina, mestre em Ciências Fisiológicas, empreendedor e líder de voluntários em sua igreja. Defende revisão do pacto federativo, saúde, educação, infraestrutura, desenvolvimento econômico e maior protagonismo de Londrina."
   },
   {
     id: "odenilson-vicente", nome: "Odenilson Vicente", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Apucarana, PR", foto: "",
     instagram: "https://www.instagram.com/odenilsonvicente/",
     bio: "Aos 56 anos, casado e pai de dois filhos, Odenilson Vicente é servidor público e atua há 24 anos como agente comunitário de saúde, acompanhando de perto a realidade das famílias paranaenses e os desafios que elas enfrentam.\n\nÉ graduado em Gestão Pública e pós-graduado em Políticas Públicas e na área da Saúde — formação que une à vivência de quem está todos os dias ao lado da comunidade."
   },
   {
     id: "daniel-aguiar", nome: "Daniel Aguiar", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Pitanga, PR", foto: "",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Daniel Aguiar, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Daniel Aguiar, advogado de Pitanga, jovem entusiasta da política e da vida pública. Defende saúde, infraestrutura, geração de empregos, agricultura e combate à corrupção, com atuação voltada a Pitanga e região."
+  },
+  {
+    id: "raphael-lacerda", nome: "Raphael Lacerda", cargo: "estadual",
+    cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "",
+    instagram: "#",
+    bio: "Raphael Lacerda, empresário de Curitiba e defensor do uso estratégico da tecnologia e da inteligência artificial. Suas pautas centrais são IA, soberania tecnológica, empreendedorismo, gestão pública moderna e desenvolvimento econômico para o Paraná."
+  },
+  {
+    id: "policial-martins", nome: "Policial Martins", cargo: "estadual",
+    cargoLabel: "Deputado Estadual", cidade: "Pato Branco, PR", foto: "",
+    instagram: "#",
+    bio: "Policial Martins, policial militar de Pato Branco, com forte atuação associativa e comunitária. Defende segurança pública, leis penais, agro, infraestrutura e valorização de pautas ligadas ao Sudoeste do Paraná."
+  },
+  {
+    id: "guto-trevisan", nome: "Guto Trevisan", cargo: "estadual",
+    cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "",
+    instagram: "#",
+    bio: "Guto Trevisan, gerente de operações e relacionamento de Curitiba, com perfil empreendedor e familiar. Defende oportunidades para a juventude, causa animal, esporte, segurança pública e desburocratização para pequenos e médios empreendedores."
+  },
+  {
+    id: "janaina-klein", nome: "Janaina Klein", cargo: "estadual",
+    cargoLabel: "Deputado Estadual", cidade: "Cascavel, PR", foto: "",
+    instagram: "#",
+    bio: "Janaina Klein, corretora de imóveis de Cascavel, com trajetória pessoal marcada pela luta para realizar o sonho de ser mãe. Defende saúde da família, segurança, infraestrutura e atenção às mulheres, com atuação na região norte de Cascavel."
+  },
+  {
+    id: "bruna-delefrati", nome: "Bruna Delefrati", cargo: "estadual",
+    cargoLabel: "Deputado Estadual", cidade: "Sarandi, PR", foto: "",
+    instagram: "#",
+    bio: "Bruna Delefrati, gestora de frota de Sarandi, com trajetória familiar ligada ao transporte e à logística. Defende livre mercado no setor de transporte, revisão de injustiças trabalhistas, legislação adequada para logística, saneamento básico, infraestrutura e apoio aos empresários."
   },
   {
     id: "felipe-de-castilho", nome: "Felipe de Castilho", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "assets/candidatos/felipe-de-castilho.jpg",
+    cargoLabel: "Deputado Estadual", cidade: "Ponta Grossa, PR", foto: "assets/candidatos/felipe-de-castilho.jpg",
     instagram: "https://www.instagram.com/felipescastilho/",
-    bio: "Em breve mais informações sobre a trajetória de Felipe de Castilho, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Felipe de Castilho, advogado de Ponta Grossa, gestor estratégico, com experiência no Judiciário, administração pública e advocacia. Defende boa gestão, fortalecimento das instituições, desenvolvimento econômico, segurança jurídica, regularização patrimonial, acesso à justiça e transparência pública."
   },
   {
     id: "wagner-proenca-junior", nome: "Wagner Proença Junior", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "assets/candidatos/wagner-proenca-junior.jpg",
+    cargoLabel: "Deputado Estadual", cidade: "Jaguariaíva, PR", foto: "assets/candidatos/wagner-proenca-junior.jpg",
     instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Wagner Proença Junior, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Wagner Proença Junior, empresário de Jaguariaíva, com vivência internacional e atuação comunitária. Defende anticorrupção, reindustrialização, turismo, saneamento e infraestrutura nos Campos Gerais, especialmente em Jaguariaíva, Arapoti, Sengés e Piraí do Sul."
   },
 ];
