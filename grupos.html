@@ -268,7 +268,9 @@ document.querySelectorAll('.chip').forEach(ch=>{ch.addEventListener('click',()=>
 });});
 function getAjuda(){const arr=[...ajudaSel].filter(v=>v!=='Outros');const extra=$('ajudaOutros').value.trim();
   if(ajudaSel.has('Outros')&&extra)arr.push('Outros: '+extra);else if(ajudaSel.has('Outros'))arr.push('Outros');return arr.join(', ');}
-$('zap').addEventListener('input',e=>{let v=e.target.value.replace(/\D/g,'').slice(0,11);
+$('zap').addEventListener('input',e=>{let v=e.target.value.replace(/\D/g,'');
+  if(v.length>11&&v.startsWith('55'))v=v.slice(2);
+  v=v.slice(0,11);
   if(v.length>10)v=v.replace(/(\d{2})(\d{5})(\d{0,4}).*/,'($1) $2-$3');
   else if(v.length>6)v=v.replace(/(\d{2})(\d{4})(\d{0,4}).*/,'($1) $2-$3');
   else if(v.length>2)v=v.replace(/(\d{2})(\d{0,5}).*/,'($1) $2');
