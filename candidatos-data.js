@@ -226,7 +226,7 @@ const CANDIDATOS = [
   },
   {
     id: "mariane-mazzon", nome: "Mariane Mazzon", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Campo Largo, PR", foto: "",
     instagram: "#",
     bio: "Mariane Mazzon, gestora e fundadora do Instituto SOS 4 Patas Paraná, referência em resgate e recuperação de animais vítimas de maus-tratos. Defende causa animal, apoio às ONGs, combate ao abandono, fiscalização e políticas públicas de proteção animal na Grande Curitiba."
   },
@@ -238,7 +238,7 @@ const CANDIDATOS = [
   },
   {
     id: "lucas-backes", nome: "Lucas Backes", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Francisco Beltrão, PR", foto: "",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Lucas Backes, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
   },
@@ -250,7 +250,7 @@ const CANDIDATOS = [
   },
   {
     id: "milena-mansur", nome: "Milena Mansur", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Londrina, PR", foto: "",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Milena Mansur, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
   },
@@ -262,7 +262,7 @@ const CANDIDATOS = [
   },
   {
     id: "william-rocha", nome: "William Rocha", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de William Rocha, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
   },
@@ -274,7 +274,7 @@ const CANDIDATOS = [
   },
   {
     id: "henrique-de-souza", nome: "Henrique de Souza", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Tatuquara, Curitiba - PR", foto: "",
     instagram: "https://www.instagram.com/henriquesouzacwb/",
     bio: "Henrique Souza tem 24 anos e, desde 2019, atua como influenciador digital e liderança regional em Curitiba, levando informação com humor, mas sem passar pano: denunciando atrasos em obras, cobrando reparos e expondo os descasos que a população enfrenta todos os dias.\n\nCansado de apenas filmar o problema, decidiu ir além: é pré-candidato a Deputado Estadual para ajudar a resolver de dentro o que sempre cobrou de fora."
   },
@@ -286,7 +286,7 @@ const CANDIDATOS = [
   },
   {
     id: "paulo-di-melo", nome: "Paulo Di Melo", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "assets/candidatos/paulo-di-melo.jpg",
+    cargoLabel: "Deputado Estadual", cidade: "Boqueirão, Curitiba - PR", foto: "assets/candidatos/paulo-di-melo.jpg",
     instagram: "#",
     bio: "Paulo Di Melo, empresário de Curitiba, esposo, pai e cristão, com atuação na região sul da capital. Defende fiscalização, denúncia, ação social, justiça, saúde, segurança, assistência social e habitação."
   },
@@ -328,13 +328,13 @@ const CANDIDATOS = [
   },
   {
     id: "carlos-eduardo", nome: "Carlos Eduardo", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "assets/candidatos/carlos-eduardo.jpg",
+    cargoLabel: "Deputado Estadual", cidade: "Sarandi, PR", foto: "assets/candidatos/carlos-eduardo.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Carlos Eduardo, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
   },
   {
     id: "matheus-manholer", nome: "Matheus Manholer", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Maringá, PR", foto: "",
     instagram: "#",
     bio: "Matheus Manholer, profissional de suporte técnico em tecnologia financeira, empreendedor, casado e pai de Matteo e Moisés. Defende saúde digital, modernização do SUS, empreendedorismo, desburocratização, esporte para juventude e transparência total dos gastos de mandato."
   },
@@ -352,7 +352,7 @@ const CANDIDATOS = [
   },
   {
     id: "aline-franzon", nome: "Aline Franzon", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Apucarana, PR", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Arapongas, PR", foto: "",
     instagram: "#",
     bio: "Aline Franzon, professora, mãe e empresária, com formação em Estética, Química e experiência acadêmica. Defende saúde da mulher, educação infantil, combate à violência contra a mulher e desenvolvimento para Apucarana e Arapongas."
   },
