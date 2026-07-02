@@ -48,6 +48,14 @@
   h1{font-size:clamp(32px,6vw,50px);line-height:1.06;font-weight:800;letter-spacing:-.02em;max-width:16ch}
   h1 .hl{color:var(--amarelo)}
   .phead p{margin-top:16px;font-size:clamp(15px,2vw,18px);color:#d6d6d6;max-width:60ch}
+  .search-wrap{padding:0 0 8px}
+  .search-box{position:relative;max-width:420px}
+  .search-box input{width:100%;background:var(--preto-3);border:1.5px solid var(--linha);border-radius:12px;
+    padding:14px 16px 14px 44px;color:var(--branco);font-size:15px;outline:none;transition:border-color .15s}
+  .search-box input::placeholder{color:var(--cinza)}
+  .search-box input:focus{border-color:var(--amarelo)}
+  .search-box svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--cinza-claro);pointer-events:none}
+  .no-results{color:var(--cinza-claro);font-size:15px;padding:20px 0;display:none}
   section.block{padding:60px 0}
   .sec-eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amarelo);margin-bottom:12px}
   h2{font-size:clamp(24px,4vw,36px);font-weight:800;letter-spacing:-.015em;line-height:1.1;margin-bottom:6px}
@@ -141,6 +149,12 @@
   <span class="eyebrow">Nossos nomes</span>
   <h1>Os pré-candidatos da <span class="hl">Missão</span> no Paraná.</h1>
   <p>Conheça quem vai representar o movimento nas urnas — comprometidos com um Brasil melhor, do governo do estado às assembleias e ao Congresso. Clique em cada nome para conhecer a história.</p>
+  <div class="search-wrap">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="buscaCandidato" placeholder="Buscar pré-candidato pelo nome..." autocomplete="off">
+    </div>
+  </div>
 </div></header>
 
 <section class="block"><div class="wrap">
@@ -162,6 +176,7 @@
   <h2>Pré-candidatos a Deputado Federal.</h2>
   <p class="sec-lead">Nomes que vão levar a Missão a Brasília.</p>
   <div class="cgrid" id="federal-slot"></div>
+  <p class="no-results" id="federal-no-results">Nenhum pré-candidato a Deputado Federal encontrado com esse nome.</p>
 </div></section>
 
 <section class="block"><div class="wrap">
@@ -169,6 +184,7 @@
   <h2>Pré-candidatos a Deputado Estadual.</h2>
   <p class="sec-lead">Nomes que vão defender o Paraná na Assembleia.</p>
   <div class="cgrid" id="estadual-slot"></div>
+  <p class="no-results" id="estadual-no-results">Nenhum pré-candidato a Deputado Estadual encontrado com esse nome.</p>
   <div class="placeholder-note">
     <b>Estrutura pronta.</b> Os nomes e textos acima são exemplos. Envie os dados reais de cada
     pré-candidato (nome, cargo, cidade, foto, Instagram e um texto de apresentação) que eu publico —
@@ -577,9 +593,10 @@ const CANDIDATOS = [
   const AVATAR = "assets/img/img-d2433fe371.png";
   function foto(c){ return c.foto && c.foto.trim() ? c.foto : AVATAR; }
   function linkDe(c){ return c.pagina && c.pagina.trim() ? c.pagina : ('candidato.html?id='+encodeURIComponent(c.id)); }
+  function normaliza(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
 
   function cardHTML(c){
-    return `<a class="cc" href="${linkDe(c)}">
+    return `<a class="cc" href="${linkDe(c)}" data-nome="${normaliza(c.nome)}">
       <div class="cc-photo"><img src="${foto(c)}" alt="Foto de ${c.nome}" loading="lazy"></div>
       <h3>${c.nome}</h3>
       <div class="cidade">${c.cidade||''}</div>
@@ -610,6 +627,34 @@ const CANDIDATOS = [
     CANDIDATOS.filter(c=>c.cargo==='federal').map(cardHTML).join('');
   document.getElementById('estadual-slot').innerHTML =
     CANDIDATOS.filter(c=>c.cargo==='estadual').map(cardHTML).join('');
+
+  const buscaInput = document.getElementById('buscaCandidato');
+  if(buscaInput){
+    buscaInput.addEventListener('input', function(){
+      const termo = normaliza(this.value.trim());
+      ['federal','estadual'].forEach(function(tipo){
+        const grid = document.getElementById(tipo+'-slot');
+        const semResultado = document.getElementById(tipo+'-no-results');
+        let algumVisivel = false;
+        grid.querySelectorAll('.cc').forEach(function(card){
+          const bate = !termo || card.dataset.nome.includes(termo);
+          card.style.display = bate ? '' : 'none';
+          if(bate) algumVisivel = true;
+        });
+        if(semResultado) semResultado.style.display = (!algumVisivel && termo) ? 'block' : 'none';
+      });
+      // Governador e vice também somem da busca quando não baterem o nome
+      [['gov-slot',gov],['vice-slot',vice]].forEach(function(par){
+        const slot = document.getElementById(par[0]);
+        const cand = par[1];
+        if(!slot || !cand) return;
+        const bate = !termo || normaliza(cand.nome).includes(termo);
+        slot.style.display = bate ? '' : 'none';
+        const secao = slot.closest('section');
+        if(secao) secao.style.display = bate ? '' : 'none';
+      });
+    });
+  }
 </script>
 <script>
 (function(){
