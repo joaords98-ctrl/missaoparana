@@ -250,7 +250,7 @@ const CANDIDATOS = [
   },
   {
     id: "joao-gabriel", nome: "João Gabriel", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Medianeira, PR", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Medianeira, PR", foto: "assets/candidatos/joao-gabriel.jpg",
     instagram: "#",
     bio: "João Gabriel, advogado de Medianeira, pai e esposo, com atuação no CONSEG e foco em segurança pública. Defende investimentos eficientes em segurança, saúde e educação, especialmente para o Extremo Oeste, incluindo Medianeira, Foz do Iguaçu, Serranópolis, Missal e Itaipulândia."
   },
