@@ -171,6 +171,14 @@
   <div id="vice-slot"></div>
 </div></section>
 
+<section class="block"><div class="wrap">
+  <div class="sec-eyebrow">Senado Federal</div>
+  <h2>Pré-candidatos a Senador.</h2>
+  <p class="sec-lead">Nomes que vão representar o Paraná no Senado.</p>
+  <div class="cgrid" id="senador-slot"></div>
+  <p class="no-results" id="senador-no-results">Nenhum pré-candidato a Senador encontrado com esse nome.</p>
+</div></section>
+
 <section class="block" style="background:var(--preto-2);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)"><div class="wrap">
   <div class="sec-eyebrow">Câmara dos Deputados</div>
   <h2>Pré-candidatos a Deputado Federal.</h2>
@@ -291,8 +299,8 @@ const CANDIDATOS = [
     bio: "Em breve mais informações sobre a trajetória de Pedro Deyrot, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
   },
   {
-    id: "delegado-eduardo-kruger", nome: "Delegado Eduardo Kruger", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/delegado-eduardo-kruger.jpg",
+    id: "delegado-eduardo-kruger", nome: "Delegado Eduardo Kruger", cargo: "senador",
+    cargoLabel: "Senador", cidade: "Paraná", foto: "assets/candidatos/delegado-eduardo-kruger.jpg",
     instagram: "#",
     bio: "Em breve mais informações sobre a trajetória de Delegado Eduardo Kruger, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
   },
@@ -627,12 +635,15 @@ const CANDIDATOS = [
     CANDIDATOS.filter(c=>c.cargo==='federal').map(cardHTML).join('');
   document.getElementById('estadual-slot').innerHTML =
     CANDIDATOS.filter(c=>c.cargo==='estadual').map(cardHTML).join('');
+  const senadorSlot = document.getElementById('senador-slot');
+  if(senadorSlot) senadorSlot.innerHTML =
+    CANDIDATOS.filter(c=>c.cargo==='senador').map(cardHTML).join('');
 
   const buscaInput = document.getElementById('buscaCandidato');
   if(buscaInput){
     buscaInput.addEventListener('input', function(){
       const termo = normaliza(this.value.trim());
-      ['federal','estadual'].forEach(function(tipo){
+      ['federal','estadual','senador'].forEach(function(tipo){
         const grid = document.getElementById(tipo+'-slot');
         const semResultado = document.getElementById(tipo+'-no-results');
         let algumVisivel = false;
