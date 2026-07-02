@@ -64,7 +64,7 @@ const CANDIDATOS = [
     id: "gerusa-correa", nome: "Gerusa Correa", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/gerusa-correa.jpg",
     instagram: "https://www.instagram.com/gerusacorreaoficial/",
-    bio: "Em breve mais informações sobre a trajetória de Gerusa Correa, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Mulher, mãe, pastora e coordenadora de projeto social, Gerusa Correa acompanha de perto as dores das famílias paranaenses: os desafios emocionais, os conflitos dentro dos lares e a urgência de valores que sustentem uma sociedade saudável.\n\nSua pré-candidatura nasce desse compromisso claro: defender a família, cuidar das necessidades do próximo e levantar uma voz de equilíbrio, fé e responsabilidade em Brasília. Gerusa não chega como alguém que tem todas as respostas, mas como alguém disposta a aprender, contribuir e representar os princípios em que acredita pela Missão Paraná."
   },
   {
     id: "jessica-this-do-autismo", nome: "Jessica This do Autismo", cargo: "federal",
