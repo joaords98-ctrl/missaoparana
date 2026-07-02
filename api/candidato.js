@@ -32,6 +32,15 @@ function resumoDe(c) {
   return semQuebras.slice(0, 187).trim() + '...';
 }
 
+function cargoExibido(c) {
+  if (c.genero !== 'f') return c.cargoLabel || '';
+  return (c.cargoLabel || '')
+    .replace(/Deputado/g, 'Deputada')
+    .replace(/Vice-Governador/g, 'Vice-Governadora')
+    .replace(/Governador/g, 'Governadora')
+    .replace(/Senador/g, 'Senadora');
+}
+
 module.exports = (req, res) => {
   try {
     const url = new URL(req.url, SITE);
@@ -43,7 +52,8 @@ module.exports = (req, res) => {
     const c = candidatos.find((x) => x.id === id);
 
     if (c) {
-      const titulo = `${c.nome} — ${c.cargoLabel || 'Pré-candidato'} | Missão Paraná`;
+      const preLabel = c.genero === 'f' ? 'Pré-candidata' : 'Pré-candidato';
+      const titulo = `${c.nome} — ${cargoExibido(c) || preLabel} | Missão Paraná`;
       const descricao = resumoDe(c);
       const imagem = c.foto && c.foto.trim() ? `${SITE}/${c.foto.replace(/^\/+/, '')}` : FALLBACK_IMG;
       const pageUrl = `${SITE}/candidato.html?id=${encodeURIComponent(id)}`;
