@@ -53,30 +53,18 @@ const CANDIDATOS = [
     bio: "João Adolfo Padilha Yamane Wendpap é formado em Jornalismo e Letras, e tem experiência com direito e economia. Crê que o papel do vice deve ser de trabalho contínuo e dedicado ao mandato; diferente do que vem ocorrendo no Paraná, onde a escolha pelos vices é decorativa e de eventual interlocução com grupos e setores."
   },
 
+  {
+    id: "delegado-eduardo-kruger", nome: "Delegado Eduardo Kruger", cargo: "senador",
+    cargoLabel: "Senador", cidade: "Araucária, PR", foto: "assets/candidatos/delegado-eduardo-kruger.jpg",
+    instagram: "#",
+    bio: "Delegado Eduardo Kruger, delegado de Polícia de Araucária, com 18 anos de experiência no combate à violência contra mulheres. Defende proteção das mulheres, combate à violência sexual infantil e enfrentamento de privilégios institucionais que dificultam responsabilização e transparência."
+  },
   // ---------- DEPUTADOS FEDERAIS ----------
   {
-    id: "yvis-de-oliveira", nome: "Yvis de Oliveira", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/yvis-de-oliveira.jpg",
-    instagram: "https://www.instagram.com/yvisoliveira_14/",
-    bio: "Médica, com pós-graduação em Emergência e atualmente cursando Paliativos, Yvis de Oliveira vive de perto os desafios de um sistema de saúde sobrecarregado e a urgência de quem busca atendimento nas UPAs e hospitais.\n\nÉ pré-candidata a Deputada Federal porque acredita que a gestão pública precisa de quem conhece a realidade do chão da unidade, entende o valor de cada minuto no atendimento e não aceita a insegurança de quem cuida e de quem é cuidado. Defende um Paraná com uma saúde técnica, humana e, acima de tudo, eficiente."
-  },
-  {
-    id: "gerusa-correa", nome: "Gerusa Correa", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "São José dos Pinhais, PR", foto: "assets/candidatos/gerusa-correa.jpg",
-    instagram: "https://www.instagram.com/gerusacorreaoficial/",
-    bio: "Mulher, mãe, pastora e coordenadora de projeto social, Gerusa Correa acompanha de perto as dores das famílias paranaenses: os desafios emocionais, os conflitos dentro dos lares e a urgência de valores que sustentem uma sociedade saudável.\n\nSua pré-candidatura nasce desse compromisso claro: defender a família, cuidar das necessidades do próximo e levantar uma voz de equilíbrio, fé e responsabilidade em Brasília. Gerusa não chega como alguém que tem todas as respostas, mas como alguém disposta a aprender, contribuir e representar os princípios em que acredita pela Missão Paraná."
-  },
-  {
-    id: "jessica-this-do-autismo", nome: "Jéssica This Machado", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/jessica-this-do-autismo.jpg",
-    instagram: "https://www.instagram.com/prof_this.pr/",
-    bio: "Professora e pré-candidata a Deputada Federal, Jéssica This Machado é docente há mais de 10 anos, com trajetória na Educação Infantil, no Ensino Fundamental e, atualmente, no Ensino Superior. Cristã e empresária, é proprietária de uma clínica multidisciplinar em Curitiba, onde foca seu trabalho na alfabetização de crianças especiais, unindo rigor técnico à sensibilidade necessária para o atendimento clínico especializado.\n\nDefensora da Educação, da Inclusão e da Família, acredita que a verdadeira inclusão não acontece apenas no papel, mas no dia a dia, com estrutura, técnica e acolhimento real. Representa uma geração que cansou de aceitar a política tradicional brasileira."
-  },
-  {
-    id: "alan-leal", nome: "Alan Leal", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/alan-leal.jpg",
-    instagram: "https://www.instagram.com/alannleal_/",
-    bio: "Curitibano, 28 anos, Alan Leal decidiu entrar para a política por acreditar que o Brasil precisa de uma nova geração de representantes: pessoas comuns, próximas da população e dispostas a enfrentar os problemas reais do país. Sua pré-candidatura nasce da vontade de defender liberdade, responsabilidade, honestidade, segurança, incentivo ao empreendedorismo e combate ao desperdício do dinheiro público.\n\nInspirado pelos princípios do Partido Missão, defende menos burocracia, mais transparência, investimento inteligente em segurança pública, combate ao crime organizado, valorização de quem produz e fiscalização firme sobre os gastos do governo. Não é político de carreira: é alguém que decidiu sair da indignação e partir para a ação, e busca representar quem trabalha, empreende, estuda, paga impostos e sente que sua voz não é ouvida em Brasília."
+    id: "gabriel-bertolucci", nome: "Gabriel Bertolucci", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Londrina, PR", foto: "assets/candidatos/gabriel-bertolucci.jpg",
+    instagram: "https://www.instagram.com/bertolucci_br",
+    bio: "Economista com especialização em finanças públicas, Gabriel Bertolucci é uma das principais lideranças da nova geração paranaense e um dos fundadores do Partido Missão no Paraná. Aplica análise técnica para auditar as contas do Estado e lidera auditorias independentes que trazem transparência e combatem o desperdício em municípios paranaenses.\n\nNascido no Paraná, construiu sua trajetória unindo conhecimento técnico e mobilização cidadã, liderando iniciativas que conectam a sociedade civil ao debate de soluções práticas para o desenvolvimento econômico local. Já barrou a compra de carro de luxo e aumento de salário para vereadores, e enfrentou o MST, a máfia dos flanelinhas e o crime organizado — sempre de forma independente, sem cargo público e sem vantagens pessoais."
   },
   {
     id: "pedro-deyrot", nome: "Pedro Deyrot", cargo: "federal",
@@ -85,16 +73,10 @@ const CANDIDATOS = [
     bio: "Um dos fundadores do Movimento Brasil Livre (MBL) e do Partido Missão, Pedro Deyrot cresceu em Curitiba, é publicitário e produtor musical, e integrou o Bonde do Rolê, banda que fez sucesso internacional e chegou a tocar em festivais como Coachella e Glastonbury — experiência que lhe deu domínio raro sobre cultura, linguagem e comunicação de massa. Em 2014, ao lado de Renan Santos e Kim Kataguiri, fundou o MBL e foi um dos principais articuladores das manifestações que levaram ao impeachment de Dilma Rousseff, seguindo como Coordenador Nacional do movimento e professor de comunicação na Academia MBL.\n\nEm novembro de 2025, com a aprovação do Partido Missão pelo TSE, tornou-se vice-presidente do Partido no Paraná, dedicando-se à investigação e apuração de dossiês sobre escândalos atuais — disponíveis publicamente em pedrodeyrot.com/denuncias — e criou o site escandalomaster.com, que mapeia o esquema de corrupção do Banco Master. É pré-candidato a Deputado Federal pelo Paraná com atuação focada nas propostas do Livro Amarelo: agronegócio, família, segurança pública e combate à corrupção onde ela estiver."
   },
   {
-    id: "delegado-eduardo-kruger", nome: "Delegado Eduardo Kruger", cargo: "senador",
-    cargoLabel: "Senador", cidade: "Araucária, PR", foto: "assets/candidatos/delegado-eduardo-kruger.jpg",
-    instagram: "#",
-    bio: "Delegado Eduardo Kruger, delegado de Polícia de Araucária, com 18 anos de experiência no combate à violência contra mulheres. Defende proteção das mulheres, combate à violência sexual infantil e enfrentamento de privilégios institucionais que dificultam responsabilização e transparência."
-  },
-  {
-    id: "ana-xavier", nome: "Ana Lucia Xavier", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Almirante Tamandaré, PR", foto: "assets/candidatos/ana-xavier.jpg",
-    instagram: "https://www.instagram.com/analuciapr14/",
-    bio: "Contadora e analista de controladoria, Ana Lucia Xavier é pré-candidata a Deputada Federal pelo Partido Missão. Enfrenta, ao lado da pré-campanha, o tratamento de um câncer de mama HER2 — uma luta que reforça sua determinação em representar quem também enfrenta desafios difíceis no dia a dia."
+    id: "diogo-costa", nome: "Diogo Costa", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Campo Largo, PR", foto: "",
+    instagram: "https://www.instagram.com/diogocosta_pr/",
+    bio: "Diogo Costa, empresário de Campo Largo, com trajetória de trabalho desde cedo e experiência em defesa de crianças e adolescentes. Defende desburocratização, redução da carga tributária, combate à violência infantil, assistência social e empreendedorismo."
   },
   {
     id: "jornalista-isaak-almeida", nome: "Jornalista Isaak Almeida", cargo: "federal",
@@ -103,40 +85,28 @@ const CANDIDATOS = [
     bio: "Jornalista Isaak Almeida, jornalista de Fazenda Rio Grande, com experiência em comunicação, serviço público e campanhas eleitorais. Defende saúde, segurança e combate à corrupção, atuando na região sul de Curitiba e Região Metropolitana."
   },
   {
-    id: "karen-guerreiro", nome: "Karen Guerreiro", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Santa Izabel do Oeste, PR", foto: "",
-    instagram: "https://www.instagram.com/karen.guerreiro7/",
-    bio: "Karen Guerreiro, diretora de arte de Santa Izabel do Oeste, com atuação voluntária em causa animal e ações sociais. Defende desenvolvimento para a juventude, educação técnica e tecnológica, saúde regional, rodovias e proteção animal no Sudoeste do Paraná."
+    id: "darlon-parana-pop", nome: "Darlon Parana Pop", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Foz do Iguaçu, PR", foto: "",
+    instagram: "https://www.instagram.com/darlondutra/",
+    bio: "Darlon Parana Pop, empresário de Foz do Iguaçu, com experiência pública e comunitária, fundador do projeto Turma do João, que atende crianças. Suas principais pautas são defesa das mulheres, segurança pública e combate à corrupção, com atuação em Foz do Iguaçu."
   },
   {
-    id: "manu-shtorach", nome: "Emanuelle Shtorach", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
-    instagram: "https://www.instagram.com/manubittennpr/",
-    bio: "Mais conhecida como Operadora Manu, do Conversa Franca, Emanuelle Shtorach é pré-candidata a Deputada Federal pelo Paraná."
+    id: "gerusa-correa", nome: "Gerusa Correa", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "São José dos Pinhais, PR", foto: "assets/candidatos/gerusa-correa.jpg",
+    instagram: "https://www.instagram.com/gerusacorreaoficial/",
+    bio: "Mulher, mãe, pastora e coordenadora de projeto social, Gerusa Correa acompanha de perto as dores das famílias paranaenses: os desafios emocionais, os conflitos dentro dos lares e a urgência de valores que sustentem uma sociedade saudável.\n\nSua pré-candidatura nasce desse compromisso claro: defender a família, cuidar das necessidades do próximo e levantar uma voz de equilíbrio, fé e responsabilidade em Brasília. Gerusa não chega como alguém que tem todas as respostas, mas como alguém disposta a aprender, contribuir e representar os princípios em que acredita pela Missão Paraná."
   },
   {
-    id: "anita-de-biasi", nome: "Anita de Biasi", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "",
-    instagram: "#",
-    bio: "Anita de Biasi, fotógrafa de Curitiba, esposa e mãe, com atuação religiosa e voluntária. Defende segurança pública, educação, economia, empreendedorismo, causa animal e pautas práticas que impactem a vida real das famílias."
+    id: "alan-leal", nome: "Alan Leal", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/alan-leal.jpg",
+    instagram: "https://www.instagram.com/alannleal_/",
+    bio: "Curitibano, 28 anos, Alan Leal decidiu entrar para a política por acreditar que o Brasil precisa de uma nova geração de representantes: pessoas comuns, próximas da população e dispostas a enfrentar os problemas reais do país. Sua pré-candidatura nasce da vontade de defender liberdade, responsabilidade, honestidade, segurança, incentivo ao empreendedorismo e combate ao desperdício do dinheiro público.\n\nInspirado pelos princípios do Partido Missão, defende menos burocracia, mais transparência, investimento inteligente em segurança pública, combate ao crime organizado, valorização de quem produz e fiscalização firme sobre os gastos do governo. Não é político de carreira: é alguém que decidiu sair da indignação e partir para a ação, e busca representar quem trabalha, empreende, estuda, paga impostos e sente que sua voz não é ouvida em Brasília."
   },
   {
-    id: "yan-gaudard", nome: "Yan Gaudard", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paranaguá, PR", foto: "",
-    instagram: "https://www.instagram.com/profyangaudard/",
-    bio: "Cristão, casado, 33 anos, Yan Gaudard é professor de Português formado pela UNESPAR (Universidade Estadual do Paraná), campus Paranaguá, em Letras – Português/Inglês, com pós-graduação em Docência da Língua Portuguesa para Estrangeiros pela UNINTER. Atualmente leciona Português, Literatura e Redação em um colégio da rede particular de Pontal do Paraná.\n\nMorador de Paranaguá — cidade-mãe do Estado — desde fevereiro de 2018, adotou o município como seu lar e é pré-candidato a Deputado Federal com o avanço educacional de toda a região litorânea como principal bandeira. Para o professor, a educação é o primeiro passo para um futuro glorioso: \"A educação é a chave para abrir a porta dourada da liberdade\" (George Washington Carver)."
-  },
-  {
-    id: "tayna-vieia", nome: "Tayna Vieia", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "São Mateus do Sul, PR", foto: "",
-    instagram: "#",
-    bio: "Tayna Vieia, decoradora de eventos de São Mateus do Sul, casada, com participação em grupo de jovens da Igreja Católica. Defende segurança para mulheres, artes marciais como ferramenta de defesa pessoal, incentivo ao esporte e atenção às comunidades carentes e pequenas propriedades rurais."
-  },
-  {
-    id: "glauberson-rocha", nome: "Glauberson Rocha", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Guarapuava, PR", foto: "assets/candidatos/glauberson-rocha.jpg",
-    instagram: "#",
-    bio: "Glauberson Rocha, comerciante de Guarapuava, com experiência de 21 anos na Sanepar e liderança em associação de moradores e APP escolar. Defende saneamento básico, segurança pública, infraestrutura e atenção às comunidades mais vulneráveis da região central do Paraná."
+    id: "yvis-de-oliveira", nome: "Yvis de Oliveira", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/yvis-de-oliveira.jpg",
+    instagram: "https://www.instagram.com/yvisoliveira_14/",
+    bio: "Médica, com pós-graduação em Emergência e atualmente cursando Paliativos, Yvis de Oliveira vive de perto os desafios de um sistema de saúde sobrecarregado e a urgência de quem busca atendimento nas UPAs e hospitais.\n\nÉ pré-candidata a Deputada Federal porque acredita que a gestão pública precisa de quem conhece a realidade do chão da unidade, entende o valor de cada minuto no atendimento e não aceita a insegurança de quem cuida e de quem é cuidado. Defende um Paraná com uma saúde técnica, humana e, acima de tudo, eficiente."
   },
   {
     id: "ricardo-cascavel-segura", nome: "Ricardo Cascavel Segura", cargo: "federal",
@@ -145,10 +115,16 @@ const CANDIDATOS = [
     bio: "Ricardo Cascavel Segura, corretor de imóveis e ativista político em Cascavel, atua em conselhos e iniciativas ligadas à segurança pública. Defende mais segurança, proteção de crianças, educação e fiscalização do dinheiro público."
   },
   {
-    id: "darlon-parana-pop", nome: "Darlon Parana Pop", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Foz do Iguaçu, PR", foto: "",
-    instagram: "https://www.instagram.com/darlondutra/",
-    bio: "Darlon Parana Pop, empresário de Foz do Iguaçu, com experiência pública e comunitária, fundador do projeto Turma do João, que atende crianças. Suas principais pautas são defesa das mulheres, segurança pública e combate à corrupção, com atuação em Foz do Iguaçu."
+    id: "guilherme-machado", nome: "Guilherme Machado", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Ponta Grossa, PR", foto: "",
+    instagram: "#",
+    bio: "Guilherme Machado, médico de Ponta Grossa, com atuação direta no cuidado de pacientes e promoção da saúde. Defende saúde, segurança pública, educação, assistência social e melhoria da qualidade de vida nos Campos Gerais e cidades da 3ª Regional de Saúde."
+  },
+  {
+    id: "tayna-vieia", nome: "Tayna Vieia", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "São Mateus do Sul, PR", foto: "",
+    instagram: "#",
+    bio: "Tayna Vieia, decoradora de eventos de São Mateus do Sul, casada, com participação em grupo de jovens da Igreja Católica. Defende segurança para mulheres, artes marciais como ferramenta de defesa pessoal, incentivo ao esporte e atenção às comunidades carentes e pequenas propriedades rurais."
   },
   {
     id: "mauricio-franciscon", nome: "Mauricio Franciscon", cargo: "federal",
@@ -157,34 +133,34 @@ const CANDIDATOS = [
     bio: "Mauricio Franciscon, pecuarista e filmmaker de Francisco Beltrão, ex-coordenador municipal do MBL. Defende liberdade econômica, menos burocracia, inovação, eficiência na gestão pública, agro, infraestrutura e combate à corrupção no Sudoeste do Paraná."
   },
   {
-    id: "marcello-de-paula", nome: "Marcello de Paula", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Umuarama, PR", foto: "assets/candidatos/marcello-de-paula.jpg",
-    instagram: "https://www.instagram.com/marcello_de_paula/",
-    bio: "Marcello de Paula, estoquista de Umuarama, com perfil de luta, perseverança e compromisso com a comunidade. Defende segurança pública, educação, cultura, infraestrutura, estradas, redução da maioridade penal e ensino de música nas escolas."
-  },
-  {
-    id: "diogo-costa", nome: "Diogo Costa", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Campo Largo, PR", foto: "",
-    instagram: "https://www.instagram.com/diogocosta_pr/",
-    bio: "Diogo Costa, empresário de Campo Largo, com trajetória de trabalho desde cedo e experiência em defesa de crianças e adolescentes. Defende desburocratização, redução da carga tributária, combate à violência infantil, assistência social e empreendedorismo."
-  },
-  {
-    id: "caroline-barbosa", nome: "Caroline Barbosa", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Londrina, PR", foto: "",
-    instagram: "https://www.instagram.com/carolinecardine/",
-    bio: "Caroline Barbosa, analista de comércio exterior de Londrina, com trajetória familiar marcada por superação e trabalho. Defende desenvolvimento econômico, infraestrutura, capital humano, comércio internacional, empreendedorismo e visão estratégica para o Paraná."
-  },
-  {
     id: "matheus-santos-moreira", nome: "Matheus Santos Moreira", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Arapongas, PR", foto: "assets/candidatos/matheus-santos-moreira.jpg",
     instagram: "#",
     bio: "Matheus Santos Moreira, policial legislativo do Senado Federal, natural da região de Arapongas, com trajetória de superação por meio dos estudos. Defende segurança pública, economia, musculação como disciplina e crescimento real para Arapongas e região."
   },
   {
-    id: "gabriel-bertolucci", nome: "Gabriel Bertolucci", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Londrina, PR", foto: "assets/candidatos/gabriel-bertolucci.jpg",
-    instagram: "https://www.instagram.com/bertolucci_br",
-    bio: "Economista com especialização em finanças públicas, Gabriel Bertolucci é uma das principais lideranças da nova geração paranaense e um dos fundadores do Partido Missão no Paraná. Aplica análise técnica para auditar as contas do Estado e lidera auditorias independentes que trazem transparência e combatem o desperdício em municípios paranaenses.\n\nNascido no Paraná, construiu sua trajetória unindo conhecimento técnico e mobilização cidadã, liderando iniciativas que conectam a sociedade civil ao debate de soluções práticas para o desenvolvimento econômico local. Já barrou a compra de carro de luxo e aumento de salário para vereadores, e enfrentou o MST, a máfia dos flanelinhas e o crime organizado — sempre de forma independente, sem cargo público e sem vantagens pessoais."
+    id: "matheus-zozoloto", nome: "Matheus Zozoloto", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Bandeirantes, PR", foto: "",
+    instagram: "#",
+    bio: "Matheus Zozoloto, servidor público efetivo com atuação no Norte Pioneiro, especialmente Bandeirantes, Jacarezinho e Ibaiti. Defende crianças, adolescentes, idosos, trabalhadores do campo e da indústria, profissionalização, geração de renda e desenvolvimento regional."
+  },
+  {
+    id: "ana-xavier", nome: "Ana Lucia Xavier", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Almirante Tamandaré, PR", foto: "assets/candidatos/ana-xavier.jpg",
+    instagram: "https://www.instagram.com/analuciapr14/",
+    bio: "Contadora e analista de controladoria, Ana Lucia Xavier é pré-candidata a Deputada Federal pelo Partido Missão. Enfrenta, ao lado da pré-campanha, o tratamento de um câncer de mama HER2 — uma luta que reforça sua determinação em representar quem também enfrenta desafios difíceis no dia a dia."
+  },
+  {
+    id: "yan-gaudard", nome: "Yan Gaudard", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Paranaguá, PR", foto: "",
+    instagram: "https://www.instagram.com/profyangaudard/",
+    bio: "Cristão, casado, 33 anos, Yan Gaudard é professor de Português formado pela UNESPAR (Universidade Estadual do Paraná), campus Paranaguá, em Letras – Português/Inglês, com pós-graduação em Docência da Língua Portuguesa para Estrangeiros pela UNINTER. Atualmente leciona Português, Literatura e Redação em um colégio da rede particular de Pontal do Paraná.\n\nMorador de Paranaguá — cidade-mãe do Estado — desde fevereiro de 2018, adotou o município como seu lar e é pré-candidato a Deputado Federal com o avanço educacional de toda a região litorânea como principal bandeira. Para o professor, a educação é o primeiro passo para um futuro glorioso: \"A educação é a chave para abrir a porta dourada da liberdade\" (George Washington Carver)."
+  },
+  {
+    id: "glauberson-rocha", nome: "Glauberson Rocha", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Guarapuava, PR", foto: "assets/candidatos/glauberson-rocha.jpg",
+    instagram: "#",
+    bio: "Glauberson Rocha, comerciante de Guarapuava, com experiência de 21 anos na Sanepar e liderança em associação de moradores e APP escolar. Defende saneamento básico, segurança pública, infraestrutura e atenção às comunidades mais vulneráveis da região central do Paraná."
   },
   {
     id: "andrey-luiz", nome: "Andrey Luiz", cargo: "federal",
@@ -199,22 +175,46 @@ const CANDIDATOS = [
     bio: "Advogado, Carlos Eduardo de Oliveira Gasparim é pré-candidato a Deputado Federal pela Missão com a convicção de que o Brasil não precisa de mais discursos vazios, mas de seriedade, preparo e compromisso verdadeiro com as pessoas. Como advogado, aprendeu que a transformação não acontece por conveniência nem por frases prontas — ela nasce do estudo, da coragem, do trabalho e da defesa firme daquilo que é justo.\n\nAo lado do presidente nacional Renan Santos, defenderá uma reforma administrativa séria, voltada ao corte de gastos e ao aumento da eficiência do Estado, criando condições reais para reduzir impostos e juros e devolver ao cidadão e ao setor produtivo a liberdade de crescer, investir e gerar empregos. Defenderá também o enfrentamento firme ao crime organizado, com coragem, inteligência e autoridade, e a reforma do pacto federativo, para que o dinheiro produzido no Paraná permaneça em maior medida no próprio Estado — impulsionando o desenvolvimento de uma terra que tanto contribui para a economia e o emprego no Brasil."
   },
   {
-    id: "guilherme-machado", nome: "Guilherme Machado", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Ponta Grossa, PR", foto: "",
+    id: "jessica-this-do-autismo", nome: "Jéssica This Machado", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/jessica-this-do-autismo.jpg",
+    instagram: "https://www.instagram.com/prof_this.pr/",
+    bio: "Professora e pré-candidata a Deputada Federal, Jéssica This Machado é docente há mais de 10 anos, com trajetória na Educação Infantil, no Ensino Fundamental e, atualmente, no Ensino Superior. Cristã e empresária, é proprietária de uma clínica multidisciplinar em Curitiba, onde foca seu trabalho na alfabetização de crianças especiais, unindo rigor técnico à sensibilidade necessária para o atendimento clínico especializado.\n\nDefensora da Educação, da Inclusão e da Família, acredita que a verdadeira inclusão não acontece apenas no papel, mas no dia a dia, com estrutura, técnica e acolhimento real. Representa uma geração que cansou de aceitar a política tradicional brasileira."
+  },
+  {
+    id: "caroline-barbosa", nome: "Caroline Barbosa", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Londrina, PR", foto: "",
+    instagram: "https://www.instagram.com/carolinecardine/",
+    bio: "Caroline Barbosa, analista de comércio exterior de Londrina, com trajetória familiar marcada por superação e trabalho. Defende desenvolvimento econômico, infraestrutura, capital humano, comércio internacional, empreendedorismo e visão estratégica para o Paraná."
+  },
+  {
+    id: "anita-de-biasi", nome: "Anita de Biasi", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "",
     instagram: "#",
-    bio: "Guilherme Machado, médico de Ponta Grossa, com atuação direta no cuidado de pacientes e promoção da saúde. Defende saúde, segurança pública, educação, assistência social e melhoria da qualidade de vida nos Campos Gerais e cidades da 3ª Regional de Saúde."
+    bio: "Anita de Biasi, fotógrafa de Curitiba, esposa e mãe, com atuação religiosa e voluntária. Defende segurança pública, educação, economia, empreendedorismo, causa animal e pautas práticas que impactem a vida real das famílias."
+  },
+  {
+    id: "marcello-de-paula", nome: "Marcello de Paula", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Umuarama, PR", foto: "assets/candidatos/marcello-de-paula.jpg",
+    instagram: "https://www.instagram.com/marcello_de_paula/",
+    bio: "Marcello de Paula, estoquista de Umuarama, com perfil de luta, perseverança e compromisso com a comunidade. Defende segurança pública, educação, cultura, infraestrutura, estradas, redução da maioridade penal e ensino de música nas escolas."
+  },
+  {
+    id: "karen-guerreiro", nome: "Karen Guerreiro", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Santa Izabel do Oeste, PR", foto: "",
+    instagram: "https://www.instagram.com/karen.guerreiro7/",
+    bio: "Karen Guerreiro, diretora de arte de Santa Izabel do Oeste, com atuação voluntária em causa animal e ações sociais. Defende desenvolvimento para a juventude, educação técnica e tecnológica, saúde regional, rodovias e proteção animal no Sudoeste do Paraná."
+  },
+  {
+    id: "manu-shtorach", nome: "Emanuelle Shtorach", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
+    instagram: "https://www.instagram.com/manubittennpr/",
+    bio: "Mais conhecida como Operadora Manu, do Conversa Franca, Emanuelle Shtorach é pré-candidata a Deputada Federal pelo Paraná."
   },
   {
     id: "marianny-thayla", nome: "Marianny Thayla", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "",
     instagram: "#",
     bio: "Marianny Thayla, gerente de projetos de Curitiba e representante da pauta das pessoas com deficiência. Defende acessibilidade plena, proteção da mulher com deficiência, fiscalização do BPC/LOAS, busca ativa de PCDs invisíveis e criação de um observatório de direitos das PCDs no Paraná."
-  },
-  {
-    id: "matheus-zozoloto", nome: "Matheus Zozoloto", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Bandeirantes, PR", foto: "",
-    instagram: "#",
-    bio: "Matheus Zozoloto, servidor público efetivo com atuação no Norte Pioneiro, especialmente Bandeirantes, Jacarezinho e Ibaiti. Defende crianças, adolescentes, idosos, trabalhadores do campo e da indústria, profissionalização, geração de renda e desenvolvimento regional."
   },
 
   // ---------- DEPUTADOS ESTADUAIS ----------
