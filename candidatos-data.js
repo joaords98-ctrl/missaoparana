@@ -57,25 +57,25 @@ const CANDIDATOS = [
   {
     id: "yvis-de-oliveira", nome: "Yvis de Oliveira", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/yvis-de-oliveira.jpg",
-    instagram: "#",
-    bio: "Em breve mais informações sobre a trajetória de Yvis de Oliveira, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    instagram: "https://www.instagram.com/yvisoliveira_14/",
+    bio: "Médica, Yvis de Oliveira tem a Saúde como principal bandeira de atuação. Em breve mais informações sobre sua trajetória e o que pretende defender em Brasília pela Missão Paraná."
   },
   {
     id: "gerusa-correa", nome: "Gerusa Correa", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/gerusa-correa.jpg",
-    instagram: "#",
+    instagram: "https://www.instagram.com/gerusacorreaoficial/",
     bio: "Em breve mais informações sobre a trajetória de Gerusa Correa, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
   },
   {
     id: "jessica-this-do-autismo", nome: "Jessica This do Autismo", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/jessica-this-do-autismo.jpg",
-    instagram: "#",
+    instagram: "https://www.instagram.com/prof_this.pr/",
     bio: "Em breve mais informações sobre a trajetória de Jessica This do Autismo, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
   },
   {
     id: "alan-leal", nome: "Alan Leal", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "assets/candidatos/alan-leal.jpg",
-    instagram: "#",
+    instagram: "https://www.instagram.com/alannleal_/",
     bio: "Em breve mais informações sobre a trajetória de Alan Leal, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
   },
   {
