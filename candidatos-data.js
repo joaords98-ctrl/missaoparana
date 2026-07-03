@@ -73,18 +73,6 @@ const CANDIDATOS = [
     bio: "Economista com especialização em finanças públicas, Gabriel Bertolucci é uma das principais lideranças da nova geração paranaense e um dos fundadores do Partido Missão no Paraná. Aplica análise técnica para auditar as contas do Estado e lidera auditorias independentes que trazem transparência e combatem o desperdício em municípios paranaenses.\n\nNascido no Paraná, construiu sua trajetória unindo conhecimento técnico e mobilização cidadã, liderando iniciativas que conectam a sociedade civil ao debate de soluções práticas para o desenvolvimento econômico local. Já barrou a compra de carro de luxo e aumento de salário para vereadores, e enfrentou o MST, a máfia dos flanelinhas e o crime organizado — sempre de forma independente, sem cargo público e sem vantagens pessoais."
   },
   {
-    id: "diogo-costa", nome: "Diogo Costa", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Campo Largo, PR", foto: "",
-    instagram: "https://www.instagram.com/diogocosta_pr/",
-    bio: "Diogo Costa, empresário de Campo Largo, com trajetória de trabalho desde cedo e experiência em defesa de crianças e adolescentes. Defende desburocratização, redução da carga tributária, combate à violência infantil, assistência social e empreendedorismo."
-  },
-  {
-    id: "jornalista-isaak-almeida", nome: "Jornalista Isaak Almeida", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Fazenda Rio Grande, PR", foto: "assets/candidatos/jornalista-isaak-almeida.jpg",
-    instagram: "https://www.instagram.com/jornalistaisaakalmeida/",
-    bio: "Jornalista Isaak Almeida, jornalista de Fazenda Rio Grande, com experiência em comunicação, serviço público e campanhas eleitorais. Defende saúde, segurança e combate à corrupção, atuando na região sul de Curitiba e Região Metropolitana."
-  },
-  {
     id: "darlon-parana-pop", nome: "Darlon Parana Pop", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Foz do Iguaçu, PR", foto: "",
     instagram: "https://www.instagram.com/darlondutra/",
@@ -97,16 +85,40 @@ const CANDIDATOS = [
     bio: "Mulher, mãe, pastora e coordenadora de projeto social, Gerusa Correa acompanha de perto as dores das famílias paranaenses: os desafios emocionais, os conflitos dentro dos lares e a urgência de valores que sustentem uma sociedade saudável.\n\nSua pré-candidatura nasce desse compromisso claro: defender a família, cuidar das necessidades do próximo e levantar uma voz de equilíbrio, fé e responsabilidade em Brasília. Gerusa não chega como alguém que tem todas as respostas, mas como alguém disposta a aprender, contribuir e representar os princípios em que acredita pela Missão Paraná."
   },
   {
+    id: "yvis-de-oliveira", nome: "Yvis de Oliveira", cargo: "federal", genero: "f",
+    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/yvis-de-oliveira.jpg",
+    instagram: "https://www.instagram.com/yvisoliveira_14/",
+    bio: "Médica, com pós-graduação em Emergência e atualmente cursando Paliativos, Yvis de Oliveira vive de perto os desafios de um sistema de saúde sobrecarregado e a urgência de quem busca atendimento nas UPAs e hospitais.\n\nÉ pré-candidata a Deputada Federal porque acredita que a gestão pública precisa de quem conhece a realidade do chão da unidade, entende o valor de cada minuto no atendimento e não aceita a insegurança de quem cuida e de quem é cuidado. Defende um Paraná com uma saúde técnica, humana e, acima de tudo, eficiente."
+  },
+  {
     id: "alan-leal", nome: "Alan Leal", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/alan-leal.jpg",
     instagram: "https://www.instagram.com/alannleal_/",
     bio: "Curitibano, 28 anos, Alan Leal decidiu entrar para a política por acreditar que o Brasil precisa de uma nova geração de representantes: pessoas comuns, próximas da população e dispostas a enfrentar os problemas reais do país. Sua pré-candidatura nasce da vontade de defender liberdade, responsabilidade, honestidade, segurança, incentivo ao empreendedorismo e combate ao desperdício do dinheiro público.\n\nInspirado pelos princípios do Partido Missão, defende menos burocracia, mais transparência, investimento inteligente em segurança pública, combate ao crime organizado, valorização de quem produz e fiscalização firme sobre os gastos do governo. Não é político de carreira: é alguém que decidiu sair da indignação e partir para a ação, e busca representar quem trabalha, empreende, estuda, paga impostos e sente que sua voz não é ouvida em Brasília."
   },
   {
-    id: "yvis-de-oliveira", nome: "Yvis de Oliveira", cargo: "federal", genero: "f",
-    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/yvis-de-oliveira.jpg",
-    instagram: "https://www.instagram.com/yvisoliveira_14/",
-    bio: "Médica, com pós-graduação em Emergência e atualmente cursando Paliativos, Yvis de Oliveira vive de perto os desafios de um sistema de saúde sobrecarregado e a urgência de quem busca atendimento nas UPAs e hospitais.\n\nÉ pré-candidata a Deputada Federal porque acredita que a gestão pública precisa de quem conhece a realidade do chão da unidade, entende o valor de cada minuto no atendimento e não aceita a insegurança de quem cuida e de quem é cuidado. Defende um Paraná com uma saúde técnica, humana e, acima de tudo, eficiente."
+    id: "jessica-this-do-autismo", nome: "Jéssica This Machado", cargo: "federal", genero: "f",
+    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/jessica-this-do-autismo.jpg",
+    instagram: "https://www.instagram.com/prof_this.pr/",
+    bio: "Professora e pré-candidata a Deputada Federal, Jéssica This Machado é docente há mais de 10 anos, com trajetória na Educação Infantil, no Ensino Fundamental e, atualmente, no Ensino Superior. Cristã e empresária, é proprietária de uma clínica multidisciplinar em Curitiba, onde foca seu trabalho na alfabetização de crianças especiais, unindo rigor técnico à sensibilidade necessária para o atendimento clínico especializado.\n\nDefensora da Educação, da Inclusão e da Família, acredita que a verdadeira inclusão não acontece apenas no papel, mas no dia a dia, com estrutura, técnica e acolhimento real. Representa uma geração que cansou de aceitar a política tradicional brasileira."
+  },
+  {
+    id: "ana-xavier", nome: "Ana Lucia Xavier", cargo: "federal", genero: "f",
+    cargoLabel: "Deputado Federal", cidade: "Almirante Tamandaré, PR", foto: "assets/candidatos/ana-xavier.jpg",
+    instagram: "https://www.instagram.com/analuciapr14/",
+    bio: "Contadora e analista de controladoria, Ana Lucia Xavier é pré-candidata a Deputada Federal pelo Partido Missão. Enfrenta, ao lado da pré-campanha, o tratamento de um câncer de mama HER2 — uma luta que reforça sua determinação em representar quem também enfrenta desafios difíceis no dia a dia."
+  },
+  {
+    id: "diogo-costa", nome: "Diogo Costa", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Campo Largo, PR", foto: "",
+    instagram: "https://www.instagram.com/diogocosta_pr/",
+    bio: "Diogo Costa, empresário de Campo Largo, com trajetória de trabalho desde cedo e experiência em defesa de crianças e adolescentes. Defende desburocratização, redução da carga tributária, combate à violência infantil, assistência social e empreendedorismo."
+  },
+  {
+    id: "jornalista-isaak-almeida", nome: "Jornalista Isaak Almeida", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Fazenda Rio Grande, PR", foto: "assets/candidatos/jornalista-isaak-almeida.jpg",
+    instagram: "https://www.instagram.com/jornalistaisaakalmeida/",
+    bio: "Jornalista Isaak Almeida, jornalista de Fazenda Rio Grande, com experiência em comunicação, serviço público e campanhas eleitorais. Defende saúde, segurança e combate à corrupção, atuando na região sul de Curitiba e Região Metropolitana."
   },
   {
     id: "ricardo-cascavel-segura", nome: "Ricardo Cascavel Segura", cargo: "federal",
@@ -145,12 +157,6 @@ const CANDIDATOS = [
     bio: "Matheus Zozoloto, servidor público efetivo com atuação no Norte Pioneiro, especialmente Bandeirantes, Jacarezinho e Ibaiti. Defende crianças, adolescentes, idosos, trabalhadores do campo e da indústria, profissionalização, geração de renda e desenvolvimento regional."
   },
   {
-    id: "ana-xavier", nome: "Ana Lucia Xavier", cargo: "federal", genero: "f",
-    cargoLabel: "Deputado Federal", cidade: "Almirante Tamandaré, PR", foto: "assets/candidatos/ana-xavier.jpg",
-    instagram: "https://www.instagram.com/analuciapr14/",
-    bio: "Contadora e analista de controladoria, Ana Lucia Xavier é pré-candidata a Deputada Federal pelo Partido Missão. Enfrenta, ao lado da pré-campanha, o tratamento de um câncer de mama HER2 — uma luta que reforça sua determinação em representar quem também enfrenta desafios difíceis no dia a dia."
-  },
-  {
     id: "yan-gaudard", nome: "Yan Gaudard", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Paranaguá, PR", foto: "",
     instagram: "https://www.instagram.com/profyangaudard/",
@@ -173,12 +179,6 @@ const CANDIDATOS = [
     cargoLabel: "Deputado Federal", cidade: "Apucarana, PR", foto: "",
     instagram: "#",
     bio: "Advogado, Carlos Eduardo de Oliveira Gasparim é pré-candidato a Deputado Federal pela Missão com a convicção de que o Brasil não precisa de mais discursos vazios, mas de seriedade, preparo e compromisso verdadeiro com as pessoas. Como advogado, aprendeu que a transformação não acontece por conveniência nem por frases prontas — ela nasce do estudo, da coragem, do trabalho e da defesa firme daquilo que é justo.\n\nAo lado do presidente nacional Renan Santos, defenderá uma reforma administrativa séria, voltada ao corte de gastos e ao aumento da eficiência do Estado, criando condições reais para reduzir impostos e juros e devolver ao cidadão e ao setor produtivo a liberdade de crescer, investir e gerar empregos. Defenderá também o enfrentamento firme ao crime organizado, com coragem, inteligência e autoridade, e a reforma do pacto federativo, para que o dinheiro produzido no Paraná permaneça em maior medida no próprio Estado — impulsionando o desenvolvimento de uma terra que tanto contribui para a economia e o emprego no Brasil."
-  },
-  {
-    id: "jessica-this-do-autismo", nome: "Jéssica This Machado", cargo: "federal", genero: "f",
-    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/jessica-this-do-autismo.jpg",
-    instagram: "https://www.instagram.com/prof_this.pr/",
-    bio: "Professora e pré-candidata a Deputada Federal, Jéssica This Machado é docente há mais de 10 anos, com trajetória na Educação Infantil, no Ensino Fundamental e, atualmente, no Ensino Superior. Cristã e empresária, é proprietária de uma clínica multidisciplinar em Curitiba, onde foca seu trabalho na alfabetização de crianças especiais, unindo rigor técnico à sensibilidade necessária para o atendimento clínico especializado.\n\nDefensora da Educação, da Inclusão e da Família, acredita que a verdadeira inclusão não acontece apenas no papel, mas no dia a dia, com estrutura, técnica e acolhimento real. Representa uma geração que cansou de aceitar a política tradicional brasileira."
   },
   {
     id: "caroline-barbosa", nome: "Caroline Barbosa", cargo: "federal", genero: "f",
