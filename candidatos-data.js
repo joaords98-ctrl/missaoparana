@@ -458,13 +458,6 @@ const CANDIDATOS = [
     bio: "José Francisco Martins, conhecido como Policial Martins, é Policial Militar há 14 anos, bacharel em Direito e está cursando Letras pela UTFPR, além de técnico em Segurança do Trabalho. É pós-graduado em Segurança Pública, Políticas Públicas, Gestão Pública e Direito Militar.\n\nEm Pato Branco e região, construiu uma trajetória de atuação comunitária: foi presidente do Rotary e do PLJ Pato Branco, representante do CREA Jr., recebeu moções de aplausos das Câmaras de Vereadores de Vitorino e Pato Branco, e a Medalha Sentinelas do Sudoeste da PMPR. É fundador da ONG Vida São João, da Associação Cultura de Rua, da Associação dos Músicos de Pato Branco e da Associação de Sinuca de Pato Branco. Defende segurança pública, leis penais, agro, infraestrutura e valorização de pautas ligadas ao Sudoeste do Paraná."
   },
   {
-    id: "guto-trevisan", nome: "Guto Trevisan", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "",
-    instagram: "https://www.instagram.com/guto377",
-    facebook: "https://www.facebook.com/gutotrevisan", tiktok: "", youtube: "",
-    bio: "Guto Trevisan, gerente de operações e relacionamento de Curitiba, com perfil empreendedor e familiar. Defende oportunidades para a juventude, causa animal, esporte, segurança pública e desburocratização para pequenos e médios empreendedores."
-  },
-  {
     id: "janaina-klein", nome: "Janaina Klein", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", cidade: "Cascavel, PR", foto: "assets/candidatos/janaina-klein.jpg",
     instagram: "https://www.instagram.com/janainaklein.missao14",
