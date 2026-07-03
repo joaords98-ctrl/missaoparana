@@ -431,7 +431,7 @@ const CANDIDATOS = [
   },
   {
     id: "alessandra-lima", nome: "Alessandra Lima", cargo: "estadual", genero: "f",
-    cargoLabel: "Deputado Estadual", cidade: "Colombo, PR", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Colombo, PR", foto: "assets/candidatos/alessandra-lima.jpg",
     instagram: "https://www.instagram.com/alessandralimapr14",
     facebook: "https://www.facebook.com/share/189niUn2fL", tiktok: "https://www.tiktok.com/@alessandralimapr14", youtube: "https://youtube.com/@alessandralimapr",
     bio: "Alessandra Lima, promotora comercial de Colombo, com atuação em ações de igreja, voluntariado e atividades políticas do movimento. Defende segurança pública, desfavelização, esporte e desenvolvimento urbano em Colombo."
@@ -470,13 +470,6 @@ const CANDIDATOS = [
     instagram: "https://www.instagram.com/janainaklein.missao14",
     facebook: "https://www.facebook.com/share/1GQkYa4cvi", tiktok: "", youtube: "",
     bio: "Janaina Klein, corretora de imóveis de Cascavel, com trajetória pessoal marcada pela luta para realizar o sonho de ser mãe. Defende saúde da família, segurança, infraestrutura e atenção às mulheres, com atuação na região norte de Cascavel."
-  },
-  {
-    id: "bruna-delefrati", nome: "Bruna Delefrati", cargo: "estadual", genero: "f",
-    cargoLabel: "Deputado Estadual", cidade: "Sarandi, PR", foto: "",
-    instagram: "https://www.instagram.com/delefratibruna",
-    facebook: "https://www.facebook.com/bruna.delefrati", tiktok: "", youtube: "",
-    bio: "Bruna Delefrati, gestora de frota de Sarandi, com trajetória familiar ligada ao transporte e à logística. Defende livre mercado no setor de transporte, revisão de injustiças trabalhistas, legislação adequada para logística, saneamento básico, infraestrutura e apoio aos empresários."
   },
   {
     id: "wagner-proenca-junior", nome: "Wagner Proença Junior", cargo: "estadual",
