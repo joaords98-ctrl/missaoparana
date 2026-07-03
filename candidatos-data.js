@@ -445,7 +445,7 @@ const CANDIDATOS = [
   },
   {
     id: "raphael-lacerda", nome: "Raphael Lacerda", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "assets/candidatos/raphael-lacerda.jpg",
     instagram: "https://www.instagram.com/erasintetica",
     facebook: "https://www.facebook.com/elevaweb.binario", tiktok: "https://www.tiktok.com/@erasintetica", youtube: "https://www.youtube.com/@erasintetica",
     bio: "Raphael Lacerda, empresário de Curitiba e defensor do uso estratégico da tecnologia e da inteligência artificial. Suas pautas centrais são IA, soberania tecnológica, empreendedorismo, gestão pública moderna e desenvolvimento econômico para o Paraná."
@@ -466,7 +466,7 @@ const CANDIDATOS = [
   },
   {
     id: "janaina-klein", nome: "Janaina Klein", cargo: "estadual", genero: "f",
-    cargoLabel: "Deputado Estadual", cidade: "Cascavel, PR", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Cascavel, PR", foto: "assets/candidatos/janaina-klein.jpg",
     instagram: "https://www.instagram.com/janainaklein.missao14",
     facebook: "https://www.facebook.com/share/1GQkYa4cvi", tiktok: "", youtube: "",
     bio: "Janaina Klein, corretora de imóveis de Cascavel, com trajetória pessoal marcada pela luta para realizar o sonho de ser mãe. Defende saúde da família, segurança, infraestrutura e atenção às mulheres, com atuação na região norte de Cascavel."
