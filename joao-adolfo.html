@@ -168,6 +168,7 @@ const CANDIDATOS = [
     cidade: "Paraná",
     foto: "assets/candidatos/joao-adolfo.jpg",
     instagram: "https://www.instagram.com/folegodonaufrago/",
+    youtube: "https://www.youtube.com/channel/UCtEbFbIO2nxrCQHLVOo_uPw",
     destaque: "Casado, pai, e crê que a responsabilidade é o caminho democrático.",
     resumo: "Formado em Jornalismo e Letras, com experiência em direito e economia, defende um vice de trabalho contínuo e dedicado ao mandato.",
     bio: "João Adolfo Wendpap é formado em Jornalismo e Letras, e tem experiência com direito e economia. Crê que o papel do vice deve ser de trabalho contínuo e dedicado ao mandato; diferente do que vem ocorrendo no Paraná, onde a escolha pelos vices é decorativa e de eventual interlocução com grupos e setores."
@@ -240,6 +241,7 @@ const CANDIDATOS = [
 </script>
 <script>
   const IG_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>';
+  const YT_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5Z" fill="currentColor" stroke="none"/></svg>';
   const PIN_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>';
 
   function getId(){
@@ -271,6 +273,8 @@ const CANDIDATOS = [
 
     const igBtn = (c.instagram && c.instagram!=='#')
       ? `<a href="${c.instagram}" target="_blank" rel="noopener">${IG_SVG} Instagram</a>` : '';
+    const ytBtn = (c.youtube && c.youtube.trim())
+      ? `<a href="${c.youtube}" target="_blank" rel="noopener">${YT_SVG} YouTube</a>` : '';
     const grupoBtn = `<a href="grupos.html">Apoiar a Missão</a>`;
 
     const parags = (c.bio||'').split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('');
@@ -288,7 +292,7 @@ const CANDIDATOS = [
           <h1>${esc(c.nome)}</h1>
           <div class="cargo">Pré-candidato a ${esc(c.cargoLabel||'')}</div>
           <div class="cidade">${PIN_SVG} ${esc(c.cidade||'')}</div>
-          <div class="prof-links">${igBtn}${grupoBtn}</div>
+          <div class="prof-links">${igBtn}${ytBtn}${grupoBtn}</div>
         </div>
       </div></header>
 

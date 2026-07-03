@@ -49,7 +49,7 @@ const CANDIDATOS = [
     cidade: "Paraná",
     foto: "assets/candidatos/joao-adolfo.jpg",
     instagram: "https://www.instagram.com/folegodonaufrago",
-    facebook: "https://www.facebook.com/adolfo.sexto", tiktok: "https://www.tiktok.com/@folegodonaufrago", youtube: "https://www.youtube.com/@folegodonaufrago",
+    facebook: "https://www.facebook.com/adolfo.sexto", tiktok: "https://www.tiktok.com/@folegodonaufrago", youtube: "https://www.youtube.com/channel/UCtEbFbIO2nxrCQHLVOo_uPw",
     destaque: "Casado, pai, e crê que a responsabilidade é o caminho democrático.",
     resumo: "Formado em Jornalismo e Letras, com experiência em direito e economia, defende um vice de trabalho contínuo e dedicado ao mandato.",
     bio: "João Adolfo Wendpap é formado em Jornalismo e Letras, e tem experiência com direito e economia. Crê que o papel do vice deve ser de trabalho contínuo e dedicado ao mandato; diferente do que vem ocorrendo no Paraná, onde a escolha pelos vices é decorativa e de eventual interlocução com grupos e setores."
