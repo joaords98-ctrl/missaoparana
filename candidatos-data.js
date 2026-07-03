@@ -198,7 +198,7 @@ const CANDIDATOS = [
   },
   {
     id: "carlos-eduardo-de-oliveira-gasparim", nome: "Carlos Eduardo de Oliveira Gasparim", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Apucarana, PR", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Apucarana, PR", foto: "assets/candidatos/carlos-eduardo-de-oliveira-gasparim.jpg",
     instagram: "https://www.instagram.com/carlosgasparin.mbl",
     facebook: "https://www.facebook.com/share/1CrYfrigUt", tiktok: "https://www.tiktok.com/@carloseduardogasparin", youtube: "https://youtube.com/@carlos_gasparin",
     bio: "Advogado, Carlos Eduardo de Oliveira Gasparim é pré-candidato a Deputado Federal pela Missão com a convicção de que o Brasil não precisa de mais discursos vazios, mas de seriedade, preparo e compromisso verdadeiro com as pessoas. Como advogado, aprendeu que a transformação não acontece por conveniência nem por frases prontas — ela nasce do estudo, da coragem, do trabalho e da defesa firme daquilo que é justo.\n\nAo lado do presidente nacional Renan Santos, defenderá uma reforma administrativa séria, voltada ao corte de gastos e ao aumento da eficiência do Estado, criando condições reais para reduzir impostos e juros e devolver ao cidadão e ao setor produtivo a liberdade de crescer, investir e gerar empregos. Defenderá também o enfrentamento firme ao crime organizado, com coragem, inteligência e autoridade, e a reforma do pacto federativo, para que o dinheiro produzido no Paraná permaneça em maior medida no próprio Estado — impulsionando o desenvolvimento de uma terra que tanto contribui para a economia e o emprego no Brasil."
@@ -305,7 +305,7 @@ const CANDIDATOS = [
   },
   {
     id: "lude-riesemberg", nome: "Lude Riesemberg", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Guaratuba, PR", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Guaratuba, PR", foto: "assets/candidatos/lude-riesemberg.jpg",
     instagram: "https://www.instagram.com/luderiesemberg",
     facebook: "https://www.facebook.com/share/18SbrUURdt", tiktok: "https://www.tiktok.com/@lude.riesemberg", youtube: "",
     bio: "Lude Riesemberg, comerciante e confeiteiro de Guaratuba, ligado ao comércio local e ao turismo. Defende o fortalecimento turístico da cidade, melhoria das ruas e acessos, atenção às pessoas em situação de rua e renovação política. Atua principalmente no Centro, Brejatuba, Nereidas, Coroados e pontos turísticos de Guaratuba."
