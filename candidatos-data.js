@@ -251,7 +251,7 @@ const CANDIDATOS = [
     id: "william-rocha", nome: "William Rocha", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "assets/candidatos/william-rocha.jpg",
     instagram: "https://www.instagram.com/willianrochapr/",
-    facebook: "", tiktok: "", youtube: "",
+    facebook: "", tiktok: "", youtube: "https://www.youtube.com/@willianrochapr",
     bio: "Em breve mais informações sobre a trajetória de William Rocha, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
   },
   {
