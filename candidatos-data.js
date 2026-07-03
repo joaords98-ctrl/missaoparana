@@ -152,13 +152,13 @@ const CANDIDATOS = [
   },
   {
     id: "matheus-zozoloto", nome: "Matheus Zozoloto", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Bandeirantes, PR", foto: "",
-    instagram: "#",
+    cargoLabel: "Deputado Federal", cidade: "Bandeirantes, PR", foto: "assets/candidatos/matheus-zozoloto.jpg",
+    instagram: "https://www.instagram.com/josezozoloto/",
     bio: "Matheus Zozoloto, servidor público efetivo com atuação no Norte Pioneiro, especialmente Bandeirantes, Jacarezinho e Ibaiti. Defende crianças, adolescentes, idosos, trabalhadores do campo e da indústria, profissionalização, geração de renda e desenvolvimento regional."
   },
   {
     id: "yan-gaudard", nome: "Yan Gaudard", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Paranaguá, PR", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Paranaguá, PR", foto: "assets/candidatos/yan-gaudard.jpg",
     instagram: "https://www.instagram.com/profyangaudard/",
     bio: "Cristão, casado, 33 anos, Yan Gaudard é professor de Português formado pela UNESPAR (Universidade Estadual do Paraná), campus Paranaguá, em Letras – Português/Inglês, com pós-graduação em Docência da Língua Portuguesa para Estrangeiros pela UNINTER. Atualmente leciona Português, Literatura e Redação em um colégio da rede particular de Pontal do Paraná.\n\nMorador de Paranaguá — cidade-mãe do Estado — desde fevereiro de 2018, adotou o município como seu lar e é pré-candidato a Deputado Federal com o avanço educacional de toda a região litorânea como principal bandeira. Para o professor, a educação é o primeiro passo para um futuro glorioso: \"A educação é a chave para abrir a porta dourada da liberdade\" (George Washington Carver)."
   },
