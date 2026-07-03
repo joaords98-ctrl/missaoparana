@@ -68,6 +68,28 @@ module.exports = (req, res) => {
         .replace(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${esc(titulo)}">`)
         .replace(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${esc(descricao)}">`)
         .replace(/<meta name="twitter:image" content="[^"]*">/, `<meta name="twitter:image" content="${esc(imagem)}">`);
+
+      const sameAs = [c.instagram, c.facebook, c.tiktok, c.youtube, c.twitter]
+        .filter((v) => v && v.trim() && v !== '#');
+
+      const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: c.nome,
+        url: pageUrl,
+        image: imagem,
+        jobTitle: cargoExibido(c) || preLabel,
+        affiliation: {
+          '@type': 'Organization',
+          name: 'Missão Paraná',
+          url: SITE + '/',
+        },
+      };
+      if (sameAs.length) jsonLd.sameAs = sameAs;
+      if (c.cidade) jsonLd.homeLocation = { '@type': 'Place', name: c.cidade };
+
+      const scriptTag = `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`;
+      html = html.replace('</head>', scriptTag + '</head>');
     }
 
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
