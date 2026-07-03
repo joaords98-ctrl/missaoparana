@@ -74,7 +74,7 @@ const CANDIDATOS = [
     id: "gabriel-bertolucci", nome: "Gabriel Bertolucci", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Londrina, PR", foto: "assets/candidatos/gabriel-bertolucci.jpg",
     instagram: "https://www.instagram.com/bertolucci_br",
-    facebook: "", tiktok: "", youtube: "",
+    facebook: "https://www.facebook.com/BertolucciGab", tiktok: "https://www.tiktok.com/@bertolucci.gabriel", youtube: "",
     bio: "Economista com especialização em finanças públicas, Gabriel Bertolucci é uma das principais lideranças da nova geração paranaense e um dos fundadores do Partido Missão no Paraná. Aplica análise técnica para auditar as contas do Estado e lidera auditorias independentes que trazem transparência e combatem o desperdício em municípios paranaenses.\n\nNascido no Paraná, construiu sua trajetória unindo conhecimento técnico e mobilização cidadã, liderando iniciativas que conectam a sociedade civil ao debate de soluções práticas para o desenvolvimento econômico local. Já barrou a compra de carro de luxo e aumento de salário para vereadores, e enfrentou o MST, a máfia dos flanelinhas e o crime organizado — sempre de forma independente, sem cargo público e sem vantagens pessoais."
   },
   {
