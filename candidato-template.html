@@ -158,6 +158,7 @@ const CANDIDATOS = [
     cidade: "Curitiba, PR",
     foto: "assets/img/img-f8839da376.jpg",
     instagram: "https://www.instagram.com/14luizfranca/",
+    facebook: "", tiktok: "", youtube: "",
     resumo: "Advogado e consultor político, Luiz Felipe França defende um Paraná com instituições fortes, liberdade econômica e gestão eficiente.",
     bio: "Natural do Paraná, Luiz Felipe França construiu sua trajetória unindo dedicação aos estudos, atuação profissional e participação ativa nos debates sobre desenvolvimento econômico, gestão pública e política. Desde cedo, desenvolveu interesse por temas ligados ao crescimento econômico, à segurança jurídica e ao fortalecimento das instituições.\n\nLuiz Felipe França acredita que o desenvolvimento do Paraná depende de instituições fortes, segurança jurídica, liberdade econômica e gestão eficiente. Sua atuação é voltada à construção de soluções que gerem crescimento, oportunidades e qualidade de vida para os paranaenses.",
     trajetoria: [
@@ -175,7 +176,8 @@ const CANDIDATOS = [
   {
     id: "delegado-eduardo-kruger", nome: "Delegado Eduardo Kruger", cargo: "senador",
     cargoLabel: "Senador", cidade: "Araucária, PR", foto: "assets/candidatos/delegado-eduardo-kruger.jpg",
-    instagram: "#",
+    instagram: "https://www.instagram.com/delegadoeduardokruger",
+    facebook: "https://facebook.com/eduardo.kruger.3760", tiktok: "https://www.tiktok.com/@eduardo.kruger.co", youtube: "",
     bio: "Delegado Eduardo Kruger, delegado de Polícia de Araucária, com 18 anos de experiência no combate à violência contra mulheres. Defende proteção das mulheres, combate à violência sexual infantil e enfrentamento de privilégios institucionais que dificultam responsabilização e transparência."
   },
   // ---------- DEPUTADOS FEDERAIS ----------
@@ -183,156 +185,182 @@ const CANDIDATOS = [
     id: "pedro-deyrot", nome: "Pedro Deyrot", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/pedro-deyrot.jpg",
     instagram: "https://www.instagram.com/pedro.deyrot/",
+    facebook: "", tiktok: "", youtube: "",
     bio: "Um dos fundadores do Movimento Brasil Livre (MBL) e do Partido Missão, Pedro Deyrot cresceu em Curitiba, é publicitário e produtor musical, e integrou o Bonde do Rolê, banda que fez sucesso internacional e chegou a tocar em festivais como Coachella e Glastonbury — experiência que lhe deu domínio raro sobre cultura, linguagem e comunicação de massa. Em 2014, ao lado de Renan Santos e Kim Kataguiri, fundou o MBL e foi um dos principais articuladores das manifestações que levaram ao impeachment de Dilma Rousseff, seguindo como Coordenador Nacional do movimento e professor de comunicação na Academia MBL.\n\nEm novembro de 2025, com a aprovação do Partido Missão pelo TSE, tornou-se vice-presidente do Partido no Paraná, dedicando-se à investigação e apuração de dossiês sobre escândalos atuais — disponíveis publicamente em pedrodeyrot.com/denuncias — e criou o site escandalomaster.com, que mapeia o esquema de corrupção do Banco Master. É pré-candidato a Deputado Federal pelo Paraná com atuação focada nas propostas do Livro Amarelo: agronegócio, família, segurança pública e combate à corrupção onde ela estiver."
   },
   {
     id: "gabriel-bertolucci", nome: "Gabriel Bertolucci", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Londrina, PR", foto: "assets/candidatos/gabriel-bertolucci.jpg",
     instagram: "https://www.instagram.com/bertolucci_br",
+    facebook: "", tiktok: "", youtube: "",
     bio: "Economista com especialização em finanças públicas, Gabriel Bertolucci é uma das principais lideranças da nova geração paranaense e um dos fundadores do Partido Missão no Paraná. Aplica análise técnica para auditar as contas do Estado e lidera auditorias independentes que trazem transparência e combatem o desperdício em municípios paranaenses.\n\nNascido no Paraná, construiu sua trajetória unindo conhecimento técnico e mobilização cidadã, liderando iniciativas que conectam a sociedade civil ao debate de soluções práticas para o desenvolvimento econômico local. Já barrou a compra de carro de luxo e aumento de salário para vereadores, e enfrentou o MST, a máfia dos flanelinhas e o crime organizado — sempre de forma independente, sem cargo público e sem vantagens pessoais."
   },
   {
     id: "darlon-parana-pop", nome: "Darlon Parana Pop", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Foz do Iguaçu, PR", foto: "assets/candidatos/darlon-parana-pop.jpg",
-    instagram: "https://www.instagram.com/darlondutra/",
+    instagram: "https://www.instagram.com/darlondutra",
+    facebook: "https://Facebook.com/darlondutra", tiktok: "https://www.tiktok.com/@darlondutra", youtube: "",
     bio: "Darlon Parana Pop, empresário de Foz do Iguaçu, com experiência pública e comunitária, fundador do projeto Turma do João, que atende crianças. Suas principais pautas são defesa das mulheres, segurança pública e combate à corrupção, com atuação em Foz do Iguaçu."
   },
   {
     id: "gerusa-correa", nome: "Gerusa Correa", cargo: "federal", genero: "f",
     cargoLabel: "Deputado Federal", cidade: "São José dos Pinhais, PR", foto: "assets/candidatos/gerusa-correa.jpg",
-    instagram: "https://www.instagram.com/gerusacorreaoficial/",
+    instagram: "https://www.instagram.com/gerusacorreaoficial",
+    facebook: "https://www.facebook.com/share/1Ay8vDCSsa", tiktok: "https://tiktok.com/@gerusacorreaofici", youtube: "https://www.youtube.com/@gerusacorreaoficial6202",
     bio: "Mulher, mãe, pastora e coordenadora de projeto social, Gerusa Correa acompanha de perto as dores das famílias paranaenses: os desafios emocionais, os conflitos dentro dos lares e a urgência de valores que sustentem uma sociedade saudável.\n\nSua pré-candidatura nasce desse compromisso claro: defender a família, cuidar das necessidades do próximo e levantar uma voz de equilíbrio, fé e responsabilidade em Brasília. Gerusa não chega como alguém que tem todas as respostas, mas como alguém disposta a aprender, contribuir e representar os princípios em que acredita pela Missão Paraná."
   },
   {
     id: "yvis-de-oliveira", nome: "Yvis de Oliveira", cargo: "federal", genero: "f",
     cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/yvis-de-oliveira.jpg",
-    instagram: "https://www.instagram.com/yvisoliveira_14/",
+    instagram: "https://www.instagram.com/yvisoliveira_14",
+    facebook: "https://www.facebook.com/share/1GMs9dnVUB", tiktok: "https://www.tiktok.com/@yvisoliveira_14", youtube: "https://youtube.com/@yvisoliveira_14",
     bio: "Médica, com pós-graduação em Emergência e atualmente cursando Paliativos, Yvis de Oliveira vive de perto os desafios de um sistema de saúde sobrecarregado e a urgência de quem busca atendimento nas UPAs e hospitais.\n\nÉ pré-candidata a Deputada Federal porque acredita que a gestão pública precisa de quem conhece a realidade do chão da unidade, entende o valor de cada minuto no atendimento e não aceita a insegurança de quem cuida e de quem é cuidado. Defende um Paraná com uma saúde técnica, humana e, acima de tudo, eficiente."
   },
   {
     id: "alan-leal", nome: "Alan Leal", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/alan-leal.jpg",
-    instagram: "https://www.instagram.com/alannleal_/",
+    instagram: "https://www.instagram.com/alannleal_",
+    facebook: "https://www.facebook.com/alan.leal.592187", tiktok: "https://www.tiktok.com/@alannleal_", youtube: "https://www.youtube.com/@alannleal_",
     bio: "Curitibano, 28 anos, Alan Leal decidiu entrar para a política por acreditar que o Brasil precisa de uma nova geração de representantes: pessoas comuns, próximas da população e dispostas a enfrentar os problemas reais do país. Sua pré-candidatura nasce da vontade de defender liberdade, responsabilidade, honestidade, segurança, incentivo ao empreendedorismo e combate ao desperdício do dinheiro público.\n\nInspirado pelos princípios do Partido Missão, defende menos burocracia, mais transparência, investimento inteligente em segurança pública, combate ao crime organizado, valorização de quem produz e fiscalização firme sobre os gastos do governo. Não é político de carreira: é alguém que decidiu sair da indignação e partir para a ação, e busca representar quem trabalha, empreende, estuda, paga impostos e sente que sua voz não é ouvida em Brasília."
   },
   {
     id: "jessica-this-do-autismo", nome: "Jéssica This Machado", cargo: "federal", genero: "f",
     cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/jessica-this-do-autismo.jpg",
-    instagram: "https://www.instagram.com/prof_this.pr/",
+    instagram: "https://www.instagram.com/prof_this.pr",
+    facebook: "https://www.facebook.com/share/1BVeiN3qfP", tiktok: "https://www.tiktok.com/@prof_this.pr", youtube: "https://youtube.com/@jessicathis_mbl",
     bio: "Professora e pré-candidata a Deputada Federal, Jéssica This Machado é docente há mais de 10 anos, com trajetória na Educação Infantil, no Ensino Fundamental e, atualmente, no Ensino Superior. Cristã e empresária, é proprietária de uma clínica multidisciplinar em Curitiba, onde foca seu trabalho na alfabetização de crianças especiais, unindo rigor técnico à sensibilidade necessária para o atendimento clínico especializado.\n\nDefensora da Educação, da Inclusão e da Família, acredita que a verdadeira inclusão não acontece apenas no papel, mas no dia a dia, com estrutura, técnica e acolhimento real. Representa uma geração que cansou de aceitar a política tradicional brasileira."
   },
   {
     id: "ana-xavier", nome: "Ana Lucia Xavier", cargo: "federal", genero: "f",
     cargoLabel: "Deputado Federal", cidade: "Almirante Tamandaré, PR", foto: "assets/candidatos/ana-xavier.jpg",
-    instagram: "https://www.instagram.com/analuciapr14/",
+    instagram: "https://www.instagram.com/analuciapr14",
+    facebook: "https://www.facebook.com/share/18dBbRSxPJ", tiktok: "https://www.tiktok.com/@analuciapr14", youtube: "https://youtube.com/@analuciasx",
     bio: "Contadora e analista de controladoria, Ana Lucia Xavier é pré-candidata a Deputada Federal pelo Partido Missão. Enfrenta, ao lado da pré-campanha, o tratamento de um câncer de mama HER2 — uma luta que reforça sua determinação em representar quem também enfrenta desafios difíceis no dia a dia."
   },
   {
     id: "diogo-costa", nome: "Diogo Costa", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Campo Largo, PR", foto: "assets/candidatos/diogo-costa.jpg",
-    instagram: "https://www.instagram.com/diogocosta_pr/",
+    instagram: "https://www.instagram.com/diogocosta_pr",
+    facebook: "https://www.facebook.com/share/1AhYFMgXUY", tiktok: "https://www.tiktok.com/@diogocosta_pr", youtube: "https://youtube.com/@diogocosta_evc",
     bio: "Diogo Costa, empresário de Campo Largo, com trajetória de trabalho desde cedo e experiência em defesa de crianças e adolescentes. Defende desburocratização, redução da carga tributária, combate à violência infantil, assistência social e empreendedorismo."
   },
   {
     id: "jornalista-isaak-almeida", nome: "Jornalista Isaak Almeida", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Fazenda Rio Grande, PR", foto: "assets/candidatos/jornalista-isaak-almeida.jpg",
-    instagram: "https://www.instagram.com/jornalistaisaakalmeida/",
+    instagram: "https://www.instagram.com/jornalistaisaakalmeida",
+    facebook: "https://www.facebook.com/isaak.almeida.5", tiktok: "https://www.tiktok.com/@isaak.almeida", youtube: "https://youtube.com/@isaakalmeida2315",
     bio: "Jornalista Isaak Almeida, jornalista de Fazenda Rio Grande, com experiência em comunicação, serviço público e campanhas eleitorais. Defende saúde, segurança e combate à corrupção, atuando na região sul de Curitiba e Região Metropolitana."
   },
   {
     id: "ricardo-cascavel-segura", nome: "Ricardo Cascavel Segura", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Cascavel, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/cascavel_maissegura",
+    facebook: "https://www.facebook.com/share/1Gi7HZdKSE", tiktok: "https://www.tiktok.com/@cascavel_maissegu", youtube: "",
     bio: "Ricardo Cascavel Segura, corretor de imóveis e ativista político em Cascavel, atua em conselhos e iniciativas ligadas à segurança pública. Defende mais segurança, proteção de crianças, educação e fiscalização do dinheiro público."
   },
   {
     id: "guilherme-machado", nome: "Guilherme Machado", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Ponta Grossa, PR", foto: "",
-    instagram: "https://www.instagram.com/drguilhermemachado_neuro/",
+    instagram: "https://www.instagram.com/drguilhermemachado_neuro",
+    facebook: "", tiktok: "", youtube: "https://www.youtube.com/@guilhermeaugustodesouzamac4130",
     bio: "Guilherme Machado, médico de Ponta Grossa, com atuação direta no cuidado de pacientes e promoção da saúde. Defende saúde, segurança pública, educação, assistência social e melhoria da qualidade de vida nos Campos Gerais e cidades da 3ª Regional de Saúde."
   },
   {
     id: "tayna-vieia", nome: "Naná Vieira", cargo: "federal", genero: "f",
     cargoLabel: "Deputado Federal", cidade: "São Mateus do Sul, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/nanarvieira",
+    facebook: "https://www.facebook.com/share/1BUME7LEmj", tiktok: "", youtube: "",
     bio: "Naná Vieira, decoradora de eventos de São Mateus do Sul, casada, com participação em grupo de jovens da Igreja Católica. Defende segurança para mulheres, artes marciais como ferramenta de defesa pessoal, incentivo ao esporte e atenção às comunidades carentes e pequenas propriedades rurais."
   },
   {
     id: "mauricio-franciscon", nome: "Mauricio Franciscon", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Santa Izabel do Oeste, PR", foto: "assets/candidatos/mauricio-franciscon.jpg",
-    instagram: "https://www.instagram.com/omauriciofranciscon/",
+    instagram: "https://www.instagram.com/omauriciofranciscon",
+    facebook: "", tiktok: "https://www.tiktok.com/@mauriciofranciscon", youtube: "https://www.youtube.com/@mauriciofranciscon",
     bio: "Mauricio Franciscon, pecuarista e filmmaker de Francisco Beltrão, ex-coordenador municipal do MBL. Defende liberdade econômica, menos burocracia, inovação, eficiência na gestão pública, agro, infraestrutura e combate à corrupção no Sudoeste do Paraná."
   },
   {
     id: "matheus-santos-moreira", nome: "Matheus Santos Moreira", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Arapongas, PR", foto: "assets/candidatos/matheus-santos-moreira.jpg",
-    instagram: "#",
+    instagram: "https://www.instagram.com/Mathsmoreira",
+    facebook: "https://m.facebook.com/mathsmoreira", tiktok: "", youtube: "https://www.youtube.com/@Macacoinvest",
     bio: "Matheus Santos Moreira, policial legislativo do Senado Federal, natural da região de Arapongas, com trajetória de superação por meio dos estudos. Defende segurança pública, economia, musculação como disciplina e crescimento real para Arapongas e região."
   },
   {
     id: "matheus-zozoloto", nome: "Matheus Zozoloto", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Bandeirantes, PR", foto: "assets/candidatos/matheus-zozoloto.jpg",
-    instagram: "https://www.instagram.com/josezozoloto/",
+    instagram: "https://www.instagram.com/josezozoloto",
+    facebook: "", tiktok: "", youtube: "https://youtube.com/@josezozoloto",
     bio: "Matheus Zozoloto, servidor público efetivo com atuação no Norte Pioneiro, especialmente Bandeirantes, Jacarezinho e Ibaiti. Defende crianças, adolescentes, idosos, trabalhadores do campo e da indústria, profissionalização, geração de renda e desenvolvimento regional."
   },
   {
     id: "yan-gaudard", nome: "Yan Gaudard", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Paranaguá, PR", foto: "assets/candidatos/yan-gaudard.jpg",
-    instagram: "https://www.instagram.com/profyangaudard/",
+    instagram: "https://www.instagram.com/profyangaudard",
+    facebook: "https://facebook.com/profyangaudard", tiktok: "https://www.tiktok.com/@profyangaudard", youtube: "https://youtube.com/@profyangaudard",
     bio: "Cristão, casado, 33 anos, Yan Gaudard é professor de Português formado pela UNESPAR (Universidade Estadual do Paraná), campus Paranaguá, em Letras – Português/Inglês, com pós-graduação em Docência da Língua Portuguesa para Estrangeiros pela UNINTER. Atualmente leciona Português, Literatura e Redação em um colégio da rede particular de Pontal do Paraná.\n\nMorador de Paranaguá — cidade-mãe do Estado — desde fevereiro de 2018, adotou o município como seu lar e é pré-candidato a Deputado Federal com o avanço educacional de toda a região litorânea como principal bandeira. Para o professor, a educação é o primeiro passo para um futuro glorioso: \"A educação é a chave para abrir a porta dourada da liberdade\" (George Washington Carver)."
   },
   {
     id: "glauberson-rocha", nome: "Glauberson Rocha", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Guarapuava, PR", foto: "assets/candidatos/glauberson-rocha.jpg",
-    instagram: "#",
+    instagram: "https://www.instagram.com/glaubersonrocha",
+    facebook: "", tiktok: "", youtube: "",
     bio: "Glauberson Rocha, comerciante de Guarapuava, com experiência de 21 anos na Sanepar e liderança em associação de moradores e APP escolar. Defende saneamento básico, segurança pública, infraestrutura e atenção às comunidades mais vulneráveis da região central do Paraná."
   },
   {
     id: "andrey-luiz", nome: "Andrey Luiz", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Siqueira Campos, PR", foto: "",
-    instagram: "https://www.instagram.com/andreyluiz.mbl/",
+    instagram: "https://www.instagram.com/andreyluiz.mbl",
+    facebook: "https://www.facebook.com/share/1FxNVucREL", tiktok: "https://www.tiktok.com/@andreyluiz.mbl", youtube: "https://youtube.com/@umpontoadireita",
     bio: "Andrey Luiz, vendedor varejista de Siqueira Campos, com foco em cultura, desenvolvimento e eficiência do Estado. Defende segurança pública, redução de impostos, empreendedorismo e infraestrutura no Norte Pioneiro."
   },
   {
     id: "carlos-eduardo-de-oliveira-gasparim", nome: "Carlos Eduardo de Oliveira Gasparim", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Apucarana, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/carlosgasparin.mbl",
+    facebook: "https://www.facebook.com/share/1CrYfrigUt", tiktok: "https://www.tiktok.com/@carloseduardogasparin", youtube: "https://youtube.com/@carlos_gasparin",
     bio: "Advogado, Carlos Eduardo de Oliveira Gasparim é pré-candidato a Deputado Federal pela Missão com a convicção de que o Brasil não precisa de mais discursos vazios, mas de seriedade, preparo e compromisso verdadeiro com as pessoas. Como advogado, aprendeu que a transformação não acontece por conveniência nem por frases prontas — ela nasce do estudo, da coragem, do trabalho e da defesa firme daquilo que é justo.\n\nAo lado do presidente nacional Renan Santos, defenderá uma reforma administrativa séria, voltada ao corte de gastos e ao aumento da eficiência do Estado, criando condições reais para reduzir impostos e juros e devolver ao cidadão e ao setor produtivo a liberdade de crescer, investir e gerar empregos. Defenderá também o enfrentamento firme ao crime organizado, com coragem, inteligência e autoridade, e a reforma do pacto federativo, para que o dinheiro produzido no Paraná permaneça em maior medida no próprio Estado — impulsionando o desenvolvimento de uma terra que tanto contribui para a economia e o emprego no Brasil."
   },
   {
     id: "caroline-barbosa", nome: "Caroline Barbosa", cargo: "federal", genero: "f",
     cargoLabel: "Deputado Federal", cidade: "Londrina, PR", foto: "",
-    instagram: "https://www.instagram.com/carolinecardine/",
+    instagram: "https://www.instagram.com/carolinecardine",
+    facebook: "", tiktok: "", youtube: "",
     bio: "Caroline Barbosa, analista de comércio exterior de Londrina, com trajetória familiar marcada por superação e trabalho. Defende desenvolvimento econômico, infraestrutura, capital humano, comércio internacional, empreendedorismo e visão estratégica para o Paraná."
   },
   {
     id: "anita-de-biasi", nome: "Anita de Biasi", cargo: "federal", genero: "f",
     cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/anitadebiasipr",
+    facebook: "https://www.facebook.com/share/18fWnKmfqa", tiktok: "https://www.tiktok.com/@anitadebiasi14", youtube: "https://youtube.com/@anitadebiasi2473",
     bio: "Anita de Biasi, fotógrafa de Curitiba, esposa e mãe, com atuação religiosa e voluntária. Defende segurança pública, educação, economia, empreendedorismo, causa animal e pautas práticas que impactem a vida real das famílias."
   },
   {
     id: "marcello-de-paula", nome: "Marcello de Paula", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Umuarama, PR", foto: "assets/candidatos/marcello-de-paula.jpg",
-    instagram: "https://www.instagram.com/marcello_de_paula/",
+    instagram: "https://www.instagram.com/marcello_de_paula",
+    facebook: "https://www.facebook.com/share/1J6UET2V5g", tiktok: "", youtube: "https://youtube.com/@marcello2l",
     bio: "Marcello de Paula, estoquista de Umuarama, com perfil de luta, perseverança e compromisso com a comunidade. Defende segurança pública, educação, cultura, infraestrutura, estradas, redução da maioridade penal e ensino de música nas escolas."
   },
   {
     id: "karen-guerreiro", nome: "Karen Guerreiro", cargo: "senador", genero: "f",
     cargoLabel: "Senador", cidade: "Santa Izabel do Oeste, PR", foto: "assets/candidatos/karen-guerreiro.jpg",
-    instagram: "https://www.instagram.com/karen.guerreiro7/",
+    instagram: "https://www.instagram.com/karen.guerreiro7",
+    facebook: "https://www.instagram.com/karen.guerreiro7", tiktok: "", youtube: "",
     bio: "Karen Guerreiro, diretora de arte de Santa Izabel do Oeste, com atuação voluntária em causa animal e ações sociais. Defende desenvolvimento para a juventude, educação técnica e tecnológica, saúde regional, rodovias e proteção animal no Sudoeste do Paraná."
   },
   {
     id: "manu-shtorach", nome: "Emanuelle Shtorach", cargo: "federal", genero: "f",
     cargoLabel: "Deputado Federal", cidade: "Paraná", foto: "",
     instagram: "https://www.instagram.com/manubittennpr/",
+    facebook: "", tiktok: "", youtube: "",
     bio: "Mais conhecida como Operadora Manu, do Conversa Franca, Emanuelle Shtorach é pré-candidata a Deputada Federal pelo Paraná."
   },
   {
     id: "marianny-thayla", nome: "Marianny Thayla", cargo: "federal", genero: "f",
     cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/mariguedes14",
+    facebook: "", tiktok: "https://www.tiktok.com/@marianny.thayla", youtube: "https://www.youtube.com/@MariannyTCGuedes",
     bio: "Marianny Thayla, gerente de projetos de Curitiba e representante da pauta das pessoas com deficiência. Defende acessibilidade plena, proteção da mulher com deficiência, fiscalização do BPC/LOAS, busca ativa de PCDs invisíveis e criação de um observatório de direitos das PCDs no Paraná."
   },
 
@@ -341,204 +369,238 @@ const CANDIDATOS = [
     id: "william-rocha", nome: "William Rocha", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "assets/candidatos/william-rocha.jpg",
     instagram: "https://www.instagram.com/willianrochapr/",
+    facebook: "", tiktok: "", youtube: "",
     bio: "Em breve mais informações sobre a trajetória de William Rocha, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
   },
   {
     id: "gustavo-camillo", nome: "Gustavo Camillo", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "assets/candidatos/gustavo-camillo.jpg",
-    instagram: "https://www.instagram.com/gucamillo/",
+    instagram: "https://instagram.com/gu.camillo",
+    facebook: "https://www.facebook.com/share/1FRbmHVa3F", tiktok: "https://www.tiktok.com/@gu.camillo", youtube: "https://youtube.com/@gu.camillo",
     bio: "Jornalista, estudante de Direito e autodenominado \"fiscalizador nº 1 do poder público paranaense\", Gustavo Camillo tem, aos 22 anos e sem cargo público, gerado resultados concretos com suas denúncias nas redes sociais pelo Paraná.\n\nApós denúncias em Curitiba, a prefeitura passou a se mobilizar para tratar da situação dos moradores de rua. Em Pinhais, uma denúncia sua ao Ministério Público levou à exoneração de um secretário com condenação na Justiça. Em Fazenda Rio Grande, expôs supostas nomeações cruzadas entre prefeituras. Em Cianorte, atuou contra o fim do concurso da Guarda Municipal, e em Guaratuba, denunciou ao MP gastos públicos milionários possivelmente superfaturados em shows. É pré-candidato a Deputado Estadual para levar essa fiscalização também para dentro das instituições."
   },
   {
     id: "beatriz-oliveira", nome: "Beatriz Oliveira", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "assets/candidatos/beatriz-oliveira.jpg",
-    instagram: "https://www.instagram.com/beatrizoliveira.pr/",
+    instagram: "https://www.instagram.com/beatrizoliveira.pr",
+    facebook: "https://www.facebook.com/share/r/1K3GqLZkL5", tiktok: "https://www.tiktok.com/@beatrizoliveira.pr", youtube: "https://youtube.com/@beatrizoliveirapr",
     bio: "De Curitiba, 23 anos, formada em Direito, Beatriz Oliveira é pré-candidata a Deputada Estadual pelo Paraná pela Missão. Achava mais fácil criticar o sistema, mas decidiu assumir a responsabilidade de tentar fazer diferente — recusando-se a aceitar que o Paraná continue governado pelos mesmos de sempre enquanto a população vive insegura, abandonada e sem voz.\n\nDefende mais segurança pública, com investimento inteligente, valorização das forças policiais e políticas sérias de prevenção ao crime, além de menos gasto público e combate à corrupção. Defende também a desfavelização com dignidade: infraestrutura, saneamento, urbanização e oportunidades para transformar comunidades abandonadas em lugares seguros para viver e crescer."
   },
   {
     id: "mariane-mazzon", nome: "Mariane Mazzon", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", cidade: "Campo Largo, PR", foto: "assets/candidatos/mariane-mazzon.jpg",
-    instagram: "https://www.instagram.com/marimazzon_/",
+    instagram: "https://www.instagram.com/marimazzon_",
+    facebook: "https://www.facebook.com/share/1AxEA8v2Vc", tiktok: "https://www.tiktok.com/@mari.mazzon", youtube: "",
     bio: "Mariane Mazzon, gestora e fundadora do Instituto SOS 4 Patas Paraná, referência em resgate e recuperação de animais vítimas de maus-tratos. Defende causa animal, apoio às ONGs, combate ao abandono, fiscalização e políticas públicas de proteção animal na Grande Curitiba."
   },
   {
     id: "paulo-di-melo", nome: "Paulo Di Melo", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Boqueirão, Curitiba - PR", foto: "assets/candidatos/paulo-di-melo.jpg",
-    instagram: "https://www.instagram.com/paulodimelo/",
+    instagram: "https://www.instagram.com/paulodimelo",
+    facebook: "https://www.facebook.com/paulo.henrique.melo.832937/directory_links", tiktok: "https://www.tiktok.com/@paulodimelo", youtube: "",
     bio: "Paulo Di Melo, empresário, comunicador digital e cristão de Curitiba, esposo e pai, com atuação na região sul da capital. Em 2024, recebeu 1.266 votos na disputa a vereador — uma base que agora leva para a pré-candidatura a Deputado Estadual. Defende a família, a transparência, a justiça social e o desenvolvimento do Paraná, além de fiscalização, ação social, saúde, segurança, assistência social e habitação."
   },
   {
     id: "mateus-pepice", nome: "Mateus Pepice", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Cascavel, PR", foto: "assets/candidatos/mateus-pepice.jpg",
-    instagram: "https://www.instagram.com/mateuspepicepr/",
+    instagram: "https://www.instagram.com/mateuspepicepr",
+    facebook: "https://www.facebook.com/mateuspepicepr", tiktok: "https://www.tiktok.com/@mateuspepicepr", youtube: "",
     bio: "Mateus Pepice, auxiliar de tecnologia da informação de Cascavel, com experiência administrativa na gestão pública. Defende segurança pública, tecnologia, smart cities, infraestrutura logística e desenvolvimento no Oeste do Paraná."
   },
   {
     id: "joao-gabriel", nome: "João Gabriel", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Medianeira, PR", foto: "assets/candidatos/joao-gabriel.jpg",
-    instagram: "#",
+    instagram: "https://www.instagram.com/joaoogabriel.pr",
+    facebook: "https://www.facebook.com/profile.php", tiktok: "https://www.tiktok.com/@eu_joaogabrielcs", youtube: "https://www.youtube.com/@joaogabrield21",
     bio: "João Gabriel, advogado de Medianeira, pai e esposo, com atuação no CONSEG e foco em segurança pública. Defende investimentos eficientes em segurança, saúde e educação, especialmente para o Extremo Oeste, incluindo Medianeira, Foz do Iguaçu, Serranópolis, Missal e Itaipulândia."
   },
   {
     id: "milena-mansur", nome: "Milena Mansur", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", cidade: "Londrina, PR", foto: "",
     instagram: "#",
+    facebook: "", tiktok: "", youtube: "",
     bio: "Em breve mais informações sobre a trajetória de Milena Mansur, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
   },
   {
     id: "lude-riesemberg", nome: "Lude Riesemberg", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Guaratuba, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/luderiesemberg",
+    facebook: "https://www.facebook.com/share/18SbrUURdt", tiktok: "https://www.tiktok.com/@lude.riesemberg", youtube: "",
     bio: "Lude Riesemberg, comerciante e confeiteiro de Guaratuba, ligado ao comércio local e ao turismo. Defende o fortalecimento turístico da cidade, melhoria das ruas e acessos, atenção às pessoas em situação de rua e renovação política. Atua principalmente no Centro, Brejatuba, Nereidas, Coroados e pontos turísticos de Guaratuba."
   },
   {
     id: "lucas-leonardo-franca-de-oliveira", nome: "Lucas Leonardo França de Oliveira", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Londrina, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/lucasdoliveiraa_",
+    facebook: "", tiktok: "https://www.tiktok.com/@lucasdoliveiraa_", youtube: "",
     bio: "Lucas Leonardo França de Oliveira, biomédico de Londrina, mestre em Ciências Fisiológicas, empreendedor e líder de voluntários em sua igreja. Defende revisão do pacto federativo, saúde, educação, infraestrutura, desenvolvimento econômico e maior protagonismo de Londrina."
   },
   {
     id: "erica-de-freitas-goncalves", nome: "Erica de Freitas Gonçalves", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", cidade: "Foz do Iguaçu, PR", foto: "",
-    instagram: "https://www.instagram.com/almeida._erica/",
+    instagram: "https://www.instagram.com/almeida._erica",
+    facebook: "https://www.facebook.com/share/18jWtJP9kX", tiktok: "", youtube: "",
     bio: "Erica de Freitas Gonçalves, do lar, de Foz do Iguaçu, com perfil cuidador, prático e estável. Defende educação, meio ambiente, educação na primeira infância, infraestrutura e direitos das mulheres, com atuação na região leste e nordeste de Foz."
   },
   {
     id: "aline-franzon", nome: "Aline Franzon", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", cidade: "Arapongas, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/aline.franzon14",
+    facebook: "https://www.facebook.com/aline.souza.franzon", tiktok: "https://www.tiktok.com/@aline.franzon14", youtube: "",
     bio: "Aline Franzon, professora, mãe e empresária, com formação em Estética, Química e experiência acadêmica. Defende saúde da mulher, educação infantil, combate à violência contra a mulher e desenvolvimento para Apucarana e Arapongas."
   },
   {
     id: "felipe-de-castilho", nome: "Felipe de Castilho", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Ponta Grossa, PR", foto: "assets/candidatos/felipe-de-castilho.jpg",
-    instagram: "https://www.instagram.com/felipescastilho/",
+    instagram: "https://www.instagram.com/felipescastilho",
+    facebook: "https://www.facebook.com/felipe.de.castilho.2025", tiktok: "", youtube: "",
     bio: "Felipe de Castilho, advogado de Ponta Grossa, gestor estratégico, com experiência no Judiciário, administração pública e advocacia. Defende boa gestão, fortalecimento das instituições, desenvolvimento econômico, segurança jurídica, regularização patrimonial, acesso à justiça e transparência pública."
   },
   {
     id: "rubens-nascimento", nome: "Rubens Nascimento", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Piraquara, PR", foto: "assets/candidatos/rubens-nascimento.jpg",
-    instagram: "https://www.instagram.com/rubensnascimentopr/",
+    instagram: "https://www.instagram.com/rubensnascimentopr",
+    facebook: "https://www.instagram.com/rubensnascimentopr", tiktok: "https://www.tiktok.com/@rubensnascimentopr", youtube: "https://youtube.com/@rubensnascimentopr",
     bio: "Aos 28 anos, marido e pai, Rubens Nascimento é bacharel em Teologia e entusiasta da tecnologia, guiado pela convicção de usar a inovação para dar dignidade a quem sempre foi deixado para trás. Não é político de carreira.\n\nDe Piraquara para o Paraná, é pré-candidato a Deputado Estadual e constrói uma candidatura de quem veio do povo, para servir o povo. Cresceu nas periferias de Curitiba, estudou em escola pública e aprendeu que mudança de verdade começa por quem conhece a realidade — e quem conhece a realidade sabe o que precisa mudar."
   },
   {
     id: "henrique-de-souza", nome: "Henrique de Souza", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Tatuquara, Curitiba - PR", foto: "",
-    instagram: "https://www.instagram.com/henriquesouzacwb/",
+    instagram: "https://www.instagram.com/henriquesouzacwb",
+    facebook: "https://www.facebook.com/share/16yjXMWgZb", tiktok: "https://www.tiktok.com/@henriquesouzareporter", youtube: "https://youtube.com/@henriquesouzahumorista997",
     bio: "Henrique Souza tem 24 anos e, desde 2019, atua como influenciador digital e liderança regional em Curitiba, levando informação com humor, mas sem passar pano: denunciando atrasos em obras, cobrando reparos e expondo os descasos que a população enfrenta todos os dias.\n\nCansado de apenas filmar o problema, decidiu ir além: é pré-candidato a Deputado Estadual para ajudar a resolver de dentro o que sempre cobrou de fora."
   },
   {
     id: "lucas-backes", nome: "Lucas Backes", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Francisco Beltrão, PR", foto: "",
     instagram: "#",
+    facebook: "", tiktok: "", youtube: "",
     bio: "Em breve mais informações sobre a trajetória de Lucas Backes, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
   },
   {
     id: "fernando-garbatchevski", nome: "Fernando Garbatchevski", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Prudentópolis, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/garba_fernando",
+    facebook: "https://www.facebook.com/share/1LfGGV9sXY", tiktok: "", youtube: "",
     bio: "Fernando Garbatchevski, instrutor de lutas e motoboy de Prudentópolis, com trajetória marcada por trabalho, disciplina e superação. Defende segurança pública, combate à corrupção, valorização do trabalhador, redução de impostos e fortalecimento de oportunidades para jovens e trabalhadores autônomos."
   },
   {
     id: "ivo-arthur-goncalves", nome: "Ivo Arthur Gonçalves", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Inácio Martins, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/ivoarthurmissao",
+    facebook: "https://www.facebook.com/ivoarthur.goncalves", tiktok: "", youtube: "https://www.youtube.com/@ivoarthurgoncalves678",
     bio: "Ivo Arthur Gonçalves, administrador do setor agropecuário de Inácio Martins, com vivência entre capital e interior. Defende segurança pública, logística, infraestrutura, combate à compra de votos e desenvolvimento para a cidade e região rural."
   },
   {
     id: "natelie-facco", nome: "Natelie Facco", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", cidade: "Pontal do Paraná, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/nataliefacco",
+    facebook: "https://www.facebook.com", tiktok: "https://tiktok.com/@nataliefacco", youtube: "https://youtube.com/@natalie_facco",
     bio: "Natelie Facco, estudante de Pontal do Paraná, com perfil determinado e senso de justiça. Defende direita liberal, combate à corrupção, desenvolvimento econômico e melhoria da infraestrutura, com foco em Praia de Leste e Pontal do Paraná."
   },
   {
     id: "carlos-eduardo", nome: "Carlos Eduardo", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Sarandi, PR", foto: "assets/candidatos/carlos-eduardo.jpg",
     instagram: "#",
+    facebook: "", tiktok: "", youtube: "",
     bio: "Em breve mais informações sobre a trajetória de Carlos Eduardo, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
   },
   {
     id: "matheus-manholer", nome: "Matheus Manholer", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Maringá, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/matheusmanholer",
+    facebook: "https://www.facebook.com/matteomagnoler", tiktok: "", youtube: "https://www.youtube.com/@matteomagnoler",
     bio: "Matheus Manholer, profissional de suporte técnico em tecnologia financeira, empreendedor, casado e pai de Matteo e Moisés. Defende saúde digital, modernização do SUS, empreendedorismo, desburocratização, esporte para juventude e transparência total dos gastos de mandato."
   },
   {
     id: "daymond-pires", nome: "Daymond Pires", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Goioerê, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/dyamond_pires/#",
+    facebook: "https://www.facebook.com/dyamond.pires", tiktok: "https://www.tiktok.com/@harpertvbr", youtube: "https://www.youtube.com/@Dyamond_pires",
     bio: "Daymond Pires, motorista, músico e adestrador, com atuação em Goioerê e Campo Mourão. Defende segurança pública, saúde com mais especialistas em cidades pequenas, acesso a cursos técnicos no interior, causa animal e princípios de liberdade individual."
   },
   {
     id: "kelven-alcantara", nome: "Kelven Alcantara", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Londrina, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/ikelvenalca",
+    facebook: "https://www.facebook.com/share/18QSK8Wm1H", tiktok: "https://www.tiktok.com/@kelvenalca_", youtube: "https://youtube.com/@ikelvenalca",
     bio: "Kelven Alcantara, programador e cientista de dados de Londrina, com foco em tecnologia, dados e transparência. Defende eficiência estatal, tecnologia pública, combate à corrupção por meio de dados e desenvolvimento econômico."
   },
   {
     id: "eduardo-nunes-gomes", nome: "Eduardo Nunes Gomes", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Cambé, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/eduardo.n.gomes",
+    facebook: "https://www.facebook.com/share/18UocASUSN", tiktok: "https://www.tiktok.com/@eduardongomes", youtube: "",
     bio: "Eduardo Nunes Gomes, consultor de vendas de Cambé, filho de pai policial militar e mãe policial civil. Defende segurança pública, educação básica, modernização urbana, combate à criminalidade e melhor retorno dos impostos para a estrutura das cidades."
   },
   {
     id: "odenilson-vicente", nome: "Odenilson Vicente", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Apucarana, PR", foto: "",
-    instagram: "https://www.instagram.com/odenilsonvicente/",
+    instagram: "https://www.instagram.com/odenilsonvicente",
+    facebook: "https://www.facebook.com/share/1BAn2zQhJk", tiktok: "", youtube: "",
     bio: "Aos 56 anos, casado e pai de dois filhos, Odenilson Vicente é servidor público e atua há 24 anos como agente comunitário de saúde, acompanhando de perto a realidade das famílias paranaenses e os desafios que elas enfrentam.\n\nÉ graduado em Gestão Pública e pós-graduado em Políticas Públicas e na área da Saúde — formação que une à vivência de quem está todos os dias ao lado da comunidade."
   },
   {
     id: "daniel-aguiar", nome: "Daniel Aguiar", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Pitanga, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/daniel_aguiarr14",
+    facebook: "https://www.facebook.com/daaniieel.aguiar", tiktok: "https://www.tiktok.com/@daniel_aguiarr14", youtube: "",
     bio: "Daniel Aguiar, advogado de Pitanga, jovem entusiasta da política e da vida pública. Defende saúde, infraestrutura, geração de empregos, agricultura e combate à corrupção, com atuação voltada a Pitanga e região."
   },
   {
     id: "alessandra-lima", nome: "Alessandra Lima", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", cidade: "Colombo, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/alessandralimapr14",
+    facebook: "https://www.facebook.com/share/189niUn2fL", tiktok: "https://www.tiktok.com/@alessandralimapr14", youtube: "https://youtube.com/@alessandralimapr",
     bio: "Alessandra Lima, promotora comercial de Colombo, com atuação em ações de igreja, voluntariado e atividades políticas do movimento. Defende segurança pública, desfavelização, esporte e desenvolvimento urbano em Colombo."
   },
   {
     id: "vinicius-ferreira", nome: "Vinicius Ferreira", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Araucária, PR", foto: "",
-    instagram: "https://www.instagram.com/viniciusferreirabrasil/",
+    instagram: "https://www.instagram.com/viniciusferreirabrasil",
+    facebook: "https://www.facebook.com/share/18hYoq28SJ", tiktok: "https://www.tiktok.com/@viniciusferreirabrasil", youtube: "",
     bio: "Vinicius Ferreira, corretor de imóveis de Araucária, esposo e pai de quatro filhos. Defende política prática, combate ao crime, liberdade econômica, proteção das pessoas de bem, redução de gastos públicos e diminuição de impostos, com atuação em Curitiba."
   },
   {
     id: "raphael-lacerda", nome: "Raphael Lacerda", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/erasintetica",
+    facebook: "https://www.facebook.com/elevaweb.binario", tiktok: "https://www.tiktok.com/@erasintetica", youtube: "https://www.youtube.com/@erasintetica",
     bio: "Raphael Lacerda, empresário de Curitiba e defensor do uso estratégico da tecnologia e da inteligência artificial. Suas pautas centrais são IA, soberania tecnológica, empreendedorismo, gestão pública moderna e desenvolvimento econômico para o Paraná."
   },
   {
     id: "policial-martins", nome: "Policial Martins", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Pato Branco, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/policialmartinss",
+    facebook: "https://www.facebook.com/profile.php", tiktok: "", youtube: "",
     bio: "Policial Martins, policial militar de Pato Branco, com forte atuação associativa e comunitária. Defende segurança pública, leis penais, agro, infraestrutura e valorização de pautas ligadas ao Sudoeste do Paraná."
   },
   {
     id: "guto-trevisan", nome: "Guto Trevisan", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Curitiba, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/guto377",
+    facebook: "https://www.facebook.com/gutotrevisan", tiktok: "", youtube: "",
     bio: "Guto Trevisan, gerente de operações e relacionamento de Curitiba, com perfil empreendedor e familiar. Defende oportunidades para a juventude, causa animal, esporte, segurança pública e desburocratização para pequenos e médios empreendedores."
   },
   {
     id: "janaina-klein", nome: "Janaina Klein", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", cidade: "Cascavel, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/janainaklein.missao14",
+    facebook: "https://www.facebook.com/share/1GQkYa4cvi", tiktok: "", youtube: "",
     bio: "Janaina Klein, corretora de imóveis de Cascavel, com trajetória pessoal marcada pela luta para realizar o sonho de ser mãe. Defende saúde da família, segurança, infraestrutura e atenção às mulheres, com atuação na região norte de Cascavel."
   },
   {
     id: "bruna-delefrati", nome: "Bruna Delefrati", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", cidade: "Sarandi, PR", foto: "",
-    instagram: "#",
+    instagram: "https://www.instagram.com/delefratibruna",
+    facebook: "https://www.facebook.com/bruna.delefrati", tiktok: "", youtube: "",
     bio: "Bruna Delefrati, gestora de frota de Sarandi, com trajetória familiar ligada ao transporte e à logística. Defende livre mercado no setor de transporte, revisão de injustiças trabalhistas, legislação adequada para logística, saneamento básico, infraestrutura e apoio aos empresários."
   },
   {
     id: "wagner-proenca-junior", nome: "Wagner Proença Junior", cargo: "estadual",
     cargoLabel: "Deputado Estadual", cidade: "Jaguariaíva, PR", foto: "assets/candidatos/wagner-proenca-junior.jpg",
-    instagram: "#",
+    instagram: "https://www.instagram.com/wagnermissao",
+    facebook: "https://www.facebook.com/share/17zTgy7VVo", tiktok: "https://www.tiktok.com/@wagner.proena.jr", youtube: "https://youtube.com/@owagnerpro",
     bio: "Wagner Proença Junior, empresário de Jaguariaíva, com vivência internacional e atuação comunitária. Defende anticorrupção, reindustrialização, turismo, saneamento e infraestrutura nos Campos Gerais, especialmente em Jaguariaíva, Arapoti, Sengés e Piraí do Sul."
   },
 
@@ -547,6 +609,9 @@ const CANDIDATOS = [
 </script>
 <script>
   const IG_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>';
+  const FB_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.6L18 12h-4v-2.5A1.5 1.5 0 0 1 15.5 8H18Z"/></svg>';
+  const TT_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>';
+  const YT_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5Z" fill="currentColor" stroke="none"/></svg>';
   const PIN_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>';
 
   function getId(){
@@ -589,6 +654,12 @@ const CANDIDATOS = [
 
     const igBtn = (c.instagram && c.instagram!=='#')
       ? `<a href="${c.instagram}" target="_blank" rel="noopener">${IG_SVG} Instagram</a>` : '';
+    const fbBtn = (c.facebook && c.facebook.trim())
+      ? `<a href="${c.facebook}" target="_blank" rel="noopener">${FB_SVG} Facebook</a>` : '';
+    const ttBtn = (c.tiktok && c.tiktok.trim())
+      ? `<a href="${c.tiktok}" target="_blank" rel="noopener">${TT_SVG} TikTok</a>` : '';
+    const ytBtn = (c.youtube && c.youtube.trim())
+      ? `<a href="${c.youtube}" target="_blank" rel="noopener">${YT_SVG} YouTube</a>` : '';
     const grupoBtn = `<a href="grupos.html">Apoiar a Missão</a>`;
 
     const parags = (c.bio||'').split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('');
@@ -605,7 +676,7 @@ const CANDIDATOS = [
           <h1>${esc(c.nome)}</h1>
           <div class="cargo">${preCandidatoLabel(c)} a ${esc(cargoExibido(c))}</div>
           <div class="cidade">${PIN_SVG} ${esc(c.cidade||'')}</div>
-          <div class="prof-links">${igBtn}${grupoBtn}</div>
+          <div class="prof-links">${igBtn}${fbBtn}${ttBtn}${ytBtn}${grupoBtn}</div>
         </div>
       </div></header>
 
