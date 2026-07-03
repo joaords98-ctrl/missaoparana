@@ -55,6 +55,8 @@
   .prof-links{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
   .prof-links a{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--amarelo);border:1.5px solid var(--amarelo);border-radius:10px;padding:9px 16px;transition:all .15s}
   .prof-links a:hover{background:var(--amarelo);color:#1a1304}
+  .share-btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--branco);background:transparent;border:1.5px solid rgba(255,255,255,.3);border-radius:10px;padding:9px 16px;cursor:pointer;transition:all .15s;font-family:inherit}
+  .share-btn:hover{border-color:var(--branco)}
   .prof-body{padding:52px 0}
   .prof-body .sec-eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amarelo);margin-bottom:14px}
   .prof-body h2{font-size:24px;font-weight:800;margin-bottom:18px}
@@ -258,6 +260,8 @@ const CANDIDATOS = [
     const ytBtn = (c.youtube && c.youtube.trim())
       ? `<a href="${c.youtube}" target="_blank" rel="noopener">${YT_SVG} YouTube</a>` : '';
     const grupoBtn = `<a href="grupos.html">Apoiar a Missão</a>`;
+    const SHARE_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>';
+    const shareBtn = `<button class="share-btn" id="shareBtn" type="button">${SHARE_SVG} Compartilhar</button>`;
 
     const parags = (c.bio||'').split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('');
     const resumoHTML = c.resumo ? `<div class="prof-resumo">${esc(c.resumo)}</div>` : '';
@@ -273,7 +277,7 @@ const CANDIDATOS = [
           <h1>${esc(c.nome)}</h1>
           <div class="cargo">Pré-candidato a ${esc(c.cargoLabel||'')}</div>
           <div class="cidade">${PIN_SVG} ${esc(c.cidade||'')}</div>
-          <div class="prof-links">${igBtn}${ytBtn}${grupoBtn}</div>
+          <div class="prof-links">${igBtn}${ytBtn}${grupoBtn}${shareBtn}</div>
         </div>
       </div></header>
 
@@ -294,6 +298,22 @@ const CANDIDATOS = [
     `;
   }
   render();
+  const shareButton = document.getElementById('shareBtn');
+  if(shareButton){
+    shareButton.addEventListener('click', async function(){
+      const url = window.location.href;
+      if(navigator.share){
+        try{ await navigator.share({ title: document.title, url: url }); }catch(e){}
+      } else {
+        try{
+          await navigator.clipboard.writeText(url);
+          const textoOriginal = shareButton.innerHTML;
+          shareButton.innerHTML = 'Link copiado!';
+          setTimeout(function(){ shareButton.innerHTML = textoOriginal; }, 2000);
+        }catch(e){}
+      }
+    });
+  }
 </script>
 <script>
 (function(){
