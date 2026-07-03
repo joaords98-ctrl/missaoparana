@@ -110,7 +110,7 @@ const CANDIDATOS = [
   },
   {
     id: "diogo-costa", nome: "Diogo Costa", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Campo Largo, PR", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Campo Largo, PR", foto: "assets/candidatos/diogo-costa.jpg",
     instagram: "https://www.instagram.com/diogocosta_pr/",
     bio: "Diogo Costa, empresário de Campo Largo, com trajetória de trabalho desde cedo e experiência em defesa de crianças e adolescentes. Defende desburocratização, redução da carga tributária, combate à violência infantil, assistência social e empreendedorismo."
   },
@@ -298,7 +298,7 @@ const CANDIDATOS = [
   },
   {
     id: "rubens-nascimento", nome: "Rubens Nascimento", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Piraquara, PR", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Piraquara, PR", foto: "assets/candidatos/rubens-nascimento.jpg",
     instagram: "https://www.instagram.com/rubensnascimentopr/",
     bio: "Aos 28 anos, marido e pai, Rubens Nascimento é bacharel em Teologia e entusiasta da tecnologia, guiado pela convicção de usar a inovação para dar dignidade a quem sempre foi deixado para trás. Não é político de carreira.\n\nDe Piraquara para o Paraná, é pré-candidato a Deputado Estadual e constrói uma candidatura de quem veio do povo, para servir o povo. Cresceu nas periferias de Curitiba, estudou em escola pública e aprendeu que mudança de verdade começa por quem conhece a realidade — e quem conhece a realidade sabe o que precisa mudar."
   },
