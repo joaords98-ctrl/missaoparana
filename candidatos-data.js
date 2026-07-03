@@ -319,7 +319,7 @@ const CANDIDATOS = [
   },
   {
     id: "erica-de-freitas-goncalves", nome: "Erica de Freitas Gonçalves", cargo: "estadual", genero: "f",
-    cargoLabel: "Deputado Estadual", cidade: "Foz do Iguaçu, PR", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Foz do Iguaçu, PR", foto: "assets/candidatos/erica-de-freitas-goncalves.jpg",
     instagram: "https://www.instagram.com/almeida._erica",
     facebook: "https://www.facebook.com/share/18jWtJP9kX", tiktok: "", youtube: "",
     bio: "Erica de Freitas Gonçalves, do lar, de Foz do Iguaçu, com perfil cuidador, prático e estável. Defende educação, meio ambiente, educação na primeira infância, infraestrutura e direitos das mulheres, com atuação na região leste e nordeste de Foz."
@@ -354,10 +354,10 @@ const CANDIDATOS = [
   },
   {
     id: "lucas-backes", nome: "Lucas Backes", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Francisco Beltrão, PR", foto: "",
-    instagram: "#",
-    facebook: "", tiktok: "", youtube: "",
-    bio: "Em breve mais informações sobre a trajetória de Lucas Backes, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    cargoLabel: "Deputado Estadual", cidade: "Francisco Beltrão, PR", foto: "assets/candidatos/lucas-backes.jpg",
+    instagram: "https://www.instagram.com/lucasbackes14pr/",
+    facebook: "https://www.facebook.com/lucas.backes.754", tiktok: "", youtube: "",
+    bio: "Lucas Backes, músico, restaurador, detailer e customizador de Francisco Beltrão, com passagem também pela cozinha e pela vida no interior. Soldado 3631 e Coordenador do MBL no Paraná, é pré-candidato a Deputado Estadual pela Missão Paraná."
   },
   {
     id: "fernando-garbatchevski", nome: "Fernando Garbatchevski", cargo: "estadual",
