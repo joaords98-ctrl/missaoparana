@@ -149,7 +149,7 @@ const CANDIDATOS = [
   },
   {
     id: "tayna-vieia", nome: "Naná Vieira", cargo: "federal", genero: "f",
-    cargoLabel: "Deputado Federal", cidade: "São Mateus do Sul, PR", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "São Mateus do Sul, PR", foto: "assets/candidatos/tayna-vieia.jpg",
     instagram: "https://www.instagram.com/nanarvieira",
     facebook: "https://www.facebook.com/share/1BUME7LEmj", tiktok: "", youtube: "",
     bio: "Naná Vieira, decoradora de eventos de São Mateus do Sul, casada, com participação em grupo de jovens da Igreja Católica. Defende segurança para mulheres, artes marciais como ferramenta de defesa pessoal, incentivo ao esporte e atenção às comunidades carentes e pequenas propriedades rurais."
@@ -240,7 +240,7 @@ const CANDIDATOS = [
   },
   {
     id: "marianny-thayla", nome: "Marianny Thayla", cargo: "federal", genero: "f",
-    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "",
+    cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/marianny-thayla.jpg",
     instagram: "https://www.instagram.com/mariguedes14",
     facebook: "", tiktok: "https://www.tiktok.com/@marianny.thayla", youtube: "https://www.youtube.com/@MariannyTCGuedes",
     bio: "Marianny Thayla, gerente de projetos de Curitiba e representante da pauta das pessoas com deficiência. Defende acessibilidade plena, proteção da mulher com deficiência, fiscalização do BPC/LOAS, busca ativa de PCDs invisíveis e criação de um observatório de direitos das PCDs no Paraná."
@@ -312,7 +312,7 @@ const CANDIDATOS = [
   },
   {
     id: "lucas-leonardo-franca-de-oliveira", nome: "Lucas Leonardo França de Oliveira", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Londrina, PR", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Londrina, PR", foto: "assets/candidatos/lucas-leonardo-franca-de-oliveira.jpg",
     instagram: "https://www.instagram.com/lucasdoliveiraa_",
     facebook: "", tiktok: "https://www.tiktok.com/@lucasdoliveiraa_", youtube: "",
     bio: "Lucas Leonardo França de Oliveira, biomédico de Londrina, mestre em Ciências Fisiológicas, empreendedor e líder de voluntários em sua igreja. Defende revisão do pacto federativo, saúde, educação, infraestrutura, desenvolvimento econômico e maior protagonismo de Londrina."
@@ -347,7 +347,7 @@ const CANDIDATOS = [
   },
   {
     id: "henrique-de-souza", nome: "Henrique de Souza", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Tatuquara, Curitiba - PR", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Tatuquara, Curitiba - PR", foto: "assets/candidatos/henrique-de-souza.jpg",
     instagram: "https://www.instagram.com/henriquesouzacwb",
     facebook: "https://www.facebook.com/share/16yjXMWgZb", tiktok: "https://www.tiktok.com/@henriquesouzareporter", youtube: "https://youtube.com/@henriquesouzahumorista997",
     bio: "Henrique Souza tem 24 anos e, desde 2019, atua como influenciador digital e liderança regional em Curitiba, levando informação com humor, mas sem passar pano: denunciando atrasos em obras, cobrando reparos e expondo os descasos que a população enfrenta todos os dias.\n\nCansado de apenas filmar o problema, decidiu ir além: é pré-candidato a Deputado Estadual para ajudar a resolver de dentro o que sempre cobrou de fora."
