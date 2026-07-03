@@ -361,7 +361,7 @@ const CANDIDATOS = [
   },
   {
     id: "fernando-garbatchevski", nome: "Fernando Garbatchevski", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Prudentópolis, PR", foto: "",
+    cargoLabel: "Deputado Estadual", cidade: "Prudentópolis, PR", foto: "assets/candidatos/fernando-garbatchevski.jpg",
     instagram: "https://www.instagram.com/garba_fernando",
     facebook: "https://www.facebook.com/share/1LfGGV9sXY", tiktok: "", youtube: "",
     bio: "Fernando Garbatchevski, instrutor de lutas e motoboy de Prudentópolis, com trajetória marcada por trabalho, disciplina e superação. Defende segurança pública, combate à corrupção, valorização do trabalhador, redução de impostos e fortalecimento de oportunidades para jovens e trabalhadores autônomos."
