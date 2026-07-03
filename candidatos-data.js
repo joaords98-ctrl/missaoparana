@@ -67,7 +67,7 @@ const CANDIDATOS = [
     id: "pedro-deyrot", nome: "Pedro Deyrot", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/pedro-deyrot.jpg",
     instagram: "https://www.instagram.com/pedro.deyrot/",
-    facebook: "", tiktok: "", youtube: "",
+    facebook: "", tiktok: "", youtube: "", twitter: "https://x.com/PedroDeyrot",
     bio: "Um dos fundadores do Movimento Brasil Livre (MBL) e do Partido Missão, Pedro Deyrot cresceu em Curitiba, é publicitário e produtor musical, e integrou o Bonde do Rolê, banda que fez sucesso internacional e chegou a tocar em festivais como Coachella e Glastonbury — experiência que lhe deu domínio raro sobre cultura, linguagem e comunicação de massa. Em 2014, ao lado de Renan Santos e Kim Kataguiri, fundou o MBL e foi um dos principais articuladores das manifestações que levaram ao impeachment de Dilma Rousseff, seguindo como Coordenador Nacional do movimento e professor de comunicação na Academia MBL.\n\nEm novembro de 2025, com a aprovação do Partido Missão pelo TSE, tornou-se vice-presidente do Partido no Paraná, dedicando-se à investigação e apuração de dossiês sobre escândalos atuais — disponíveis publicamente em pedrodeyrot.com/denuncias — e criou o site escandalomaster.com, que mapeia o esquema de corrupção do Banco Master. É pré-candidato a Deputado Federal pelo Paraná com atuação focada nas propostas do Livro Amarelo: agronegócio, família, segurança pública e combate à corrupção onde ela estiver."
   },
   {

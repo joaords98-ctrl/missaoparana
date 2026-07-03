@@ -185,7 +185,7 @@ const CANDIDATOS = [
     id: "pedro-deyrot", nome: "Pedro Deyrot", cargo: "federal",
     cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/pedro-deyrot.jpg",
     instagram: "https://www.instagram.com/pedro.deyrot/",
-    facebook: "", tiktok: "", youtube: "",
+    facebook: "", tiktok: "", youtube: "", twitter: "https://x.com/PedroDeyrot",
     bio: "Um dos fundadores do Movimento Brasil Livre (MBL) e do Partido Missão, Pedro Deyrot cresceu em Curitiba, é publicitário e produtor musical, e integrou o Bonde do Rolê, banda que fez sucesso internacional e chegou a tocar em festivais como Coachella e Glastonbury — experiência que lhe deu domínio raro sobre cultura, linguagem e comunicação de massa. Em 2014, ao lado de Renan Santos e Kim Kataguiri, fundou o MBL e foi um dos principais articuladores das manifestações que levaram ao impeachment de Dilma Rousseff, seguindo como Coordenador Nacional do movimento e professor de comunicação na Academia MBL.\n\nEm novembro de 2025, com a aprovação do Partido Missão pelo TSE, tornou-se vice-presidente do Partido no Paraná, dedicando-se à investigação e apuração de dossiês sobre escândalos atuais — disponíveis publicamente em pedrodeyrot.com/denuncias — e criou o site escandalomaster.com, que mapeia o esquema de corrupção do Banco Master. É pré-candidato a Deputado Federal pelo Paraná com atuação focada nas propostas do Livro Amarelo: agronegócio, família, segurança pública e combate à corrupção onde ela estiver."
   },
   {
@@ -598,6 +598,7 @@ const CANDIDATOS = [
   const FB_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.6L18 12h-4v-2.5A1.5 1.5 0 0 1 15.5 8H18Z"/></svg>';
   const TT_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>';
   const YT_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5Z" fill="currentColor" stroke="none"/></svg>';
+  const X_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M20 4L4 20"/></svg>';
   const PIN_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>';
 
   function getId(){
@@ -646,6 +647,8 @@ const CANDIDATOS = [
       ? `<a href="${c.tiktok}" target="_blank" rel="noopener">${TT_SVG} TikTok</a>` : '';
     const ytBtn = (c.youtube && c.youtube.trim())
       ? `<a href="${c.youtube}" target="_blank" rel="noopener">${YT_SVG} YouTube</a>` : '';
+    const xBtn = (c.twitter && c.twitter.trim())
+      ? `<a href="${c.twitter}" target="_blank" rel="noopener">${X_SVG} X</a>` : '';
     const grupoBtn = `<a href="grupos.html">Apoiar a Missão</a>`;
 
     const parags = (c.bio||'').split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('');
@@ -662,7 +665,7 @@ const CANDIDATOS = [
           <h1>${esc(c.nome)}</h1>
           <div class="cargo">${preCandidatoLabel(c)} a ${esc(cargoExibido(c))}</div>
           <div class="cidade">${PIN_SVG} ${esc(c.cidade||'')}</div>
-          <div class="prof-links">${igBtn}${fbBtn}${ttBtn}${ytBtn}${grupoBtn}</div>
+          <div class="prof-links">${igBtn}${fbBtn}${ttBtn}${ytBtn}${xBtn}${grupoBtn}</div>
         </div>
       </div></header>
 
