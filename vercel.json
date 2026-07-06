@@ -1,6 +1,10 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/c", "destination": "/candidatos.html", "permanent": false },
+    { "source": "/c/", "destination": "/candidatos.html", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/candidato.html", "destination": "/api/candidato" },
     { "source": "/candidato", "destination": "/api/candidato" },
