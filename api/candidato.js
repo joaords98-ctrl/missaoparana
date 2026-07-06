@@ -56,11 +56,12 @@ module.exports = (req, res) => {
       const titulo = `${c.nome} — ${cargoExibido(c) || preLabel} | Missão Paraná`;
       const descricao = resumoDe(c);
       const imagem = c.foto && c.foto.trim() ? `${SITE}/${c.foto.replace(/^\/+/, '')}` : FALLBACK_IMG;
-      const pageUrl = `${SITE}/candidato.html?id=${encodeURIComponent(id)}`;
+      const pageUrl = `${SITE}/c/${encodeURIComponent(id)}`;
 
       html = html
         .replace(/<title>[^<]*<\/title>/, `<title>${esc(titulo)}</title>`)
         .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(descricao)}">`)
+        .replace(/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${esc(pageUrl)}">`)
         .replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${esc(titulo)}">`)
         .replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${esc(descricao)}">`)
         .replace(/<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${esc(pageUrl)}">`)

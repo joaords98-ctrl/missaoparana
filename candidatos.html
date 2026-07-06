@@ -678,7 +678,7 @@ const CANDIDATOS = [
 <script>
   const AVATAR = "assets/img/img-d2433fe371.png";
   function foto(c){ return c.foto && c.foto.trim() ? c.foto : AVATAR; }
-  function linkDe(c){ return c.pagina && c.pagina.trim() ? c.pagina : ('candidato.html?id='+encodeURIComponent(c.id)); }
+  function linkDe(c){ return c.pagina && c.pagina.trim() ? c.pagina : ('c/'+encodeURIComponent(c.id)); }
   function normaliza(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
 
   function cardHTML(c){

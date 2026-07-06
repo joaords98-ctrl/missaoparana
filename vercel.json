@@ -3,7 +3,8 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/candidato.html", "destination": "/api/candidato" },
-    { "source": "/candidato", "destination": "/api/candidato" }
+    { "source": "/candidato", "destination": "/api/candidato" },
+    { "source": "/c/:id", "destination": "/api/candidato?id=:id" }
   ],
   "functions": {
     "api/candidato.js": {

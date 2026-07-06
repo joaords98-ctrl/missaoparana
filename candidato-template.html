@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pré-candidato — Missão Paraná</title>
 <meta name="description" content="Conheça este pré-candidato da Missão no Paraná.">
+<link rel="canonical" href="https://missaoparana.com.br/candidato.html">
 <meta name="theme-color" content="#0a0a0a">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
@@ -599,7 +600,10 @@ const CANDIDATOS = [
 
   function getId(){
     const p = new URLSearchParams(location.search);
-    return p.get('id');
+    const doQuery = p.get('id');
+    if(doQuery) return doQuery;
+    const m = location.pathname.match(/\/c\/([^/?#]+)/);
+    return m ? decodeURIComponent(m[1]) : null;
   }
   const AVATAR = "assets/img/img-d2433fe371.png";
   function foto(c){ return c.foto && c.foto.trim() ? c.foto : AVATAR; }
