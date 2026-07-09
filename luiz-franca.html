@@ -38,7 +38,9 @@
   },
   "sameAs": [
     "https://www.instagram.com/14luizfranca/",
-    "https://www.youtube.com/@14luizfranca"
+    "https://www.youtube.com/@14luizfranca",
+    "https://www.facebook.com/profile.php?id=61591696355953",
+    "https://www.tiktok.com/@14luizfranca"
   ]
 }
 </script>
@@ -187,6 +189,8 @@ const CANDIDATOS = [
     foto: "assets/img/img-f8839da376.jpg",
     instagram: "https://www.instagram.com/14luizfranca/",
     youtube: "https://www.youtube.com/@14luizfranca",
+    facebook: "https://www.facebook.com/profile.php?id=61591696355953",
+    tiktok: "https://www.tiktok.com/@14luizfranca",
     resumo: "Advogado e consultor político, Luiz Felipe França defende um Paraná com instituições fortes, liberdade econômica e gestão eficiente.",
     bio: "Natural do Paraná, Luiz Felipe França construiu sua trajetória unindo dedicação aos estudos, atuação profissional e participação ativa nos debates sobre desenvolvimento econômico, gestão pública e política. Desde cedo, desenvolveu interesse por temas ligados ao crescimento econômico, à segurança jurídica e ao fortalecimento das instituições.\n\nLuiz Felipe França acredita que o desenvolvimento do Paraná depende de instituições fortes, segurança jurídica, liberdade econômica e gestão eficiente. Sua atuação é voltada à construção de soluções que gerem crescimento, oportunidades e qualidade de vida para os paranaenses.",
     trajetoria: [
@@ -246,6 +250,8 @@ const CANDIDATOS = [
 <script>
   const IG_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>';
   const YT_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5Z" fill="currentColor" stroke="none"/></svg>';
+  const FB_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.6L18 12h-4v-2.5A1.5 1.5 0 0 1 15.5 8H18Z"/></svg>';
+  const TT_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>';
   const PIN_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>';
 
   function getId(){
@@ -279,6 +285,10 @@ const CANDIDATOS = [
       ? `<a href="${c.instagram}" target="_blank" rel="noopener">${IG_SVG} Instagram</a>` : '';
     const ytBtn = (c.youtube && c.youtube.trim())
       ? `<a href="${c.youtube}" target="_blank" rel="noopener">${YT_SVG} YouTube</a>` : '';
+    const fbBtn = (c.facebook && c.facebook.trim())
+      ? `<a href="${c.facebook}" target="_blank" rel="noopener">${FB_SVG} Facebook</a>` : '';
+    const ttBtn = (c.tiktok && c.tiktok.trim())
+      ? `<a href="${c.tiktok}" target="_blank" rel="noopener">${TT_SVG} TikTok</a>` : '';
     const grupoBtn = `<a href="grupos.html">Apoiar a Missão</a>`;
     const SHARE_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>';
     const shareBtn = `<button class="share-btn" id="shareBtn" type="button">${SHARE_SVG} Compartilhar</button>`;
@@ -297,7 +307,7 @@ const CANDIDATOS = [
           <h1>${esc(c.nome)}</h1>
           <div class="cargo">Pré-candidato a ${esc(c.cargoLabel||'')}</div>
           <div class="cidade">${PIN_SVG} ${esc(c.cidade||'')}</div>
-          <div class="prof-links">${igBtn}${ytBtn}${grupoBtn}${shareBtn}</div>
+          <div class="prof-links">${igBtn}${fbBtn}${ttBtn}${ytBtn}${grupoBtn}${shareBtn}</div>
         </div>
       </div></header>
 

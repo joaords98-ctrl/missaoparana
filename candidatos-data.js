@@ -25,7 +25,7 @@ const CANDIDATOS = [
     cidade: "Curitiba, PR",
     foto: "assets/candidatos/luiz-franca.jpg",
     instagram: "https://www.instagram.com/14luizfranca/",
-    facebook: "", tiktok: "", youtube: "https://www.youtube.com/@14luizfranca",
+    facebook: "https://www.facebook.com/profile.php?id=61591696355953", tiktok: "https://www.tiktok.com/@14luizfranca", youtube: "https://www.youtube.com/@14luizfranca",
     resumo: "Advogado e consultor político, Luiz Felipe França defende um Paraná com instituições fortes, liberdade econômica e gestão eficiente.",
     bio: "Natural do Paraná, Luiz Felipe França construiu sua trajetória unindo dedicação aos estudos, atuação profissional e participação ativa nos debates sobre desenvolvimento econômico, gestão pública e política. Desde cedo, desenvolveu interesse por temas ligados ao crescimento econômico, à segurança jurídica e ao fortalecimento das instituições.\n\nLuiz Felipe França acredita que o desenvolvimento do Paraná depende de instituições fortes, segurança jurídica, liberdade econômica e gestão eficiente. Sua atuação é voltada à construção de soluções que gerem crescimento, oportunidades e qualidade de vida para os paranaenses.",
     trajetoria: [
