@@ -100,6 +100,16 @@
   .sec-eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amarelo);margin-bottom:16px}
   h2{font-size:clamp(28px,4.5vw,46px);font-weight:800;letter-spacing:-.015em;line-height:1.1;max-width:18ch}
   .mission-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+  .evento-card{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--linha);background:var(--preto-2)}
+  .evento-card img{width:100%;display:block;aspect-ratio:2/1;object-fit:cover}
+  .evento-info{padding:26px 28px 30px}
+  .evento-info h3{font-size:clamp(22px,3vw,30px);margin:6px 0 10px}
+  .evento-meta{display:flex;flex-wrap:wrap;gap:10px 24px;color:#cfcfcf;font-size:14.5px;margin-bottom:16px}
+  .evento-meta span{display:inline-flex;align-items:center;gap:7px}
+  .evento-cta{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14.5px;color:#1a1304;background:var(--amarelo);border-radius:10px;padding:12px 22px;transition:opacity .15s}
+  .evento-cta.disabled{background:transparent;color:var(--amarelo);border:1.5px solid var(--amarelo);cursor:default}
+  .evento-cta.disabled:hover{opacity:1}
+  .evento-cta:not(.disabled):hover{opacity:.85}
   .mission-grid p{color:#cfcfcf;font-size:16.5px;margin-top:22px;max-width:52ch}
   .mission-grid p + p{margin-top:16px}
   .mission-art{position:relative;display:flex;align-items:center;justify-content:center;min-height:320px}
@@ -249,6 +259,25 @@
     <div class="stat"><div class="num" data-suffix="+">0</div><div class="lbl" data-count="1">Movimento crescendo</div></div>
   </div>
 </div>
+
+<section class="block" id="eventos" style="padding-top:50px">
+  <div class="wrap">
+    <div class="sec-eyebrow">Agenda</div>
+    <h2>Participe dos nossos eventos.</h2>
+    <div class="evento-card">
+      <img src="assets/img/congresso-missao-2026.jpg" alt="1º Congresso Missão Paraná — 08 de agosto, Arena Hall, Curitiba">
+      <div class="evento-info">
+        <div class="sec-eyebrow" style="margin-bottom:6px">1º Congresso Missão Paraná</div>
+        <h3>Muitos caminhos, um só Paraná.</h3>
+        <div class="evento-meta">
+          <span>📅 08 de agosto, 14h</span>
+          <span>📍 Arena Hall Curitiba — Rua Jorge Felipe Daher Filho, 24, Fazendinha</span>
+        </div>
+        <a class="evento-cta disabled" href="#" onclick="return false;">Inscrições em breve</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="block wm-rosas" id="movimento">
   <div class="wrap">
