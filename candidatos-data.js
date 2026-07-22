@@ -56,8 +56,8 @@ const CANDIDATOS = [
   },
 
   {
-    id: "delegado-eduardo-kruger", nome: "Delegado Eduardo Kruger", cargo: "senador",
-    cargoLabel: "Senador", cidade: "Araucária, PR", foto: "assets/candidatos/delegado-eduardo-kruger.jpg",
+    id: "delegado-eduardo-kruger", nome: "Delegado Eduardo Kruger", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Araucária, PR", foto: "assets/candidatos/delegado-eduardo-kruger.jpg",
     instagram: "https://www.instagram.com/delegadoeduardokruger",
     facebook: "https://facebook.com/eduardo.kruger.3760", tiktok: "https://www.tiktok.com/@eduardo.kruger.co", youtube: "",
     bio: "Delegado Eduardo Kruger, delegado de Polícia de Araucária, com 18 anos de experiência no combate à violência contra mulheres. Defende proteção das mulheres, combate à violência sexual infantil e enfrentamento de privilégios institucionais que dificultam responsabilização e transparência."
@@ -119,13 +119,6 @@ const CANDIDATOS = [
     instagram: "https://www.instagram.com/analuciapr14",
     facebook: "https://www.facebook.com/share/18dBbRSxPJ", tiktok: "https://www.tiktok.com/@analuciapr14", youtube: "https://youtube.com/@analuciasx",
     bio: "Contadora e analista de controladoria, Ana Lucia Xavier é pré-candidata a Deputada Federal pelo Partido Missão. Enfrenta, ao lado da pré-campanha, o tratamento de um câncer de mama HER2 — uma luta que reforça sua determinação em representar quem também enfrenta desafios difíceis no dia a dia."
-  },
-  {
-    id: "diogo-costa", nome: "Diogo Costa", cargo: "federal",
-    cargoLabel: "Deputado Federal", cidade: "Campo Largo, PR", foto: "assets/candidatos/diogo-costa.jpg",
-    instagram: "https://www.instagram.com/diogocosta_pr",
-    facebook: "https://www.facebook.com/share/1AhYFMgXUY", tiktok: "https://www.tiktok.com/@diogocosta_pr", youtube: "https://youtube.com/@diogocosta_evc",
-    bio: "Diogo Costa, empresário de Campo Largo, com trajetória de trabalho desde cedo e experiência em defesa de crianças e adolescentes. Defende desburocratização, redução da carga tributária, combate à violência infantil, assistência social e empreendedorismo."
   },
   {
     id: "jornalista-isaak-almeida", nome: "Jornalista Isaak Almeida", cargo: "federal",
@@ -319,13 +312,6 @@ const CANDIDATOS = [
     bio: "Lude Riesemberg, comerciante e confeiteiro de Guaratuba, ligado ao comércio local e ao turismo. Defende o fortalecimento turístico da cidade, melhoria das ruas e acessos, atenção às pessoas em situação de rua e renovação política. Atua principalmente no Centro, Brejatuba, Nereidas, Coroados e pontos turísticos de Guaratuba."
   },
   {
-    id: "lucas-leonardo-franca-de-oliveira", nome: "Lucas Leonardo França de Oliveira", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Londrina, PR", foto: "assets/candidatos/lucas-leonardo-franca-de-oliveira.jpg",
-    instagram: "https://www.instagram.com/lucasdoliveiraa_",
-    facebook: "", tiktok: "https://www.tiktok.com/@lucasdoliveiraa_", youtube: "",
-    bio: "Lucas Leonardo França de Oliveira, biomédico de Londrina, mestre em Ciências Fisiológicas, empreendedor e líder de voluntários em sua igreja. Defende revisão do pacto federativo, saúde, educação, infraestrutura, desenvolvimento econômico e maior protagonismo de Londrina."
-  },
-  {
     id: "erica-de-freitas-goncalves", nome: "Erica de Freitas Gonçalves", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", cidade: "Foz do Iguaçu, PR", foto: "assets/candidatos/erica-de-freitas-goncalves.jpg",
     instagram: "https://www.instagram.com/almeida._erica",
@@ -368,8 +354,8 @@ const CANDIDATOS = [
     bio: "Lucas Backes, músico, restaurador, detailer e customizador de Francisco Beltrão, com passagem também pela cozinha e pela vida no interior. Coordenador do MBL no Paraná, é pré-candidato a Deputado Estadual pela Missão Paraná."
   },
   {
-    id: "fernando-garbatchevski", nome: "Fernando Garbatchevski", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Prudentópolis, PR", foto: "assets/candidatos/fernando-garbatchevski.jpg",
+    id: "fernando-garbatchevski", nome: "Fernando Garbatchevski", cargo: "federal",
+    cargoLabel: "Deputado Federal", cidade: "Prudentópolis, PR", foto: "assets/candidatos/fernando-garbatchevski.jpg",
     instagram: "https://www.instagram.com/garba_fernando",
     facebook: "https://www.facebook.com/share/1LfGGV9sXY", tiktok: "", youtube: "",
     bio: "Fernando Garbatchevski, instrutor de lutas e motoboy de Prudentópolis, com trajetória marcada por trabalho, disciplina e superação. Defende segurança pública, combate à corrupção, valorização do trabalhador, redução de impostos e fortalecimento de oportunidades para jovens e trabalhadores autônomos."
@@ -443,13 +429,6 @@ const CANDIDATOS = [
     instagram: "https://www.instagram.com/alessandralimapr14",
     facebook: "https://www.facebook.com/share/189niUn2fL", tiktok: "https://www.tiktok.com/@alessandralimapr14", youtube: "https://youtube.com/@alessandralimapr",
     bio: "Alessandra Lima, de Colombo. Foi promotora em Curitiba e região, com atuação em ações de igreja, voluntariado e atividades políticas do movimento. Defende segurança pública, desfavelização, esporte e desenvolvimento urbano em Colombo."
-  },
-  {
-    id: "vinicius-ferreira", nome: "Vinicius Ferreira", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cidade: "Araucária, PR", foto: "assets/candidatos/vinicius-ferreira.jpg",
-    instagram: "https://www.instagram.com/viniciusferreirabrasil",
-    facebook: "https://www.facebook.com/share/18hYoq28SJ", tiktok: "https://www.tiktok.com/@viniciusferreirabrasil", youtube: "",
-    bio: "Vinicius Ferreira, corretor de imóveis de Araucária, esposo e pai de quatro filhos. Defende política prática, combate ao crime, liberdade econômica, proteção das pessoas de bem, redução de gastos públicos e diminuição de impostos, com atuação em Curitiba."
   },
   {
     id: "raphael-lacerda", nome: "Raphael Lacerda", cargo: "estadual",

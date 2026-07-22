@@ -81,11 +81,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://missaoparana.com.br/c/diogo-costa</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://missaoparana.com.br/c/jornalista-isaak-almeida</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -216,11 +211,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://missaoparana.com.br/c/lucas-leonardo-franca-de-oliveira</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://missaoparana.com.br/c/erica-de-freitas-goncalves</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -302,11 +292,6 @@
   </url>
   <url>
     <loc>https://missaoparana.com.br/c/alessandra-lima</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://missaoparana.com.br/c/vinicius-ferreira</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
