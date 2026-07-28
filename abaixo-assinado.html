@@ -142,7 +142,6 @@
   textarea{resize:vertical;min-height:78px;line-height:1.45}
   input::placeholder,textarea::placeholder{color:#6b6b6b}
   input:focus,textarea:focus{border-color:var(--amarelo);box-shadow:0 0 0 3px rgba(242,169,0,.16);background:#212121;}
-  .opt{font-weight:400;color:var(--cinza);font-size:11.5px;text-transform:none;letter-spacing:0}
   .lgpd{display:flex;align-items:flex-start;gap:10px;margin:4px 0 16px;font-size:12.5px;color:var(--cinza-claro);}
   .lgpd input{margin-top:2px;width:17px;height:17px;accent-color:var(--amarelo);cursor:pointer;flex:0 0 auto}
   .lgpd a{color:var(--amarelo);text-decoration:underline}
@@ -306,7 +305,7 @@
                 <input type="email" id="email" placeholder="voce@email.com" autocomplete="email">
                 <div class="err">Informe um e-mail válido.</div></div>
 
-              <div class="field" id="f-zap"><label for="zap">WhatsApp <span class="opt">(opcional)</span></label>
+              <div class="field" id="f-zap"><label for="zap">WhatsApp</label>
                 <input type="tel" id="zap" placeholder="(00) 00000-0000" autocomplete="tel" inputmode="numeric">
                 <div class="err">WhatsApp inválido.</div></div>
 
@@ -326,8 +325,9 @@
                 </div>
                 <div class="err">Selecione uma das opções.</div></div>
 
-              <div class="field"><label for="prof"><span id="labProf">Profissão</span> <span class="opt">(opcional)</span></label>
-                <input type="text" id="prof" placeholder="Ex.: enfermeira, professor, mãe" autocomplete="organization-title"></div>
+              <div class="field" id="f-prof"><label for="prof"><span id="labProf">Profissão</span></label>
+                <input type="text" id="prof" placeholder="Ex.: enfermeira, professor, mãe" autocomplete="organization-title">
+                <div class="err">Informe sua profissão.</div></div>
 
               <div class="lgpd"><input type="checkbox" id="lgpd">
                 <label for="lgpd">Li e concordo com a <a href="#" onclick="return false;">Política de Privacidade</a> e autorizo o tratamento dos meus dados conforme a LGPD.</label></div>
@@ -427,8 +427,9 @@ $('form').addEventListener('submit',async e=>{
 
   if(nome.length<3||!nome.includes(' ')){setErr('f-nome',true);ok=false;}else setErr('f-nome',false);
   if(!validEmail(email)){setErr('f-email',true,'Informe um e-mail válido.');ok=false;}else setErr('f-email',false);
-  if(zap && zap.replace(/\D/g,'').length<10){setErr('f-zap',true);ok=false;}else setErr('f-zap',false);
+  if(zap.replace(/\D/g,'').length<10){setErr('f-zap',true,'Informe um WhatsApp válido.');ok=false;}else setErr('f-zap',false);
   if(cidade.length<2){setErr('f-cidade',true);ok=false;}else setErr('f-cidade',false);
+  if(prof.length<2){setErr('f-prof',true);ok=false;}else setErr('f-prof',false);
   if(uf.length!==2){setErr('f-uf',true);ok=false;}else setErr('f-uf',false);
   if(SAUDE===null){setErr('f-saude',true);ok=false;}else setErr('f-saude',false);
   if(!$('lgpd').checked){if(ok)alert('Você precisa aceitar a Política de Privacidade (LGPD) para assinar.');ok=false;}
@@ -441,8 +442,8 @@ $('form').addEventListener('submit',async e=>{
       headers:Object.assign({'Content-Type':'application/json','Prefer':'return=minimal'},HEADERS),
       body:JSON.stringify({
         abaixo_assinado_id:CAMPANHA.id, nome, email,
-        whatsapp:zap||null, cidade, estado:uf,
-        profissao:prof||null, profissional_saude:SAUDE,
+        whatsapp:zap, cidade, estado:uf,
+        profissao:prof, profissional_saude:SAUDE,
         publico:false, consentimento:true
       })
     });
