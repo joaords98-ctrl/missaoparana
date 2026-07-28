@@ -93,9 +93,6 @@
   .chip:hover{border-color:var(--amarelo)}
   .chip.on{background:rgba(242,169,0,.16);border-color:var(--amarelo);color:#fff}
   .field.invalid .chip{border-color:var(--erro)}
-  .badge-saude{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--amarelo);background:rgba(242,169,0,.1);border:1px solid rgba(242,169,0,.3);
-    padding:2px 8px;border-radius:999px;margin-left:7px;vertical-align:middle}
   .redir-note{margin-top:14px;font-size:12px;color:#5a5a5a}
 
   /* ---------- Contador ---------- */
@@ -175,16 +172,6 @@
     box-shadow:0 10px 26px rgba(242,169,0,.3)}
   .share .copy{background:#1c1c1c;border:1.5px solid #2c2c2c;color:#d6d6d6;cursor:pointer;font-family:inherit;font-size:15px}
 
-  /* ---------- Assinantes ---------- */
-  .assinantes{margin-top:52px;border-top:1px solid var(--linha);padding-top:34px}
-  .assinantes h2{font-size:22px;font-weight:800;margin-bottom:4px}
-  .assinantes .hint{color:var(--cinza-claro);font-size:13.5px;margin-bottom:20px}
-  .sign-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
-  .sign{background:rgba(255,255,255,.025);border:1px solid var(--linha);border-radius:14px;padding:14px 16px}
-  .sign .n{font-weight:700;font-size:14.5px}
-  .sign .c{font-size:12.5px;color:var(--cinza-claro);margin-top:2px}
-  .sign .m{font-size:13.5px;color:#cfcfcf;margin-top:9px;font-style:italic;line-height:1.5}
-  .sign-empty{color:var(--cinza-claro);font-size:14px;padding:18px 0}
 
   footer{position:relative;z-index:2;text-align:center;padding:22px;color:#5a5a5a;font-size:12px;border-top:1px solid var(--linha)}
   footer img{height:28px;opacity:.6;margin:0 auto 8px;display:block}
@@ -342,12 +329,6 @@
               <div class="field"><label for="prof"><span id="labProf">Profissão</span> <span class="opt">(opcional)</span></label>
                 <input type="text" id="prof" placeholder="Ex.: enfermeira, professor, mãe" autocomplete="organization-title"></div>
 
-              <div class="field"><label for="msg">Por que você assina? <span class="opt">(opcional)</span></label>
-                <textarea id="msg" placeholder="Conte em poucas linhas o que te motiva a apoiar." maxlength="500"></textarea></div>
-
-              <div class="lgpd"><input type="checkbox" id="publico" checked>
-                <label for="publico">Autorizo exibir meu nome e cidade na lista pública de assinantes.</label></div>
-
               <div class="lgpd"><input type="checkbox" id="lgpd">
                 <label for="lgpd">Li e concordo com a <a href="#" onclick="return false;">Política de Privacidade</a> e autorizo o tratamento dos meus dados conforme a LGPD.</label></div>
 
@@ -372,12 +353,6 @@
 
     </div>
 
-    <section class="assinantes">
-      <h2>Quem já assinou</h2>
-      <p class="hint">Apenas quem autorizou a exibição pública do nome.</p>
-      <div class="sign-grid" id="signGrid"></div>
-      <div class="sign-empty" id="signEmpty" style="display:none">Seja a primeira pessoa a assinar este documento.</div>
-    </section>
 
   </div>
 </main>
@@ -393,7 +368,7 @@ const HEADERS={'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY};
 const $ = id => document.getElementById(id);
 let CAMPANHA=null, TOTAL=0;
 
-/* ---------- Carregar campanha + assinantes ---------- */
+/* ---------- Carregar campanha ---------- */
 async function carregar(){
   try{
     const r=await fetch(SUPABASE_URL+'/rest/v1/abaixo_assinados_publicos?slug=eq.'+SLUG+'&select=*',{headers:HEADERS});
@@ -402,7 +377,6 @@ async function carregar(){
       CAMPANHA=d[0];
       TOTAL=Number(CAMPANHA.total_assinaturas)||0;
       pintarContador();
-      carregarAssinantes();
     }
   }catch(e){ $('cTotal').textContent='0'; }
 }
@@ -411,24 +385,6 @@ function pintarContador(){
   $('cTotal').textContent=TOTAL.toLocaleString('pt-BR');
   $('cMeta').textContent=meta.toLocaleString('pt-BR');
   $('cBar').style.width=Math.min(100,(TOTAL/meta)*100)+'%';
-}
-async function carregarAssinantes(){
-  try{
-    const r=await fetch(SUPABASE_URL+'/rest/v1/abaixo_assinado_assinantes_publicos?abaixo_assinado_id=eq.'+CAMPANHA.id+
-      '&select=nome,cidade,estado,profissao,profissional_saude,mensagem&order=created_at.desc&limit=60',{headers:HEADERS});
-    const d=await r.json();
-    const grid=$('signGrid');
-    if(!d||!d.length){ $('signEmpty').style.display='block'; return; }
-    $('signEmpty').style.display='none';
-    grid.innerHTML=d.map(s=>{
-      const local=[s.cidade,s.estado].filter(Boolean).join(' — ');
-      const prof=s.profissao?' · '+esc(s.profissao):'';
-      const selo=s.profissional_saude?'<span class="badge-saude">Saúde</span>':'';
-      return '<div class="sign"><div class="n">'+esc(s.nome)+selo+'</div>'+
-             '<div class="c">'+esc(local)+prof+'</div>'+
-             (s.mensagem?'<div class="m">"'+esc(s.mensagem)+'"</div>':'')+'</div>';
-    }).join('');
-  }catch(e){}
 }
 function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
@@ -467,7 +423,7 @@ $('form').addEventListener('submit',async e=>{
   let ok=true;
   const nome=$('nome').value.trim(), email=$('email').value.trim(), zap=$('zap').value.trim();
   const cidade=$('cidade').value.trim(), uf=$('uf').value.trim().toUpperCase();
-  const prof=$('prof').value.trim(), msg=$('msg').value.trim();
+  const prof=$('prof').value.trim();
 
   if(nome.length<3||!nome.includes(' ')){setErr('f-nome',true);ok=false;}else setErr('f-nome',false);
   if(!validEmail(email)){setErr('f-email',true,'Informe um e-mail válido.');ok=false;}else setErr('f-email',false);
@@ -486,8 +442,8 @@ $('form').addEventListener('submit',async e=>{
       body:JSON.stringify({
         abaixo_assinado_id:CAMPANHA.id, nome, email,
         whatsapp:zap||null, cidade, estado:uf,
-        profissao:prof||null, profissional_saude:SAUDE, mensagem:msg||null,
-        publico:$('publico').checked, consentimento:true
+        profissao:prof||null, profissional_saude:SAUDE,
+        publico:false, consentimento:true
       })
     });
 
@@ -506,7 +462,6 @@ $('form').addEventListener('submit',async e=>{
     $('shareZap').href='https://wa.me/?text='+encodeURIComponent(txt+url);
     $('formWrap').style.display='none';
     $('success').classList.add('show');
-    carregarAssinantes();
 
     // grupo de WhatsApp conforme o perfil (links vêm do banco)
     const grupo = SAUDE ? CAMPANHA.grupo_whatsapp_saude : CAMPANHA.grupo_whatsapp_geral;
