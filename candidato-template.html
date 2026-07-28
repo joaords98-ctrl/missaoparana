@@ -69,6 +69,12 @@
   .cta-band::after{content:"";position:absolute;inset:0;background:radial-gradient(40vw 40vw at 85% 30%,rgba(242,169,0,.18),transparent 60%);pointer-events:none}
   .cta-band .in{position:relative;z-index:2;max-width:600px;margin:0 auto}
   .cta-band p{color:#cfcfcf;margin:10px 0 24px;font-size:16px}
+  .aa-card{margin:34px 0 8px;border:1px solid rgba(242,169,0,.28);border-left:3px solid var(--amarelo);
+    border-radius:16px;padding:24px 26px;background:linear-gradient(180deg,rgba(242,169,0,.07),rgba(255,255,255,.02))}
+  .aa-card .aa-tag{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--amarelo);margin-bottom:10px}
+  .aa-card h3{font-size:20px;font-weight:800;margin-bottom:8px;line-height:1.25}
+  .aa-card p{color:#cfcfcf;font-size:15.5px;margin-bottom:20px}
+  @media(max-width:560px){.aa-card{padding:20px 18px}.aa-card h3{font-size:18px}}
   .btn{display:inline-block;font-weight:800;font-size:15px;border-radius:12px;padding:14px 28px;background:linear-gradient(180deg,var(--amarelo-claro),var(--amarelo));color:#1a1304;box-shadow:0 10px 26px rgba(242,169,0,.28);transition:filter .15s}
   .btn:hover{filter:brightness(1.05)}
   footer{background:var(--preto-2);border-top:1px solid var(--linha);padding:38px 0;text-align:center;color:#6a6a6a;font-size:13px}
@@ -216,6 +222,12 @@ const CANDIDATOS = [
   },
   {
     id: "yvis-de-oliveira", nome: "Yvis de Oliveira", cargo: "federal", genero: "f",
+    abaixoAssinado: {
+      url: "abaixo-assinado.html",
+      titulo: "UPAs pediátricas exclusivas para o Paraná",
+      texto: "Crianças não são adultos em miniatura. Assine pela criação de Unidades de Pronto Atendimento com estrutura e equipe dedicadas exclusivamente à pediatria, 24 horas.",
+      cta: "Assinar o abaixo-assinado"
+    },
     cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/yvis-de-oliveira.jpg",
     instagram: "https://www.instagram.com/yvisoliveira_14",
     facebook: "https://www.facebook.com/share/1GMs9dnVUB", tiktok: "https://www.tiktok.com/@yvisoliveira_14", youtube: "https://youtube.com/@yvisoliveira_14",
@@ -712,6 +724,13 @@ const CANDIDATOS = [
 
     const parags = (c.bio||'').split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('');
     const resumoHTML = c.resumo ? `<div class="prof-resumo">${esc(c.resumo)}</div>` : '';
+    const aa = c.abaixoAssinado;
+    const aaHTML = (aa && aa.url) ? `<div class="aa-card">
+        <div class="aa-tag">Abaixo-assinado</div>
+        <h3>${esc(aa.titulo||'')}</h3>
+        <p>${esc(aa.texto||'')}</p>
+        <a class="btn" href="${esc(aa.url)}">${esc(aa.cta||'Assinar agora')}</a>
+      </div>` : '';
     const trajHTML = (Array.isArray(c.trajetoria) && c.trajetoria.length)
       ? `<div class="traj"><h3>Trajetória</h3><ul>${c.trajetoria.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div>`
       : '';
@@ -734,6 +753,7 @@ const CANDIDATOS = [
         ${resumoHTML}
         ${parags}
         ${trajHTML}
+        ${aaHTML}
         <a class="back-link" href="candidatos.html">← Ver todos os pré-candidatos</a>
       </div></section>
 
