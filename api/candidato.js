@@ -1,4 +1,4 @@
-// Gera o preview (og:image/title/description) certo para cada pré-candidato
+// Gera o preview (og:image/title/description) certo para cada candidato
 // ao compartilhar o link candidato.html?id=xxx — sem precisar mexer manualmente
 // toda vez que uma foto ou bio nova é adicionada em candidatos-data.js.
 
@@ -52,7 +52,7 @@ module.exports = (req, res) => {
     const c = candidatos.find((x) => x.id === id);
 
     if (c) {
-      const preLabel = c.genero === 'f' ? 'Pré-candidata' : 'Pré-candidato';
+      const preLabel = c.genero === 'f' ? 'Candidata' : 'Candidato';
       const titulo = `${c.nome} — ${cargoExibido(c) || preLabel} | Missão Paraná`;
       const descricao = resumoDe(c);
       const imagem = c.foto && c.foto.trim() ? `${SITE}/${c.foto.replace(/^\/+/, '')}` : FALLBACK_IMG;
