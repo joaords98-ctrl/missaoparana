@@ -69,6 +69,8 @@
   .cta-band::after{content:"";position:absolute;inset:0;background:radial-gradient(40vw 40vw at 85% 30%,rgba(242,169,0,.18),transparent 60%);pointer-events:none}
   .cta-band .in{position:relative;z-index:2;max-width:600px;margin:0 auto}
   .cta-band p{color:#cfcfcf;margin:10px 0 24px;font-size:16px}
+  .prof-links a.aa-btn{background:linear-gradient(180deg,var(--amarelo-claro),var(--amarelo));color:#1a1304;border-color:var(--amarelo);box-shadow:0 8px 22px rgba(242,169,0,.26)}
+  .prof-links a.aa-btn:hover{filter:brightness(1.06)}
   .btn{display:inline-block;font-weight:800;font-size:15px;border-radius:12px;padding:14px 28px;background:linear-gradient(180deg,var(--amarelo-claro),var(--amarelo));color:#1a1304;box-shadow:0 10px 26px rgba(242,169,0,.28);transition:filter .15s}
   .btn:hover{filter:brightness(1.05)}
   footer{background:var(--preto-2);border-top:1px solid var(--linha);padding:38px 0;text-align:center;color:#6a6a6a;font-size:13px}
@@ -216,6 +218,7 @@ const CANDIDATOS = [
   },
   {
     id: "yvis-de-oliveira", nome: "Yvis de Oliveira", cargo: "federal", genero: "f",
+    abaixoAssinado: { url: "abaixo-assinado.html", cta: "Assinar abaixo-assinado" },
     cargoLabel: "Deputado Federal", cidade: "Curitiba, PR", foto: "assets/candidatos/yvis-de-oliveira.jpg",
     instagram: "https://www.instagram.com/yvisoliveira_14",
     facebook: "https://www.facebook.com/share/1GMs9dnVUB", tiktok: "https://www.tiktok.com/@yvisoliveira_14", youtube: "https://youtube.com/@yvisoliveira_14",
@@ -653,6 +656,7 @@ const CANDIDATOS = [
   const TT_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>';
   const YT_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5Z" fill="currentColor" stroke="none"/></svg>';
   const X_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M20 4L4 20"/></svg>';
+  const PEN_SVG = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>';
   const SHARE_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>';
   const PIN_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>';
 
@@ -712,6 +716,9 @@ const CANDIDATOS = [
 
     const parags = (c.bio||'').split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('');
     const resumoHTML = c.resumo ? `<div class="prof-resumo">${esc(c.resumo)}</div>` : '';
+    const aa = c.abaixoAssinado;
+    const aaBtn = (aa && aa.url)
+      ? `<a class="aa-btn" href="${esc(aa.url)}">${PEN_SVG} ${esc(aa.cta||'Assinar abaixo-assinado')}</a>` : '';
     const trajHTML = (Array.isArray(c.trajetoria) && c.trajetoria.length)
       ? `<div class="traj"><h3>Trajetória</h3><ul>${c.trajetoria.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div>`
       : '';
@@ -724,7 +731,7 @@ const CANDIDATOS = [
           <h1>${esc(c.nome)}</h1>
           <div class="cargo">${preCandidatoLabel(c)} a ${esc(cargoExibido(c))}</div>
           <div class="cidade">${PIN_SVG} ${esc(c.cidade||'')}</div>
-          <div class="prof-links">${igBtn}${fbBtn}${ttBtn}${ytBtn}${xBtn}${grupoBtn}${shareBtn}</div>
+          <div class="prof-links">${igBtn}${fbBtn}${ttBtn}${ytBtn}${xBtn}${aaBtn}${grupoBtn}${shareBtn}</div>
         </div>
       </div></header>
 
