@@ -77,6 +77,8 @@
   .prof-links{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
   .prof-links a{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--amarelo);border:1.5px solid var(--amarelo);border-radius:10px;padding:9px 16px;transition:all .15s}
   .prof-links a:hover{background:var(--amarelo);color:#1a1304}
+  .prof-links a.vakinha-btn{background:linear-gradient(180deg,var(--amarelo-claro),var(--amarelo));color:#1a1304;border-color:var(--amarelo);box-shadow:0 8px 22px rgba(242,169,0,.26)}
+  .prof-links a.vakinha-btn:hover{filter:brightness(1.06);background:linear-gradient(180deg,var(--amarelo-claro),var(--amarelo));color:#1a1304}
   .share-btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--branco);background:transparent;border:1.5px solid rgba(255,255,255,.3);border-radius:10px;padding:9px 16px;cursor:pointer;transition:all .15s;font-family:inherit}
   .share-btn:hover{border-color:var(--branco)}
   .prof-body{padding:52px 0}
@@ -252,6 +254,7 @@ const CANDIDATOS = [
   const YT_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5Z" fill="currentColor" stroke="none"/></svg>';
   const FB_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.6L18 12h-4v-2.5A1.5 1.5 0 0 1 15.5 8H18Z"/></svg>';
   const TT_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>';
+  const HEART_SVG = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>';
   const PIN_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>';
 
   function getId(){
@@ -290,6 +293,7 @@ const CANDIDATOS = [
     const ttBtn = (c.tiktok && c.tiktok.trim())
       ? `<a href="${c.tiktok}" target="_blank" rel="noopener">${TT_SVG} TikTok</a>` : '';
     const grupoBtn = `<a href="grupos.html">Apoiar a Missão</a>`;
+    const vakinhaBtn = `<a class="vakinha-btn" href="https://queroapoiar.com.br/luizfranca" target="_blank" rel="noopener">${HEART_SVG} Apoiar a campanha</a>`;
     const SHARE_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>';
     const shareBtn = `<button class="share-btn" id="shareBtn" type="button">${SHARE_SVG} Compartilhar</button>`;
 
@@ -307,7 +311,7 @@ const CANDIDATOS = [
           <h1>${esc(c.nome)}</h1>
           <div class="cargo">Candidato a ${esc(c.cargoLabel||'')}</div>
           <div class="cidade">${PIN_SVG} ${esc(c.cidade||'')}</div>
-          <div class="prof-links">${igBtn}${fbBtn}${ttBtn}${ytBtn}${grupoBtn}${shareBtn}</div>
+          <div class="prof-links">${vakinhaBtn}${igBtn}${fbBtn}${ttBtn}${ytBtn}${grupoBtn}${shareBtn}</div>
         </div>
       </div></header>
 
