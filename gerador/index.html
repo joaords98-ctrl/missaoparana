@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gerador de Artes — Missão Paraná</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-dot">◆</span><b>missão</b><small>PARANÁ</small></div>
+  <span class="status">Gerador interno • MVP</span>
+</header>
+<main class="layout">
+<section class="panel controls">
+  <h1>Gerador de Artes</h1>
+  <p class="muted">Selecione o candidato, ajuste os dados e baixe Feed ou Story.</p>
+
+  <label>Candidato<select id="candidate"></select></label>
+  <div class="two">
+    <label>Cargo<input id="role" type="text"></label>
+    <label>Número<input id="number" type="text" inputmode="numeric"></label>
+  </div>
+  <label>CNPJ
+    <input id="cnpj" type="text" placeholder="00.000.000/0001-00">
+    <span class="hint">Fica salvo neste navegador. Pode deixar vazio por enquanto.</span>
+  </label>
+
+  <div class="photo-card">
+    <div><b>Foto do candidato</b><span id="photoStatus">Tentando carregar foto do site…</span></div>
+    <div class="buttons-inline">
+      <button id="uploadBtn" class="secondary">Trocar foto</button>
+      <button id="removeBgBtn" class="secondary">Remover fundo</button>
+      <input id="photoInput" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+    </div>
+  </div>
+
+  <div class="photo-card">
+    <div><b>Foto fixa do Renan</b><span id="renanStatus">Arquivo incluído no pacote.</span></div>
+    <button id="removeRenanBgBtn" class="secondary">Remover fundo</button>
+  </div>
+
+  <div class="format-tabs">
+    <button data-format="feed" class="format active">Feed <small>1080×1350</small></button>
+    <button data-format="story" class="format">Story <small>1080×1920</small></button>
+  </div>
+
+  <button id="download" class="primary">Baixar PNG</button>
+  <button id="downloadBoth" class="secondary full">Baixar os dois formatos</button>
+
+  <details>
+    <summary>Ajuste fino de enquadramento</summary>
+    <div class="two">
+      <label>Escala candidato<input id="candScale" type="range" min="0.55" max="1.6" step="0.01" value="1"></label>
+      <label>Escala Renan<input id="renanScale" type="range" min="0.55" max="1.6" step="0.01" value="1"></label>
+    </div>
+    <div class="two">
+      <label>X candidato<input id="candX" type="range" min="-300" max="300" step="1" value="0"></label>
+      <label>Y candidato<input id="candY" type="range" min="-300" max="300" step="1" value="0"></label>
+    </div>
+    <div class="two">
+      <label>X Renan<input id="renanX" type="range" min="-300" max="300" step="1" value="0"></label>
+      <label>Y Renan<input id="renanY" type="range" min="-300" max="300" step="1" value="0"></label>
+    </div>
+  </details>
+
+  <div class="notice"><b>Conferência final</b><span>Confira nome, número, cargo, CNPJ e foto antes de publicar.</span></div>
+</section>
+
+<section class="preview-wrap">
+  <div class="preview-head">
+    <div><b>Pré-visualização</b><span id="previewLabel">Feed 1080×1350</span></div>
+    <button id="refresh" class="secondary">Atualizar</button>
+  </div>
+  <div class="canvas-shell"><canvas id="canvas" width="1080" height="1350"></canvas></div>
+  <p class="muted center">Se a remoção automática de fundo não ficar perfeita, carregue um PNG já recortado.</p>
+</section>
+</main>
+<script src="./candidatos.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
