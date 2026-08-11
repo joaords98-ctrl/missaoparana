@@ -11,7 +11,7 @@ function mask(v){const d=v.replace(/\D/g,'').slice(0,14);return d.replace(/^(\d{
 async function init(){
   window.GERADOR_CANDIDATOS.forEach((c,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${c.name} — ${c.number}`;e.candidate.appendChild(o)});
   e.candidate.value=Math.max(0,window.GERADOR_CANDIDATOS.findIndex(c=>c.slug==='wagner-jr')); bind();
-  templateImgs.feed=await loadImg('./assets/template-feed.jpg',false);templateImgs.story=await loadImg('./assets/template-story.jpg',false);renanImg=await loadImg('./assets/renan.jpg',false);
+  templateImgs.feed=await loadImg('/gerador/assets/template-feed.jpg',false);templateImgs.story=await loadImg('/gerador/assets/template-story.jpg',false);renanImg=await loadImg('/gerador/assets/renan.jpg',false);
   await chooseCandidate();
 }
 function bind(){
