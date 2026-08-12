@@ -137,46 +137,69 @@ function cover(ctx,image,x,y,w,h,scale=1,dx=0,dy=0,anchor='bottom-center'){
 }
 
 function drawCandidateSmart(ctx,image,format){
-  const iw=image.width||image.naturalWidth, ih=image.height||image.naturalHeight;
+  const iw=image.width||image.naturalWidth;
+  const ih=image.height||image.naturalHeight;
   const ratio=iw/ih;
 
-  // Approved composition target: candidate occupies left half, from near top to just behind the text.
-  const zone = format==='feed'
-    ? {x:92,y:150,w:590,h:755,bottom:905}
-    : {x:82,y:270,w:610,h:835,bottom:1250};
+  const box = format==='feed'
+    ? {left:120, top:190, width:500, height:665, bottom:855}
+    : {left:115, top:315, width:510, height:850, bottom:1165};
 
-  // Full-body/narrow cutouts get more height; headshot/wide cutouts get less.
-  let targetH;
-  if(ratio < 0.42) targetH = zone.h * 1.03;       // full body / very narrow
-  else if(ratio < 0.62) targetH = zone.h * 0.96;  // half body
-  else if(ratio < 0.82) targetH = zone.h * 0.88;  // portrait
-  else targetH = zone.h * 0.78;                   // head & shoulders / very wide
+  // Fit the already-cut-out person INSIDE the box, never cover it.
+  let dw=box.width;
+  let dh=dw/ratio;
 
-  let dw = targetH * ratio, dh = targetH;
-
-  // Never let a wide headshot swallow the layout.
-  const maxW = format==='feed' ? 610 : 630;
-  if(dw > maxW){
-    const k=maxW/dw; dw*=k; dh*=k;
+  if(dh>box.height){
+    dh=box.height;
+    dw=dh*ratio;
   }
 
-  // Slightly more left bias, candidate anchored to bottom.
-  let px = zone.x + (zone.w - dw) * 0.36;
-  let py = zone.bottom - dh;
-
-  // Guardrails so the head does not get chopped.
-  const minY = format==='feed' ? 160 : 280;
-  if(py < minY){
-    const delta=minY-py;
-    py=minY;
-    // Reduce height a little if necessary to stay inside the composition.
-    if(delta>20){
-      const maxH=zone.bottom-minY;
-      const k=maxH/dh; dw*=k; dh*=k;
+  // Extra clamp for wide headshots / upper-body portraits.
+  if(ratio>0.70){
+    const maxW=box.width*0.86;
+    if(dw>maxW){
+      const k=maxW/dw; dw*=k; dh*=k;
     }
   }
 
+  // Extra presence for very narrow/full-body shots, but still inside box.
+  if(ratio<0.42 && dw<box.width*0.68){
+    const targetW=box.width*0.68;
+    const k=targetW/dw;
+    dw*=k; dh*=k;
+    if(dh>box.height){
+      const k2=box.height/dh; dw*=k2; dh*=k2;
+    }
+  }
+
+  const px=box.left+(box.width-dw)*0.42;
+  const py=box.bottom-dh;
   ctx.drawImage(image,px,py,dw,dh);
+}
+
+function drawRenanLocked(ctx,image,format){
+  const sw=image.width||image.naturalWidth;
+  const sh=image.height||image.naturalHeight;
+
+  // Crop the source to head + torso only. Removes thighs/stool even if
+  // the PNG asset still contains them.
+  const cropH=Math.round(sh*0.58);
+
+  const box = format==='feed'
+    ? {x:590,y:195,w:315,h:560}
+    : {x:595,y:325,w:320,h:590};
+
+  const ratio=sw/cropH;
+  let dw=box.w, dh=dw/ratio;
+  if(dh<box.h){
+    dh=box.h;
+    dw=dh*ratio;
+  }
+
+  // Draw from the top portion of the source, centered in the locked box.
+  const dx=box.x+(box.w-dw)/2;
+  const dy=box.y+(box.h-dh);
+  ctx.drawImage(image,0,0,sw,cropH,dx,dy,dw,dh);
 }
 
 function fitText(ctx,text,maxWidth,startSize,font){
@@ -193,10 +216,10 @@ async function renderArt(candidate,cutout,format,legal){
     ctx.beginPath();ctx.roundRect(104,268,852,812,48);ctx.clip();
   }
   drawCandidateSmart(ctx,cutout,format);
-  const r=renanLayout[format];cover(ctx,renanImg,r.x,r.y,r.w,r.h,r.scale,0,0);
+  drawRenanLocked(ctx,renanImg,format);
   ctx.restore();
 
-  const gradTop=format==='feed'?720:990,gradHeight=format==='feed'?390:500;
+  const gradTop=format==='feed'?700:965,gradHeight=format==='feed'?430:550;
   const grad=ctx.createLinearGradient(0,gradTop,0,gradTop+gradHeight);
   grad.addColorStop(0,'rgba(0,0,0,0)');grad.addColorStop(.35,'rgba(0,0,0,.70)');grad.addColorStop(1,'rgba(0,0,0,.96)');
   ctx.fillStyle=grad;ctx.fillRect(0,gradTop,w,gradHeight);
@@ -205,14 +228,14 @@ async function renderArt(candidate,cutout,format,legal){
   ctx.textAlign='center';ctx.textBaseline='alphabetic';
   if(format==='feed'){
     ctx.fillStyle='#f2b705';ctx.strokeStyle='rgba(0,0,0,.45)';ctx.lineWidth=4;
-    let s=fitText(ctx,name,880,94,'Anton');ctx.font=`${s}px Anton`;ctx.strokeText(name,550,920);ctx.fillText(name,550,920);
-    ctx.fillStyle='#fff';s=fitText(ctx,candidate.number,800,205,'Anton');ctx.font=`${s}px Anton`;ctx.fillText(candidate.number,548,1092);
-    ctx.fillStyle='#090909';ctx.font='700 40px Oswald';ctx.fillText(candidate.role.toUpperCase(),548,1197);
+    let s=fitText(ctx,name,870,90,'Anton');ctx.font=`${s}px Anton`;ctx.strokeText(name,550,914);ctx.fillText(name,550,914);
+    ctx.fillStyle='#fff';s=fitText(ctx,candidate.number,790,192,'Anton');ctx.font=`${s}px Anton`;ctx.fillText(candidate.number,548,1075);
+    ctx.fillStyle='#090909';ctx.font='700 38px Oswald';ctx.fillText(candidate.role.toUpperCase(),548,1182);
   }else{
     ctx.fillStyle='#f2b705';ctx.strokeStyle='rgba(0,0,0,.45)';ctx.lineWidth=4;
-    let s=fitText(ctx,name,880,98,'Anton');ctx.font=`${s}px Anton`;ctx.strokeText(name,540,1260);ctx.fillText(name,540,1260);
-    ctx.fillStyle='#fff';s=fitText(ctx,candidate.number,805,215,'Anton');ctx.font=`${s}px Anton`;ctx.fillText(candidate.number,540,1495);
-    ctx.fillStyle='#090909';ctx.font='700 43px Oswald';ctx.fillText(candidate.role.toUpperCase(),540,1590);
+    let s=fitText(ctx,name,870,94,'Anton');ctx.font=`${s}px Anton`;ctx.strokeText(name,540,1245);ctx.fillText(name,540,1245);
+    ctx.fillStyle='#fff';s=fitText(ctx,candidate.number,795,205,'Anton');ctx.font=`${s}px Anton`;ctx.fillText(candidate.number,540,1475);
+    ctx.fillStyle='#090909';ctx.font='700 41px Oswald';ctx.fillText(candidate.role.toUpperCase(),540,1575);
   }
   if(legal.trim()){
     ctx.save();ctx.translate(48,format==='feed'?772:1002);ctx.rotate(-Math.PI/2);ctx.textAlign='center';ctx.fillStyle='#fff';ctx.font='500 17px Oswald';
