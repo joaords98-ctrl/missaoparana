@@ -18,8 +18,8 @@ const pctx = ui.previewCanvas.getContext('2d');
 
 const dimensions = { feed:[1080,1350], story:[1080,1920] };
 const renanLayout = {
-  feed:{x:510,y:150,w:405,h:720,scale:1.08},
-  story:{x:515,y:285,w:420,h:760,scale:1.08}
+  feed:{x:520,y:205,w:400,h:610,scale:1.00},
+  story:{x:525,y:330,w:410,h:650,scale:1.00}
 };
 
 function normalizeName(s){
@@ -44,7 +44,7 @@ async function loadTemplates(){
   if(templates.feed) return;
   templates.feed=await img('/gerador/assets/template-feed.jpg',false);
   templates.story=await img('/gerador/assets/template-story.jpg',false);
-  renanImg=await img('/gerador/assets/renan-transparent.png',false);
+  renanImg=await img('/gerador/assets/renan-upper.png',false);
 }
 async function parseZip(input, map, labelEl){
   const f=input.files[0]; if(!f)return;
@@ -135,6 +135,50 @@ function cover(ctx,image,x,y,w,h,scale=1,dx=0,dy=0,anchor='bottom-center'){
   let px=x+(w-dw)/2+dx,py=y+(h-dh)/2+dy;if(anchor==='bottom-center')py=y+h-dh+dy;
   ctx.drawImage(image,px,py,dw,dh);
 }
+
+function drawCandidateSmart(ctx,image,format){
+  const iw=image.width||image.naturalWidth, ih=image.height||image.naturalHeight;
+  const ratio=iw/ih;
+
+  // Approved composition target: candidate occupies left half, from near top to just behind the text.
+  const zone = format==='feed'
+    ? {x:92,y:150,w:590,h:755,bottom:905}
+    : {x:82,y:270,w:610,h:835,bottom:1250};
+
+  // Full-body/narrow cutouts get more height; headshot/wide cutouts get less.
+  let targetH;
+  if(ratio < 0.42) targetH = zone.h * 1.03;       // full body / very narrow
+  else if(ratio < 0.62) targetH = zone.h * 0.96;  // half body
+  else if(ratio < 0.82) targetH = zone.h * 0.88;  // portrait
+  else targetH = zone.h * 0.78;                   // head & shoulders / very wide
+
+  let dw = targetH * ratio, dh = targetH;
+
+  // Never let a wide headshot swallow the layout.
+  const maxW = format==='feed' ? 610 : 630;
+  if(dw > maxW){
+    const k=maxW/dw; dw*=k; dh*=k;
+  }
+
+  // Slightly more left bias, candidate anchored to bottom.
+  let px = zone.x + (zone.w - dw) * 0.36;
+  let py = zone.bottom - dh;
+
+  // Guardrails so the head does not get chopped.
+  const minY = format==='feed' ? 160 : 280;
+  if(py < minY){
+    const delta=minY-py;
+    py=minY;
+    // Reduce height a little if necessary to stay inside the composition.
+    if(delta>20){
+      const maxH=zone.bottom-minY;
+      const k=maxH/dh; dw*=k; dh*=k;
+    }
+  }
+
+  ctx.drawImage(image,px,py,dw,dh);
+}
+
 function fitText(ctx,text,maxWidth,startSize,font){
   let s=startSize; do{ctx.font=`${s}px ${font}`; if(ctx.measureText(text).width<=maxWidth)return s;s-=2;}while(s>22);return s;
 }
@@ -145,11 +189,10 @@ async function renderArt(candidate,cutout,format,legal){
   ctx.save();
   if(format==='feed'){
     ctx.beginPath();ctx.roundRect(104,156,861,790,48);ctx.clip();
-    cover(ctx,cutout,30,128,585,790,1.20,-30,30);
   }else{
     ctx.beginPath();ctx.roundRect(104,268,852,812,48);ctx.clip();
-    cover(ctx,cutout,18,242,620,830,1.22,-30,32);
   }
+  drawCandidateSmart(ctx,cutout,format);
   const r=renanLayout[format];cover(ctx,renanImg,r.x,r.y,r.w,r.h,r.scale,0,0);
   ctx.restore();
 
@@ -162,14 +205,14 @@ async function renderArt(candidate,cutout,format,legal){
   ctx.textAlign='center';ctx.textBaseline='alphabetic';
   if(format==='feed'){
     ctx.fillStyle='#f2b705';ctx.strokeStyle='rgba(0,0,0,.45)';ctx.lineWidth=4;
-    let s=fitText(ctx,name,930,108,'Anton');ctx.font=`${s}px Anton`;ctx.strokeText(name,550,904);ctx.fillText(name,550,904);
-    ctx.fillStyle='#fff';s=fitText(ctx,candidate.number,860,235,'Anton');ctx.font=`${s}px Anton`;ctx.fillText(candidate.number,548,1116);
-    ctx.fillStyle='#090909';ctx.font='700 52px Oswald';ctx.fillText(candidate.role.toUpperCase(),548,1236);
+    let s=fitText(ctx,name,900,102,'Anton');ctx.font=`${s}px Anton`;ctx.strokeText(name,550,915);ctx.fillText(name,550,915);
+    ctx.fillStyle='#fff';s=fitText(ctx,candidate.number,820,218,'Anton');ctx.font=`${s}px Anton`;ctx.fillText(candidate.number,548,1110);
+    ctx.fillStyle='#090909';ctx.font='700 45px Oswald';ctx.fillText(candidate.role.toUpperCase(),548,1212);
   }else{
     ctx.fillStyle='#f2b705';ctx.strokeStyle='rgba(0,0,0,.45)';ctx.lineWidth=4;
-    let s=fitText(ctx,name,920,112,'Anton');ctx.font=`${s}px Anton`;ctx.strokeText(name,540,1248);ctx.fillText(name,540,1248);
-    ctx.fillStyle='#fff';s=fitText(ctx,candidate.number,870,250,'Anton');ctx.font=`${s}px Anton`;ctx.fillText(candidate.number,540,1520);
-    ctx.fillStyle='#090909';ctx.font='700 54px Oswald';ctx.fillText(candidate.role.toUpperCase(),540,1648);
+    let s=fitText(ctx,name,900,106,'Anton');ctx.font=`${s}px Anton`;ctx.strokeText(name,540,1252);ctx.fillText(name,540,1252);
+    ctx.fillStyle='#fff';s=fitText(ctx,candidate.number,830,232,'Anton');ctx.font=`${s}px Anton`;ctx.fillText(candidate.number,540,1510);
+    ctx.fillStyle='#090909';ctx.font='700 48px Oswald';ctx.fillText(candidate.role.toUpperCase(),540,1615);
   }
   if(legal.trim()){
     ctx.save();ctx.translate(48,format==='feed'?772:1002);ctx.rotate(-Math.PI/2);ctx.textAlign='center';ctx.fillStyle='#fff';ctx.font='500 17px Oswald';
