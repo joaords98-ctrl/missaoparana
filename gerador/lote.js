@@ -8,11 +8,12 @@ const ui = {
   batchTitle: $('#batchTitle'), counter: $('#counter'), progressBar: $('#progressBar'),
   doneCount: $('#doneCount'), errorCount: $('#errorCount'), timeCount: $('#timeCount'),
   currentName: $('#currentName'), currentStep: $('#currentStep'), previewCanvas: $('#previewCanvas'),
+  lastPreviewName: $('#lastPreviewName'),
   log: $('#log'), clearLog: $('#clearLog'), resultCard: $('#resultCard'),
-  resultText: $('#resultText'), downloadZip: $('#downloadZip')
+  resultText: $('#resultText'), downloadZip: $('#downloadZip'), retryErrors: $('#retryErrors')
 };
 
-let stateFiles = new Map(), federalFiles = new Map(), cancelRequested = false, finalZipBlob = null;
+let stateFiles = new Map(), federalFiles = new Map(), cancelRequested = false, finalZipBlob = null, failedCandidates = [];
 let templates = {}, renanImg = null, timerStart = 0, timerHandle = null;
 const pctx = ui.previewCanvas.getContext('2d');
 
@@ -166,8 +167,8 @@ function drawCandidateSmart(ctx,image,format){
   // Simpler and more reliable: every candidate fills the same visual box.
   // No heuristic by body type. Large, consistent, face stays near the top.
   const box = format==='feed'
-    ? {x:105,y:170,w:555,h:690}
-    : {x:95,y:295,w:575,h:850};
+    ? {x:88,y:145,w:625,h:760}
+    : {x:80,y:270,w:645,h:920};
 
   drawContainTop(ctx,image,box);
 }
@@ -175,8 +176,8 @@ function drawCandidateSmart(ctx,image,format){
 function drawRenanLocked(ctx,image,format){
   // Renan is a fixed transparent bust asset. No AI, no zoom variation.
   const box = format==='feed'
-    ? {x:535,y:195,w:405,h:585}
-    : {x:545,y:320,w:410,h:625};
+    ? {x:520,y:175,w:455,h:650}
+    : {x:525,y:300,w:460,h:700};
 
   const iw=image.width||image.naturalWidth;
   const ih=image.height||image.naturalHeight;
@@ -237,7 +238,13 @@ async function renderArt(candidate,cutout,format,legal){
   return c;
 }
 function canvasBlob(canvas,type='image/jpeg',quality=.94){return new Promise(r=>canvas.toBlob(r,type,quality));}
-function showPreview(canvas){ui.previewCanvas.width=canvas.width;ui.previewCanvas.height=canvas.height;pctx.clearRect(0,0,canvas.width,canvas.height);pctx.drawImage(canvas,0,0);}
+function showPreview(canvas,name){
+  ui.previewCanvas.width=canvas.width;
+  ui.previewCanvas.height=canvas.height;
+  pctx.clearRect(0,0,canvas.width,canvas.height);
+  pctx.drawImage(canvas,0,0);
+  ui.lastPreviewName.textContent=name||'—';
+}
 function updateStats(done,errors,total){
   ui.doneCount.textContent=done;ui.errorCount.textContent=errors;ui.counter.textContent=`${done+errors} / ${total}`;
   ui.progressBar.style.width=`${total?((done+errors)/total)*100:0}%`;
@@ -247,7 +254,7 @@ function timerStop(){clearInterval(timerHandle);timerHandle=null;}
 
 ui.generateAll.onclick=async()=>{
   if(!ui.makeFeed.checked && !ui.makeStory.checked){alert('Marque Feed, Story ou ambos.');return;}
-  cancelRequested=false;finalZipBlob=null;ui.downloadZip.disabled=true;ui.resultCard.classList.add('hidden');
+  cancelRequested=false;finalZipBlob=null;failedCandidates=[];ui.downloadZip.disabled=true;ui.retryErrors.disabled=true;ui.resultCard.classList.add('hidden');
   ui.generateAll.disabled=true;ui.cancelBatch.disabled=false;ui.log.innerHTML='';
   await loadTemplates();
 
@@ -278,10 +285,13 @@ ui.generateAll.onclick=async()=>{
         const art=await renderArt(c,cut,'story',ui.legalText.value);lastCanvas=art;
         const blob=await canvasBlob(art);storyFolder.file(`${slug(c.name)}-${c.number}-story.jpg`,blob);
       }
-      if(lastCanvas)showPreview(lastCanvas);
+      if(lastCanvas)showPreview(lastCanvas,c.name);
       ai.cleanup();done++;log(`${c.name}: concluído.`,'ok');
     }catch(err){
-      errors++;log(`${c.name}: ERRO — ${err.message||err}`,'error');
+      errors++;
+      const errorMsg=String(err.message||err);
+      failedCandidates.push({candidate:c,error:errorMsg});
+      log(`${c.name}: ERRO — ${errorMsg}`,'error');
       errorsFolder.file(`${slug(c.name)}.txt`,String(err.stack||err.message||err));
     }
     updateStats(done,errors,candidates.length);
@@ -293,13 +303,85 @@ ui.generateAll.onclick=async()=>{
     finalZipBlob=await zip.generateAsync({type:'blob',compression:'DEFLATE',compressionOptions:{level:6}},meta=>{
       ui.currentStep.textContent=`Compactando ZIP — ${Math.round(meta.percent)}%`;
     });
-    ui.downloadZip.disabled=false;ui.resultCard.classList.remove('hidden');
-    ui.resultText.textContent=`${done} candidatos concluídos e ${errors} com erro. Clique abaixo para baixar o lote.`;
+    ui.downloadZip.disabled=false;
+    ui.retryErrors.disabled=failedCandidates.length===0;
+    ui.resultCard.classList.remove('hidden');
+    ui.resultText.textContent=failedCandidates.length
+      ? `${done} candidatos concluídos e ${errors} com erro. Você pode tentar novamente somente os erros antes de baixar o ZIP.`
+      : `${done} candidatos concluídos sem erros. Clique abaixo para baixar o lote.`;
     ui.batchTitle.textContent=cancelRequested?'Lote interrompido':'Lote concluído';
     setStep('Pronto','ZIP final disponível para download.');
     log('ZIP final pronto.','ok');
   }catch(err){log(`Erro ao compactar ZIP: ${err.message||err}`,'error');ui.batchTitle.textContent='Erro ao compactar';}
   timerStop();ui.generateAll.disabled=false;ui.cancelBatch.disabled=true;
+};
+
+
+ui.retryErrors.onclick=async()=>{
+  if(!failedCandidates.length)return;
+  ui.retryErrors.disabled=true;
+  ui.downloadZip.disabled=true;
+  ui.resultCard.classList.add('hidden');
+  cancelRequested=false;
+
+  await loadTemplates();
+
+  const retryList=[...failedCandidates];
+  failedCandidates=[];
+  const zip=new JSZip(),feedFolder=zip.folder('FEED'),storyFolder=zip.folder('STORY'),errorsFolder=zip.folder('_ERROS');
+  let done=0,errors=0;
+  updateStats(done,errors,retryList.length);
+  ui.batchTitle.textContent='Tentando erros novamente';
+  timerStartFn();
+  log(`Nova tentativa iniciada para ${retryList.length} candidatos.`,'info');
+
+  for(let i=0;i<retryList.length;i++){
+    if(cancelRequested){log('Nova tentativa interrompida.','info');break;}
+    const c=retryList[i].candidate;
+    setStep(c.name,'Carregando foto para nova tentativa...');
+    try{
+      const source=await getCandidateImage(c);
+      log(`${c.name}: foto carregada novamente (${source.source}).`);
+      const ai=await removeBackgroundAI(source.image,c.name);
+      source.cleanup();
+      setStep(c.name,'Recalculando enquadramento...');
+      const cut=alphaCrop(ai.image);
+      let lastCanvas=null;
+      if(ui.makeFeed.checked){
+        const art=await renderArt(c,cut,'feed',ui.legalText.value);lastCanvas=art;
+        feedFolder.file(`${slug(c.name)}-${c.number}-feed.jpg`,await canvasBlob(art));
+      }
+      if(ui.makeStory.checked){
+        const art=await renderArt(c,cut,'story',ui.legalText.value);lastCanvas=art;
+        storyFolder.file(`${slug(c.name)}-${c.number}-story.jpg`,await canvasBlob(art));
+      }
+      if(lastCanvas)showPreview(lastCanvas,c.name);
+      ai.cleanup();done++;log(`${c.name}: concluído na nova tentativa.`,'ok');
+    }catch(err){
+      errors++;
+      const errorMsg=String(err.message||err);
+      failedCandidates.push({candidate:c,error:errorMsg});
+      errorsFolder.file(`${slug(c.name)}.txt`,String(err.stack||err.message||err));
+      log(`${c.name}: continua com erro — ${errorMsg}`,'error');
+    }
+    updateStats(done,errors,retryList.length);
+  }
+
+  setStep('Compactando nova tentativa','Gerando ZIP...');
+  try{
+    finalZipBlob=await zip.generateAsync({type:'blob',compression:'DEFLATE',compressionOptions:{level:6}});
+    ui.downloadZip.disabled=false;
+    ui.retryErrors.disabled=failedCandidates.length===0;
+    ui.resultCard.classList.remove('hidden');
+    ui.resultText.textContent=failedCandidates.length
+      ? `${done} recuperados e ${failedCandidates.length} ainda com erro.`
+      : `${done} candidatos recuperados com sucesso.`;
+    ui.batchTitle.textContent='Nova tentativa concluída';
+    log('Nova tentativa concluída.','ok');
+  }catch(err){
+    log(`Erro ao compactar nova tentativa: ${err.message||err}`,'error');
+  }
+  timerStop();
 };
 
 ui.downloadZip.onclick=()=>{

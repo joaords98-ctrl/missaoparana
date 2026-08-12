@@ -86,6 +86,11 @@
         <span class="eyebrow">PROCESSANDO AGORA</span>
         <h2 id="currentName">—</h2>
         <p id="currentStep" class="muted">O próximo candidato aparecerá aqui.</p>
+
+        <div class="last-preview-label">
+          <span class="eyebrow">ÚLTIMA ARTE GERADA</span>
+          <h3 id="lastPreviewName">—</h3>
+        </div>
       </div>
       <div class="mini-preview">
         <canvas id="previewCanvas" width="1080" height="1350"></canvas>
@@ -106,7 +111,10 @@
         <h2>As artes estão prontas</h2>
         <p id="resultText" class="muted"></p>
       </div>
-      <button id="downloadZip" class="mega-btn compact" disabled>⬇ BAIXAR ZIP FINAL</button>
+      <div class="result-actions">
+        <button id="retryErrors" class="secondary compact" disabled>↻ TENTAR ERROS NOVAMENTE</button>
+        <button id="downloadZip" class="mega-btn compact" disabled>⬇ BAIXAR ZIP FINAL</button>
+      </div>
     </div>
   </section>
 </main>
