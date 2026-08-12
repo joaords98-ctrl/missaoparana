@@ -167,8 +167,8 @@ function drawCandidateSmart(ctx,image,format){
   // Simpler and more reliable: every candidate fills the same visual box.
   // No heuristic by body type. Large, consistent, face stays near the top.
   const box = format==='feed'
-    ? {x:96,y:162,w:595,h:725}
-    : {x:88,y:292,w:615,h:875};
+    ? {x:58,y:118,w:675,h:815}
+    : {x:48,y:230,w:700,h:1010};
 
   drawContainTop(ctx,image,box);
 }
@@ -176,8 +176,8 @@ function drawCandidateSmart(ctx,image,format){
 function drawRenanLocked(ctx,image,format){
   // Renan is a fixed transparent bust asset. No AI, no zoom variation.
   const box = format==='feed'
-    ? {x:505,y:165,w:480,h:675}
-    : {x:510,y:292,w:485,h:725};
+    ? {x:500,y:118,w:505,h:735}
+    : {x:500,y:240,w:515,h:805};
 
   const iw=image.width||image.naturalWidth;
   const ih=image.height||image.naturalHeight;
@@ -200,7 +200,7 @@ function drawRenanLocked(ctx,image,format){
 function drawCargoStrip(ctx,format,text){
   ctx.save();
   if(format==='feed'){
-    ctx.translate(0,1172);
+    ctx.translate(0,1160);
     ctx.rotate(-0.035);
     ctx.fillStyle='#f4b900';
     ctx.fillRect(-20,0,1140,64);
@@ -210,7 +210,7 @@ function drawCargoStrip(ctx,format,text){
     ctx.font='700 38px Oswald';
     ctx.fillText(text.toUpperCase(),540,32);
   }else{
-    ctx.translate(0,1570);
+    ctx.translate(0,1555);
     ctx.rotate(-0.035);
     ctx.fillStyle='#f4b900';
     ctx.fillRect(-20,0,1140,70);
@@ -249,13 +249,13 @@ async function renderArt(candidate,cutout,format,legal){
   ctx.textAlign='center';ctx.textBaseline='alphabetic';
   if(format==='feed'){
     ctx.fillStyle='#f2b705';ctx.strokeStyle='rgba(0,0,0,.45)';ctx.lineWidth=4;
-    let s=fitText(ctx,name,900,100,'Anton');ctx.font=`${s}px Anton`;ctx.strokeText(name,550,900);ctx.fillText(name,550,900);
-    ctx.fillStyle='#fff';s=fitText(ctx,candidate.number,830,208,'Anton');ctx.font=`${s}px Anton`;ctx.fillText(candidate.number,548,1074);
+    let s=fitText(ctx,name,920,108,'Anton');ctx.font=`${s}px Anton`;ctx.strokeText(name,550,895);ctx.fillText(name,550,895);
+    ctx.fillStyle='#fff';s=fitText(ctx,candidate.number,850,224,'Anton');ctx.font=`${s}px Anton`;ctx.fillText(candidate.number,548,1080);
     drawCargoStrip(ctx,'feed',candidate.role);
   }else{
     ctx.fillStyle='#f2b705';ctx.strokeStyle='rgba(0,0,0,.45)';ctx.lineWidth=4;
-    let s=fitText(ctx,name,900,104,'Anton');ctx.font=`${s}px Anton`;ctx.strokeText(name,540,1225);ctx.fillText(name,540,1225);
-    ctx.fillStyle='#fff';s=fitText(ctx,candidate.number,835,218,'Anton');ctx.font=`${s}px Anton`;ctx.fillText(candidate.number,540,1465);
+    let s=fitText(ctx,name,920,112,'Anton');ctx.font=`${s}px Anton`;ctx.strokeText(name,540,1215);ctx.fillText(name,540,1215);
+    ctx.fillStyle='#fff';s=fitText(ctx,candidate.number,855,236,'Anton');ctx.font=`${s}px Anton`;ctx.fillText(candidate.number,540,1470);
     drawCargoStrip(ctx,'story',candidate.role);
   }
   if(legal.trim()){

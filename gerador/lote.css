@@ -11,3 +11,12 @@
 .result-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .secondary.compact{height:52px;padding:0 18px}
 .error-list{margin-top:8px;font-size:11px;color:#ff8c8c}
+
+/* v2.7 */
+.current-card{grid-template-columns:minmax(300px,380px) minmax(420px,1fr)}
+.mini-preview{max-height:560px}
+.mini-preview canvas{max-height:540px}
+@media(max-width:1200px){
+  .current-card{grid-template-columns:1fr}
+  .mini-preview{max-height:500px}
+}
