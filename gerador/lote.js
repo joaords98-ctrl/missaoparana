@@ -167,8 +167,8 @@ function drawCandidateSmart(ctx,image,format){
   // Simpler and more reliable: every candidate fills the same visual box.
   // No heuristic by body type. Large, consistent, face stays near the top.
   const box = format==='feed'
-    ? {x:88,y:145,w:625,h:760}
-    : {x:80,y:270,w:645,h:920};
+    ? {x:96,y:162,w:595,h:725}
+    : {x:88,y:292,w:615,h:875};
 
   drawContainTop(ctx,image,box);
 }
@@ -176,8 +176,8 @@ function drawCandidateSmart(ctx,image,format){
 function drawRenanLocked(ctx,image,format){
   // Renan is a fixed transparent bust asset. No AI, no zoom variation.
   const box = format==='feed'
-    ? {x:520,y:175,w:455,h:650}
-    : {x:525,y:300,w:460,h:700};
+    ? {x:505,y:165,w:480,h:675}
+    : {x:510,y:292,w:485,h:725};
 
   const iw=image.width||image.naturalWidth;
   const ih=image.height||image.naturalHeight;
@@ -194,6 +194,33 @@ function drawRenanLocked(ctx,image,format){
   const dx=box.x+(box.w-dw)/2;
   const dy=box.y+box.h-dh;
   ctx.drawImage(image,dx,dy,dw,dh);
+}
+
+
+function drawCargoStrip(ctx,format,text){
+  ctx.save();
+  if(format==='feed'){
+    ctx.translate(0,1172);
+    ctx.rotate(-0.035);
+    ctx.fillStyle='#f4b900';
+    ctx.fillRect(-20,0,1140,64);
+    ctx.fillStyle='#080909';
+    ctx.textAlign='center';
+    ctx.textBaseline='middle';
+    ctx.font='700 38px Oswald';
+    ctx.fillText(text.toUpperCase(),540,32);
+  }else{
+    ctx.translate(0,1570);
+    ctx.rotate(-0.035);
+    ctx.fillStyle='#f4b900';
+    ctx.fillRect(-20,0,1140,70);
+    ctx.fillStyle='#080909';
+    ctx.textAlign='center';
+    ctx.textBaseline='middle';
+    ctx.font='700 42px Oswald';
+    ctx.fillText(text.toUpperCase(),540,35);
+  }
+  ctx.restore();
 }
 
 function fitText(ctx,text,maxWidth,startSize,font){
@@ -213,7 +240,7 @@ async function renderArt(candidate,cutout,format,legal){
   drawRenanLocked(ctx,renanImg,format);
   ctx.restore();
 
-  const gradTop=format==='feed'?735:1010,gradHeight=format==='feed'?375:465;
+  const gradTop=format==='feed'?750:1030,gradHeight=format==='feed'?330:405;
   const grad=ctx.createLinearGradient(0,gradTop,0,gradTop+gradHeight);
   grad.addColorStop(0,'rgba(0,0,0,0)');grad.addColorStop(.35,'rgba(0,0,0,.70)');grad.addColorStop(1,'rgba(0,0,0,.96)');
   ctx.fillStyle=grad;ctx.fillRect(0,gradTop,w,gradHeight);
@@ -222,14 +249,14 @@ async function renderArt(candidate,cutout,format,legal){
   ctx.textAlign='center';ctx.textBaseline='alphabetic';
   if(format==='feed'){
     ctx.fillStyle='#f2b705';ctx.strokeStyle='rgba(0,0,0,.45)';ctx.lineWidth=4;
-    let s=fitText(ctx,name,900,102,'Anton');ctx.font=`${s}px Anton`;ctx.strokeText(name,550,918);ctx.fillText(name,550,918);
-    ctx.fillStyle='#fff';s=fitText(ctx,candidate.number,830,215,'Anton');ctx.font=`${s}px Anton`;ctx.fillText(candidate.number,548,1102);
-    ctx.fillStyle='#090909';ctx.font='700 42px Oswald';ctx.fillText(candidate.role.toUpperCase(),548,1200);
+    let s=fitText(ctx,name,900,100,'Anton');ctx.font=`${s}px Anton`;ctx.strokeText(name,550,900);ctx.fillText(name,550,900);
+    ctx.fillStyle='#fff';s=fitText(ctx,candidate.number,830,208,'Anton');ctx.font=`${s}px Anton`;ctx.fillText(candidate.number,548,1074);
+    drawCargoStrip(ctx,'feed',candidate.role);
   }else{
     ctx.fillStyle='#f2b705';ctx.strokeStyle='rgba(0,0,0,.45)';ctx.lineWidth=4;
-    let s=fitText(ctx,name,900,106,'Anton');ctx.font=`${s}px Anton`;ctx.strokeText(name,540,1250);ctx.fillText(name,540,1250);
-    ctx.fillStyle='#fff';s=fitText(ctx,candidate.number,835,225,'Anton');ctx.font=`${s}px Anton`;ctx.fillText(candidate.number,540,1500);
-    ctx.fillStyle='#090909';ctx.font='700 45px Oswald';ctx.fillText(candidate.role.toUpperCase(),540,1600);
+    let s=fitText(ctx,name,900,104,'Anton');ctx.font=`${s}px Anton`;ctx.strokeText(name,540,1225);ctx.fillText(name,540,1225);
+    ctx.fillStyle='#fff';s=fitText(ctx,candidate.number,835,218,'Anton');ctx.font=`${s}px Anton`;ctx.fillText(candidate.number,540,1465);
+    drawCargoStrip(ctx,'story',candidate.role);
   }
   if(legal.trim()){
     ctx.save();ctx.translate(48,format==='feed'?772:1002);ctx.rotate(-Math.PI/2);ctx.textAlign='center';ctx.fillStyle='#fff';ctx.font='500 17px Oswald';
