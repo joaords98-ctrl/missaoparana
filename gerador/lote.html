@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gerar Todos — Missão Paraná</title>
+  <link rel="stylesheet" href="/gerador/styles.css">
+  <link rel="stylesheet" href="/gerador/lote.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-dot">◆</span><b>missão</b><small>PARANÁ</small></div>
+  <div class="top-actions">
+    <a class="link-btn" href="/gerador/">← Modo individual</a>
+    <span class="status">Gerador em lote • IA</span>
+  </div>
+</header>
+
+<main class="batch-layout">
+  <section class="batch-panel">
+    <div class="hero">
+      <span class="eyebrow">AUTOMAÇÃO DE CAMPANHA</span>
+      <h1>Gerar todos com IA</h1>
+      <p>Carregue os ZIPs de fotos e clique uma vez. O sistema remove o fundo, enquadra automaticamente e gera Feed + Story para todos os deputados.</p>
+    </div>
+
+    <div class="setup-card">
+      <h2>1. Fotos dos candidatos</h2>
+      <p class="muted">Você pode carregar os ZIPs que já possui. O sistema tenta identificar cada candidato pelo nome do arquivo.</p>
+      <div class="upload-grid">
+        <label class="upload-box">
+          <span>Deputados Estaduais</span>
+          <b id="stateFileName">Selecionar ESTADUAL.zip</b>
+          <input id="stateZip" type="file" accept=".zip,application/zip" hidden>
+        </label>
+        <label class="upload-box">
+          <span>Deputados Federais</span>
+          <b id="federalFileName">Selecionar FEDERAL.zip</b>
+          <input id="federalZip" type="file" accept=".zip,application/zip" hidden>
+        </label>
+      </div>
+      <div id="zipSummary" class="summary-line">Nenhum ZIP carregado. Se uma foto não estiver no ZIP, o sistema tenta usar a foto já existente no site.</div>
+    </div>
+
+    <div class="setup-card">
+      <h2>2. Formatos</h2>
+      <div class="choice-grid">
+        <label class="choice"><input id="makeFeed" type="checkbox" checked><span><b>Feed</b><small>1080×1350</small></span></label>
+        <label class="choice"><input id="makeStory" type="checkbox" checked><span><b>Story</b><small>1080×1920</small></span></label>
+        <label class="choice"><input id="onlyDeputies" type="checkbox" checked><span><b>Somente deputados</b><small>Estaduais + Federais</small></span></label>
+      </div>
+      <label class="field">CNPJ padrão / observação legal
+        <input id="legalText" type="text" placeholder="Deixe vazio por enquanto">
+        <span class="hint">Como os CNPJs individuais ainda não estão disponíveis, este campo pode ficar vazio. Use estas artes como prova até a conferência final.</span>
+      </label>
+    </div>
+
+    <button id="generateAll" class="mega-btn">⚡ GERAR TODOS COM IA</button>
+    <button id="cancelBatch" class="secondary full" disabled>Interromper após o candidato atual</button>
+
+    <div class="warning">
+      <b>Como funciona</b>
+      <span>O processamento acontece um candidato por vez no seu navegador. Mantenha esta aba aberta até o ZIP final ficar pronto.</span>
+    </div>
+  </section>
+
+  <section class="batch-progress">
+    <div class="progress-card">
+      <div class="progress-head">
+        <div>
+          <span class="eyebrow">STATUS DO LOTE</span>
+          <h2 id="batchTitle">Aguardando início</h2>
+        </div>
+        <span id="counter" class="counter">0 / 0</span>
+      </div>
+      <div class="bar"><div id="progressBar" class="bar-fill"></div></div>
+      <div class="stats">
+        <div><strong id="doneCount">0</strong><span>Concluídos</span></div>
+        <div><strong id="errorCount">0</strong><span>Com erro</span></div>
+        <div><strong id="timeCount">00:00</strong><span>Tempo</span></div>
+      </div>
+    </div>
+
+    <div class="current-card">
+      <div>
+        <span class="eyebrow">PROCESSANDO AGORA</span>
+        <h2 id="currentName">—</h2>
+        <p id="currentStep" class="muted">O próximo candidato aparecerá aqui.</p>
+      </div>
+      <div class="mini-preview">
+        <canvas id="previewCanvas" width="1080" height="1350"></canvas>
+      </div>
+    </div>
+
+    <div class="log-card">
+      <div class="log-head">
+        <h2>Fila</h2>
+        <button id="clearLog" class="tiny-btn">Limpar log</button>
+      </div>
+      <div id="log" class="log"></div>
+    </div>
+
+    <div id="resultCard" class="result-card hidden">
+      <div>
+        <span class="eyebrow">LOTE CONCLUÍDO</span>
+        <h2>As artes estão prontas</h2>
+        <p id="resultText" class="muted"></p>
+      </div>
+      <button id="downloadZip" class="mega-btn compact" disabled>⬇ BAIXAR ZIP FINAL</button>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="/gerador/candidatos.js"></script>
+<script src="/gerador/lote.js"></script>
+</body>
+</html>
