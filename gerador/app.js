@@ -13,13 +13,14 @@ const e={
 let format='feed', candidateImg=null, renanImg=null, candidateObjectUrl=null;
 const dimensions={feed:[1080,1350],story:[1080,1920]}, templateImgs={};
 const defaults = {
-  feed: { candScale:1.45, candX:-48, candY:26 },
-  story:{ candScale:1.44, candX:-52, candY:22 }
+  feed: { candScale:1.28, candX:-28, candY:38 },
+  story:{ candScale:1.30, candX:-34, candY:42 }
 };
 const renanLayout = {
-  // zoom maior e mais presença visual
-  feed: { x:470, y:118, w:430, h:760, scale:1.18, dx:0, dy:0 },
-  story:{ x:485, y:235, w:445, h:845, scale:1.19, dx:0, dy:0 }
+  // Foto já recortada ao corpo, com enquadramento fixo.
+  // Estes valores são deliberadamente travados.
+  feed: { x:510, y:150, w:405, h:720, scale:1.08, dx:0, dy:0 },
+  story:{ x:515, y:285, w:420, h:760, scale:1.08, dx:0, dy:0 }
 };
 
 function loadImg(src,cross=true){

@@ -28,3 +28,24 @@ html,body{height:100%}
   .canvas-shell{min-height:calc(100vh - 170px);align-items:flex-start}
 }
 canvas{image-rendering:auto}
+
+
+/* v1.5 — preview larger and easier to calibrate */
+@media(min-width:1200px){
+  .layout{grid-template-columns:500px 1fr}
+  .preview-wrap{padding:18px 24px}
+  .canvas-shell{
+    padding:10px;
+    min-height:calc(100vh - 150px);
+    align-items:center;
+    justify-content:center;
+  }
+  canvas{
+    max-height:calc(100vh - 135px);
+    max-width:min(100%, 920px);
+  }
+}
+@media(min-width:1500px){
+  .layout{grid-template-columns:520px 1fr}
+  canvas{max-height:calc(100vh - 130px)}
+}
