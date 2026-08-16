@@ -294,6 +294,7 @@ const CANDIDATOS = [
       ? `<a href="${c.tiktok}" target="_blank" rel="noopener">${TT_SVG} TikTok</a>` : '';
     const grupoBtn = `<a href="grupos.html">Apoiar a Missão</a>`;
     const vakinhaBtn = `<a class="vakinha-btn" href="https://queroapoiar.com.br/luizfranca" target="_blank" rel="noopener">${HEART_SVG} Apoiar a campanha</a>`;
+    const molduraBtn = `<a href="moldura.html">📸 Personalize sua foto de perfil</a>`;
     const SHARE_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>';
     const shareBtn = `<button class="share-btn" id="shareBtn" type="button">${SHARE_SVG} Compartilhar</button>`;
 
@@ -311,7 +312,7 @@ const CANDIDATOS = [
           <h1>${esc(c.nome)}</h1>
           <div class="cargo">Candidato a ${esc(c.cargoLabel||'')}</div>
           <div class="cidade">${PIN_SVG} ${esc(c.cidade||'')}</div>
-          <div class="prof-links">${vakinhaBtn}${igBtn}${fbBtn}${ttBtn}${ytBtn}${grupoBtn}${shareBtn}</div>
+          <div class="prof-links">${vakinhaBtn}${molduraBtn}${igBtn}${fbBtn}${ttBtn}${ytBtn}${grupoBtn}${shareBtn}</div>
         </div>
       </div></header>
 
