@@ -653,6 +653,8 @@ const CANDIDATOS = [
   const PEN_SVG = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>';
   const SHARE_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>';
   const PIN_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>';
+  const CAMERA_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>';
+  const IDS_COM_MOLDURA = ["adriano-fritz", "alan-leal", "alessandra-lima", "aline-franzon", "ana-xavier", "andre-ribeiro", "andrey-luiz", "anita-de-biasi", "beatriz-oliveira", "bruno-vieira", "carlos-eduardo", "carlos-eduardo-de-oliveira-gasparim", "caroline-barbosa", "daniel-aguiar", "danusa-lopes", "darlon-parana-pop", "daymond-pires", "delegado-eduardo-kruger", "eduardo-nunes-gomes", "erica-de-freitas-goncalves", "felipe-de-castilho", "felipe-gambaro", "fernando-garbatchevski", "francyelly-engee", "gabriel-bertolucci", "gerusa-correa", "glauberson-rocha", "graci-da-fauna-silvestre", "graci-moreira", "guilherme-machado", "gustavo-camillo", "ivo-arthur-goncalves", "jessica-this-do-autismo", "joao-gabriel", "jornalista-isaak-almeida", "kelven-alcantara", "lucas-backes", "lude-riesemberg", "manu-shtorach", "marcello-de-paula", "mariane-mazzon", "marianny-thayla", "mary-barreto", "mateus-pepice", "matheus-manholer", "matheus-santos-moreira", "matheus-zozoloto", "mauricio-franciscon", "natelie-facco", "odenilson-vicente", "paulo-di-melo", "pedro-deyrot", "raphael-lacerda", "ricardo-cascavel-segura", "rubens-nascimento", "soldado-guedes", "stuchi", "tayna-vieia", "thiago-maldonado", "victor-moreira", "wagner-proenca-junior", "william-rocha", "yan-gaudard", "yvis-de-oliveira"];
 
   function getId(){
     const p = new URLSearchParams(location.search);
@@ -707,6 +709,8 @@ const CANDIDATOS = [
       ? `<a href="${c.twitter}" target="_blank" rel="noopener">${X_SVG} X</a>` : '';
     const grupoBtn = `<a href="grupos.html">Apoiar a Missão</a>`;
     const shareBtn = `<button class="share-btn" id="shareBtn" type="button">${SHARE_SVG} Compartilhar</button>`;
+    const molduraBtn = IDS_COM_MOLDURA.includes(c.id)
+      ? `<a href="moldura.html?c=${encodeURIComponent(c.id)}">${CAMERA_SVG} Personalize sua foto de perfil</a>` : '';
 
     const parags = (c.bio||'').split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('');
     const resumoHTML = c.resumo ? `<div class="prof-resumo">${esc(c.resumo)}</div>` : '';
@@ -725,7 +729,7 @@ const CANDIDATOS = [
           <h1>${esc(c.nome)}</h1>
           <div class="cargo">${preCandidatoLabel(c)} a ${esc(cargoExibido(c))}${c.numero ? ` <span class="numero-chip">Nº ${esc(c.numero)}</span>` : ''}</div>
           <div class="cidade">${PIN_SVG} ${esc(c.cidade||'')}</div>
-          <div class="prof-links">${igBtn}${fbBtn}${ttBtn}${ytBtn}${xBtn}${aaBtn}${grupoBtn}${shareBtn}</div>
+          <div class="prof-links">${igBtn}${fbBtn}${ttBtn}${ytBtn}${xBtn}${aaBtn}${molduraBtn}${grupoBtn}${shareBtn}</div>
         </div>
       </div></header>
 
