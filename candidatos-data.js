@@ -86,11 +86,11 @@ const CANDIDATOS = [
     bio: "Economista com especialização em finanças públicas, Gabriel Bertolucci é uma das principais lideranças da nova geração paranaense e um dos fundadores do Partido Missão no Paraná. Aplica análise técnica para auditar as contas do Estado e lidera auditorias independentes que trazem transparência e combatem o desperdício em municípios paranaenses.\n\nNascido no Paraná, construiu sua trajetória unindo conhecimento técnico e mobilização cidadã, liderando iniciativas que conectam a sociedade civil ao debate de soluções práticas para o desenvolvimento econômico local. Já barrou a compra de carro de luxo e aumento de salário para vereadores, e enfrentou o MST, a máfia dos flanelinhas e o crime organizado — sempre de forma independente, sem cargo público e sem vantagens pessoais."
   },
   {
-    id: "darlon-parana-pop", nome: "Darlon Parana Pop", cargo: "federal",
+    id: "darlon-parana-pop", nome: "Darlon Paraná Pop", cargo: "federal",
     cargoLabel: "Deputado Federal", numero: "1444", cidade: "Foz do Iguaçu, PR", foto: "assets/candidatos/darlon-parana-pop.jpg",
     instagram: "https://www.instagram.com/darlondutra",
     facebook: "https://Facebook.com/darlondutra", tiktok: "https://www.tiktok.com/@darlondutra", youtube: "",
-    bio: "Darlon Parana Pop, empresário de Foz do Iguaçu, com experiência pública e comunitária, fundador do projeto Turma do João, que atende crianças. Suas principais pautas são defesa das mulheres, segurança pública e combate à corrupção, com atuação em Foz do Iguaçu."
+    bio: "Darlon Paraná Pop, empresário de Foz do Iguaçu, com experiência pública e comunitária, fundador do projeto Turma do João, que atende crianças. Suas principais pautas são defesa das mulheres, segurança pública e combate à corrupção, com atuação em Foz do Iguaçu."
   },
   {
     id: "gerusa-correa", nome: "Gerusa Correa", cargo: "federal", genero: "f",
@@ -100,7 +100,7 @@ const CANDIDATOS = [
     bio: "Mulher, mãe, pastora e coordenadora de projeto social, Gerusa Correa acompanha de perto as dores das famílias paranaenses: os desafios emocionais, os conflitos dentro dos lares e a urgência de valores que sustentem uma sociedade saudável.\n\nSua candidatura nasce desse compromisso claro: defender a família, cuidar das necessidades do próximo e levantar uma voz de equilíbrio, fé e responsabilidade em Brasília. Gerusa não chega como alguém que tem todas as respostas, mas como alguém disposta a aprender, contribuir e representar os princípios em que acredita pela Missão Paraná."
   },
   {
-    id: "yvis-de-oliveira", nome: "Yvis de Oliveira", cargo: "federal", genero: "f",
+    id: "yvis-de-oliveira", nome: "Dra. Yvis", cargo: "federal", genero: "f",
     cargoLabel: "Deputado Federal", numero: "1401", cidade: "Curitiba, PR", foto: "assets/candidatos/yvis-de-oliveira.jpg",
     instagram: "https://www.instagram.com/yvisoliveira_14",
     facebook: "https://www.facebook.com/share/1GMs9dnVUB", tiktok: "https://www.tiktok.com/@yvisoliveira_14", youtube: "https://youtube.com/@yvisoliveira_14",
@@ -142,18 +142,18 @@ const CANDIDATOS = [
     bio: "Anderson Luiz Guedes, o Soldado Guedes, é policial militar e produtor de conteúdo educacional e informativo. Ingressou na Polícia Militar do Paraná em 2016, completando 10 anos de dedicação à segurança pública em 2026. Atua no policiamento de rua na região sul de Curitiba, com foco no combate à criminalidade, no suporte a vítimas e na proteção à comunidade paranaense. É defensor da Polícia Militar e do endurecimento da legislação penal como caminhos para reduzir a criminalidade no país.\n\nAlém da atuação nas ruas, mantém um trabalho de destaque nas redes sociais, humanizando a rotina policial e mostrando a realidade das ocorrências — uma comunidade digital que já soma mais de 320 mil seguidores entre YouTube, Instagram e Facebook. É candidato a Deputado Federal pela Missão Paraná, com a segurança pública como principal bandeira."
   },
   {
-    id: "ricardo-cascavel-segura", nome: "Ricardo Cascavel Segura", cargo: "federal",
+    id: "ricardo-cascavel-segura", nome: "Ricardo Cascavel Mais Segura", cargo: "federal",
     cargoLabel: "Deputado Federal", numero: "1445", cidade: "Cascavel, PR", foto: "assets/candidatos/ricardo-cascavel-segura.jpg",
     instagram: "https://www.instagram.com/cascavel_maissegura",
     facebook: "https://www.facebook.com/share/1Gi7HZdKSE", tiktok: "https://www.tiktok.com/@cascavel_maissegu", youtube: "",
-    bio: "Ricardo Cascavel Segura, corretor de imóveis e ativista político em Cascavel, atua em conselhos e iniciativas ligadas à segurança pública. Defende mais segurança, proteção de crianças, educação e fiscalização do dinheiro público."
+    bio: "Ricardo Cascavel Mais Segura, corretor de imóveis e ativista político em Cascavel, atua em conselhos e iniciativas ligadas à segurança pública. Defende mais segurança, proteção de crianças, educação e fiscalização do dinheiro público."
   },
   {
-    id: "guilherme-machado", nome: "Guilherme Machado", cargo: "federal",
+    id: "guilherme-machado", nome: "Dr. Guilherme Machado", cargo: "federal",
     cargoLabel: "Deputado Federal", numero: "1442", cidade: "Ponta Grossa, PR", foto: "assets/candidatos/guilherme-machado.jpg",
     instagram: "https://www.instagram.com/drguilhermemachado_neuro",
     facebook: "", tiktok: "", youtube: "https://www.youtube.com/@guilhermeaugustodesouzamac4130",
-    bio: "Guilherme Machado, médico de Ponta Grossa, com atuação direta no cuidado de pacientes e promoção da saúde. Defende saúde, segurança pública, educação, assistência social e melhoria da qualidade de vida nos Campos Gerais e cidades da 3ª Regional de Saúde."
+    bio: "Dr. Guilherme Machado, médico de Ponta Grossa, com atuação direta no cuidado de pacientes e promoção da saúde. Defende saúde, segurança pública, educação, assistência social e melhoria da qualidade de vida nos Campos Gerais e cidades da 3ª Regional de Saúde."
   },
   {
     id: "tayna-vieia", nome: "Naná Vieira", cargo: "federal", genero: "f",
@@ -170,11 +170,11 @@ const CANDIDATOS = [
     bio: "Mauricio Franciscon, pecuarista e filmmaker de Francisco Beltrão, ex-coordenador municipal do MBL. Defende liberdade econômica, menos burocracia, inovação, eficiência na gestão pública, agro, infraestrutura e combate à corrupção no Sudoeste do Paraná."
   },
   {
-    id: "matheus-santos-moreira", nome: "Matheus Santos Moreira", cargo: "federal",
+    id: "matheus-santos-moreira", nome: "Matheus Moreira", cargo: "federal",
     cargoLabel: "Deputado Federal", numero: "1443", cidade: "Arapongas, PR", foto: "assets/candidatos/matheus-santos-moreira.jpg",
     instagram: "https://www.instagram.com/Mathsmoreira",
     facebook: "https://m.facebook.com/mathsmoreira", tiktok: "", youtube: "https://www.youtube.com/@Macacoinvest",
-    bio: "Matheus Santos Moreira, policial legislativo do Senado Federal, natural da região de Arapongas, com trajetória de superação por meio dos estudos. Defende segurança pública, economia, musculação como disciplina e crescimento real para Arapongas e região."
+    bio: "Matheus Moreira, policial legislativo do Senado Federal, natural da região de Arapongas, com trajetória de superação por meio dos estudos. Defende segurança pública, economia, musculação como disciplina e crescimento real para Arapongas e região."
   },
   {
     id: "matheus-zozoloto", nome: "Matheus Zozoloto", cargo: "federal",
@@ -205,7 +205,7 @@ const CANDIDATOS = [
     bio: "Andrey Luiz, vendedor varejista de Siqueira Campos, com foco em cultura, desenvolvimento e eficiência do Estado. Defende segurança pública, redução de impostos, empreendedorismo e infraestrutura no Norte Pioneiro."
   },
   {
-    id: "carlos-eduardo-de-oliveira-gasparim", nome: "Carlos Eduardo de Oliveira Gasparim", cargo: "federal",
+    id: "carlos-eduardo-de-oliveira-gasparim", nome: "Carlos Gasparin", cargo: "federal",
     cargoLabel: "Deputado Federal", numero: "1411", cidade: "Apucarana, PR", foto: "assets/candidatos/carlos-eduardo-de-oliveira-gasparim.jpg",
     instagram: "https://www.instagram.com/carlosgasparin.mbl",
     facebook: "https://www.facebook.com/share/1CrYfrigUt", tiktok: "https://www.tiktok.com/@carloseduardogasparin", youtube: "https://youtube.com/@carlos_gasparin",
@@ -270,7 +270,7 @@ const CANDIDATOS = [
   },
   // ---------- DEPUTADOS ESTADUAIS ----------
   {
-    id: "william-rocha", nome: "William Rocha", cargo: "estadual",
+    id: "william-rocha", nome: "Willian Rocha", cargo: "estadual",
     cargoLabel: "Deputado Estadual", numero: "14014", cidade: "Curitiba, PR", foto: "assets/candidatos/william-rocha.jpg",
     instagram: "https://www.instagram.com/willianrochapr/",
     facebook: "", tiktok: "", youtube: "https://www.youtube.com/@willianrochapr",
@@ -291,11 +291,11 @@ const CANDIDATOS = [
     bio: "De Curitiba, 23 anos, formada em Direito, Beatriz Oliveira é candidata a Deputada Estadual pelo Paraná pela Missão. Achava mais fácil criticar o sistema, mas decidiu assumir a responsabilidade de tentar fazer diferente — recusando-se a aceitar que o Paraná continue governado pelos mesmos de sempre enquanto a população vive insegura, abandonada e sem voz.\n\nDefende mais segurança pública, com investimento inteligente, valorização das forças policiais e políticas sérias de prevenção ao crime, além de menos gasto público e combate à corrupção. Defende também a desfavelização com dignidade: infraestrutura, saneamento, urbanização e oportunidades para transformar comunidades abandonadas em lugares seguros para viver e crescer."
   },
   {
-    id: "mariane-mazzon", nome: "Mariane Mazzon", cargo: "estadual", genero: "f",
+    id: "mariane-mazzon", nome: "Mari Mazzon", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", numero: "14444", cidade: "Campo Largo, PR", foto: "assets/candidatos/mariane-mazzon.jpg",
     instagram: "https://www.instagram.com/marimazzon_",
     facebook: "https://www.facebook.com/share/1AxEA8v2Vc", tiktok: "https://www.tiktok.com/@mari.mazzon", youtube: "",
-    bio: "Mariane Mazzon, gestora e fundadora do Instituto SOS 4 Patas Paraná, referência em resgate e recuperação de animais vítimas de maus-tratos. Defende causa animal, apoio às ONGs, combate ao abandono, fiscalização e políticas públicas de proteção animal na Grande Curitiba."
+    bio: "Mari Mazzon, gestora e fundadora do Instituto SOS 4 Patas Paraná, referência em resgate e recuperação de animais vítimas de maus-tratos. Defende causa animal, apoio às ONGs, combate ao abandono, fiscalização e políticas públicas de proteção animal na Grande Curitiba."
   },
   {
     id: "paulo-di-melo", nome: "Paulo Di Melo", cargo: "estadual",
@@ -326,11 +326,11 @@ const CANDIDATOS = [
     bio: "Lude Riesemberg, comerciante e confeiteiro de Guaratuba, ligado ao comércio local e ao turismo. Defende o fortalecimento turístico da cidade, melhoria das ruas e acessos, atenção às pessoas em situação de rua e renovação política. Atua principalmente no Centro, Brejatuba, Nereidas, Coroados e pontos turísticos de Guaratuba."
   },
   {
-    id: "erica-de-freitas-goncalves", nome: "Erica de Freitas Gonçalves", cargo: "estadual", genero: "f",
+    id: "erica-de-freitas-goncalves", nome: "Erica Gonçalves", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", numero: "14011", cidade: "Foz do Iguaçu, PR", foto: "assets/candidatos/erica-de-freitas-goncalves.jpg",
     instagram: "https://www.instagram.com/almeida._erica",
     facebook: "https://www.facebook.com/share/18jWtJP9kX", tiktok: "", youtube: "",
-    bio: "Erica de Freitas Gonçalves, do lar, de Foz do Iguaçu, com perfil cuidador, prático e estável. Defende educação, meio ambiente, educação na primeira infância, infraestrutura e direitos das mulheres, com atuação na região leste e nordeste de Foz."
+    bio: "Erica Gonçalves, do lar, de Foz do Iguaçu, com perfil cuidador, prático e estável. Defende educação, meio ambiente, educação na primeira infância, infraestrutura e direitos das mulheres, com atuação na região leste e nordeste de Foz."
   },
   {
     id: "aline-franzon", nome: "Aline Franzon", cargo: "estadual", genero: "f",
@@ -368,18 +368,18 @@ const CANDIDATOS = [
     bio: "Fernando Garbatchevski, instrutor de lutas e motoboy de Prudentópolis, com trajetória marcada por trabalho, disciplina e superação. Defende segurança pública, combate à corrupção, valorização do trabalhador, redução de impostos e fortalecimento de oportunidades para jovens e trabalhadores autônomos."
   },
   {
-    id: "ivo-arthur-goncalves", nome: "Ivo Arthur Gonçalves", cargo: "estadual",
+    id: "ivo-arthur-goncalves", nome: "Ivo Arthur", cargo: "estadual",
     cargoLabel: "Deputado Estadual", numero: "14222", cidade: "Inácio Martins, PR", foto: "assets/candidatos/ivo-arthur-goncalves.jpg",
     instagram: "https://www.instagram.com/ivoarthurmissao",
     facebook: "https://www.facebook.com/ivoarthur.goncalves", tiktok: "", youtube: "https://www.youtube.com/@ivoarthurgoncalves678",
-    bio: "Ivo Arthur Gonçalves, administrador do setor agropecuário de Inácio Martins, com vivência entre capital e interior. Defende segurança pública, logística, infraestrutura, combate à compra de votos e desenvolvimento para a cidade e região rural."
+    bio: "Ivo Arthur, administrador do setor agropecuário de Inácio Martins, com vivência entre capital e interior. Defende segurança pública, logística, infraestrutura, combate à compra de votos e desenvolvimento para a cidade e região rural."
   },
   {
-    id: "natelie-facco", nome: "Natelie Facco", cargo: "estadual", genero: "f",
+    id: "natelie-facco", nome: "Natalie Facco", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", numero: "14114", cidade: "Pontal do Paraná, PR", foto: "assets/candidatos/natelie-facco.jpg",
     instagram: "https://www.instagram.com/nataliefacco",
     facebook: "https://www.facebook.com", tiktok: "https://tiktok.com/@nataliefacco", youtube: "https://youtube.com/@natalie_facco",
-    bio: "Natelie Facco, estudante de Pontal do Paraná, com perfil determinado e senso de justiça. Defende direita liberal, combate à corrupção, desenvolvimento econômico e melhoria da infraestrutura, com foco em Praia de Leste e Pontal do Paraná."
+    bio: "Natalie Facco, estudante de Pontal do Paraná, com perfil determinado e senso de justiça. Defende direita liberal, combate à corrupção, desenvolvimento econômico e melhoria da infraestrutura, com foco em Praia de Leste e Pontal do Paraná."
   },
   {
     id: "carlos-eduardo", nome: "Carlos Eduardo", cargo: "estadual",
@@ -396,11 +396,11 @@ const CANDIDATOS = [
     bio: "Matheus Manholer, profissional de suporte técnico em tecnologia financeira, empreendedor, casado e pai de Matteo e Moisés. Defende saúde digital, modernização do SUS, empreendedorismo, desburocratização, esporte para juventude e transparência total dos gastos de mandato."
   },
   {
-    id: "daymond-pires", nome: "Daymond Pires", cargo: "estadual",
+    id: "daymond-pires", nome: "Dyamond Pires", cargo: "estadual",
     cargoLabel: "Deputado Estadual", numero: "14141", cidade: "Goioerê, PR", foto: "assets/candidatos/daymond-pires.jpg",
     instagram: "https://www.instagram.com/dyamond_pires/#",
     facebook: "https://www.facebook.com/dyamond.pires", tiktok: "https://www.tiktok.com/@harpertvbr", youtube: "https://www.youtube.com/@Dyamond_pires",
-    bio: "Daymond Pires, motorista, músico e adestrador, com atuação em Goioerê e Campo Mourão. Defende segurança pública, saúde com mais especialistas em cidades pequenas, acesso a cursos técnicos no interior, causa animal e princípios de liberdade individual."
+    bio: "Dyamond Pires, motorista, músico e adestrador, com atuação em Goioerê e Campo Mourão. Defende segurança pública, saúde com mais especialistas em cidades pequenas, acesso a cursos técnicos no interior, causa animal e princípios de liberdade individual."
   },
   {
     id: "kelven-alcantara", nome: "Kelven Alcantara", cargo: "estadual",
@@ -410,11 +410,11 @@ const CANDIDATOS = [
     bio: "Kelven Alcantara, programador e cientista de dados de Londrina, com foco em tecnologia, dados e transparência. Defende eficiência estatal, tecnologia pública, combate à corrupção por meio de dados e desenvolvimento econômico."
   },
   {
-    id: "eduardo-nunes-gomes", nome: "Eduardo Nunes Gomes", cargo: "estadual",
+    id: "eduardo-nunes-gomes", nome: "Eduardo Gomes", cargo: "estadual",
     cargoLabel: "Deputado Estadual", numero: "14021", cidade: "Cambé, PR", foto: "assets/candidatos/eduardo-nunes-gomes.jpg",
     instagram: "https://www.instagram.com/eduardo.n.gomes",
     facebook: "https://www.facebook.com/share/18UocASUSN", tiktok: "https://www.tiktok.com/@eduardongomes", youtube: "",
-    bio: "Eduardo Nunes Gomes, consultor de vendas de Cambé, filho de pai policial militar e mãe policial civil. Defende segurança pública, educação básica, modernização urbana, combate à criminalidade e melhor retorno dos impostos para a estrutura das cidades."
+    bio: "Eduardo Gomes, consultor de vendas de Cambé, filho de pai policial militar e mãe policial civil. Defende segurança pública, educação básica, modernização urbana, combate à criminalidade e melhor retorno dos impostos para a estrutura das cidades."
   },
   {
     id: "odenilson-vicente", nome: "Odenilson Vicente", cargo: "estadual",
@@ -445,11 +445,11 @@ const CANDIDATOS = [
     bio: "Raphael Lacerda, empresário de Curitiba e defensor do uso estratégico da tecnologia e da inteligência artificial. Suas pautas centrais são IA, soberania tecnológica, empreendedorismo, gestão pública moderna e desenvolvimento econômico para o Paraná."
   },
   {
-    id: "wagner-proenca-junior", nome: "Wagner Proença Junior", cargo: "estadual",
+    id: "wagner-proenca-junior", nome: "Wagner Jr.", cargo: "estadual",
     cargoLabel: "Deputado Estadual", numero: "14555", cidade: "Jaguariaíva, PR", foto: "assets/candidatos/wagner-proenca-junior.jpg",
     instagram: "https://www.instagram.com/wagnermissao",
     facebook: "https://www.facebook.com/share/17zTgy7VVo", tiktok: "https://www.tiktok.com/@wagner.proena.jr", youtube: "https://youtube.com/@owagnerpro",
-    bio: "Wagner Proença Junior, empresário de Jaguariaíva, com vivência internacional e atuação comunitária. Defende anticorrupção, reindustrialização, turismo, saneamento e infraestrutura nos Campos Gerais, especialmente em Jaguariaíva, Arapoti, Sengés e Piraí do Sul."
+    bio: "Wagner Jr., empresário de Jaguariaíva, com vivência internacional e atuação comunitária. Defende anticorrupção, reindustrialização, turismo, saneamento e infraestrutura nos Campos Gerais, especialmente em Jaguariaíva, Arapoti, Sengés e Piraí do Sul."
   },
 
   {
@@ -509,7 +509,7 @@ const CANDIDATOS = [
     bio: "Em breve mais informações sobre a trajetória de Bruno Vieira, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
   },
   {
-    id: "graci-da-fauna-silvestre", nome: "Graci da Fauna Silvestre", cargo: "estadual", genero: "f",
+    id: "graci-da-fauna-silvestre", nome: "Graci da Faúna Silvestre", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", numero: "14900", cidade: "Paraná", foto: "",
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
