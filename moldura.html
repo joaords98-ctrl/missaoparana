@@ -62,6 +62,12 @@
   h1 span{color:var(--amarelo)}
   header.hero p{color:var(--cinza-claro);max-width:560px;margin:0 auto;font-size:16px}
 
+  .candidato-atual{display:flex;align-items:center;gap:14px;max-width:520px;margin:0 auto 8px;background:var(--preto-2);border:1px solid var(--linha);border-radius:16px;padding:14px 18px;transition:border-color .15s}
+  .candidato-atual:hover{border-color:var(--amarelo)}
+  .candidato-atual img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--amarelo)}
+  .candidato-atual span{font-size:14px;color:var(--cinza-claro)}
+  .candidato-atual b{color:var(--branco)}
+
   .ferramenta{padding:34px 0 80px}
   .ferramenta-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
   @media(max-width:860px){.ferramenta-grid{grid-template-columns:1fr;gap:32px}}
@@ -117,8 +123,15 @@
 <header class="hero"><div class="wrap">
   <div class="sec-eyebrow">— Divulgação</div>
   <h1>Coloque sua foto na <span>Missão</span>.</h1>
-  <p>Suba sua foto, ajuste como quiser e baixe pronta com a moldura oficial de Luiz Felipe França pra Governador. Rápido, fácil, e você já ajuda a espalhar a campanha nas redes.</p>
+  <p>Suba sua foto, ajuste como quiser e baixe pronta com a moldura oficial. Rápido, fácil, e você já ajuda a espalhar a campanha nas redes.</p>
 </div></header>
+
+<div class="wrap">
+  <a class="candidato-atual" id="candidatoAtual" href="luiz-franca.html">
+    <img id="candidatoFoto" src="assets/candidatos/luiz-franca.jpg" alt="">
+    <span>Moldura de <b id="candidatoNome">Luiz Felipe França</b> — <span id="candidatoCargo">Candidato a Governador</span> · ver perfil →</span>
+  </a>
+</div>
 
 <section class="ferramenta"><div class="wrap">
   <div class="ferramenta-grid">
@@ -171,12 +184,39 @@
 
 <script>
 (function(){
+  // ===== Cadastro de molduras disponíveis =====
+  // Pra adicionar um novo candidato no futuro: só incluir uma nova entrada aqui
+  // (nome, cargo, foto de perfil, arquivo da moldura e link da página dele) —
+  // nada mais no código precisa mudar.
+  var MOLDURAS = {
+    "luiz-franca": {
+      nome: "Luiz Felipe França",
+      cargo: "Candidato a Governador",
+      foto: "assets/candidatos/luiz-franca.jpg",
+      arquivo: "assets/moldura/luiz-franca-moldura.png",
+      pagina: "luiz-franca.html",
+      arquivoBaixado: "luiz-franca-governador-perfil.png"
+    }
+  };
+  var PADRAO = "luiz-franca";
+
+  var params = new URLSearchParams(location.search);
+  var idSelecionado = params.get('c');
+  if(!idSelecionado || !MOLDURAS[idSelecionado]) idSelecionado = PADRAO;
+  var config = MOLDURAS[idSelecionado];
+
+  document.getElementById('candidatoAtual').href = config.pagina;
+  document.getElementById('candidatoFoto').src = config.foto;
+  document.getElementById('candidatoNome').textContent = config.nome;
+  document.getElementById('candidatoCargo').textContent = config.cargo;
+  document.title = 'Coloque sua foto na campanha — ' + config.nome + ' | Missão Paraná';
+
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
   var W = canvas.width, H = canvas.height;
 
   var moldura = new Image();
-  moldura.src = 'assets/moldura/luiz-franca-moldura.png';
+  moldura.src = config.arquivo;
 
   var foto = null;
   var scale = 1;      // 1 = "cover" minimo (preenche o quadrado todo)
@@ -306,7 +346,7 @@
   baixarBtn.addEventListener('click', function(){
     canvas.toBlob(function(blob){
       var link = document.createElement('a');
-      link.download = 'luiz-franca-governador-perfil.png';
+      link.download = config.arquivoBaixado;
       link.href = URL.createObjectURL(blob);
       document.body.appendChild(link);
       link.click();
@@ -317,9 +357,9 @@
 
   compartilharBtn.addEventListener('click', function(){
     canvas.toBlob(async function(blob){
-      var arquivo = new File([blob], 'luiz-franca-governador-perfil.png', { type: 'image/png' });
+      var arquivo = new File([blob], config.arquivoBaixado, { type: 'image/png' });
       try{
-        await navigator.share({ files: [arquivo], title: 'Luiz França 14 — Governador' });
+        await navigator.share({ files: [arquivo], title: config.nome + ' — ' + config.cargo });
       }catch(e){}
     }, 'image/png');
   });
