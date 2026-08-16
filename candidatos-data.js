@@ -291,7 +291,7 @@ const CANDIDATOS = [
   },
   {
     id: "victor-moreira", nome: "Victor Moreira", cargo: "federal",
-    cargoLabel: "Deputado Federal", cnpjCampanha: "68.578.190/0001-62", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.190/0001-62", numero: "1489", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cnpjCampanha: "68.578.190/0001-62", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.190/0001-62", numero: "1489", cidade: "Paraná", foto: "assets/candidatos/victor-moreira.jpg",
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.190/0001-62",
