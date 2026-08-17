@@ -44,7 +44,7 @@ const CANDIDATOS = [
   {
     id: "joao-adolfo",
     pagina: "joao-adolfo.html",
-    nome: "João Adolfo Wendpap",
+    nome: "João Adolfo",
     cargo: "vice",
     cargoLabel: "Vice-Governador do Paraná", cnpjCampanha: "68.594.317/0001-37", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.594.317/0001-37", numero: "",
     cidade: "Paraná",
@@ -54,7 +54,7 @@ const CANDIDATOS = [
     cnpj: "68.594.317/0001-37",
     destaque: "Casado, pai, e crê que a responsabilidade é o caminho democrático.",
     resumo: "Formado em Jornalismo e Letras, com experiência em direito e economia, defende um vice de trabalho contínuo e dedicado ao mandato.",
-    bio: "João Adolfo Wendpap é formado em Jornalismo e Letras, e tem experiência com direito e economia. Crê que o papel do vice deve ser de trabalho contínuo e dedicado ao mandato; diferente do que vem ocorrendo no Paraná, onde a escolha pelos vices é decorativa e de eventual interlocução com grupos e setores."
+    bio: "João Adolfo é formado em Jornalismo e Letras, e tem experiência com direito e economia. Crê que o papel do vice deve ser de trabalho contínuo e dedicado ao mandato; diferente do que vem ocorrendo no Paraná, onde a escolha pelos vices é decorativa e de eventual interlocução com grupos e setores."
   },
 
   // ---------- DEPUTADOS FEDERAIS ----------
