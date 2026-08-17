@@ -47,7 +47,7 @@
   .badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#1a1304;background:var(--amarelo);padding:6px 14px;border-radius:999px;margin-bottom:14px}
   .prof-info h1{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.08;margin-bottom:8px}
   .prof-info .cargo{color:var(--amarelo);font-weight:700;font-size:17px}
-  .numero-chip{display:inline-block;background:var(--amarelo);color:#1a1304;font-size:14px;font-weight:800;border-radius:8px;padding:2px 10px;margin-left:4px;vertical-align:middle}
+  .numero-chip{display:inline-block;background:var(--amarelo);color:#1a1304;font-size:20px;font-weight:900;border-radius:9px;padding:3px 14px;margin-left:8px;vertical-align:middle;box-shadow:0 6px 16px rgba(242,169,0,.35)}
   .prof-info .cidade{color:var(--cinza-claro);font-size:14.5px;margin-top:2px;display:flex;align-items:center;gap:7px}
   .prof-links{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
   .prof-links a{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--amarelo);border:1.5px solid var(--amarelo);border-radius:10px;padding:9px 16px;transition:all .15s}
@@ -791,7 +791,7 @@ const CANDIDATOS = [
         <div class="prof-info">
           <span class="badge">${preCandidatoLabel(c)}</span>
           <h1>${esc(c.nome)}</h1>
-          <div class="cargo">${preCandidatoLabel(c)} a ${esc(cargoExibido(c))}${c.numero ? ` <span class="numero-chip">Nº ${esc(c.numero)}</span>` : ''}</div>
+          <div class="cargo">${esc(cargoExibido(c))}${c.numero ? ` <span class="numero-chip">Nº ${esc(c.numero)}</span>` : ''}</div>
           <div class="cidade">${PIN_SVG} ${esc(c.cidade||'')}</div>
           <div class="prof-links">${igBtn}${fbBtn}${ttBtn}${ytBtn}${xBtn}${aaBtn}${molduraBtn}${grupoBtn}${shareBtn}</div>
         </div>
