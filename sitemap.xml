@@ -16,6 +16,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://missaoparana.com.br/historia.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://missaoparana.com.br/grupos.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
