@@ -230,6 +230,11 @@
 
       <div class="bloco-endereco" id="blocoEndereco">
         <div class="campo">
+          <label for="cep">CEP</label>
+          <input type="text" id="cep" inputmode="numeric" placeholder="00000-000">
+          <div id="cepStatus" style="font-size:12.5px;margin-top:6px;min-height:16px"></div>
+        </div>
+        <div class="campo">
           <label for="endereco">Endereço</label>
           <input type="text" id="endereco" placeholder="Rua, avenida...">
         </div>
@@ -244,10 +249,6 @@
           </div>
         </div>
         <div class="linha-2">
-          <div class="campo">
-            <label for="cep">CEP <span class="opcional">(opcional)</span></label>
-            <input type="text" id="cep" inputmode="numeric" placeholder="00000-000">
-          </div>
           <div class="campo">
             <label for="complemento">Complemento <span class="opcional">(opcional)</span></label>
             <input type="text" id="complemento">
@@ -432,7 +433,49 @@
     var v = e.target.value.replace(/\D/g,'').slice(0,8);
     if(v.length>5) v=v.replace(/(\d{5})(\d{0,3})/,'$1-$2');
     e.target.value = v;
+    if(v.replace(/\D/g,'').length === 8){
+      buscarCep(v.replace(/\D/g,''));
+    } else {
+      document.getElementById('cepStatus').textContent = '';
+    }
   });
+
+  async function buscarCep(cepLimpo){
+    var status = document.getElementById('cepStatus');
+    status.textContent = 'Buscando endereço...';
+    status.style.color = 'var(--cinza-claro)';
+    try{
+      var resp = await fetch('https://viacep.com.br/ws/'+cepLimpo+'/json/');
+      var dados = await resp.json();
+      if(dados.erro){
+        status.textContent = 'CEP não encontrado. Preencha manualmente.';
+        status.style.color = 'var(--erro)';
+        return;
+      }
+      var enderecoInput = document.getElementById('endereco');
+      var bairroInput = document.getElementById('bairro');
+      if(dados.logradouro) enderecoInput.value = dados.logradouro;
+      if(dados.bairro) bairroInput.value = dados.bairro;
+
+      if(dados.localidade){
+        var cidadeSelect = document.getElementById('cidade');
+        var existe = Array.from(cidadeSelect.options).some(function(op){ return op.value === dados.localidade; });
+        if(existe){
+          cidadeSelect.value = dados.localidade;
+          cidadeSelect.classList.remove('erro');
+        }
+      }
+
+      status.textContent = '✓ Endereço preenchido automaticamente';
+      status.style.color = 'var(--amarelo)';
+
+      // leva o foco pro campo Numero, que e o unico que o ViaCEP nao preenche
+      document.getElementById('numero').focus();
+    }catch(err){
+      status.textContent = 'Não foi possível buscar o CEP agora. Preencha manualmente.';
+      status.style.color = 'var(--erro)';
+    }
+  }
 
   var SUPABASE_URL='https://dzysyujkefksduusnkpb.supabase.co';
   var SUPABASE_KEY='sb_publishable_foVjR4L0DXOt7c2k5-8JWw_dgZpTWu8';
