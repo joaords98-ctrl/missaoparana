@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Solicitar Material de Campanha — Luiz França | Missão Paraná</title>
-<meta name="description" content="Solicite santinhos, folders, flyers e outros materiais de campanha do Luiz Felipe França. Escolha seu kit e informe as quantidades.">
+<meta name="description" content="Solicite santinhos, folders, flyers e outros materiais de campanha do Luiz Felipe França. Escolha seu kit em poucos passos.">
 <link rel="canonical" href="https://missaoparana.com.br/material-franca.html">
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#0a0a0a">
@@ -16,93 +16,89 @@
   body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
     background:var(--preto);color:var(--branco);line-height:1.6;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:720px;margin:0 auto;padding:0 20px}
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px}
 
   nav{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
-  .nav-in{max-width:720px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:17px}
-  .brand img{height:30px}
+  .nav-in{max-width:640px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:16px}
+  .brand img{height:28px}
   .brand .pr{color:var(--amarelo)}
 
-  header.topo{padding:40px 0 26px;text-align:center;border-bottom:1px solid var(--linha)}
-  .sec-eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--amarelo);font-weight:700;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
-  header.topo h1{font-size:clamp(24px,4.4vw,34px);font-weight:900;line-height:1.15;margin-bottom:12px}
-  header.topo p{color:var(--cinza-claro);font-size:15.5px;max-width:560px;margin:0 auto}
+  header.topo{padding:32px 0 20px;text-align:center;border-bottom:1px solid var(--linha)}
+  .numero14{display:inline-flex;align-items:center;gap:9px;background:rgba(242,169,0,.1);border:1px solid rgba(242,169,0,.3);
+    border-radius:999px;padding:6px 16px;font-weight:800;font-size:13px;color:var(--amarelo);margin-bottom:16px}
+  .numero14 b{background:var(--amarelo);color:#1a1304;border-radius:50%;width:20px;height:20px;display:inline-flex;
+    align-items:center;justify-content:center;font-size:11px}
+  header.topo h1{font-size:clamp(22px,4.4vw,30px);font-weight:900;line-height:1.2;margin-bottom:10px}
+  header.topo p{color:var(--cinza-claro);font-size:14.5px;max-width:520px;margin:0 auto}
 
-  /* PROGRESSO */
-  .progresso{display:flex;align-items:center;justify-content:center;gap:6px;padding:22px 0 4px}
-  .passo-bola{width:30px;height:30px;border-radius:50%;background:var(--preto-2);border:1.5px solid var(--linha);
-    display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--cinza-claro);flex-shrink:0;transition:all .2s}
+  .progresso{display:flex;align-items:center;justify-content:center;gap:6px;padding:20px 0 4px}
+  .passo-bola{width:28px;height:28px;border-radius:50%;background:var(--preto-2);border:1.5px solid var(--linha);
+    display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:800;color:var(--cinza-claro);flex-shrink:0;transition:all .2s}
   .passo-bola.ativo{background:var(--amarelo);border-color:var(--amarelo);color:#1a1304}
   .passo-bola.feito{background:transparent;border-color:var(--amarelo);color:var(--amarelo)}
-  .passo-linha{width:24px;height:1.5px;background:var(--linha)}
-  @media(max-width:480px){.passo-linha{width:12px}.passo-bola{width:26px;height:26px;font-size:12px}}
+  .passo-linha{width:32px;height:1.5px;background:var(--linha)}
+  @media(max-width:480px){.passo-linha{width:16px}}
 
-  main{padding:34px 0 90px}
+  main{padding:28px 0 80px}
   .passo{display:none}
   .passo.ativo{display:block;animation:surge .25s ease}
   @keyframes surge{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-  .passo h2{font-size:21px;font-weight:800;margin-bottom:6px}
-  .passo>p.desc{color:var(--cinza-claro);font-size:14.5px;margin-bottom:24px}
+  .passo h2{font-size:20px;font-weight:800;margin-bottom:5px}
+  .passo>p.desc{color:var(--cinza-claro);font-size:14px;margin-bottom:20px}
 
-  .campo{margin-bottom:16px}
+  .campo{margin-bottom:14px}
   .campo label{display:block;font-size:13.5px;font-weight:700;color:#d8d8d8;margin-bottom:7px}
   .campo label .opcional{color:var(--cinza);font-weight:400}
-  .campo input,.campo select{width:100%;background:var(--preto-2);border:1.5px solid var(--linha);border-radius:10px;
-    padding:13px 14px;color:var(--branco);font-size:15px;font-family:inherit;transition:border-color .15s}
-  .campo input:focus,.campo select:focus{outline:none;border-color:var(--amarelo)}
+  .campo input{width:100%;background:var(--preto-2);border:1.5px solid var(--linha);border-radius:10px;
+    padding:14px;color:var(--branco);font-size:16px;font-family:inherit;transition:border-color .15s}
+  .campo input:focus{outline:none;border-color:var(--amarelo)}
   .campo input.erro{border-color:var(--erro)}
   .campo .msg-erro{display:none;color:var(--erro);font-size:12.5px;margin-top:6px}
   .campo input.erro + .msg-erro{display:block}
-  .linha-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .linha-3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
-  @media(max-width:560px){.linha-2,.linha-3{grid-template-columns:1fr}}
+  .linha-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:480px){.linha-2{grid-template-columns:1fr}}
 
-  /* KITS */
-  .kits-grid{display:grid;grid-template-columns:1fr;gap:16px}
-  .kit-card{background:var(--preto-2);border:1.5px solid var(--linha);border-radius:16px;padding:22px;cursor:pointer;transition:all .15s;position:relative}
+  .bloco-endereco{max-height:0;overflow:hidden;transition:max-height .3s ease;opacity:0}
+  .bloco-endereco.aberto{max-height:600px;opacity:1;transition:max-height .35s ease,opacity .3s ease .05s;margin-top:6px}
+
+  .kit-card{background:var(--preto-2);border:1.5px solid var(--linha);border-radius:16px;padding:20px;cursor:pointer;transition:all .15s;margin-bottom:14px}
   .kit-card:hover{border-color:rgba(242,169,0,.5)}
   .kit-card.selecionado{border-color:var(--amarelo);background:rgba(242,169,0,.06)}
-  .kit-card .kit-nome{font-size:18px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .kit-card .kit-nome{font-size:17px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:10px}
   .kit-card .kit-check{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--linha);flex-shrink:0;
     display:flex;align-items:center;justify-content:center;transition:all .15s}
   .kit-card.selecionado .kit-check{background:var(--amarelo);border-color:var(--amarelo)}
   .kit-card.selecionado .kit-check::after{content:'✓';color:#1a1304;font-size:13px;font-weight:900}
-  .kit-itens{list-style:none;color:#c6c6c6;font-size:14px}
-  .kit-itens li{padding:4px 0 4px 22px;position:relative}
-  .kit-itens li::before{content:'•';color:var(--amarelo);position:absolute;left:6px}
+  .kit-itens{list-style:none;color:#c6c6c6;font-size:13.5px}
+  .kit-itens.badge-lista{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+  .kit-itens.badge-lista li{background:rgba(255,255,255,.06);border-radius:8px;padding:5px 10px;font-size:12.5px;color:#d8d8d8}
 
-  /* QUANTIDADES */
-  .qtd-linha{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--linha)}
-  .qtd-linha:last-child{border-bottom:0}
-  .qtd-nome{font-size:15px;font-weight:600}
-  .qtd-controle{display:flex;align-items:center;gap:10px;flex-shrink:0}
-  .qtd-btn{width:34px;height:34px;border-radius:9px;border:1.5px solid var(--linha);background:var(--preto-2);color:var(--branco);
-    font-size:18px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .15s}
+  .qtd-toggle{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;color:var(--amarelo);font-weight:700;cursor:pointer;margin-bottom:6px;background:none;border:0;font-family:inherit;padding:0}
+  .qtd-avancado{display:none;margin-top:12px;border-top:1px dashed var(--linha);padding-top:14px}
+  .qtd-avancado.aberto{display:block}
+  .qtd-linha{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:9px 0}
+  .qtd-nome{font-size:14.5px;font-weight:600}
+  .qtd-controle{display:flex;align-items:center;gap:9px;flex-shrink:0}
+  .qtd-btn{width:30px;height:30px;border-radius:8px;border:1.5px solid var(--linha);background:var(--preto-3);color:var(--branco);
+    font-size:16px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center}
   .qtd-btn:hover{border-color:var(--amarelo)}
-  .qtd-valor{width:44px;text-align:center;font-weight:800;font-size:16px}
+  .qtd-valor{width:34px;text-align:center;font-weight:800;font-size:15px}
 
-  /* ENTREGA */
   .entrega-opcao{display:flex;align-items:flex-start;gap:14px;background:var(--preto-2);border:1.5px solid var(--linha);
-    border-radius:14px;padding:18px;margin-bottom:14px;cursor:pointer;transition:border-color .15s}
+    border-radius:14px;padding:16px;margin-bottom:12px;cursor:pointer;transition:border-color .15s}
   .entrega-opcao:hover{border-color:rgba(242,169,0,.5)}
   .entrega-opcao.selecionado{border-color:var(--amarelo);background:rgba(242,169,0,.06)}
   .entrega-opcao .bolinha{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--linha);flex-shrink:0;margin-top:2px;position:relative}
   .entrega-opcao.selecionado .bolinha{border-color:var(--amarelo)}
   .entrega-opcao.selecionado .bolinha::after{content:'';position:absolute;inset:4px;background:var(--amarelo);border-radius:50%}
-  .entrega-opcao b{display:block;font-size:15.5px;margin-bottom:3px}
-  .entrega-opcao span{color:var(--cinza-claro);font-size:13.5px}
+  .entrega-opcao b{display:block;font-size:15px;margin-bottom:3px}
+  .entrega-opcao span{color:var(--cinza-claro);font-size:13px}
 
-  /* RESUMO (passo 5) */
-  .resumo-card{background:var(--preto-2);border:1px solid var(--linha);border-radius:14px;padding:20px 22px;margin-bottom:14px}
-  .resumo-card h3{font-size:13px;color:var(--amarelo);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
-  .resumo-item{display:flex;justify-content:space-between;font-size:14.5px;padding:4px 0;color:#d8d8d8}
-  .resumo-item b{color:var(--branco)}
-  .aviso-estoque{background:rgba(242,169,0,.08);border:1px solid rgba(242,169,0,.25);border-radius:12px;padding:14px 16px;
-    font-size:13.5px;color:#d8c9a3;margin-top:6px}
+  .aviso-estoque{background:rgba(242,169,0,.08);border:1px solid rgba(242,169,0,.25);border-radius:12px;padding:13px 15px;
+    font-size:13px;color:#d8c9a3;margin-top:18px}
 
-  /* NAVEGACAO */
-  .nav-botoes{display:flex;gap:12px;margin-top:30px}
+  .nav-botoes{display:flex;gap:12px;margin-top:26px}
   .btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:800;font-size:15px;
     border-radius:12px;padding:15px 20px;border:0;cursor:pointer;font-family:inherit;transition:filter .15s,opacity .15s}
   .btn-primario{background:linear-gradient(180deg,var(--amarelo-claro),var(--amarelo));color:#1a1304;box-shadow:0 10px 24px rgba(242,169,0,.25)}
@@ -111,26 +107,25 @@
   .btn-secundario{background:transparent;border:1.5px solid var(--linha);color:var(--branco);flex:0 0 auto;padding:15px 22px}
   .btn-secundario:hover{border-color:var(--cinza-claro)}
 
-  /* TELA FINAL */
   .sucesso{text-align:center;padding:50px 0}
-  .sucesso .icone{width:74px;height:74px;border-radius:50%;background:var(--amarelo);display:flex;align-items:center;
-    justify-content:center;margin:0 auto 22px;font-size:34px;color:#1a1304}
-  .sucesso h2{font-size:24px;font-weight:900;margin-bottom:12px}
-  .sucesso p{color:var(--cinza-claro);font-size:15px;max-width:440px;margin:0 auto}
+  .sucesso .icone{width:70px;height:70px;border-radius:50%;background:var(--amarelo);display:flex;align-items:center;
+    justify-content:center;margin:0 auto 20px;font-size:32px;color:#1a1304}
+  .sucesso h2{font-size:23px;font-weight:900;margin-bottom:12px}
+  .sucesso p{color:var(--cinza-claro);font-size:14.5px;max-width:420px;margin:0 auto}
 
-  footer{border-top:1px solid var(--linha);padding:28px 0;text-align:center;color:#6a6a6a;font-size:12.5px}
+  footer{border-top:1px solid var(--linha);padding:26px 0;text-align:center;color:#6a6a6a;font-size:12.5px}
 </style>
 </head>
 <body>
 <nav><div class="nav-in">
   <a class="brand" href="index.html"><img src="assets/img/img-f610dd08ec.png" alt=""><span>Missão<span class="pr">Paraná</span></span></a>
-  <a href="luiz-franca.html" style="font-size:14px;color:#d8d8d8">← Voltar</a>
+  <a href="luiz-franca.html" style="font-size:13.5px;color:#d8d8d8">← Voltar</a>
 </div></nav>
 
 <header class="topo"><div class="wrap">
-  <div class="sec-eyebrow" style="justify-content:center">Material de campanha</div>
-  <h1>Solicitação de Material de Campanha</h1>
-  <p>Preencha seus dados, escolha o kit e informe as quantidades necessárias. Nossa equipe receberá sua solicitação e entrará em contato para confirmar a disponibilidade e a entrega dos materiais.</p>
+  <div class="numero14"><b>14</b> O Paraná é 14</div>
+  <h1>Peça seu material de campanha</h1>
+  <p>Leva menos de 1 minuto. Escolha o kit, diga como quer receber e pronto.</p>
 </div></header>
 
 <div class="progresso" id="progresso"></div>
@@ -138,14 +133,13 @@
 <main><div class="wrap">
   <form id="formSolicitacao">
 
-    <!-- PASSO 1 -->
     <div class="passo ativo" data-passo="1">
       <h2>Seus dados</h2>
-      <p class="desc">Precisamos saber quem é você e para onde vai o material.</p>
+      <p class="desc">Só o essencial pra gente te encontrar.</p>
 
       <div class="campo">
         <label for="nome">Nome completo</label>
-        <input type="text" id="nome" autocomplete="name" required>
+        <input type="text" id="nome" autocomplete="name" placeholder="Seu nome" required>
         <div class="msg-erro">Informe seu nome completo.</div>
       </div>
 
@@ -155,38 +149,10 @@
         <div class="msg-erro">Informe um WhatsApp válido com DDD.</div>
       </div>
 
-      <div class="linha-2">
-        <div class="campo">
-          <label for="cidade">Cidade</label>
-          <input type="text" id="cidade" required>
-          <div class="msg-erro">Informe sua cidade.</div>
-        </div>
-        <div class="campo">
-          <label for="bairro">Bairro</label>
-          <input type="text" id="bairro">
-        </div>
-      </div>
-
-      <div class="linha-2">
-        <div class="campo">
-          <label for="cep">CEP <span class="opcional">(opcional)</span></label>
-          <input type="text" id="cep" inputmode="numeric" placeholder="00000-000">
-        </div>
-        <div class="campo">
-          <label for="endereco">Endereço</label>
-          <input type="text" id="endereco">
-        </div>
-      </div>
-
-      <div class="linha-2">
-        <div class="campo">
-          <label for="numero">Número</label>
-          <input type="text" id="numero" inputmode="numeric">
-        </div>
-        <div class="campo">
-          <label for="complemento">Complemento <span class="opcional">(opcional)</span></label>
-          <input type="text" id="complemento">
-        </div>
+      <div class="campo">
+        <label for="cidade">Cidade</label>
+        <input type="text" id="cidade" placeholder="Sua cidade" required>
+        <div class="msg-erro">Informe sua cidade.</div>
       </div>
 
       <div class="nav-botoes">
@@ -194,26 +160,28 @@
       </div>
     </div>
 
-    <!-- PASSO 2 -->
     <div class="passo" data-passo="2">
       <h2>Escolha seu kit</h2>
-      <p class="desc">Selecione o kit que melhor atende sua necessidade.</p>
+      <p class="desc">Toque no kit que você precisa.</p>
 
-      <div class="kits-grid" id="kitsGrid">
+      <div id="kitsGrid">
         <div class="kit-card" data-kit="Kit Básico" data-itens="Santinho,Praguinha,Folder">
           <div class="kit-nome"><span class="kit-check"></span> Kit Básico</div>
-          <ul class="kit-itens"><li>Santinho</li><li>Praguinha</li><li>Folder</li></ul>
+          <ul class="kit-itens badge-lista"><li>Santinho</li><li>Praguinha</li><li>Folder</li></ul>
         </div>
         <div class="kit-card" data-kit="Kit Campanha" data-itens="Santinho,Santão,Praguinha,Folder,Flyer">
           <div class="kit-nome"><span class="kit-check"></span> Kit Campanha</div>
-          <ul class="kit-itens"><li>Santinho</li><li>Santão</li><li>Praguinha</li><li>Folder</li><li>Flyer</li></ul>
+          <ul class="kit-itens badge-lista"><li>Santinho</li><li>Santão</li><li>Praguinha</li><li>Folder</li><li>Flyer</li></ul>
         </div>
         <div class="kit-card" data-kit="Kit Completo" data-itens="Santinho,Santão,Praguinha,Adesivo de para-choque,Perfurado,Folder,Flyer">
           <div class="kit-nome"><span class="kit-check"></span> Kit Completo</div>
-          <ul class="kit-itens"><li>Santinho</li><li>Santão</li><li>Praguinha</li><li>Adesivo de para-choque</li><li>Perfurado</li><li>Folder</li><li>Flyer</li></ul>
+          <ul class="kit-itens badge-lista"><li>Santinho</li><li>Santão</li><li>Praguinha</li><li>Adesivo de para-choque</li><li>Perfurado</li><li>Folder</li><li>Flyer</li></ul>
         </div>
       </div>
-      <div class="msg-erro" id="erroKit" style="display:none;margin-top:10px">Escolha um kit para continuar.</div>
+      <div class="msg-erro" id="erroKit" style="display:none;margin-bottom:10px">Escolha um kit para continuar.</div>
+
+      <button type="button" class="qtd-toggle" id="qtdToggleBtn" style="display:none">⚙️ Ajustar quantidade de cada item</button>
+      <div class="qtd-avancado" id="qtdAvancado"></div>
 
       <div class="nav-botoes">
         <button type="button" class="btn btn-secundario" data-voltar>← Voltar</button>
@@ -221,23 +189,9 @@
       </div>
     </div>
 
-    <!-- PASSO 3 -->
     <div class="passo" data-passo="3">
-      <h2>Quantidades</h2>
-      <p class="desc">Informe a quantidade de cada material que você precisa.</p>
-
-      <div id="qtdLista"></div>
-
-      <div class="nav-botoes">
-        <button type="button" class="btn btn-secundario" data-voltar>← Voltar</button>
-        <button type="button" class="btn btn-primario" data-avancar>Continuar →</button>
-      </div>
-    </div>
-
-    <!-- PASSO 4 -->
-    <div class="passo" data-passo="4">
-      <h2>Entrega ou retirada</h2>
-      <p class="desc">Como você prefere receber o material?</p>
+      <h2>Como você quer receber?</h2>
+      <p class="desc">Última etapa!</p>
 
       <div class="entrega-opcao" data-entrega="Retirar no diretório">
         <div class="bolinha"></div>
@@ -245,32 +199,35 @@
       </div>
       <div class="entrega-opcao" data-entrega="Solicitar entrega">
         <div class="bolinha"></div>
-        <div><b>Solicitar entrega</b><span>O material é entregue no endereço informado no passo 1.</span></div>
+        <div><b>Solicitar entrega</b><span>A gente leva até você.</span></div>
       </div>
-      <div class="msg-erro" id="erroEntrega" style="display:none">Escolha uma opção de entrega.</div>
+      <div class="msg-erro" id="erroEntrega" style="display:none">Escolha uma opção.</div>
 
-      <div class="nav-botoes">
-        <button type="button" class="btn btn-secundario" data-voltar>← Voltar</button>
-        <button type="button" class="btn btn-primario" data-avancar>Continuar →</button>
-      </div>
-    </div>
-
-    <!-- PASSO 5 -->
-    <div class="passo" data-passo="5">
-      <h2>Confirme sua solicitação</h2>
-      <p class="desc">Revise os dados antes de enviar.</p>
-
-      <div class="resumo-card">
-        <h3>Seus dados</h3>
-        <div id="resumoDados"></div>
-      </div>
-      <div class="resumo-card">
-        <h3>Kit e quantidades</h3>
-        <div id="resumoKit"></div>
-      </div>
-      <div class="resumo-card">
-        <h3>Entrega</h3>
-        <div id="resumoEntrega"></div>
+      <div class="bloco-endereco" id="blocoEndereco">
+        <div class="campo">
+          <label for="endereco">Endereço</label>
+          <input type="text" id="endereco" placeholder="Rua, avenida...">
+        </div>
+        <div class="linha-2">
+          <div class="campo">
+            <label for="numero">Número</label>
+            <input type="text" id="numero" inputmode="numeric">
+          </div>
+          <div class="campo">
+            <label for="bairro">Bairro</label>
+            <input type="text" id="bairro">
+          </div>
+        </div>
+        <div class="linha-2">
+          <div class="campo">
+            <label for="cep">CEP <span class="opcional">(opcional)</span></label>
+            <input type="text" id="cep" inputmode="numeric" placeholder="00000-000">
+          </div>
+          <div class="campo">
+            <label for="complemento">Complemento <span class="opcional">(opcional)</span></label>
+            <input type="text" id="complemento">
+          </div>
+        </div>
       </div>
 
       <div class="aviso-estoque">⚠️ A solicitação será analisada pela equipe de campanha e a disponibilidade dos materiais estará sujeita ao estoque e às orientações do diretório.</div>
@@ -295,7 +252,7 @@
 
 <script>
 (function(){
-  var TOTAL_PASSOS = 5;
+  var TOTAL_PASSOS = 3;
   var passoAtual = 1;
   var kitSelecionado = null;
   var itensSelecionados = [];
@@ -342,30 +299,46 @@
     return ok;
   }
 
-  function validaPasso4(){
+  function validaPasso3(){
     var ok = !!entregaSelecionada;
     document.getElementById('erroEntrega').style.display = ok ? 'none' : 'block';
     return ok;
   }
 
-  function montaQuantidades(){
-    var lista = document.getElementById('qtdLista');
-    lista.innerHTML = '';
+  document.getElementById('kitsGrid').addEventListener('click', function(e){
+    var card = e.target.closest('.kit-card');
+    if(!card) return;
+    document.querySelectorAll('.kit-card').forEach(function(c){ c.classList.remove('selecionado'); });
+    card.classList.add('selecionado');
+    kitSelecionado = card.dataset.kit;
+    itensSelecionados = card.dataset.itens.split(',');
+    quantidades = {};
+    itensSelecionados.forEach(function(item){ quantidades[item] = 1; });
+    document.getElementById('erroKit').style.display = 'none';
+
+    document.getElementById('qtdToggleBtn').style.display = 'inline-flex';
+    montaQuantidadesAvancado();
+  });
+
+  function montaQuantidadesAvancado(){
+    var box = document.getElementById('qtdAvancado');
+    var html = '';
     itensSelecionados.forEach(function(item){
-      if(!(item in quantidades)) quantidades[item] = 1;
-      var linha = document.createElement('div');
-      linha.className = 'qtd-linha';
-      linha.innerHTML = '<span class="qtd-nome">'+item+'</span>' +
+      html += '<div class="qtd-linha"><span class="qtd-nome">'+item+'</span>' +
         '<div class="qtd-controle">' +
         '<button type="button" class="qtd-btn" data-menos="'+item+'">−</button>' +
         '<span class="qtd-valor" id="qtdVal-'+CSS.escape(item)+'">'+quantidades[item]+'</span>' +
         '<button type="button" class="qtd-btn" data-mais="'+item+'">+</button>' +
-        '</div>';
-      lista.appendChild(linha);
+        '</div></div>';
     });
+    box.innerHTML = html;
   }
 
-  document.getElementById('qtdLista').addEventListener('click', function(e){
+  document.getElementById('qtdToggleBtn').addEventListener('click', function(){
+    document.getElementById('qtdAvancado').classList.toggle('aberto');
+  });
+
+  document.getElementById('qtdAvancado').addEventListener('click', function(e){
     var mais = e.target.closest('[data-mais]');
     var menos = e.target.closest('[data-menos]');
     if(mais){
@@ -380,53 +353,26 @@
     }
   });
 
-  document.getElementById('kitsGrid').addEventListener('click', function(e){
-    var card = e.target.closest('.kit-card');
-    if(!card) return;
-    document.querySelectorAll('.kit-card').forEach(function(c){ c.classList.remove('selecionado'); });
-    card.classList.add('selecionado');
-    kitSelecionado = card.dataset.kit;
-    itensSelecionados = card.dataset.itens.split(',');
-    quantidades = {};
-    document.getElementById('erroKit').style.display = 'none';
-  });
-
   document.querySelectorAll('.entrega-opcao').forEach(function(op){
     op.addEventListener('click', function(){
       document.querySelectorAll('.entrega-opcao').forEach(function(o){ o.classList.remove('selecionado'); });
       op.classList.add('selecionado');
       entregaSelecionada = op.dataset.entrega;
       document.getElementById('erroEntrega').style.display = 'none';
+
+      var bloco = document.getElementById('blocoEndereco');
+      if(entregaSelecionada === 'Solicitar entrega'){
+        bloco.classList.add('aberto');
+      } else {
+        bloco.classList.remove('aberto');
+      }
     });
   });
-
-  function montaResumo(){
-    var dados = document.getElementById('resumoDados');
-    dados.innerHTML =
-      '<div class="resumo-item"><span>Nome</span><b>'+esc(document.getElementById('nome').value)+'</b></div>' +
-      '<div class="resumo-item"><span>WhatsApp</span><b>'+esc(document.getElementById('whatsapp').value)+'</b></div>' +
-      '<div class="resumo-item"><span>Cidade</span><b>'+esc(document.getElementById('cidade').value)+'</b></div>';
-
-    var kit = document.getElementById('resumoKit');
-    var linhas = '<div class="resumo-item"><span>Kit escolhido</span><b>'+esc(kitSelecionado)+'</b></div>';
-    itensSelecionados.forEach(function(item){
-      linhas += '<div class="resumo-item"><span>'+esc(item)+'</span><b>'+(quantidades[item]||1)+' un.</b></div>';
-    });
-    kit.innerHTML = linhas;
-
-    document.getElementById('resumoEntrega').innerHTML =
-      '<div class="resumo-item"><span>Forma</span><b>'+esc(entregaSelecionada)+'</b></div>';
-  }
-
-  function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
   form.addEventListener('click', function(e){
     if(e.target.matches('[data-avancar]')){
       if(passoAtual===1 && !validaPasso1()) return;
       if(passoAtual===2 && !validaPasso2()) return;
-      if(passoAtual===4 && !validaPasso4()) return;
-      if(passoAtual===2) montaQuantidades();
-      if(passoAtual===4) montaResumo();
       mostraPasso(passoAtual+1);
     }
     if(e.target.matches('[data-voltar]')){
@@ -434,7 +380,6 @@
     }
   });
 
-  // mascara de whatsapp
   document.getElementById('whatsapp').addEventListener('input', function(e){
     var v = e.target.value.replace(/\D/g,'').slice(0,11);
     if(v.length>10) v=v.replace(/(\d{2})(\d{5})(\d{0,4}).*/,'($1) $2-$3');
@@ -444,14 +389,12 @@
     e.target.value = v;
   });
 
-  // mascara de cep
   document.getElementById('cep').addEventListener('input', function(e){
     var v = e.target.value.replace(/\D/g,'').slice(0,8);
     if(v.length>5) v=v.replace(/(\d{5})(\d{0,3})/,'$1-$2');
     e.target.value = v;
   });
 
-  // ===== Envio para o Supabase =====
   var SUPABASE_URL='https://dzysyujkefksduusnkpb.supabase.co';
   var SUPABASE_KEY='sb_publishable_foVjR4L0DXOt7c2k5-8JWw_dgZpTWu8';
 
@@ -468,6 +411,8 @@
 
   form.addEventListener('submit', async function(e){
     e.preventDefault();
+    if(!validaPasso3()) return;
+
     var btn = document.getElementById('btnEnviar');
     btn.disabled = true;
     btn.textContent = 'Enviando...';
