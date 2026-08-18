@@ -129,23 +129,11 @@
     <!-- PASSO 1 - candidato -->
     <div class="passo ativo" data-passo="1">
       <h2>Para qual candidato?</h2>
-      <p class="desc">Este material é para o Luiz França ou para outro candidato?</p>
+      <p class="desc">Já vem selecionado o Luiz França — troque se for para outro candidato.</p>
 
-      <div class="kit-card selecionado" data-candidato-opcao="franca" id="opcaoFranca">
-        <div class="kit-nome"><span class="kit-check"></span> É para o Luiz França</div>
-        <ul class="kit-itens"><li>Governador do Paraná — Nº 14</li></ul>
-      </div>
-
-      <div class="kit-card" data-candidato-opcao="outro" id="opcaoOutro">
-        <div class="kit-nome"><span class="kit-check"></span> É para outro candidato</div>
-        <ul class="kit-itens"><li>Deputado Federal ou Estadual</li></ul>
-      </div>
-
-      <div class="campo" id="blocoOutroCandidato" style="display:none;margin-top:6px">
-        <label for="candidato">Selecione o candidato</label>
-        <select id="candidato">
-          <option value="" disabled selected>Selecione o candidato</option>
-        </select>
+      <div class="campo">
+        <label for="candidato">Candidato</label>
+        <select id="candidato" required></select>
         <div class="msg-erro">Escolha um candidato.</div>
       </div>
 
@@ -307,51 +295,34 @@
 
   var form = document.getElementById('formSolicitacao');
   var progresso = document.getElementById('progresso');
-  var candidatoEscolhidoId = 'luiz-franca';
+  var selectCandidato = document.getElementById('candidato');
 
-  // ===== monta select de deputados (federal/estadual) =====
+  // ===== monta select de candidatos: Franca primeiro (ja selecionado), depois os deputados =====
   (function(){
-    var select = document.getElementById('candidato');
-    var rotuloCargo = {federal:'Dep. Federal', estadual:'Dep. Estadual'};
+    var rotuloCargo = {governador:'Governador', federal:'Dep. Federal', estadual:'Dep. Estadual'};
+
+    var opFranca = document.createElement('option');
+    opFranca.value = FRANCA.id;
+    opFranca.textContent = FRANCA.nome + ' — ' + rotuloCargo[FRANCA.cargo] + ' (Nº ' + FRANCA.numero + ')';
+    opFranca.selected = true;
+    selectCandidato.appendChild(opFranca);
+
     DEPUTADOS.forEach(function(c){
       var op = document.createElement('option');
       op.value = c.id;
       op.textContent = c.nome + ' — ' + rotuloCargo[c.cargo] + (c.numero ? ' (' + c.numero + ')' : '');
-      select.appendChild(op);
+      selectCandidato.appendChild(op);
     });
-  })();
 
-  // ===== opcao Franca / outro candidato =====
-  var opcaoFranca = document.getElementById('opcaoFranca');
-  var opcaoOutro = document.getElementById('opcaoOutro');
-  var blocoOutro = document.getElementById('blocoOutroCandidato');
-  var selectCandidato = document.getElementById('candidato');
+    selectCandidato.addEventListener('change', function(){
+      this.classList.remove('erro');
+    });
 
-  opcaoFranca.addEventListener('click', function(){
-    opcaoFranca.classList.add('selecionado');
-    opcaoOutro.classList.remove('selecionado');
-    blocoOutro.style.display = 'none';
-    candidatoEscolhidoId = 'luiz-franca';
-  });
-  opcaoOutro.addEventListener('click', function(){
-    opcaoOutro.classList.add('selecionado');
-    opcaoFranca.classList.remove('selecionado');
-    blocoOutro.style.display = 'block';
-    candidatoEscolhidoId = selectCandidato.value || null;
-  });
-  selectCandidato.addEventListener('change', function(){
-    candidatoEscolhidoId = this.value;
-    this.classList.remove('erro');
-  });
-
-  // pre-seleciona via ?candidato=id na URL (util para linkar direto o material de um deputado)
-  (function(){
+    // pre-seleciona via ?candidato=id na URL (util para linkar direto o material de um deputado)
     var params = new URLSearchParams(location.search);
     var pre = params.get('candidato');
-    if(pre && pre !== 'luiz-franca' && DEPUTADOS.some(function(c){return c.id===pre;})){
-      opcaoOutro.click();
+    if(pre && CANDIDATOS.some(function(c){return c.id===pre;})){
       selectCandidato.value = pre;
-      candidatoEscolhidoId = pre;
     }
   })();
 
@@ -386,7 +357,6 @@
   }
 
   function validaPasso1(){
-    if(candidatoEscolhidoId === 'luiz-franca') return true;
     var candidato = document.getElementById('candidato');
     var ok = !!candidato.value;
     candidato.classList.toggle('erro', !ok);
@@ -540,7 +510,7 @@
     btn.disabled = true;
     btn.textContent = 'Enviando...';
 
-    var candidatoId = candidatoEscolhidoId;
+    var candidatoId = selectCandidato.value;
     var candidatoObj = CANDIDATOS.find(function(c){ return c.id === candidatoId; });
 
     var payload = {
