@@ -128,22 +128,6 @@
 
     <!-- PASSO 1 - candidato -->
     <div class="passo ativo" data-passo="1">
-      <h2>Para qual candidato?</h2>
-      <p class="desc">Já vem selecionado o Luiz França — troque se for para outro candidato.</p>
-
-      <div class="campo">
-        <label for="candidato">Candidato</label>
-        <select id="candidato" required></select>
-        <div class="msg-erro">Escolha um candidato.</div>
-      </div>
-
-      <div class="nav-botoes">
-        <button type="button" class="btn btn-primario" data-avancar>Continuar →</button>
-      </div>
-    </div>
-
-    <!-- PASSO 2 - dados -->
-    <div class="passo" data-passo="2">
       <h2>Seus dados</h2>
       <p class="desc">Só o essencial pra gente te encontrar.</p>
 
@@ -165,6 +149,34 @@
           <option value="" disabled selected>Selecione sua cidade</option>
         </select>
         <div class="msg-erro">Selecione sua cidade.</div>
+      </div>
+
+      <div class="nav-botoes">
+        <button type="button" class="btn btn-primario" data-avancar>Continuar →</button>
+      </div>
+    </div>
+
+    <!-- PASSO 2 - tipo de material: so Franca ou Franca + candidato -->
+    <div class="passo" data-passo="2">
+      <h2>Que material você quer?</h2>
+      <p class="desc">O material sempre leva o Luiz França — escolha se quer ele sozinho ou junto com outro candidato.</p>
+
+      <div class="kit-card selecionado" data-tipo="solo" id="opcaoSolo">
+        <div class="kit-nome"><span class="kit-check"></span> Somente Luiz França</div>
+        <ul class="kit-itens"><li>Governador do Paraná — Nº 14</li></ul>
+      </div>
+
+      <div class="kit-card" data-tipo="combo" id="opcaoCombo">
+        <div class="kit-nome"><span class="kit-check"></span> Luiz França + outro candidato</div>
+        <ul class="kit-itens"><li>O material sai com os dois juntos</li></ul>
+      </div>
+
+      <div class="campo" id="blocoCandidatoCombo" style="display:none;margin-top:6px">
+        <label for="candidato">Candidato que vai junto com o França</label>
+        <select id="candidato">
+          <option value="" disabled selected>Selecione o candidato</option>
+        </select>
+        <div class="msg-erro">Escolha o candidato que vai junto.</div>
       </div>
 
       <div class="nav-botoes">
@@ -296,17 +308,11 @@
   var form = document.getElementById('formSolicitacao');
   var progresso = document.getElementById('progresso');
   var selectCandidato = document.getElementById('candidato');
+  var tipoMaterial = 'solo'; // 'solo' = so Franca | 'combo' = Franca + outro
 
-  // ===== monta select de candidatos: Franca primeiro (ja selecionado), depois os deputados =====
+  // ===== monta select de deputados (para o combo) =====
   (function(){
-    var rotuloCargo = {governador:'Governador', federal:'Dep. Federal', estadual:'Dep. Estadual'};
-
-    var opFranca = document.createElement('option');
-    opFranca.value = FRANCA.id;
-    opFranca.textContent = FRANCA.nome + ' — ' + rotuloCargo[FRANCA.cargo] + ' (Nº ' + FRANCA.numero + ')';
-    opFranca.selected = true;
-    selectCandidato.appendChild(opFranca);
-
+    var rotuloCargo = {federal:'Dep. Federal', estadual:'Dep. Estadual'};
     DEPUTADOS.forEach(function(c){
       var op = document.createElement('option');
       op.value = c.id;
@@ -318,13 +324,32 @@
       this.classList.remove('erro');
     });
 
-    // pre-seleciona via ?candidato=id na URL (util para linkar direto o material de um deputado)
+    // pre-seleciona via ?candidato=id na URL (util para linkar direto o combo com um deputado)
     var params = new URLSearchParams(location.search);
     var pre = params.get('candidato');
-    if(pre && CANDIDATOS.some(function(c){return c.id===pre;})){
+    if(pre && DEPUTADOS.some(function(c){return c.id===pre;})){
+      document.getElementById('opcaoCombo').click();
       selectCandidato.value = pre;
     }
   })();
+
+  // ===== opcao solo / combo =====
+  var opcaoSolo = document.getElementById('opcaoSolo');
+  var opcaoCombo = document.getElementById('opcaoCombo');
+  var blocoCombo = document.getElementById('blocoCandidatoCombo');
+
+  opcaoSolo.addEventListener('click', function(){
+    opcaoSolo.classList.add('selecionado');
+    opcaoCombo.classList.remove('selecionado');
+    blocoCombo.style.display = 'none';
+    tipoMaterial = 'solo';
+  });
+  opcaoCombo.addEventListener('click', function(){
+    opcaoCombo.classList.add('selecionado');
+    opcaoSolo.classList.remove('selecionado');
+    blocoCombo.style.display = 'block';
+    tipoMaterial = 'combo';
+  });
 
   // ===== monta select de cidades =====
   (function(){
@@ -357,13 +382,6 @@
   }
 
   function validaPasso1(){
-    var candidato = document.getElementById('candidato');
-    var ok = !!candidato.value;
-    candidato.classList.toggle('erro', !ok);
-    return ok;
-  }
-
-  function validaPasso2(){
     var ok = true;
     var nome = document.getElementById('nome');
     var whatsapp = document.getElementById('whatsapp');
@@ -372,6 +390,14 @@
     var digitos = whatsapp.value.replace(/\D/g,'');
     if(digitos.length < 10){ whatsapp.classList.add('erro'); ok=false; } else whatsapp.classList.remove('erro');
     if(!cidade.value){ cidade.classList.add('erro'); ok=false; } else cidade.classList.remove('erro');
+    return ok;
+  }
+
+  function validaPasso2(){
+    if(tipoMaterial === 'solo') return true;
+    var candidato = document.getElementById('candidato');
+    var ok = !!candidato.value;
+    candidato.classList.toggle('erro', !ok);
     return ok;
   }
 
@@ -510,11 +536,15 @@
     btn.disabled = true;
     btn.textContent = 'Enviando...';
 
-    var candidatoId = selectCandidato.value;
-    var candidatoObj = CANDIDATOS.find(function(c){ return c.id === candidatoId; });
+    var candidatoTexto = 'Somente Luiz França';
+    if(tipoMaterial === 'combo'){
+      var outroId = selectCandidato.value;
+      var outroObj = DEPUTADOS.find(function(c){ return c.id === outroId; });
+      candidatoTexto = 'Luiz França + ' + (outroObj ? outroObj.nome : outroId);
+    }
 
     var payload = {
-      candidato: candidatoId + (candidatoObj ? ' — ' + candidatoObj.nome : ''),
+      candidato: candidatoTexto,
       nome: document.getElementById('nome').value.trim(),
       whatsapp: document.getElementById('whatsapp').value.trim(),
       cidade: document.getElementById('cidade').value,
