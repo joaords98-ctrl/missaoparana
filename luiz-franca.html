@@ -317,6 +317,7 @@ const CANDIDATOS = [
     const grupoBtn = `<a href="grupos.html">Apoiar a Missão</a>`;
     const vakinhaBtn = `<a class="vakinha-btn" href="https://queroapoiar.com.br/luizfranca" target="_blank" rel="noopener">${HEART_SVG} Apoiar a campanha</a>`;
     const molduraBtn = `<a href="moldura.html?c=luiz-franca">📸 Personalize sua foto de perfil</a>`;
+    const materialBtn = `<a href="material-franca.html">📦 Solicitar material de campanha</a>`;
     const DOC_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>';
     const planoBtn = `<a href="#plano">${DOC_SVG} Plano de Governo</a>`;
     const SHARE_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>';
@@ -336,7 +337,7 @@ const CANDIDATOS = [
           <h1>${esc(c.nome)}</h1>
           <div class="cargo">${esc(c.cargoLabel||'')}${c.numero ? ` <span class="numero-chip">Nº ${esc(c.numero)}</span>` : ''}</div>
           <div class="cidade">${PIN_SVG} ${esc(c.cidade||'')}</div>
-          <div class="prof-links">${vakinhaBtn}${planoBtn}${molduraBtn}${igBtn}${fbBtn}${ttBtn}${ytBtn}${grupoBtn}${shareBtn}</div>
+          <div class="prof-links">${vakinhaBtn}${planoBtn}${molduraBtn}${materialBtn}${igBtn}${fbBtn}${ttBtn}${ytBtn}${grupoBtn}${shareBtn}</div>
         </div>
       </div></header>
 
