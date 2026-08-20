@@ -156,10 +156,10 @@
       </div>
     </div>
 
-    <!-- PASSO 2 - tipo de material: so Franca ou Franca + candidato -->
+    <!-- PASSO 2 - tipo de material: so Franca ou Franca + ate 2 deputados -->
     <div class="passo" data-passo="2">
       <h2>Que material você quer?</h2>
-      <p class="desc">O material sempre leva o Luiz França — escolha se quer ele sozinho ou junto com outro candidato.</p>
+      <p class="desc">O material sempre leva o Luiz França — escolha se quer ele sozinho ou junto com outros candidatos.</p>
 
       <div class="kit-card selecionado" data-tipo="solo" id="opcaoSolo">
         <div class="kit-nome"><span class="kit-check"></span> Somente Luiz França</div>
@@ -167,16 +167,24 @@
       </div>
 
       <div class="kit-card" data-tipo="combo" id="opcaoCombo">
-        <div class="kit-nome"><span class="kit-check"></span> Luiz França + outro candidato</div>
-        <ul class="kit-itens"><li>O material sai com os dois juntos</li></ul>
+        <div class="kit-nome"><span class="kit-check"></span> Luiz França + candidatos</div>
+        <ul class="kit-itens"><li>Escolha um Deputado Federal e/ou Estadual pra sair junto</li></ul>
       </div>
 
-      <div class="campo" id="blocoCandidatoCombo" style="display:none;margin-top:6px">
-        <label for="candidato">Candidato que vai junto com o França</label>
-        <select id="candidato">
-          <option value="" disabled selected>Selecione o candidato</option>
-        </select>
-        <div class="msg-erro">Escolha o candidato que vai junto.</div>
+      <div id="blocoCandidatoCombo" style="display:none;margin-top:6px">
+        <div class="campo">
+          <label for="candidatoFederal">Deputado Federal <span class="opcional">(opcional)</span></label>
+          <select id="candidatoFederal">
+            <option value="">Nenhum</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="candidatoEstadual">Deputado Estadual <span class="opcional">(opcional)</span></label>
+          <select id="candidatoEstadual">
+            <option value="">Nenhum</option>
+          </select>
+        </div>
+        <div class="msg-erro" id="erroCombo">Escolha ao menos um candidato (Federal ou Estadual) pra sair junto com o França.</div>
       </div>
 
       <div class="nav-botoes">
@@ -307,29 +315,37 @@
 
   var form = document.getElementById('formSolicitacao');
   var progresso = document.getElementById('progresso');
-  var selectCandidato = document.getElementById('candidato');
-  var tipoMaterial = 'solo'; // 'solo' = so Franca | 'combo' = Franca + outro
+  var selectFederal = document.getElementById('candidatoFederal');
+  var selectEstadual = document.getElementById('candidatoEstadual');
+  var tipoMaterial = 'solo'; // 'solo' = so Franca | 'combo' = Franca + ate 2 deputados
 
-  // ===== monta select de deputados (para o combo) =====
+  // ===== monta selects de deputados (federal e estadual, separados) =====
   (function(){
-    var rotuloCargo = {federal:'Dep. Federal', estadual:'Dep. Estadual'};
-    DEPUTADOS.forEach(function(c){
+    DEPUTADOS.filter(function(c){ return c.cargo === 'federal'; }).forEach(function(c){
       var op = document.createElement('option');
       op.value = c.id;
-      op.textContent = c.nome + ' — ' + rotuloCargo[c.cargo] + (c.numero ? ' (' + c.numero + ')' : '');
-      selectCandidato.appendChild(op);
+      op.textContent = c.nome + (c.numero ? ' (' + c.numero + ')' : '');
+      selectFederal.appendChild(op);
+    });
+    DEPUTADOS.filter(function(c){ return c.cargo === 'estadual'; }).forEach(function(c){
+      var op = document.createElement('option');
+      op.value = c.id;
+      op.textContent = c.nome + (c.numero ? ' (' + c.numero + ')' : '');
+      selectEstadual.appendChild(op);
     });
 
-    selectCandidato.addEventListener('change', function(){
-      this.classList.remove('erro');
-    });
+    document.getElementById('erroCombo').style.display = 'none';
+    selectFederal.addEventListener('change', function(){ document.getElementById('erroCombo').style.display = 'none'; });
+    selectEstadual.addEventListener('change', function(){ document.getElementById('erroCombo').style.display = 'none'; });
 
     // pre-seleciona via ?candidato=id na URL (util para linkar direto o combo com um deputado)
     var params = new URLSearchParams(location.search);
     var pre = params.get('candidato');
-    if(pre && DEPUTADOS.some(function(c){return c.id===pre;})){
+    var preObj = DEPUTADOS.find(function(c){ return c.id === pre; });
+    if(preObj){
       document.getElementById('opcaoCombo').click();
-      selectCandidato.value = pre;
+      if(preObj.cargo === 'federal') selectFederal.value = pre;
+      if(preObj.cargo === 'estadual') selectEstadual.value = pre;
     }
   })();
 
@@ -395,9 +411,8 @@
 
   function validaPasso2(){
     if(tipoMaterial === 'solo') return true;
-    var candidato = document.getElementById('candidato');
-    var ok = !!candidato.value;
-    candidato.classList.toggle('erro', !ok);
+    var ok = !!(selectFederal.value || selectEstadual.value);
+    document.getElementById('erroCombo').style.display = ok ? 'none' : 'block';
     return ok;
   }
 
@@ -450,9 +465,6 @@
     }
   });
 
-  document.getElementById('candidato').addEventListener('change', function(){
-    this.classList.remove('erro');
-  });
   document.getElementById('cidade').addEventListener('change', function(){
     this.classList.remove('erro');
   });
@@ -487,6 +499,13 @@
       if(dados.erro){
         status.textContent = 'CEP não encontrado. Preencha manualmente.';
         status.style.color = 'var(--erro)';
+        return;
+      }
+      if(dados.uf && dados.uf !== 'PR'){
+        status.textContent = '⚠️ Esse material é só pra entrega no Paraná. Esse CEP é de ' + dados.uf + '.';
+        status.style.color = 'var(--erro)';
+        document.getElementById('endereco').value = '';
+        document.getElementById('bairro').value = '';
         return;
       }
       var enderecoInput = document.getElementById('endereco');
@@ -538,9 +557,12 @@
 
     var candidatoTexto = 'Somente Luiz França';
     if(tipoMaterial === 'combo'){
-      var outroId = selectCandidato.value;
-      var outroObj = DEPUTADOS.find(function(c){ return c.id === outroId; });
-      candidatoTexto = 'Luiz França + ' + (outroObj ? outroObj.nome : outroId);
+      var nomes = ['Luiz França'];
+      var federalObj = DEPUTADOS.find(function(c){ return c.id === selectFederal.value; });
+      var estadualObj = DEPUTADOS.find(function(c){ return c.id === selectEstadual.value; });
+      if(federalObj) nomes.push(federalObj.nome);
+      if(estadualObj) nomes.push(estadualObj.nome);
+      candidatoTexto = nomes.join(' + ');
     }
 
     var payload = {
