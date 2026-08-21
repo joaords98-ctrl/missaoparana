@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resultados 2026 — Missão Paraná</title>
+<meta name="description" content="Acompanhe ao vivo os resultados das urnas para os candidatos do Missão no Paraná: governador, senadora, deputados federais e estaduais.">
+<link rel="canonical" href="https://missaoparana.com.br/resultados.html">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Missão Paraná">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://missaoparana.com.br/resultados.html">
+<meta property="og:title" content="Resultados 2026 — Missão Paraná">
+<meta property="og:description" content="Acompanhe ao vivo a apuração dos votos dos candidatos do Missão no Paraná.">
+<style>
+  :root{--amarelo:#F2A900;--amarelo-claro:#FFC02E;--preto:#0a0a0a;--preto-2:#121212;--preto-3:#161616;
+    --cinza:#6E6E6E;--cinza-claro:#a6a6a6;--branco:#fff;--linha:rgba(255,255,255,.08);--verde:#3ecf6a;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    background:var(--preto);color:var(--branco);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+  .brand{flex-shrink:0;display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px}
+  .brand img{height:36px}
+  .brand .pr{color:var(--amarelo)}
+  .nav-links{display:flex;align-items:center;gap:26px}
+  .nav-links a{font-size:14.5px;font-weight:500;color:#d8d8d8;transition:color .15s;white-space:nowrap}
+  .nav-links a:hover{color:var(--amarelo)}
+  .btn{display:inline-block;font-weight:800;font-size:15px;border-radius:12px;padding:14px 28px;
+    background:linear-gradient(180deg,var(--amarelo-claro),var(--amarelo));color:#1a1304;box-shadow:0 10px 26px rgba(242,169,0,.28)}
+  .nav-links .btn{padding:10px 20px;font-size:14px}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:0}
+  .burger span{width:24px;height:2.5px;background:#fff;border-radius:2px;transition:.25s}
+  .burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+  @media(max-width:860px){
+    .nav-links{position:fixed;inset:70px 0 auto 0;background:rgba(10,10,10,.98);backdrop-filter:blur(12px);
+      flex-direction:column;align-items:stretch;gap:0;padding:8px 0 16px;border-bottom:1px solid var(--linha);
+      transform:translateY(-130%);transition:transform .28s ease;max-height:calc(100vh - 70px);overflow-y:auto}
+    .nav-links.open{transform:translateY(0)}
+    .nav-links a{padding:15px 22px;width:100%;border-bottom:1px solid var(--linha);font-size:16px}
+    .nav-links .btn{margin:14px 22px;text-align:center;width:auto;display:block}
+    .burger{display:flex}
+  }
+
+  .sec-eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--amarelo);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+
+  header.hero{padding:56px 0 30px;text-align:center;border-bottom:1px solid var(--linha)}
+  header.hero h1{font-size:clamp(28px,4.6vw,44px);font-weight:900;margin-bottom:14px}
+  header.hero h1 span{color:var(--amarelo)}
+  header.hero p{color:var(--cinza-claro);max-width:600px;margin:0 auto 22px;font-size:16px}
+
+  .status-bar{display:inline-flex;align-items:center;gap:10px;background:var(--preto-2);border:1px solid var(--linha);
+    border-radius:999px;padding:10px 20px;font-size:14px;font-weight:700}
+  .status-dot{width:9px;height:9px;border-radius:50%;background:var(--cinza);flex-shrink:0}
+  .status-bar.ao-vivo .status-dot{background:var(--verde);animation:pulso 1.4s infinite}
+  @keyframes pulso{0%,100%{box-shadow:0 0 0 0 rgba(62,207,106,.5)}50%{box-shadow:0 0 0 6px rgba(62,207,106,0)}}
+  .status-texto{color:var(--cinza-claro);font-weight:400}
+  .status-atualizacao{font-size:12.5px;color:var(--cinza);margin-top:10px}
+
+  .resumo-partido{padding:40px 0;border-bottom:1px solid var(--linha)}
+  .resumo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  @media(max-width:760px){.resumo-grid{grid-template-columns:repeat(2,1fr)}}
+  .resumo-card{background:var(--preto-2);border:1px solid var(--linha);border-radius:16px;padding:24px 20px;text-align:center}
+  .resumo-card .num{font-size:clamp(24px,4vw,34px);font-weight:900;color:var(--amarelo)}
+  .resumo-card .label{font-size:13px;color:var(--cinza-claro);margin-top:4px}
+
+  section.cargo-bloco{padding:50px 0;border-bottom:1px solid var(--linha)}
+  section.cargo-bloco h2{font-size:clamp(22px,3.2vw,30px);font-weight:800;margin-bottom:6px}
+  section.cargo-bloco>p.desc{color:var(--cinza-claro);font-size:14.5px;margin-bottom:28px}
+
+  /* card majoritario (governador/senador) */
+  .card-majoritario{background:var(--preto-2);border:1px solid var(--linha);border-radius:20px;padding:26px;
+    display:flex;align-items:center;gap:22px;margin-bottom:16px;transition:border-color .15s}
+  .card-majoritario:hover{border-color:rgba(242,169,0,.4)}
+  .card-majoritario img{width:76px;height:76px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--amarelo)}
+  .card-majoritario .info{flex:1;min-width:0}
+  .card-majoritario h3{font-size:19px;font-weight:800}
+  .card-majoritario .cargo-txt{color:var(--amarelo);font-size:13.5px;font-weight:700}
+  .card-majoritario .votos-area{text-align:right;flex-shrink:0}
+  .card-majoritario .votos-num{font-size:26px;font-weight:900}
+  .card-majoritario .votos-pct{font-size:13px;color:var(--cinza-claro)}
+  .barra-progresso{height:6px;background:var(--preto-3);border-radius:4px;margin-top:10px;overflow:hidden}
+  .barra-progresso .fill{height:100%;background:linear-gradient(90deg,var(--amarelo-claro),var(--amarelo));border-radius:4px;transition:width .6s ease;width:0%}
+
+  /* lista deputados */
+  .lista-deputados{display:flex;flex-direction:column;gap:2px;background:var(--linha);border-radius:16px;overflow:hidden;border:1px solid var(--linha)}
+  .linha-deputado{background:var(--preto-2);display:flex;align-items:center;gap:14px;padding:14px 18px;transition:background .15s}
+  .linha-deputado:hover{background:var(--preto-3)}
+  .linha-deputado .posicao{width:26px;text-align:center;font-weight:800;color:var(--cinza-claro);font-size:14px;flex-shrink:0}
+  .linha-deputado img{width:42px;height:42px;border-radius:50%;object-fit:cover;flex-shrink:0;background:var(--preto-3)}
+  .linha-deputado .nome-area{flex:1;min-width:0}
+  .linha-deputado .nome-area .nome{font-weight:700;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .linha-deputado .nome-area .numero{font-size:12px;color:var(--cinza-claro)}
+  .linha-deputado .votos{font-weight:800;font-size:15.5px;flex-shrink:0;min-width:70px;text-align:right}
+  .linha-deputado .badge-eleito{background:var(--verde);color:#062b13;font-size:10.5px;font-weight:800;
+    border-radius:6px;padding:3px 8px;margin-left:8px;flex-shrink:0;white-space:nowrap}
+
+  .aviso-em-breve{background:rgba(242,169,0,.08);border:1px solid rgba(242,169,0,.25);border-radius:14px;
+    padding:16px 20px;font-size:13.5px;color:#d8c9a3;margin-top:24px;text-align:center}
+
+  footer{background:var(--preto-2);border-top:1px solid var(--linha);padding:38px 0;text-align:center;color:#6a6a6a;font-size:13px}
+  footer a{color:var(--amarelo)}
+</style>
+</head>
+<body>
+<nav id="nav"><div class="wrap nav-in">
+    <a class="brand" href="index.html"><img src="assets/img/img-f610dd08ec.png" alt=""><span>Missão<span class="pr">Paraná</span></span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#movimento">O movimento</a>
+      <a href="propostas.html">Propostas</a>
+      <a href="candidatos.html">Candidatos</a>
+      <a href="historia.html">Nossa história</a>
+      <a href="resultados.html">Resultados</a>
+      <a class="btn" href="grupos.html">Entrar nos grupos</a>
+    </div>
+    <div class="burger" id="burger" aria-label="Abrir menu" role="button" tabindex="0"><span></span><span></span><span></span></div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="sec-eyebrow" style="justify-content:center">Eleições 2026</div>
+  <h1>Resultados <span>ao vivo</span> das urnas.</h1>
+  <p>Acompanhe a apuração dos votos de todos os candidatos do Missão no Paraná, direto da fonte oficial do TSE.</p>
+  <div class="status-bar" id="statusBar">
+    <span class="status-dot"></span>
+    <span class="status-texto" id="statusTexto">Apuração ainda não iniciada</span>
+  </div>
+  <div class="status-atualizacao" id="statusAtualizacao"></div>
+</div></header>
+
+<section class="resumo-partido"><div class="wrap">
+  <div class="resumo-grid">
+    <div class="resumo-card"><div class="num" id="resumoTotalVotos">–</div><div class="label">Votos do Missão no PR</div></div>
+    <div class="resumo-card"><div class="num" id="resumoEleitos">–</div><div class="label">Candidatos eleitos</div></div>
+    <div class="resumo-card"><div class="num" id="resumoApuradas">–</div><div class="label">Seções apuradas</div></div>
+    <div class="resumo-card"><div class="num">14</div><div class="label">Número do partido</div></div>
+  </div>
+</div></section>
+
+<section class="cargo-bloco"><div class="wrap">
+  <h2>Governo do Paraná</h2>
+  <p class="desc">Luiz Felipe França — Nº 14</p>
+  <div id="blocoGovernador"></div>
+</div></section>
+
+<section class="cargo-bloco"><div class="wrap">
+  <h2>Senado Federal</h2>
+  <p class="desc">Karen Guerreiro — Nº 144</p>
+  <div id="blocoSenador"></div>
+</div></section>
+
+<section class="cargo-bloco"><div class="wrap">
+  <h2>Câmara dos Deputados</h2>
+  <p class="desc" id="descFederal">31 candidatos a Deputado Federal, ordenados por votação</p>
+  <div class="lista-deputados" id="listaFederal"></div>
+</div></section>
+
+<section class="cargo-bloco" style="border-bottom:0"><div class="wrap">
+  <h2>Assembleia Legislativa</h2>
+  <p class="desc" id="descEstadual">33 candidatos a Deputado Estadual, ordenados por votação</p>
+  <div class="lista-deputados" id="listaEstadual"></div>
+  <div class="aviso-em-breve">📊 Os números aqui vão ao ar automaticamente assim que a apuração do TSE começar, às 17h do dia da eleição. Antes disso, esta página mostra a estrutura pronta para receber os dados.</div>
+</div></section>
+
+<footer><div class="wrap">
+  &copy; 2026 Missão Paraná. Todos os direitos reservados. · <a href="index.html">missaoparana.com.br</a>
+</div></footer>
+
+<script>
+  var CANDIDATOS_RESULTADOS = [{"id":"luiz-franca","nome":"Luiz Felipe França","cargo":"governador","numero":"14","foto":"assets/candidatos/luiz-franca.jpg","pagina":"luiz-franca.html"},{"id":"alan-leal","nome":"Alan Leal","cargo":"federal","numero":"1404","foto":"assets/candidatos/alan-leal.jpg","pagina":"c/alan-leal"},{"id":"ana-xavier","nome":"Ana Lucia Xavier","cargo":"federal","numero":"1439","foto":"assets/candidatos/ana-xavier.jpg","pagina":"c/ana-xavier"},{"id":"andre-ribeiro","nome":"André Ribeiro","cargo":"federal","numero":"1450","foto":"assets/candidatos/andre-ribeiro.jpg","pagina":"c/andre-ribeiro"},{"id":"andrey-luiz","nome":"Andrey Luiz","cargo":"federal","numero":"1416","foto":"assets/candidatos/andrey-luiz.jpg","pagina":"c/andrey-luiz"},{"id":"anita-de-biasi","nome":"Anita de Biasi","cargo":"federal","numero":"1419","foto":"assets/candidatos/anita-de-biasi.jpg","pagina":"c/anita-de-biasi"},{"id":"carlos-eduardo-de-oliveira-gasparim","nome":"Carlos Gasparin","cargo":"federal","numero":"1411","foto":"assets/candidatos/carlos-eduardo-de-oliveira-gasparim.jpg","pagina":"c/carlos-eduardo-de-oliveira-gasparim"},{"id":"caroline-barbosa","nome":"Caroline Barbosa","cargo":"federal","numero":"1497","foto":"assets/candidatos/caroline-barbosa.jpg","pagina":"c/caroline-barbosa"},{"id":"darlon-parana-pop","nome":"Darlon Paraná Pop","cargo":"federal","numero":"1444","foto":"assets/candidatos/darlon-parana-pop.jpg","pagina":"c/darlon-parana-pop"},{"id":"delegado-eduardo-kruger","nome":"Delegado Eduardo Kruger","cargo":"federal","numero":"1415","foto":"assets/candidatos/delegado-eduardo-kruger.jpg","pagina":"c/delegado-eduardo-kruger"},{"id":"manu-shtorach","nome":"Emanuelle Shtorach","cargo":"federal","numero":"1457","foto":"assets/candidatos/manu-shtorach.jpg","pagina":"c/manu-shtorach"},{"id":"felipe-gambaro","nome":"Felipe Gambaro","cargo":"federal","numero":"1420","foto":"","pagina":"c/felipe-gambaro"},{"id":"fernando-garbatchevski","nome":"Fernando Garbatchevski","cargo":"federal","numero":"1422","foto":"assets/candidatos/fernando-garbatchevski.jpg","pagina":"c/fernando-garbatchevski"},{"id":"gabriel-bertolucci","nome":"Gabriel Bertolucci","cargo":"federal","numero":"1400","foto":"assets/candidatos/gabriel-bertolucci.jpg","pagina":"c/gabriel-bertolucci"},{"id":"gerusa-correa","nome":"Gerusa Correa","cargo":"federal","numero":"1456","foto":"assets/candidatos/gerusa-correa.jpg","pagina":"c/gerusa-correa"},{"id":"glauberson-rocha","nome":"Glauberson Rocha","cargo":"federal","numero":"1499","foto":"assets/candidatos/glauberson-rocha.jpg","pagina":"c/glauberson-rocha"},{"id":"soldado-guedes","nome":"Soldado Guedes","cargo":"federal","numero":"1438","foto":"assets/candidatos/soldado-guedes.jpg","pagina":"c/soldado-guedes"},{"id":"guilherme-machado","nome":"Dr. Guilherme Machado","cargo":"federal","numero":"1442","foto":"assets/candidatos/guilherme-machado.jpg","pagina":"c/guilherme-machado"},{"id":"jornalista-isaak-almeida","nome":"Jornalista Isaak Almeida","cargo":"federal","numero":"1477","foto":"assets/candidatos/jornalista-isaak-almeida.jpg","pagina":"c/jornalista-isaak-almeida"},{"id":"jessica-this-do-autismo","nome":"Jéssica This Machado","cargo":"federal","numero":"1426","foto":"assets/candidatos/jessica-this-do-autismo.jpg","pagina":"c/jessica-this-do-autismo"},{"id":"karen-guerreiro","nome":"Karen Guerreiro","cargo":"senador","numero":"144","foto":"assets/candidatos/karen-guerreiro.jpg","pagina":"c/karen-guerreiro"},{"id":"marcello-de-paula","nome":"Marcello de Paula","cargo":"federal","numero":"1407","foto":"assets/candidatos/marcello-de-paula.jpg","pagina":"c/marcello-de-paula"},{"id":"mary-barreto","nome":"Mary Barreto","cargo":"federal","numero":"1430","foto":"","pagina":"c/mary-barreto"},{"id":"marianny-thayla","nome":"Mary Missão PCD","cargo":"federal","numero":"1406","foto":"assets/candidatos/marianny-thayla.jpg","pagina":"c/marianny-thayla"},{"id":"matheus-santos-moreira","nome":"Matheus Moreira","cargo":"federal","numero":"1443","foto":"assets/candidatos/matheus-santos-moreira.jpg","pagina":"c/matheus-santos-moreira"},{"id":"matheus-zozoloto","nome":"Matheus Zozoloto","cargo":"federal","numero":"1410","foto":"assets/candidatos/matheus-zozoloto.jpg","pagina":"c/matheus-zozoloto"},{"id":"mauricio-franciscon","nome":"Mauricio Franciscon","cargo":"federal","numero":"1446","foto":"assets/candidatos/mauricio-franciscon.jpg","pagina":"c/mauricio-franciscon"},{"id":"tayna-vieia","nome":"Naná Vieira","cargo":"federal","numero":"1412","foto":"assets/candidatos/tayna-vieia.jpg","pagina":"c/tayna-vieia"},{"id":"pedro-deyrot","nome":"Pedro Deyrot","cargo":"federal","numero":"1414","foto":"assets/candidatos/pedro-deyrot.jpg","pagina":"c/pedro-deyrot"},{"id":"ricardo-cascavel-segura","nome":"Ricardo Cascavel Mais Segura","cargo":"federal","numero":"1445","foto":"assets/candidatos/ricardo-cascavel-segura.jpg","pagina":"c/ricardo-cascavel-segura"},{"id":"victor-moreira","nome":"Victor Moreira","cargo":"federal","numero":"1489","foto":"assets/candidatos/victor-moreira.jpg","pagina":"c/victor-moreira"},{"id":"yan-gaudard","nome":"Prof. Yan Gaudard","cargo":"federal","numero":"1441","foto":"assets/candidatos/yan-gaudard.jpg","pagina":"c/yan-gaudard"},{"id":"yvis-de-oliveira","nome":"Dra. Yvis","cargo":"federal","numero":"1401","foto":"assets/candidatos/yvis-de-oliveira.jpg","pagina":"c/yvis-de-oliveira"},{"id":"adriano-fritz","nome":"Adriano Fritz","cargo":"estadual","numero":"14042","foto":"","pagina":"c/adriano-fritz"},{"id":"alessandra-lima","nome":"Alessandra Lima","cargo":"estadual","numero":"14039","foto":"assets/candidatos/alessandra-lima.jpg","pagina":"c/alessandra-lima"},{"id":"aline-franzon","nome":"Aline Franzon","cargo":"estadual","numero":"14143","foto":"assets/candidatos/aline-franzon.jpg","pagina":"c/aline-franzon"},{"id":"beatriz-oliveira","nome":"Beatriz Oliveira","cargo":"estadual","numero":"14441","foto":"assets/candidatos/beatriz-oliveira.jpg","pagina":"c/beatriz-oliveira"},{"id":"bruno-vieira","nome":"Bruno Vieira","cargo":"estadual","numero":"14777","foto":"","pagina":"c/bruno-vieira"},{"id":"carlos-eduardo","nome":"Carlos Eduardo","cargo":"estadual","numero":"14007","foto":"assets/candidatos/carlos-eduardo.jpg","pagina":"c/carlos-eduardo"},{"id":"daniel-aguiar","nome":"Daniel Aguiar","cargo":"estadual","numero":"14321","foto":"assets/candidatos/daniel-aguiar.jpg","pagina":"c/daniel-aguiar"},{"id":"danusa-lopes","nome":"Danusa Lopes","cargo":"estadual","numero":"14077","foto":"","pagina":"c/danusa-lopes"},{"id":"daymond-pires","nome":"Dyamond Pires","cargo":"estadual","numero":"14141","foto":"assets/candidatos/daymond-pires.jpg","pagina":"c/daymond-pires"},{"id":"eduardo-nunes-gomes","nome":"Eduardo Gomes","cargo":"estadual","numero":"14021","foto":"assets/candidatos/eduardo-nunes-gomes.jpg","pagina":"c/eduardo-nunes-gomes"},{"id":"erica-de-freitas-goncalves","nome":"Erica Gonçalves","cargo":"estadual","numero":"14011","foto":"assets/candidatos/erica-de-freitas-goncalves.jpg","pagina":"c/erica-de-freitas-goncalves"},{"id":"felipe-de-castilho","nome":"Felipe de Castilho","cargo":"estadual","numero":"14111","foto":"assets/candidatos/felipe-de-castilho.jpg","pagina":"c/felipe-de-castilho"},{"id":"francyelly-engee","nome":"Francyelly Engee","cargo":"estadual","numero":"14214","foto":"","pagina":"c/francyelly-engee"},{"id":"graci-da-fauna-silvestre","nome":"Graci da Faúna Silvestre","cargo":"estadual","numero":"14900","foto":"","pagina":"c/graci-da-fauna-silvestre"},{"id":"graci-moreira","nome":"Graci Moreira","cargo":"estadual","numero":"14714","foto":"","pagina":"c/graci-moreira"},{"id":"gustavo-camillo","nome":"Gustavo Camillo","cargo":"estadual","numero":"14000","foto":"assets/candidatos/gustavo-camillo.jpg","pagina":"c/gustavo-camillo"},{"id":"ivo-arthur-goncalves","nome":"Ivo Arthur","cargo":"estadual","numero":"14222","foto":"assets/candidatos/ivo-arthur-goncalves.jpg","pagina":"c/ivo-arthur-goncalves"},{"id":"joao-gabriel","nome":"João Gabriel","cargo":"estadual","numero":"14144","foto":"assets/candidatos/joao-gabriel.jpg","pagina":"c/joao-gabriel"},{"id":"kelven-alcantara","nome":"Kelven Alcantara","cargo":"estadual","numero":"14500","foto":"assets/candidatos/kelven-alcantara.jpg","pagina":"c/kelven-alcantara"},{"id":"lucas-backes","nome":"Lucas Backes","cargo":"estadual","numero":"14446","foto":"assets/candidatos/lucas-backes.jpg","pagina":"c/lucas-backes"},{"id":"lude-riesemberg","nome":"Lude Riesemberg","cargo":"estadual","numero":"14041","foto":"assets/candidatos/lude-riesemberg.jpg","pagina":"c/lude-riesemberg"},{"id":"mariane-mazzon","nome":"Mari Mazzon","cargo":"estadual","numero":"14444","foto":"assets/candidatos/mariane-mazzon.jpg","pagina":"c/mariane-mazzon"},{"id":"mateus-pepice","nome":"Mateus Pepice","cargo":"estadual","numero":"14131","foto":"assets/candidatos/mateus-pepice.jpg","pagina":"c/mateus-pepice"},{"id":"matheus-manholer","nome":"Matheus Manholer","cargo":"estadual","numero":"14333","foto":"assets/candidatos/matheus-manholer.jpg","pagina":"c/matheus-manholer"},{"id":"natelie-facco","nome":"Natalie Facco","cargo":"estadual","numero":"14114","foto":"assets/candidatos/natelie-facco.jpg","pagina":"c/natelie-facco"},{"id":"odenilson-vicente","nome":"Odenilson Vicente","cargo":"estadual","numero":"14100","foto":"assets/candidatos/odenilson-vicente.jpg","pagina":"c/odenilson-vicente"},{"id":"paulo-di-melo","nome":"Paulo Di Melo","cargo":"estadual","numero":"14999","foto":"assets/candidatos/paulo-di-melo.jpg","pagina":"c/paulo-di-melo"},{"id":"raphael-lacerda","nome":"Raphael Lacerda","cargo":"estadual","numero":"14914","foto":"assets/candidatos/raphael-lacerda.jpg","pagina":"c/raphael-lacerda"},{"id":"rubens-nascimento","nome":"Rubens Nascimento","cargo":"estadual","numero":"14123","foto":"assets/candidatos/rubens-nascimento.jpg","pagina":"c/rubens-nascimento"},{"id":"stuchi","nome":"Stuchi","cargo":"estadual","numero":"14244","foto":"","pagina":"c/stuchi"},{"id":"thiago-maldonado","nome":"Thiago Maldonado","cargo":"estadual","numero":"14700","foto":"","pagina":"c/thiago-maldonado"},{"id":"wagner-proenca-junior","nome":"Wagner Jr.","cargo":"estadual","numero":"14555","foto":"assets/candidatos/wagner-proenca-junior.jpg","pagina":"c/wagner-proenca-junior"},{"id":"william-rocha","nome":"Willian Rocha","cargo":"estadual","numero":"14014","foto":"assets/candidatos/william-rocha.jpg","pagina":"c/william-rocha"}];
+</script>
+<script>
+(function(){
+  var AVATAR_PADRAO = 'assets/img/img-d2433fe371.png';
+
+  // ===================================================================
+  // CAMADA DE DADOS — hoje devolve zerado (mock). Em setembro, trocar
+  // buscarResultadosTSE() para consumir de fato os arquivos JSON oficiais
+  // do TSE (EA14/EA15/EA20), respeitando o limite de 100 req/s por IP.
+  // Estrutura esperada de retorno, por candidato-id:
+  //   { votos: 12345, percentual: 4.32, eleito: false }
+  // ===================================================================
+  async function buscarResultadosTSE(){
+    // TODO (setembro/2026): substituir pelo consumo real dos arquivos
+    // EA20 (resultado unificado) do TSE, usando os codigos de UF=PR e
+    // os candidatos/numeros já cadastrados em CANDIDATOS_RESULTADOS.
+    // Por enquanto, retorna estrutura vazia (apuração não iniciada).
+    return {
+      apuracaoIniciada: false,
+      atualizadoEm: null,
+      secoesApuradasPct: 0,
+      resultados: {} // { 'id-do-candidato': {votos, percentual, eleito} }
+    };
+  }
+
+  function fmtNum(n){
+    return (n||0).toLocaleString('pt-BR');
+  }
+
+  function cardMajoritario(c, r){
+    var votos = r ? r.votos : 0;
+    var pct = r ? r.percentual : 0;
+    return '<div class="card-majoritario">' +
+      '<img src="' + (c.foto || AVATAR_PADRAO) + '" alt="Foto de ' + c.nome + '" onerror="this.src=\'' + AVATAR_PADRAO + '\'">' +
+      '<div class="info">' +
+        '<h3>' + c.nome + '</h3>' +
+        '<div class="cargo-txt">Nº ' + c.numero + '</div>' +
+        '<div class="barra-progresso"><div class="fill" style="width:' + pct + '%"></div></div>' +
+      '</div>' +
+      '<div class="votos-area">' +
+        '<div class="votos-num">' + fmtNum(votos) + '</div>' +
+        '<div class="votos-pct">' + pct.toFixed(1).replace('.', ',') + '%</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function linhaDeputado(c, r, posicao){
+    var votos = r ? r.votos : 0;
+    var eleito = r ? r.eleito : false;
+    return '<a class="linha-deputado" href="' + c.pagina + '">' +
+      '<div class="posicao">' + posicao + '</div>' +
+      '<img src="' + (c.foto || AVATAR_PADRAO) + '" alt="" onerror="this.src=\'' + AVATAR_PADRAO + '\'">' +
+      '<div class="nome-area">' +
+        '<div class="nome">' + c.nome + (eleito ? '<span class="badge-eleito">ELEITO</span>' : '') + '</div>' +
+        '<div class="numero">Nº ' + c.numero + '</div>' +
+      '</div>' +
+      '<div class="votos">' + fmtNum(votos) + '</div>' +
+    '</a>';
+  }
+
+  function renderiza(dados){
+    var resultados = dados.resultados || {};
+
+    // status
+    var statusBar = document.getElementById('statusBar');
+    var statusTexto = document.getElementById('statusTexto');
+    if(dados.apuracaoIniciada){
+      statusBar.classList.add('ao-vivo');
+      statusTexto.textContent = 'Apuração em andamento';
+    } else {
+      statusBar.classList.remove('ao-vivo');
+      statusTexto.textContent = 'Apuração ainda não iniciada';
+    }
+    document.getElementById('statusAtualizacao').textContent = dados.atualizadoEm
+      ? 'Última atualização: ' + dados.atualizadoEm
+      : 'Os dados oficiais começam a ser publicados às 17h do dia da eleição';
+
+    // resumo do partido
+    var candidatosComVoto = CANDIDATOS_RESULTADOS.filter(function(c){ return c.cargo !== 'governador'; });
+    var totalVotos = 0, totalEleitos = 0;
+    candidatosComVoto.concat(CANDIDATOS_RESULTADOS.filter(function(c){return c.cargo==='governador';})).forEach(function(c){
+      var r = resultados[c.id];
+      if(r){ totalVotos += (r.votos||0); if(r.eleito) totalEleitos++; }
+    });
+    document.getElementById('resumoTotalVotos').textContent = dados.apuracaoIniciada ? fmtNum(totalVotos) : '–';
+    document.getElementById('resumoEleitos').textContent = dados.apuracaoIniciada ? totalEleitos : '–';
+    document.getElementById('resumoApuradas').textContent = dados.apuracaoIniciada ? (dados.secoesApuradasPct.toFixed(1).replace('.', ',') + '%') : '–';
+
+    // governador
+    var governador = CANDIDATOS_RESULTADOS.find(function(c){ return c.cargo === 'governador'; });
+    document.getElementById('blocoGovernador').innerHTML = governador ? cardMajoritario(governador, resultados[governador.id]) : '';
+
+    // senador
+    var senador = CANDIDATOS_RESULTADOS.find(function(c){ return c.cargo === 'senador'; });
+    document.getElementById('blocoSenador').innerHTML = senador ? cardMajoritario(senador, resultados[senador.id]) : '';
+
+    // federais, ordenados por votos desc
+    var federais = CANDIDATOS_RESULTADOS.filter(function(c){ return c.cargo === 'federal'; });
+    federais.sort(function(a,b){
+      return ((resultados[b.id]||{}).votos||0) - ((resultados[a.id]||{}).votos||0);
+    });
+    document.getElementById('listaFederal').innerHTML = federais.map(function(c,i){
+      return linhaDeputado(c, resultados[c.id], i+1);
+    }).join('');
+    document.getElementById('descFederal').textContent = federais.length + ' candidatos a Deputado Federal, ordenados por votação';
+
+    // estaduais, ordenados por votos desc
+    var estaduais = CANDIDATOS_RESULTADOS.filter(function(c){ return c.cargo === 'estadual'; });
+    estaduais.sort(function(a,b){
+      return ((resultados[b.id]||{}).votos||0) - ((resultados[a.id]||{}).votos||0);
+    });
+    document.getElementById('listaEstadual').innerHTML = estaduais.map(function(c,i){
+      return linhaDeputado(c, resultados[c.id], i+1);
+    }).join('');
+    document.getElementById('descEstadual').textContent = estaduais.length + ' candidatos a Deputado Estadual, ordenados por votação';
+  }
+
+  async function atualizar(){
+    try{
+      var dados = await buscarResultadosTSE();
+      renderiza(dados);
+    }catch(e){
+      console.error('Erro ao buscar resultados:', e);
+    }
+  }
+
+  atualizar();
+  // Atualiza a cada 60s. Ajustar esse intervalo perto do dia da eleição
+  // considerando o limite de 100 req/s por IP informado pelo TSE.
+  setInterval(atualizar, 60000);
+})();
+</script>
+<script>
+(function(){
+  var burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+  if(burger&&links){
+    function toggle(){var o=links.classList.toggle('open');burger.classList.toggle('open',o);}
+    burger.addEventListener('click',toggle);
+    burger.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+    links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');burger.classList.remove('open');});});
+  }
+})();
+</script>
+</body>
+</html>
