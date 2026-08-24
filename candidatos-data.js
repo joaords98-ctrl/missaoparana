@@ -140,7 +140,7 @@ const CANDIDATOS = [
   },
   {
     id: "felipe-gambaro", nome: "Felipe Gambaro", cargo: "federal",
-    cargoLabel: "Deputado Federal", cnpjCampanha: "68.578.167/0001-78", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.167/0001-78", numero: "1420", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cnpjCampanha: "68.578.167/0001-78", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.167/0001-78", numero: "1420", cidade: "Paraná", foto: "assets/candidatos/felipe-gambaro.jpg",
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.167/0001-78",
@@ -317,7 +317,7 @@ const CANDIDATOS = [
   // ---------- DEPUTADOS ESTADUAIS ----------
   {
     id: "adriano-fritz", nome: "Adriano Fritz", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cnpjCampanha: "68.578.086/0001-78", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.086/0001-78", numero: "14042", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cnpjCampanha: "68.578.086/0001-78", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.086/0001-78", numero: "14042", cidade: "Paraná", foto: "assets/candidatos/adriano-fritz.jpg",
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.086/0001-78",
@@ -373,7 +373,7 @@ const CANDIDATOS = [
   },
   {
     id: "danusa-lopes", nome: "Danusa Lopes", cargo: "estadual", genero: "f",
-    cargoLabel: "Deputado Estadual", cnpjCampanha: "68.578.177/0001-03", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.177/0001-03", numero: "14077", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cnpjCampanha: "68.578.177/0001-03", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.177/0001-03", numero: "14077", cidade: "Paraná", foto: "assets/candidatos/danusa-lopes.jpg",
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.177/0001-03",
@@ -413,7 +413,7 @@ const CANDIDATOS = [
   },
   {
     id: "francyelly-engee", nome: "Francyelly Engee", cargo: "estadual", genero: "f",
-    cargoLabel: "Deputado Estadual", cnpjCampanha: "68.578.398/0001-81", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.398/0001-81", numero: "14214", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cnpjCampanha: "68.578.398/0001-81", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.398/0001-81", numero: "14214", cidade: "Paraná", foto: "assets/candidatos/francyelly-engee.jpg",
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.398/0001-81",
@@ -421,7 +421,7 @@ const CANDIDATOS = [
   },
   {
     id: "graci-da-fauna-silvestre", nome: "Graci da Faúna Silvestre", cargo: "estadual", genero: "f",
-    cargoLabel: "Deputado Estadual", cnpjCampanha: "68.578.077/0001-87", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.077/0001-87", numero: "14900", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cnpjCampanha: "68.578.077/0001-87", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.077/0001-87", numero: "14900", cidade: "Paraná", foto: "assets/candidatos/graci-da-fauna-silvestre.jpg",
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.077/0001-87",
@@ -429,7 +429,7 @@ const CANDIDATOS = [
   },
   {
     id: "graci-moreira", nome: "Graci Moreira", cargo: "estadual", genero: "f",
-    cargoLabel: "Deputado Estadual", numero: "14714", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", numero: "14714", cidade: "Paraná", foto: "assets/candidatos/graci-moreira.jpg",
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     bio: "Em breve mais informações sobre a trajetória de Graci Moreira, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
@@ -548,7 +548,7 @@ const CANDIDATOS = [
   },
   {
     id: "stuchi", nome: "Stuchi", cargo: "estadual",
-    cargoLabel: "Deputado Estadual", cnpjCampanha: "68.578.204/0001-48", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.204/0001-48", numero: "14244", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Estadual", cnpjCampanha: "68.578.204/0001-48", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.204/0001-48", numero: "14244", cidade: "Paraná", foto: "assets/candidatos/stuchi.jpg",
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.204/0001-48",
