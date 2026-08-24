@@ -80,7 +80,7 @@ const CANDIDATOS = [
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.334/0001-80",
-    bio: "Em breve mais informações sobre a trajetória de André Ribeiro, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "André Ribeiro é filho de família que cultiva mandioca no Noroeste do Paraná e conhece de perto o quanto o produtor rural batalha para gerar emprego e riqueza, muitas vezes sem incentivo e sem apoio. Pai de uma menina autista, viu de perto a diferença que o início cedo das terapias faz — e também as milhares de famílias que esperam um apoio que não chega. É esse contraste que o move: um Estado que gasta bilhões com privilégios enquanto falta o básico para as crianças e para quem produz. Luta por um Estado mais enxuto, honesto e eficiente."
   },
   {
     id: "andrey-luiz", nome: "Andrey Luiz", cargo: "federal",
@@ -144,7 +144,7 @@ const CANDIDATOS = [
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.167/0001-78",
-    bio: "Em breve mais informações sobre a trajetória de Felipe Gambaro, suas bandeiras e o que pretende defender em Brasília pela Missão Paraná."
+    bio: "Felipe Gambaro acredita que o Brasil pode ser muito maior do que aquilo que nos acostumamos a aceitar. O que o move é a vontade de romper com uma política que se habituou a consumir recursos, criar privilégios e empurrar os problemas com a barriga, em vez de construir soluções. Defende um Estado que sirva às pessoas, valorize quem trabalha e crie condições para que todos construam o próprio futuro — a certeza de que é possível, enfim, transformar o lema \\\"Ordem e Progresso\\\" em realidade."
   },
   {
     id: "fernando-garbatchevski", nome: "Fernando Garbatchevski", cargo: "federal",
@@ -232,7 +232,7 @@ const CANDIDATOS = [
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.408/0001-89",
-    bio: "Em breve mais informações sobre a trajetória de Mary Barreto, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Mary Barreto acredita que o Brasil precisa de mudanças de verdade, com ações firmes, para se tornar uma nação rica, poderosa e da qual o povo tenha orgulho de pertencer. Sua luta tem rosto: o da mãe solo que trabalha fora, não tem rede de apoio e não consegue vaga na creche para o filho; o da criança que precisa de proteção contra maus-tratos; e o da pessoa da terceira idade que ainda quer trabalhar, empreender e se sentir útil. É por quem muitas vezes não tem quem o represente que ela está na política."
   },
   {
     id: "marianny-thayla", nome: "Mary Missão PCD", cargo: "federal", genero: "f",
@@ -321,7 +321,7 @@ const CANDIDATOS = [
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.086/0001-78",
-    bio: "Em breve mais informações sobre a trajetória de Adriano Fritz, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Médico, Adriano Fritz aprendeu que cuidar vai muito além de tratar uma doença: é ouvir, acolher e buscar solução quando o que existe não basta. No consultório, vê todos os dias quem espera por atendimento, por uma cirurgia, por uma vida com mais dignidade. Conhece também a realidade do interior, do produtor rural que enfrenta falta de infraestrutura e segurança. O que o move não é a busca por um cargo, mas a convicção de que quem tem a oportunidade de melhorar a vida das pessoas precisa sair da posição de espectador e assumir responsabilidade."
   },
   {
     id: "alessandra-lima", nome: "Alessandra Lima", cargo: "estadual", genero: "f",
@@ -353,7 +353,7 @@ const CANDIDATOS = [
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.165/0001-89",
-    bio: "Em breve mais informações sobre a trajetória de Bruno Vieira, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Bruno Vieira entrou no serviço público acreditando que bastava trabalhar bem, e descobriu um Estado que trata a informação como papel guardado na gaveta e que, a cada troca de gestão, desmonta o que a anterior construiu — não porque era ruim, mas porque era do outro. Viu de perto que, quando um servidor tenta modernizar, cobrar legalidade e abrir dados, é perseguido em vez de reconhecido. Por acreditar que quem faz o Estado funcionar no longo prazo é o servidor — mas quem tem a caneta para mudar a regra é o político — é candidato para transformar em lei o que hoje depende da boa vontade de quem está de passagem."
   },
   {
     id: "carlos-eduardo", nome: "Carlos Eduardo", cargo: "estadual",
@@ -361,7 +361,7 @@ const CANDIDATOS = [
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.118/0001-35",
-    bio: "Em breve mais informações sobre a trajetória de Carlos Eduardo, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Carlos Eduardo entrou nessa por um motivo claro: construir uma nova forma de governar, com renovação de verdade. Seu compromisso é caminhar lado a lado com uma equipe que quer fazer o que é certo — com transparência e coragem, pelo futuro do Paraná. Quer trabalhar por aquilo que é a base de uma vida melhor para todos: educação de qualidade, incentivo ao esporte e uma saúde que cuide das pessoas."
   },
   {
     id: "daniel-aguiar", nome: "Daniel Aguiar", cargo: "estadual",
@@ -377,7 +377,7 @@ const CANDIDATOS = [
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.177/0001-03",
-    bio: "Em breve mais informações sobre a trajetória de Danusa Lopes, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "A decisão de Danusa Lopes de entrar para a vida pública nasce, antes de tudo, do desejo de servir. Acredita que política não deve ser sobre poder, mas sobre pessoas, cuidado e transformação — movida pela vontade de fazer diferença na vida de quem muitas vezes não é ouvido, especialmente mulheres, crianças e famílias que enfrentam dificuldades e precisam encontrar no poder público apoio, respeito e oportunidades. Carrega valores de honestidade, responsabilidade e compaixão, e é com eles que quer construir esse projeto."
   },
   {
     id: "daymond-pires", nome: "Dyamond Pires", cargo: "estadual",
@@ -417,7 +417,7 @@ const CANDIDATOS = [
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.398/0001-81",
-    bio: "Em breve mais informações sobre a trajetória de Francyelly Engee, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "A candidatura de Francyelly Engee nasceu da vontade de transformar indignação em ação e contribuir, de forma concreta, para um Brasil melhor. Defende uma política mais técnica, responsável e próxima da população, que valorize a educação, a segurança, o esporte e o respeito ao dinheiro público. Quer representar quem trabalha, empreende, estuda e cuida da família, e deixar como legado um país mais seguro e com mais oportunidades para todos."
   },
   {
     id: "graci-da-fauna-silvestre", nome: "Graci da Faúna Silvestre", cargo: "estadual", genero: "f",
@@ -560,7 +560,7 @@ const CANDIDATOS = [
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.093/0001-70",
-    bio: "Em breve mais informações sobre a trajetória de Thiago Maldonado, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
+    bio: "Thiago Maldonado quer revolucionar o tempo de espera da saúde, buscando projetos e verbas para as secretarias de saúde de todas as cidades do Paraná. No agronegócio, defende a reforma das vias rurais e pontes, garantindo um escoamento da safra mais rápido e seguro. Também quer valorizar quem faz o estado funcionar na ponta, reconhecendo e dando melhores condições de trabalho à enfermagem e aos professores, com base no desempenho e na entrega ao cidadão."
   },
   {
     id: "wagner-proenca-junior", nome: "Wagner Jr.", cargo: "estadual",
