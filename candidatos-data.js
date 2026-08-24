@@ -228,7 +228,7 @@ const CANDIDATOS = [
   },
   {
     id: "mary-barreto", nome: "Mary Barreto", cargo: "federal", genero: "f",
-    cargoLabel: "Deputado Federal", cnpjCampanha: "68.578.408/0001-89", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.408/0001-89", numero: "1430", cidade: "Paraná", foto: "",
+    cargoLabel: "Deputado Federal", cnpjCampanha: "68.578.408/0001-89", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.408/0001-89", numero: "1430", cidade: "Paraná", foto: "assets/candidatos/mary-barreto.jpg",
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     cnpj: "68.578.408/0001-89",
