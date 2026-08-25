@@ -952,6 +952,8 @@ const CANDIDATOS = [
     const shareBtn = `<button class="share-btn" id="shareBtn" type="button">${SHARE_SVG} Compartilhar</button>`;
     const molduraBtn = IDS_COM_MOLDURA.includes(c.id)
       ? `<a href="moldura.html?c=${encodeURIComponent(c.id)}">${CAMERA_SVG} Personalize sua foto de perfil</a>` : '';
+    const materialBtn = c.id === 'alan-leal'
+      ? `<a href="material-alanleal.html">📦 Solicitar material de campanha</a>` : '';
 
     const parags = (c.bio||'').split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('');
     const resumoHTML = c.resumo ? `<div class="prof-resumo">${esc(c.resumo)}</div>` : '';
@@ -978,7 +980,7 @@ const CANDIDATOS = [
           <div class="cargo">${esc(cargoExibido(c))}${c.numero ? ` <span class="numero-chip">Nº ${esc(c.numero)}</span>` : ''}</div>
           <div class="cidade">${PIN_SVG} ${esc(c.cidade||'')}</div>
           ${c.frase ? `<div class="frase-destaque">“${esc(c.frase)}”</div>` : ''}
-          <div class="prof-links">${igBtn}${fbBtn}${ttBtn}${ytBtn}${xBtn}${aaBtn}${molduraBtn}${grupoBtn}${shareBtn}</div>
+          <div class="prof-links">${igBtn}${fbBtn}${ttBtn}${ytBtn}${xBtn}${aaBtn}${molduraBtn}${materialBtn}${grupoBtn}${shareBtn}</div>
         </div>
       </div></header>
 

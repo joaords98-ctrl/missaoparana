@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicitar Material de Campanha — Alan Leal | Missão Paraná</title>
+<meta name="description" content="Solicite santinhos, folders, adesivos e outros materiais de campanha do Alan Leal (ou combine com outros candidatos do Missão Paraná). Escolha o kit e pronto.">
+<link rel="canonical" href="https://missaoparana.com.br/material-alanleal.html">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<style>
+  :root{--amarelo:#F2A900;--amarelo-claro:#FFC02E;--preto:#0a0a0a;--preto-2:#121212;--preto-3:#161616;
+    --cinza:#6E6E6E;--cinza-claro:#a6a6a6;--branco:#fff;--linha:rgba(255,255,255,.08);--erro:#ff5c5c;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    background:var(--preto);color:var(--branco);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
+  .nav-in{max-width:640px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:16px}
+  .brand img{height:28px}
+  .brand .pr{color:var(--amarelo)}
+
+  header.topo{padding:32px 0 20px;text-align:center;border-bottom:1px solid var(--linha)}
+  .numero14{display:inline-flex;align-items:center;gap:9px;background:rgba(242,169,0,.1);border:1px solid rgba(242,169,0,.3);
+    border-radius:999px;padding:6px 16px;font-weight:800;font-size:13px;color:var(--amarelo);margin-bottom:16px}
+  .numero14 b{background:var(--amarelo);color:#1a1304;border-radius:50%;width:20px;height:20px;display:inline-flex;
+    align-items:center;justify-content:center;font-size:11px}
+  header.topo h1{font-size:clamp(22px,4.4vw,30px);font-weight:900;line-height:1.2;margin-bottom:10px}
+  header.topo p{color:var(--cinza-claro);font-size:14.5px;max-width:520px;margin:0 auto}
+
+  .progresso{display:flex;align-items:center;justify-content:center;gap:6px;padding:20px 0 4px}
+  .passo-bola{width:28px;height:28px;border-radius:50%;background:var(--preto-2);border:1.5px solid var(--linha);
+    display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:800;color:var(--cinza-claro);flex-shrink:0;transition:all .2s}
+  .passo-bola.ativo{background:var(--amarelo);border-color:var(--amarelo);color:#1a1304}
+  .passo-bola.feito{background:transparent;border-color:var(--amarelo);color:var(--amarelo)}
+  .passo-linha{width:26px;height:1.5px;background:var(--linha)}
+  @media(max-width:480px){.passo-linha{width:12px}}
+
+  main{padding:28px 0 80px}
+  .passo{display:none}
+  .passo.ativo{display:block;animation:surge .25s ease}
+  @keyframes surge{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .passo h2{font-size:20px;font-weight:800;margin-bottom:5px}
+  .passo>p.desc{color:var(--cinza-claro);font-size:14px;margin-bottom:20px}
+
+  .campo{margin-bottom:14px}
+  .campo label{display:block;font-size:13.5px;font-weight:700;color:#d8d8d8;margin-bottom:7px}
+  .campo label .opcional{color:var(--cinza);font-weight:400}
+  .campo input,.campo select{width:100%;background:var(--preto-2);border:1.5px solid var(--linha);border-radius:10px;
+    padding:14px;color:var(--branco);font-size:16px;font-family:inherit;transition:border-color .15s;appearance:none;
+    -webkit-appearance:none}
+  .campo select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a6a6a6' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 14px center;background-size:18px;padding-right:40px}
+  .campo select option{background:var(--preto-2);color:var(--branco)}
+  .campo input:focus,.campo select:focus{outline:none;border-color:var(--amarelo)}
+  .campo input.erro,.campo select.erro{border-color:var(--erro)}
+  .campo .msg-erro{display:none;color:var(--erro);font-size:12.5px;margin-top:6px}
+  .campo input.erro + .msg-erro,.campo select.erro + .msg-erro{display:block}
+  .linha-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:480px){.linha-2{grid-template-columns:1fr}}
+
+  .bloco-endereco{max-height:0;overflow:hidden;transition:max-height .3s ease;opacity:0}
+  .bloco-endereco.aberto{max-height:600px;opacity:1;transition:max-height .35s ease,opacity .3s ease .05s;margin-top:6px}
+
+  .kit-card{background:var(--preto-2);border:1.5px solid var(--linha);border-radius:16px;padding:20px;cursor:pointer;transition:all .15s;margin-bottom:14px}
+  .kit-card:hover{border-color:rgba(242,169,0,.5)}
+  .kit-card.selecionado{border-color:var(--amarelo);background:rgba(242,169,0,.06)}
+  .kit-card .kit-nome{font-size:17px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .kit-card .kit-check{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--linha);flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;transition:all .15s}
+  .kit-card.selecionado .kit-check{background:var(--amarelo);border-color:var(--amarelo)}
+  .kit-card.selecionado .kit-check::after{content:'✓';color:#1a1304;font-size:13px;font-weight:900}
+  .kit-itens{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+  .kit-itens li{background:rgba(255,255,255,.06);border-radius:8px;padding:5px 10px;font-size:12.5px;color:#d8d8d8}
+  .kit-itens li b{color:var(--amarelo)}
+
+  .entrega-opcao,.opcao-toggle{display:flex;align-items:flex-start;gap:14px;background:var(--preto-2);border:1.5px solid var(--linha);
+    border-radius:14px;padding:16px;margin-bottom:12px;cursor:pointer;transition:border-color .15s}
+  .entrega-opcao:hover,.opcao-toggle:hover{border-color:rgba(242,169,0,.5)}
+  .entrega-opcao.selecionado,.opcao-toggle.selecionado{border-color:var(--amarelo);background:rgba(242,169,0,.06)}
+  .entrega-opcao .bolinha,.opcao-toggle .bolinha{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--linha);flex-shrink:0;margin-top:2px;position:relative}
+  .entrega-opcao.selecionado .bolinha,.opcao-toggle.selecionado .bolinha{border-color:var(--amarelo)}
+  .entrega-opcao.selecionado .bolinha::after,.opcao-toggle.selecionado .bolinha::after{content:'';position:absolute;inset:4px;background:var(--amarelo);border-radius:50%}
+  .entrega-opcao b,.opcao-toggle b{display:block;font-size:15px;margin-bottom:3px}
+  .entrega-opcao span,.opcao-toggle span{color:var(--cinza-claro);font-size:13px}
+
+  .aviso-estoque{background:rgba(242,169,0,.08);border:1px solid rgba(242,169,0,.25);border-radius:12px;padding:13px 15px;
+    font-size:13px;color:#d8c9a3;margin-top:18px}
+
+  .nav-botoes{display:flex;gap:12px;margin-top:26px}
+  .btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:800;font-size:15px;
+    border-radius:12px;padding:15px 20px;border:0;cursor:pointer;font-family:inherit;transition:filter .15s,opacity .15s}
+  .btn-primario{background:linear-gradient(180deg,var(--amarelo-claro),var(--amarelo));color:#1a1304;box-shadow:0 10px 24px rgba(242,169,0,.25)}
+  .btn-primario:hover{filter:brightness(1.05)}
+  .btn-primario:disabled{opacity:.45;cursor:not-allowed;filter:none}
+  .btn-secundario{background:transparent;border:1.5px solid var(--linha);color:var(--branco);flex:0 0 auto;padding:15px 22px}
+  .btn-secundario:hover{border-color:var(--cinza-claro)}
+
+  .sucesso{text-align:center;padding:50px 0}
+  .sucesso .icone{width:70px;height:70px;border-radius:50%;background:var(--amarelo);display:flex;align-items:center;
+    justify-content:center;margin:0 auto 20px;font-size:32px;color:#1a1304}
+  .sucesso h2{font-size:23px;font-weight:900;margin-bottom:12px}
+  .sucesso p{color:var(--cinza-claro);font-size:14.5px;max-width:420px;margin:0 auto}
+
+  footer{border-top:1px solid var(--linha);padding:26px 0;text-align:center;color:#6a6a6a;font-size:12.5px}
+</style>
+</head>
+<body>
+<nav><div class="nav-in">
+  <a class="brand" href="index.html"><img src="assets/img/img-f610dd08ec.png" alt=""><span>Missão<span class="pr">Paraná</span></span></a>
+  <a href="c/alan-leal" style="font-size:13.5px;color:#d8d8d8">← Voltar</a>
+</div></nav>
+
+<header class="topo"><div class="wrap">
+  <div class="numero14"><b>14</b> O Paraná é 14</div>
+  <h1>Peça seu material de campanha do Alan Leal</h1>
+  <p>Leva menos de 1 minuto. Confirme o candidato, escolha o kit, diga como quer receber e pronto.</p>
+</div></header>
+
+<div class="progresso" id="progresso"></div>
+
+<main><div class="wrap">
+  <form id="formSolicitacao">
+
+    <!-- PASSO 1 - candidato -->
+    <div class="passo ativo" data-passo="1">
+      <h2>Seus dados</h2>
+      <p class="desc">Só o essencial pra gente te encontrar.</p>
+
+      <div class="campo">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" autocomplete="name" placeholder="Seu nome" required>
+        <div class="msg-erro">Informe seu nome completo.</div>
+      </div>
+
+      <div class="campo">
+        <label for="whatsapp">WhatsApp</label>
+        <input type="tel" id="whatsapp" inputmode="tel" placeholder="(41) 99999-9999" required>
+        <div class="msg-erro">Informe um WhatsApp válido com DDD.</div>
+      </div>
+
+      <div class="campo">
+        <label for="cidade">Cidade</label>
+        <select id="cidade" required>
+          <option value="" disabled selected>Selecione sua cidade</option>
+        </select>
+        <div class="msg-erro">Selecione sua cidade.</div>
+      </div>
+
+      <div class="nav-botoes">
+        <button type="button" class="btn btn-primario" data-avancar>Continuar →</button>
+      </div>
+    </div>
+
+    <!-- PASSO 2 - tipo de material: so Alan Leal ou Alan Leal + Governador/Estadual -->
+    <div class="passo" data-passo="2">
+      <h2>Que material você quer?</h2>
+      <p class="desc">O material sempre leva o Alan Leal — escolha se quer ele sozinho ou junto com outros candidatos.</p>
+
+      <div class="kit-card selecionado" data-tipo="solo" id="opcaoSolo">
+        <div class="kit-nome"><span class="kit-check"></span> Somente Alan Leal</div>
+        <ul class="kit-itens"><li>Deputado Federal — Nº 1404</li></ul>
+      </div>
+
+      <div class="kit-card" data-tipo="combo" id="opcaoCombo">
+        <div class="kit-nome"><span class="kit-check"></span> Alan Leal + candidatos</div>
+        <ul class="kit-itens"><li>Escolha o Governador e/ou um Deputado Estadual pra sair junto</li></ul>
+      </div>
+
+      <div id="blocoCandidatoCombo" style="display:none;margin-top:6px">
+        <div class="opcao-toggle" id="opcaoIncluirFranca" style="margin-bottom:14px">
+          <div class="bolinha"></div>
+          <div><b>Incluir Luiz França</b><span>Governador do Paraná — Nº 14</span></div>
+        </div>
+        <div class="campo">
+          <label for="candidatoEstadual">Deputado Estadual <span class="opcional">(opcional)</span></label>
+          <select id="candidatoEstadual">
+            <option value="">Nenhum</option>
+          </select>
+        </div>
+        <div class="msg-erro" id="erroCombo">Escolha o França e/ou um Deputado Estadual pra sair junto com o Alan Leal.</div>
+      </div>
+
+      <div class="nav-botoes">
+        <button type="button" class="btn btn-secundario" data-voltar>← Voltar</button>
+        <button type="button" class="btn btn-primario" data-avancar>Continuar →</button>
+      </div>
+    </div>
+
+
+    <!-- PASSO 3 - kit (quantidades fixas, sem ajuste) -->
+    <div class="passo" data-passo="3">
+      <h2>Escolha seu kit</h2>
+      <p class="desc">Cada kit já vem com quantidades definidas.</p>
+
+      <div id="kitsGrid">
+        <div class="kit-card" data-kit="Kit Família">
+          <div class="kit-nome"><span class="kit-check"></span> Kit Família</div>
+          <ul class="kit-itens">
+            <li><b>50</b> Santinhos</li><li><b>10</b> Folders</li>
+            <li><b>20</b> Adesivos de lapela</li><li><b>2</b> Adesivos de para-choque</li>
+          </ul>
+        </div>
+        <div class="kit-card" data-kit="Kit Militância">
+          <div class="kit-nome"><span class="kit-check"></span> Kit Militância</div>
+          <ul class="kit-itens">
+            <li><b>200</b> Santinhos</li><li><b>30</b> Folders</li>
+            <li><b>50</b> Adesivos de lapela</li><li><b>5</b> Adesivos de para-choque</li>
+            <li><b>1</b> Adesivo perfurado</li>
+          </ul>
+        </div>
+        <div class="kit-card" data-kit="Kit Onça">
+          <div class="kit-nome"><span class="kit-check"></span> Kit Onça</div>
+          <ul class="kit-itens">
+            <li><b>500</b> Santinhos</li><li><b>100</b> Folders</li>
+            <li><b>100</b> Adesivos de lapela</li><li><b>10</b> Adesivos de para-choque</li>
+            <li><b>3</b> Adesivos perfurados</li>
+          </ul>
+        </div>
+      </div>
+      <div class="msg-erro" id="erroKit" style="display:none;margin-bottom:10px">Escolha um kit para continuar.</div>
+
+      <div class="nav-botoes">
+        <button type="button" class="btn btn-secundario" data-voltar>← Voltar</button>
+        <button type="button" class="btn btn-primario" data-avancar>Continuar →</button>
+      </div>
+    </div>
+
+    <!-- PASSO 4 - entrega + confirmar -->
+    <div class="passo" data-passo="4">
+      <h2>Como você quer receber?</h2>
+      <p class="desc">Última etapa!</p>
+
+      <div class="entrega-opcao" data-entrega="Retirar no diretório">
+        <div class="bolinha"></div>
+        <div><b>Retirar no diretório</b><span>Você mesmo busca o material no diretório do partido.</span></div>
+      </div>
+      <div class="entrega-opcao" data-entrega="Solicitar entrega">
+        <div class="bolinha"></div>
+        <div><b>Solicitar entrega</b><span>A gente leva até você.</span></div>
+      </div>
+      <div class="msg-erro" id="erroEntrega" style="display:none">Escolha uma opção.</div>
+
+      <div class="bloco-endereco" id="blocoEndereco">
+        <div class="campo">
+          <label for="cep">CEP</label>
+          <input type="text" id="cep" inputmode="numeric" placeholder="00000-000">
+          <div id="cepStatus" style="font-size:12.5px;margin-top:6px;min-height:16px"></div>
+        </div>
+        <div class="campo">
+          <label for="endereco">Endereço</label>
+          <input type="text" id="endereco" placeholder="Rua, avenida...">
+        </div>
+        <div class="linha-2">
+          <div class="campo">
+            <label for="numero">Número</label>
+            <input type="text" id="numero" inputmode="numeric">
+          </div>
+          <div class="campo">
+            <label for="bairro">Bairro</label>
+            <input type="text" id="bairro">
+          </div>
+        </div>
+        <div class="linha-2">
+          <div class="campo">
+            <label for="complemento">Complemento <span class="opcional">(opcional)</span></label>
+            <input type="text" id="complemento">
+          </div>
+        </div>
+      </div>
+
+      <div class="aviso-estoque">⚠️ A solicitação será analisada pela equipe de campanha e a disponibilidade dos materiais estará sujeita ao estoque e às orientações do diretório.</div>
+
+      <div class="nav-botoes">
+        <button type="button" class="btn btn-secundario" data-voltar>← Voltar</button>
+        <button type="submit" class="btn btn-primario" id="btnEnviar">Confirmar solicitação</button>
+      </div>
+    </div>
+
+  </form>
+
+  <div class="sucesso" id="telaSucesso" style="display:none">
+    <div class="icone">✓</div>
+    <h2>Solicitação enviada!</h2>
+    <p>Recebemos seu pedido. Nossa equipe vai analisar a disponibilidade e entrar em contato pelo WhatsApp informado para confirmar os detalhes.</p>
+  </div>
+
+</div></main>
+
+<footer><div class="wrap">&copy; 2026 Missão Paraná · <a href="index.html" style="color:var(--amarelo)">missaoparana.com.br</a></div></footer>
+
+<script>
+(function(){
+  var TOTAL_PASSOS = 4;
+  var passoAtual = 1;
+  var kitSelecionado = null;
+  var entregaSelecionada = null;
+
+  var KITS = {
+    "Kit Família": {Santinho:50, Folder:10, "Adesivo de lapela":20, "Adesivo de para-choque":2},
+    "Kit Militância": {Santinho:200, Folder:30, "Adesivo de lapela":50, "Adesivo de para-choque":5, "Adesivo perfurado":1},
+    "Kit Onça": {Santinho:500, Folder:100, "Adesivo de lapela":100, "Adesivo de para-choque":10, "Adesivo perfurado":3}
+  };
+
+  var FRANCA = {"id":"luiz-franca","nome":"Luiz Felipe França","numero":"14","cargo":"governador"};
+  var DEPUTADOS = [{"id": "adriano-fritz", "nome": "Adriano Fritz", "numero": "14042", "cargo": "estadual"}, {"id": "alan-leal", "nome": "Alan Leal", "numero": "1404", "cargo": "federal"}, {"id": "alessandra-lima", "nome": "Alessandra Lima", "numero": "14039", "cargo": "estadual"}, {"id": "aline-franzon", "nome": "Aline Franzon", "numero": "14143", "cargo": "estadual"}, {"id": "ana-xavier", "nome": "Ana Lucia Xavier", "numero": "1439", "cargo": "federal"}, {"id": "andre-ribeiro", "nome": "André Ribeiro", "numero": "1450", "cargo": "federal"}, {"id": "andrey-luiz", "nome": "Andrey Luiz", "numero": "1416", "cargo": "federal"}, {"id": "anita-de-biasi", "nome": "Anita de Biasi", "numero": "1419", "cargo": "federal"}, {"id": "beatriz-oliveira", "nome": "Beatriz Oliveira", "numero": "14441", "cargo": "estadual"}, {"id": "bruno-vieira", "nome": "Bruno Vieira", "numero": "14777", "cargo": "estadual"}, {"id": "carlos-eduardo", "nome": "Carlos Eduardo", "numero": "14007", "cargo": "estadual"}, {"id": "carlos-eduardo-de-oliveira-gasparim", "nome": "Carlos Gasparin", "numero": "1411", "cargo": "federal"}, {"id": "caroline-barbosa", "nome": "Caroline Barbosa", "numero": "1497", "cargo": "federal"}, {"id": "daniel-aguiar", "nome": "Daniel Aguiar", "numero": "14321", "cargo": "estadual"}, {"id": "danusa-lopes", "nome": "Danusa Lopes", "numero": "14077", "cargo": "estadual"}, {"id": "darlon-parana-pop", "nome": "Darlon Paraná Pop", "numero": "1444", "cargo": "federal"}, {"id": "delegado-eduardo-kruger", "nome": "Delegado Eduardo Kruger", "numero": "1415", "cargo": "federal"}, {"id": "guilherme-machado", "nome": "Dr. Guilherme Machado", "numero": "1442", "cargo": "federal"}, {"id": "yvis-de-oliveira", "nome": "Dra. Yvis", "numero": "1401", "cargo": "federal"}, {"id": "daymond-pires", "nome": "Dyamond Pires", "numero": "14141", "cargo": "estadual"}, {"id": "eduardo-nunes-gomes", "nome": "Eduardo Gomes", "numero": "14021", "cargo": "estadual"}, {"id": "manu-shtorach", "nome": "Emanuelle Shtorach", "numero": "1457", "cargo": "federal"}, {"id": "erica-de-freitas-goncalves", "nome": "Erica Gonçalves", "numero": "14011", "cargo": "estadual"}, {"id": "felipe-de-castilho", "nome": "Felipe de Castilho", "numero": "14111", "cargo": "estadual"}, {"id": "felipe-gambaro", "nome": "Felipe Gambaro", "numero": "1420", "cargo": "federal"}, {"id": "fernando-garbatchevski", "nome": "Fernando Garbatchevski", "numero": "1422", "cargo": "federal"}, {"id": "francyelly-engee", "nome": "Francyelly Engee", "numero": "14214", "cargo": "estadual"}, {"id": "gabriel-bertolucci", "nome": "Gabriel Bertolucci", "numero": "1400", "cargo": "federal"}, {"id": "gerusa-correa", "nome": "Gerusa Correa", "numero": "1456", "cargo": "federal"}, {"id": "glauberson-rocha", "nome": "Glauberson Rocha", "numero": "1499", "cargo": "federal"}, {"id": "graci-da-fauna-silvestre", "nome": "Graci da Faúna Silvestre", "numero": "14900", "cargo": "estadual"}, {"id": "graci-moreira", "nome": "Graci Moreira", "numero": "14714", "cargo": "estadual"}, {"id": "gustavo-camillo", "nome": "Gustavo Camillo", "numero": "14000", "cargo": "estadual"}, {"id": "ivo-arthur-goncalves", "nome": "Ivo Arthur", "numero": "14222", "cargo": "estadual"}, {"id": "jessica-this-do-autismo", "nome": "Jéssica This Machado", "numero": "1426", "cargo": "federal"}, {"id": "joao-gabriel", "nome": "João Gabriel", "numero": "14144", "cargo": "estadual"}, {"id": "jornalista-isaak-almeida", "nome": "Jornalista Isaak Almeida", "numero": "1477", "cargo": "federal"}, {"id": "kelven-alcantara", "nome": "Kelven Alcantara", "numero": "14500", "cargo": "estadual"}, {"id": "lucas-backes", "nome": "Lucas Backes", "numero": "14446", "cargo": "estadual"}, {"id": "lude-riesemberg", "nome": "Lude Riesemberg", "numero": "14041", "cargo": "estadual"}, {"id": "marcello-de-paula", "nome": "Marcello de Paula", "numero": "1407", "cargo": "federal"}, {"id": "mariane-mazzon", "nome": "Mari Mazzon", "numero": "14444", "cargo": "estadual"}, {"id": "mary-barreto", "nome": "Mary Barreto", "numero": "1430", "cargo": "federal"}, {"id": "marianny-thayla", "nome": "Mary Missão PCD", "numero": "1406", "cargo": "federal"}, {"id": "mateus-pepice", "nome": "Mateus Pepice", "numero": "14131", "cargo": "estadual"}, {"id": "matheus-manholer", "nome": "Matheus Manholer", "numero": "14333", "cargo": "estadual"}, {"id": "matheus-santos-moreira", "nome": "Matheus Moreira", "numero": "1443", "cargo": "federal"}, {"id": "matheus-zozoloto", "nome": "Matheus Zozoloto", "numero": "1410", "cargo": "federal"}, {"id": "mauricio-franciscon", "nome": "Mauricio Franciscon", "numero": "1446", "cargo": "federal"}, {"id": "tayna-vieia", "nome": "Naná Vieira", "numero": "1412", "cargo": "federal"}, {"id": "natelie-facco", "nome": "Natalie Facco", "numero": "14114", "cargo": "estadual"}, {"id": "odenilson-vicente", "nome": "Odenilson Vicente", "numero": "14100", "cargo": "estadual"}, {"id": "paulo-di-melo", "nome": "Paulo Di Melo", "numero": "14999", "cargo": "estadual"}, {"id": "pedro-deyrot", "nome": "Pedro Deyrot", "numero": "1414", "cargo": "federal"}, {"id": "yan-gaudard", "nome": "Prof. Yan Gaudard", "numero": "1441", "cargo": "federal"}, {"id": "raphael-lacerda", "nome": "Raphael Lacerda", "numero": "14914", "cargo": "estadual"}, {"id": "ricardo-cascavel-segura", "nome": "Ricardo Cascavel Mais Segura", "numero": "1445", "cargo": "federal"}, {"id": "rubens-nascimento", "nome": "Rubens Nascimento", "numero": "14123", "cargo": "estadual"}, {"id": "soldado-guedes", "nome": "Soldado Guedes", "numero": "1438", "cargo": "federal"}, {"id": "stuchi", "nome": "Stuchi", "numero": "14244", "cargo": "estadual"}, {"id": "thiago-maldonado", "nome": "Thiago Maldonado", "numero": "14700", "cargo": "estadual"}, {"id": "victor-moreira", "nome": "Victor Moreira", "numero": "1489", "cargo": "federal"}, {"id": "wagner-proenca-junior", "nome": "Wagner Jr.", "numero": "14555", "cargo": "estadual"}, {"id": "william-rocha", "nome": "Willian Rocha", "numero": "14014", "cargo": "estadual"}];
+  var CANDIDATOS = [FRANCA].concat(DEPUTADOS);
+
+  var CITY_MAP = {"Abatiá": "Norte Pioneiro Paranaense", "Adrianópolis": "Curitiba Metropolitana e Litoral", "Agudos do Sul": "Curitiba Metropolitana e Litoral", "Almirante Tamandaré": "Curitiba Metropolitana e Litoral", "Altamira do Paraná": "Centro Oeste", "Alto Paraíso": "Noroeste Paranaense", "Alto Paraná": "Noroeste Paranaense", "Alto Piquiri": "Noroeste Paranaense", "Altônia": "Noroeste Paranaense", "Alvorada do Sul": "Norte Central Paranaense", "Amaporã": "Noroeste Paranaense", "Ampére": "Sudoeste Paranaense", "Anahy": "Oeste Paranaense", "Andirá": "Norte Pioneiro Paranaense", "Ângulo": "Norte Central Paranaense", "Antonina": "Curitiba Metropolitana e Litoral", "Antônio Olinto": "Sudeste Paranaense", "Apucarana": "Norte Central Paranaense", "Arapongas": "Norte Central Paranaense", "Arapoti": "Campos Gerais", "Arapuã": "Norte Central Paranaense", "Araruna": "Centro Oeste", "Araucária": "Curitiba Metropolitana e Litoral", "Ariranha do Ivaí": "Norte Central Paranaense", "Assaí": "Norte Pioneiro Paranaense", "Assis Chateaubriand": "Oeste Paranaense", "Astorga": "Norte Central Paranaense", "Atalaia": "Norte Central Paranaense", "Balsa Nova": "Curitiba Metropolitana e Litoral", "Bandeirantes": "Norte Pioneiro Paranaense", "Barbosa Ferraz": "Centro Oeste", "Barra do Jacaré": "Norte Pioneiro Paranaense", "Barracão": "Sudoeste Paranaense", "Bela Vista da Caroba": "Sudoeste Paranaense", "Bela Vista do Paraíso": "Norte Central Paranaense", "Bituruna": "Sudeste Paranaense", "Boa Esperança": "Centro Oeste", "Boa Esperança do Iguaçu": "Sudoeste Paranaense", "Boa Ventura de São Roque": "Centro-Sul Paranaense", "Boa Vista da Aparecida": "Oeste Paranaense", "Bocaiúva do Sul": "Curitiba Metropolitana e Litoral", "Bom Jesus do Sul": "Sudoeste Paranaense", "Bom Sucesso": "Norte Central Paranaense", "Bom Sucesso do Sul": "Sudoeste Paranaense", "Borrazópolis": "Norte Central Paranaense", "Braganey": "Oeste Paranaense", "Brasilândia do Sul": "Noroeste Paranaense", "Cafeara": "Norte Central Paranaense", "Cafelândia": "Oeste Paranaense", "Cafezal do Sul": "Noroeste Paranaense", "Califórnia": "Norte Central Paranaense", "Cambará": "Norte Pioneiro Paranaense", "Cambé": "Norte Central Paranaense", "Cambira": "Norte Central Paranaense", "Campina da Lagoa": "Centro Oeste", "Campina do Simão": "Centro-Sul Paranaense", "Campina Grande do Sul": "Curitiba Metropolitana e Litoral", "Campo Bonito": "Oeste Paranaense", "Campo do Tenente": "Curitiba Metropolitana e Litoral", "Campo Largo": "Curitiba Metropolitana e Litoral", "Campo Magro": "Curitiba Metropolitana e Litoral", "Campo Mourão": "Centro Oeste", "Cândido de Abreu": "Norte Central Paranaense", "Candói": "Centro-Sul Paranaense", "Cantagalo": "Centro-Sul Paranaense", "Capanema": "Sudoeste Paranaense", "Capitão Leônidas Marques": "Oeste Paranaense", "Carambeí": "Campos Gerais", "Carlópolis": "Norte Pioneiro Paranaense", "Cascavel": "Oeste Paranaense", "Castro": "Campos Gerais", "Catanduvas": "Oeste Paranaense", "Centenário do Sul": "Norte Central Paranaense", "Cerro Azul": "Curitiba Metropolitana e Litoral", "Céu Azul": "Oeste Paranaense", "Chopinzinho": "Sudoeste Paranaense", "Cianorte": "Noroeste Paranaense", "Cidade Gaúcha": "Noroeste Paranaense", "Clevelândia": "Centro-Sul Paranaense", "Colombo": "Curitiba Metropolitana e Litoral", "Colorado": "Norte Central Paranaense", "Congonhinhas": "Norte Pioneiro Paranaense", "Conselheiro Mairinck": "Norte Pioneiro Paranaense", "Contenda": "Curitiba Metropolitana e Litoral", "Corbélia": "Oeste Paranaense", "Cornélio Procópio": "Norte Pioneiro Paranaense", "Coronel Domingos Soares": "Centro-Sul Paranaense", "Coronel Vivida": "Sudoeste Paranaense", "Corumbataí do Sul": "Centro Oeste", "Cruz Machado": "Sudeste Paranaense", "Cruzeiro do Iguaçu": "Sudoeste Paranaense", "Cruzeiro do Oeste": "Noroeste Paranaense", "Cruzeiro do Sul": "Noroeste Paranaense", "Cruzmaltina": "Norte Central Paranaense", "Curitiba": "Curitiba Metropolitana e Litoral", "Curiúva": "Norte Pioneiro Paranaense", "Diamante do Norte": "Noroeste Paranaense", "Diamante do Sul": "Oeste Paranaense", "Diamante D'Oeste": "Oeste Paranaense", "Dois Vizinhos": "Sudoeste Paranaense", "Douradina": "Noroeste Paranaense", "Doutor Camargo": "Norte Central Paranaense", "Doutor Ulysses": "Curitiba Metropolitana e Litoral", "Enéas Marques": "Sudoeste Paranaense", "Engenheiro Beltrão": "Centro Oeste", "Entre Rios do Oeste": "Oeste Paranaense", "Esperança Nova": "Noroeste Paranaense", "Espigão Alto do Iguaçu": "Centro-Sul Paranaense", "Farol": "Centro Oeste", "Faxinal": "Norte Central Paranaense", "Fazenda Rio Grande": "Curitiba Metropolitana e Litoral", "Fênix": "Centro Oeste", "Fernandes Pinheiro": "Sudeste Paranaense", "Figueira": "Norte Pioneiro Paranaense", "Flor da Serra do Sul": "Sudoeste Paranaense", "Floraí": "Norte Central Paranaense", "Floresta": "Norte Central Paranaense", "Florestópolis": "Norte Central Paranaense", "Flórida": "Norte Central Paranaense", "Formosa do Oeste": "Oeste Paranaense", "Foz do Iguaçu": "Oeste Paranaense", "Foz do Jordão": "Centro-Sul Paranaense", "Francisco Alves": "Noroeste Paranaense", "Francisco Beltrão": "Sudoeste Paranaense", "General Carneiro": "Sudeste Paranaense", "Godoy Moreira": "Norte Central Paranaense", "Goioerê": "Centro Oeste", "Goioxim": "Centro-Sul Paranaense", "Grandes Rios": "Norte Central Paranaense", "Guaíra": "Oeste Paranaense", "Guairaçá": "Noroeste Paranaense", "Guamiranga": "Sudeste Paranaense", "Guapirama": "Norte Pioneiro Paranaense", "Guaporema": "Noroeste Paranaense", "Guaraci": "Norte Central Paranaense", "Guaraniaçu": "Oeste Paranaense", "Guarapuava": "Centro-Sul Paranaense", "Guaraqueçaba": "Curitiba Metropolitana e Litoral", "Guaratuba": "Curitiba Metropolitana e Litoral", "Honório Serpa": "Centro-Sul Paranaense", "Ibaiti": "Norte Pioneiro Paranaense", "Ibema": "Oeste Paranaense", "Ibiporã": "Norte Central Paranaense", "Icaraíma": "Noroeste Paranaense", "Iguaraçu": "Norte Central Paranaense", "Iguatu": "Oeste Paranaense", "Imbaú": "Campos Gerais", "Imbituva": "Sudeste Paranaense", "Inácio Martins": "Centro-Sul Paranaense", "Inajá": "Noroeste Paranaense", "Indianópolis": "Noroeste Paranaense", "Ipiranga": "Sudeste Paranaense", "Iporã": "Noroeste Paranaense", "Iracema do Oeste": "Oeste Paranaense", "Irati": "Sudeste Paranaense", "Iretama": "Centro Oeste", "Itaguajé": "Norte Central Paranaense", "Itaipulândia": "Oeste Paranaense", "Itambaracá": "Norte Pioneiro Paranaense", "Itambé": "Norte Central Paranaense", "Itapejara d'Oeste": "Sudoeste Paranaense", "Itaperuçu": "Curitiba Metropolitana e Litoral", "Itaúna do Sul": "Noroeste Paranaense", "Ivaí": "Sudeste Paranaense", "Ivaiporã": "Norte Central Paranaense", "Ivaté": "Noroeste Paranaense", "Ivatuba": "Norte Central Paranaense", "Jaboti": "Norte Pioneiro Paranaense", "Jacarezinho": "Norte Pioneiro Paranaense", "Jaguapitã": "Norte Central Paranaense", "Jaguariaíva": "Campos Gerais", "Jandaia do Sul": "Norte Central Paranaense", "Janiópolis": "Centro Oeste", "Japira": "Norte Pioneiro Paranaense", "Japurá": "Noroeste Paranaense", "Jardim Alegre": "Norte Central Paranaense", "Jardim Olinda": "Noroeste Paranaense", "Jataizinho": "Norte Pioneiro Paranaense", "Jesuítas": "Oeste Paranaense", "Joaquim Távora": "Norte Pioneiro Paranaense", "Jundiaí do Sul": "Norte Pioneiro Paranaense", "Juranda": "Centro Oeste", "Jussara": "Noroeste Paranaense", "Kaloré": "Norte Central Paranaense", "Lapa": "Curitiba Metropolitana e Litoral", "Laranjal": "Centro-Sul Paranaense", "Laranjeiras do Sul": "Centro-Sul Paranaense", "Leópolis": "Norte Pioneiro Paranaense", "Lidianópolis": "Norte Central Paranaense", "Lindoeste": "Oeste Paranaense", "Loanda": "Noroeste Paranaense", "Lobato": "Norte Central Paranaense", "Londrina": "Norte Central Paranaense", "Luiziana": "Centro Oeste", "Lunardelli": "Norte Central Paranaense", "Lupionópolis": "Norte Central Paranaense", "Mallet": "Sudeste Paranaense", "Mamborê": "Centro Oeste", "Mandaguaçu": "Norte Central Paranaense", "Mandaguari": "Norte Central Paranaense", "Mandirituba": "Curitiba Metropolitana e Litoral", "Manfrinópolis": "Sudoeste Paranaense", "Mangueirinha": "Centro-Sul Paranaense", "Manoel Ribas": "Norte Central Paranaense", "Marechal Cândido Rondon": "Oeste Paranaense", "Maria Helena": "Noroeste Paranaense", "Marialva": "Norte Central Paranaense", "Marilândia do Sul": "Norte Central Paranaense", "Marilena": "Noroeste Paranaense", "Mariluz": "Noroeste Paranaense", "Maringá": "Norte Central Paranaense", "Mariópolis": "Sudoeste Paranaense", "Maripá": "Oeste Paranaense", "Marmeleiro": "Sudoeste Paranaense", "Marquinho": "Centro-Sul Paranaense", "Marumbi": "Norte Central Paranaense", "Matelândia": "Oeste Paranaense", "Matinhos": "Curitiba Metropolitana e Litoral", "Mato Rico": "Centro-Sul Paranaense", "Mauá da Serra": "Norte Central Paranaense", "Medianeira": "Oeste Paranaense", "Mercedes": "Oeste Paranaense", "Mirador": "Noroeste Paranaense", "Miraselva": "Norte Central Paranaense", "Missal": "Oeste Paranaense", "Moreira Sales": "Centro Oeste", "Morretes": "Curitiba Metropolitana e Litoral", "Munhoz de Melo": "Norte Central Paranaense", "Nossa Senhora das Graças": "Norte Central Paranaense", "Nova Aliança do Ivaí": "Noroeste Paranaense", "Nova América da Colina": "Norte Pioneiro Paranaense", "Nova Aurora": "Oeste Paranaense", "Nova Cantu": "Centro Oeste", "Nova Esperança": "Norte Central Paranaense", "Nova Esperança do Sudoeste": "Sudoeste Paranaense", "Nova Fátima": "Norte Pioneiro Paranaense", "Nova Laranjeiras": "Centro-Sul Paranaense", "Nova Londrina": "Noroeste Paranaense", "Nova Olímpia": "Noroeste Paranaense", "Nova Prata do Iguaçu": "Sudoeste Paranaense", "Nova Santa Bárbara": "Norte Pioneiro Paranaense", "Nova Santa Rosa": "Oeste Paranaense", "Nova Tebas": "Norte Central Paranaense", "Novo Itacolomi": "Norte Central Paranaense", "Ortigueira": "Campos Gerais", "Ourizona": "Norte Central Paranaense", "Ouro Verde do Oeste": "Oeste Paranaense", "Paiçandu": "Norte Central Paranaense", "Palmas": "Centro-Sul Paranaense", "Palmeira": "Campos Gerais", "Palmital": "Centro-Sul Paranaense", "Palotina": "Oeste Paranaense", "Paraíso do Norte": "Noroeste Paranaense", "Paranacity": "Noroeste Paranaense", "Paranaguá": "Curitiba Metropolitana e Litoral", "Paranapoema": "Noroeste Paranaense", "Paranavaí": "Noroeste Paranaense", "Pato Bragado": "Oeste Paranaense", "Pato Branco": "Sudoeste Paranaense", "Paula Freitas": "Sudeste Paranaense", "Paulo Frontin": "Sudeste Paranaense", "Peabiru": "Centro Oeste", "Perobal": "Noroeste Paranaense", "Pérola": "Noroeste Paranaense", "Pérola d'Oeste": "Sudoeste Paranaense", "Piên": "Curitiba Metropolitana e Litoral", "Pinhais": "Curitiba Metropolitana e Litoral", "Pinhal de São Bento": "Sudoeste Paranaense", "Pinhalão": "Norte Pioneiro Paranaense", "Pinhão": "Centro-Sul Paranaense", "Piraí do Sul": "Campos Gerais", "Piraquara": "Curitiba Metropolitana e Litoral", "Pitanga": "Centro-Sul Paranaense", "Pitangueiras": "Norte Central Paranaense", "Planaltina do Paraná": "Noroeste Paranaense", "Planalto": "Sudoeste Paranaense", "Ponta Grossa": "Campos Gerais", "Pontal do Paraná": "Curitiba Metropolitana e Litoral", "Porecatu": "Norte Central Paranaense", "Porto Amazonas": "Curitiba Metropolitana e Litoral", "Porto Barreiro": "Centro-Sul Paranaense", "Porto Rico": "Noroeste Paranaense", "Porto Vitória": "Sudeste Paranaense", "Prado Ferreira": "Norte Central Paranaense", "Pranchita": "Sudoeste Paranaense", "Presidente Castelo Branco": "Norte Central Paranaense", "Primeiro de Maio": "Norte Central Paranaense", "Prudentópolis": "Sudeste Paranaense", "Quarto Centenário": "Centro Oeste", "Quatiguá": "Norte Pioneiro Paranaense", "Quatro Barras": "Curitiba Metropolitana e Litoral", "Quatro Pontes": "Oeste Paranaense", "Quedas do Iguaçu": "Centro-Sul Paranaense", "Querência do Norte": "Noroeste Paranaense", "Quinta do Sol": "Centro Oeste", "Quitandinha": "Curitiba Metropolitana e Litoral", "Ramilândia": "Oeste Paranaense", "Rancho Alegre": "Norte Pioneiro Paranaense", "Rancho Alegre D'Oeste": "Centro Oeste", "Realeza": "Sudoeste Paranaense", "Rebouças": "Sudeste Paranaense", "Renascença": "Sudoeste Paranaense", "Reserva": "Campos Gerais", "Reserva do Iguaçu": "Centro-Sul Paranaense", "Ribeirão Claro": "Norte Pioneiro Paranaense", "Ribeirão do Pinhal": "Norte Pioneiro Paranaense", "Rio Azul": "Sudeste Paranaense", "Rio Bom": "Norte Central Paranaense", "Rio Bonito do Iguaçu": "Centro-Sul Paranaense", "Rio Branco do Ivaí": "Norte Central Paranaense", "Rio Branco do Sul": "Curitiba Metropolitana e Litoral", "Rio Negro": "Curitiba Metropolitana e Litoral", "Rolândia": "Norte Central Paranaense", "Roncador": "Centro Oeste", "Rondon": "Noroeste Paranaense", "Rosário do Ivaí": "Norte Central Paranaense", "Sabáudia": "Norte Central Paranaense", "Salgado Filho": "Sudoeste Paranaense", "Salto do Itararé": "Norte Pioneiro Paranaense", "Salto do Lontra": "Sudoeste Paranaense", "Santa Amélia": "Norte Pioneiro Paranaense", "Santa Cecília do Pavão": "Norte Pioneiro Paranaense", "Santa Cruz de Monte Castelo": "Noroeste Paranaense", "Santa Fé": "Norte Central Paranaense", "Santa Helena": "Oeste Paranaense", "Santa Inês": "Norte Central Paranaense", "Santa Isabel do Ivaí": "Noroeste Paranaense", "Santa Izabel do Oeste": "Sudoeste Paranaense", "Santa Lúcia": "Oeste Paranaense", "Santa Maria do Oeste": "Centro-Sul Paranaense", "Santa Mariana": "Norte Pioneiro Paranaense", "Santa Mônica": "Noroeste Paranaense", "Santa Tereza do Oeste": "Oeste Paranaense", "Santa Terezinha de Itaipu": "Oeste Paranaense", "Santana do Itararé": "Norte Pioneiro Paranaense", "Santo Antônio da Platina": "Norte Pioneiro Paranaense", "Santo Antônio do Caiuá": "Noroeste Paranaense", "Santo Antônio do Paraíso": "Norte Pioneiro Paranaense", "Santo Antônio do Sudoeste": "Sudoeste Paranaense", "Santo Inácio": "Norte Central Paranaense", "São Carlos do Ivaí": "Noroeste Paranaense", "São Jerônimo da Serra": "Norte Pioneiro Paranaense", "São João": "Sudoeste Paranaense", "São João do Caiuá": "Noroeste Paranaense", "São João do Ivaí": "Norte Central Paranaense", "São João do Triunfo": "Sudeste Paranaense", "São Jorge do Ivaí": "Norte Central Paranaense", "São Jorge do Patrocínio": "Noroeste Paranaense", "São Jorge d'Oeste": "Sudoeste Paranaense", "São José da Boa Vista": "Norte Pioneiro Paranaense", "São José das Palmeiras": "Oeste Paranaense", "São José dos Pinhais": "Curitiba Metropolitana e Litoral", "São Manoel do Paraná": "Noroeste Paranaense", "São Mateus do Sul": "Sudeste Paranaense", "São Miguel do Iguaçu": "Oeste Paranaense", "São Pedro do Iguaçu": "Oeste Paranaense", "São Pedro do Ivaí": "Norte Central Paranaense", "São Pedro do Paraná": "Noroeste Paranaense", "São Sebastião da Amoreira": "Norte Pioneiro Paranaense", "São Tomé": "Noroeste Paranaense", "Sapopema": "Norte Pioneiro Paranaense", "Sarandi": "Norte Central Paranaense", "Saudade do Iguaçu": "Sudoeste Paranaense", "Sengés": "Campos Gerais", "Serranópolis do Iguaçu": "Oeste Paranaense", "Sertaneja": "Norte Pioneiro Paranaense", "Sertanópolis": "Norte Central Paranaense", "Siqueira Campos": "Norte Pioneiro Paranaense", "Sulina": "Sudoeste Paranaense", "Tamarana": "Norte Central Paranaense", "Tamboara": "Noroeste Paranaense", "Tapejara": "Noroeste Paranaense", "Tapira": "Noroeste Paranaense", "Teixeira Soares": "Sudeste Paranaense", "Telêmaco Borba": "Campos Gerais", "Terra Boa": "Centro Oeste", "Terra Rica": "Noroeste Paranaense", "Terra Roxa": "Oeste Paranaense", "Tibagi": "Campos Gerais", "Tijucas do Sul": "Curitiba Metropolitana e Litoral", "Toledo": "Oeste Paranaense", "Tomazina": "Norte Pioneiro Paranaense", "Três Barras do Paraná": "Oeste Paranaense", "Tunas do Paraná": "Curitiba Metropolitana e Litoral", "Tuneiras do Oeste": "Noroeste Paranaense", "Tupãssi": "Oeste Paranaense", "Turvo": "Centro-Sul Paranaense", "Ubiratã": "Centro Oeste", "Umuarama": "Noroeste Paranaense", "União da Vitória": "Sudeste Paranaense", "Uniflor": "Norte Central Paranaense", "Uraí": "Norte Pioneiro Paranaense", "Ventania": "Campos Gerais", "Vera Cruz do Oeste": "Oeste Paranaense", "Verê": "Sudoeste Paranaense", "Virmond": "Centro-Sul Paranaense", "Vitorino": "Sudoeste Paranaense", "Wenceslau Braz": "Norte Pioneiro Paranaense", "Xambrê": "Noroeste Paranaense"};
+
+  var form = document.getElementById('formSolicitacao');
+  var progresso = document.getElementById('progresso');
+  var selectEstadual = document.getElementById('candidatoEstadual');
+  var tipoMaterial = 'solo'; // 'solo' = so Alan Leal | 'combo' = Alan Leal + Franca/Estadual
+  var incluirFranca = false;
+
+  // ===== monta select de deputados estaduais (para o combo) =====
+  (function(){
+    DEPUTADOS.filter(function(c){ return c.cargo === 'estadual'; }).forEach(function(c){
+      var op = document.createElement('option');
+      op.value = c.id;
+      op.textContent = c.nome + (c.numero ? ' (' + c.numero + ')' : '');
+      selectEstadual.appendChild(op);
+    });
+
+    document.getElementById('erroCombo').style.display = 'none';
+    selectEstadual.addEventListener('change', function(){ document.getElementById('erroCombo').style.display = 'none'; });
+
+    // pre-seleciona via ?candidato=id na URL (util para linkar direto o combo com um estadual)
+    var params = new URLSearchParams(location.search);
+    var pre = params.get('candidato');
+    var preObj = DEPUTADOS.find(function(c){ return c.id === pre && c.cargo === 'estadual'; });
+    if(pre === 'luiz-franca'){
+      document.getElementById('opcaoCombo').click();
+      document.getElementById('opcaoIncluirFranca').click();
+    } else if(preObj){
+      document.getElementById('opcaoCombo').click();
+      selectEstadual.value = pre;
+    }
+  })();
+
+  document.getElementById('opcaoIncluirFranca').addEventListener('click', function(){
+    incluirFranca = !incluirFranca;
+    this.classList.toggle('selecionado', incluirFranca);
+    document.getElementById('erroCombo').style.display = 'none';
+  });
+
+  // ===== opcao solo / combo =====
+  var opcaoSolo = document.getElementById('opcaoSolo');
+  var opcaoCombo = document.getElementById('opcaoCombo');
+  var blocoCombo = document.getElementById('blocoCandidatoCombo');
+
+  opcaoSolo.addEventListener('click', function(){
+    opcaoSolo.classList.add('selecionado');
+    opcaoCombo.classList.remove('selecionado');
+    blocoCombo.style.display = 'none';
+    tipoMaterial = 'solo';
+  });
+  opcaoCombo.addEventListener('click', function(){
+    opcaoCombo.classList.add('selecionado');
+    opcaoSolo.classList.remove('selecionado');
+    blocoCombo.style.display = 'block';
+    tipoMaterial = 'combo';
+  });
+
+
+  // ===== monta select de cidades =====
+  (function(){
+    var select = document.getElementById('cidade');
+    Object.keys(CITY_MAP).sort(function(a,b){return a.localeCompare(b,'pt');}).forEach(function(cidade){
+      var op = document.createElement('option');
+      op.value = cidade;
+      op.textContent = cidade;
+      select.appendChild(op);
+    });
+  })();
+
+  function montaProgresso(){
+    var html = '';
+    for(var i=1;i<=TOTAL_PASSOS;i++){
+      var cls = i===passoAtual ? 'ativo' : (i<passoAtual ? 'feito' : '');
+      html += '<div class="passo-bola '+cls+'">'+ (i<passoAtual ? '✓' : i) +'</div>';
+      if(i<TOTAL_PASSOS) html += '<div class="passo-linha"></div>';
+    }
+    progresso.innerHTML = html;
+  }
+
+  function mostraPasso(n){
+    document.querySelectorAll('.passo').forEach(function(p){
+      p.classList.toggle('ativo', parseInt(p.dataset.passo,10)===n);
+    });
+    passoAtual = n;
+    montaProgresso();
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  function validaPasso1(){
+    var ok = true;
+    var nome = document.getElementById('nome');
+    var whatsapp = document.getElementById('whatsapp');
+    var cidade = document.getElementById('cidade');
+    if(nome.value.trim().length < 3 || nome.value.trim().indexOf(' ') === -1){ nome.classList.add('erro'); ok=false; } else nome.classList.remove('erro');
+    var digitos = whatsapp.value.replace(/\D/g,'');
+    if(digitos.length < 10){ whatsapp.classList.add('erro'); ok=false; } else whatsapp.classList.remove('erro');
+    if(!cidade.value){ cidade.classList.add('erro'); ok=false; } else cidade.classList.remove('erro');
+    return ok;
+  }
+
+  function validaPasso2(){
+    if(tipoMaterial === 'solo') return true;
+    var ok = !!(incluirFranca || selectEstadual.value);
+    document.getElementById('erroCombo').style.display = ok ? 'none' : 'block';
+    return ok;
+  }
+
+  function validaPasso3(){
+    var ok = !!kitSelecionado;
+    document.getElementById('erroKit').style.display = ok ? 'none' : 'block';
+    return ok;
+  }
+
+  function validaPasso4(){
+    var ok = !!entregaSelecionada;
+    document.getElementById('erroEntrega').style.display = ok ? 'none' : 'block';
+    return ok;
+  }
+
+  document.getElementById('kitsGrid').addEventListener('click', function(e){
+    var card = e.target.closest('.kit-card');
+    if(!card) return;
+    document.querySelectorAll('.kit-card').forEach(function(c){ c.classList.remove('selecionado'); });
+    card.classList.add('selecionado');
+    kitSelecionado = card.dataset.kit;
+    document.getElementById('erroKit').style.display = 'none';
+  });
+
+  document.querySelectorAll('.entrega-opcao').forEach(function(op){
+    op.addEventListener('click', function(){
+      document.querySelectorAll('.entrega-opcao').forEach(function(o){ o.classList.remove('selecionado'); });
+      op.classList.add('selecionado');
+      entregaSelecionada = op.dataset.entrega;
+      document.getElementById('erroEntrega').style.display = 'none';
+
+      var bloco = document.getElementById('blocoEndereco');
+      if(entregaSelecionada === 'Solicitar entrega'){
+        bloco.classList.add('aberto');
+      } else {
+        bloco.classList.remove('aberto');
+      }
+    });
+  });
+
+  form.addEventListener('click', function(e){
+    if(e.target.matches('[data-avancar]')){
+      if(passoAtual===1 && !validaPasso1()) return;
+      if(passoAtual===2 && !validaPasso2()) return;
+      if(passoAtual===3 && !validaPasso3()) return;
+      mostraPasso(passoAtual+1);
+    }
+    if(e.target.matches('[data-voltar]')){
+      mostraPasso(passoAtual-1);
+    }
+  });
+
+  document.getElementById('cidade').addEventListener('change', function(){
+    this.classList.remove('erro');
+  });
+
+  document.getElementById('whatsapp').addEventListener('input', function(e){
+    var v = e.target.value.replace(/\D/g,'').slice(0,11);
+    if(v.length>10) v=v.replace(/(\d{2})(\d{5})(\d{0,4}).*/,'($1) $2-$3');
+    else if(v.length>6) v=v.replace(/(\d{2})(\d{4})(\d{0,4}).*/,'($1) $2-$3');
+    else if(v.length>2) v=v.replace(/(\d{2})(\d{0,5}).*/,'($1) $2');
+    else if(v.length>0) v=v.replace(/(\d{0,2})/,'($1');
+    e.target.value = v;
+  });
+
+  document.getElementById('cep').addEventListener('input', function(e){
+    var v = e.target.value.replace(/\D/g,'').slice(0,8);
+    if(v.length>5) v=v.replace(/(\d{5})(\d{0,3})/,'$1-$2');
+    e.target.value = v;
+    if(v.replace(/\D/g,'').length === 8){
+      buscarCep(v.replace(/\D/g,''));
+    } else {
+      document.getElementById('cepStatus').textContent = '';
+    }
+  });
+
+  async function buscarCep(cepLimpo){
+    var status = document.getElementById('cepStatus');
+    status.textContent = 'Buscando endereço...';
+    status.style.color = 'var(--cinza-claro)';
+    try{
+      var resp = await fetch('https://viacep.com.br/ws/'+cepLimpo+'/json/');
+      var dados = await resp.json();
+      if(dados.erro){
+        status.textContent = 'CEP não encontrado. Preencha manualmente.';
+        status.style.color = 'var(--erro)';
+        return;
+      }
+      if(dados.uf && dados.uf !== 'PR'){
+        status.textContent = '⚠️ Esse material é só pra entrega no Paraná. Esse CEP é de ' + dados.uf + '.';
+        status.style.color = 'var(--erro)';
+        document.getElementById('endereco').value = '';
+        document.getElementById('bairro').value = '';
+        return;
+      }
+      var enderecoInput = document.getElementById('endereco');
+      var bairroInput = document.getElementById('bairro');
+      if(dados.logradouro) enderecoInput.value = dados.logradouro;
+      if(dados.bairro) bairroInput.value = dados.bairro;
+
+      if(dados.localidade){
+        var cidadeSelect = document.getElementById('cidade');
+        var existe = Array.from(cidadeSelect.options).some(function(op){ return op.value === dados.localidade; });
+        if(existe){
+          cidadeSelect.value = dados.localidade;
+          cidadeSelect.classList.remove('erro');
+        }
+      }
+
+      status.textContent = '✓ Endereço preenchido automaticamente';
+      status.style.color = 'var(--amarelo)';
+
+      // leva o foco pro campo Numero, que e o unico que o ViaCEP nao preenche
+      document.getElementById('numero').focus();
+    }catch(err){
+      status.textContent = 'Não foi possível buscar o CEP agora. Preencha manualmente.';
+      status.style.color = 'var(--erro)';
+    }
+  }
+
+  var SUPABASE_URL='https://dzysyujkefksduusnkpb.supabase.co';
+  var SUPABASE_KEY='sb_publishable_foVjR4L0DXOt7c2k5-8JWw_dgZpTWu8';
+
+  async function salvarSolicitacao(d){
+    try{
+      var r = await fetch(SUPABASE_URL+'/rest/v1/solicitacoes_material', {
+        method:'POST',
+        headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Prefer':'return=minimal'},
+        body: JSON.stringify(d)
+      });
+      return r.ok;
+    }catch(err){ return false; }
+  }
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    if(!validaPasso4()) return;
+
+    var btn = document.getElementById('btnEnviar');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    var candidatoTexto = 'Somente Alan Leal';
+    if(tipoMaterial === 'combo'){
+      var nomes = ['Alan Leal'];
+      var estadualObj = DEPUTADOS.find(function(c){ return c.id === selectEstadual.value; });
+      if(incluirFranca) nomes.push('Luiz França');
+      if(estadualObj) nomes.push(estadualObj.nome);
+      candidatoTexto = nomes.join(' + ');
+    }
+
+    var payload = {
+      candidato: candidatoTexto,
+      nome: document.getElementById('nome').value.trim(),
+      whatsapp: document.getElementById('whatsapp').value.trim(),
+      cidade: document.getElementById('cidade').value,
+      bairro: document.getElementById('bairro').value.trim(),
+      cep: document.getElementById('cep').value.trim(),
+      endereco: document.getElementById('endereco').value.trim(),
+      numero: document.getElementById('numero').value.trim(),
+      complemento: document.getElementById('complemento').value.trim(),
+      kit: kitSelecionado,
+      quantidades: KITS[kitSelecionado],
+      entrega: entregaSelecionada
+    };
+
+    var ok = await salvarSolicitacao(payload);
+
+    if(ok){
+      form.style.display = 'none';
+      progresso.style.display = 'none';
+      document.getElementById('telaSucesso').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Confirmar solicitação';
+      alert('Não foi possível enviar sua solicitação agora. Tente novamente em instantes.');
+    }
+  });
+
+  montaProgresso();
+})();
+</script>
+</body>
+</html>
