@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Solicitar Material de Campanha — Alan Leal | Missão Paraná</title>
-<meta name="description" content="Solicite santinhos, folders, adesivos e outros materiais de campanha do Alan Leal (ou combine com outros candidatos do Missão Paraná). Escolha o kit e pronto.">
+<meta name="description" content="Solicite santinhos, folders e adesivos de campanha do Alan Leal. Escolha o kit e pronto.">
 <link rel="canonical" href="https://missaoparana.com.br/material-alanleal.html">
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#0a0a0a">
@@ -118,7 +118,7 @@
 <header class="topo"><div class="wrap">
   <div class="numero14"><b>14</b> O Paraná é 14</div>
   <h1>Peça seu material de campanha do Alan Leal</h1>
-  <p>Leva menos de 1 minuto. Confirme o candidato, escolha o kit, diga como quer receber e pronto.</p>
+  <p>Leva menos de 1 minuto. Escolha o kit, diga como quer receber e pronto.</p>
 </div></header>
 
 <div class="progresso" id="progresso"></div>
@@ -156,44 +156,7 @@
       </div>
     </div>
 
-    <!-- PASSO 2 - tipo de material: so Alan Leal ou Alan Leal + Governador/Estadual -->
     <div class="passo" data-passo="2">
-      <h2>Que material você quer?</h2>
-      <p class="desc">O material sempre leva o Alan Leal — escolha se quer ele sozinho ou junto com outros candidatos.</p>
-
-      <div class="kit-card selecionado" data-tipo="solo" id="opcaoSolo">
-        <div class="kit-nome"><span class="kit-check"></span> Somente Alan Leal</div>
-        <ul class="kit-itens"><li>Deputado Federal — Nº 1404</li></ul>
-      </div>
-
-      <div class="kit-card" data-tipo="combo" id="opcaoCombo">
-        <div class="kit-nome"><span class="kit-check"></span> Alan Leal + candidatos</div>
-        <ul class="kit-itens"><li>Escolha o Governador e/ou um Deputado Estadual pra sair junto</li></ul>
-      </div>
-
-      <div id="blocoCandidatoCombo" style="display:none;margin-top:6px">
-        <div class="opcao-toggle" id="opcaoIncluirFranca" style="margin-bottom:14px">
-          <div class="bolinha"></div>
-          <div><b>Incluir Luiz França</b><span>Governador do Paraná — Nº 14</span></div>
-        </div>
-        <div class="campo">
-          <label for="candidatoEstadual">Deputado Estadual <span class="opcional">(opcional)</span></label>
-          <select id="candidatoEstadual">
-            <option value="">Nenhum</option>
-          </select>
-        </div>
-        <div class="msg-erro" id="erroCombo">Escolha o França e/ou um Deputado Estadual pra sair junto com o Alan Leal.</div>
-      </div>
-
-      <div class="nav-botoes">
-        <button type="button" class="btn btn-secundario" data-voltar>← Voltar</button>
-        <button type="button" class="btn btn-primario" data-avancar>Continuar →</button>
-      </div>
-    </div>
-
-
-    <!-- PASSO 3 - kit (quantidades fixas, sem ajuste) -->
-    <div class="passo" data-passo="3">
       <h2>Escolha seu kit</h2>
       <p class="desc">Cada kit já vem com quantidades definidas.</p>
 
@@ -231,7 +194,7 @@
     </div>
 
     <!-- PASSO 4 - entrega + confirmar -->
-    <div class="passo" data-passo="4">
+    <div class="passo" data-passo="3">
       <h2>Como você quer receber?</h2>
       <p class="desc">Última etapa!</p>
 
@@ -295,7 +258,7 @@
 
 <script>
 (function(){
-  var TOTAL_PASSOS = 4;
+  var TOTAL_PASSOS = 3;
   var passoAtual = 1;
   var kitSelecionado = null;
   var entregaSelecionada = null;
@@ -306,67 +269,11 @@
     "Kit Onça": {Santinho:500, Folder:100, "Adesivo de lapela":100, "Adesivo de para-choque":10, "Adesivo perfurado":3}
   };
 
-  var FRANCA = {"id":"luiz-franca","nome":"Luiz Felipe França","numero":"14","cargo":"governador"};
-  var DEPUTADOS = [{"id": "adriano-fritz", "nome": "Adriano Fritz", "numero": "14042", "cargo": "estadual"}, {"id": "alan-leal", "nome": "Alan Leal", "numero": "1404", "cargo": "federal"}, {"id": "alessandra-lima", "nome": "Alessandra Lima", "numero": "14039", "cargo": "estadual"}, {"id": "aline-franzon", "nome": "Aline Franzon", "numero": "14143", "cargo": "estadual"}, {"id": "ana-xavier", "nome": "Ana Lucia Xavier", "numero": "1439", "cargo": "federal"}, {"id": "andre-ribeiro", "nome": "André Ribeiro", "numero": "1450", "cargo": "federal"}, {"id": "andrey-luiz", "nome": "Andrey Luiz", "numero": "1416", "cargo": "federal"}, {"id": "anita-de-biasi", "nome": "Anita de Biasi", "numero": "1419", "cargo": "federal"}, {"id": "beatriz-oliveira", "nome": "Beatriz Oliveira", "numero": "14441", "cargo": "estadual"}, {"id": "bruno-vieira", "nome": "Bruno Vieira", "numero": "14777", "cargo": "estadual"}, {"id": "carlos-eduardo", "nome": "Carlos Eduardo", "numero": "14007", "cargo": "estadual"}, {"id": "carlos-eduardo-de-oliveira-gasparim", "nome": "Carlos Gasparin", "numero": "1411", "cargo": "federal"}, {"id": "caroline-barbosa", "nome": "Caroline Barbosa", "numero": "1497", "cargo": "federal"}, {"id": "daniel-aguiar", "nome": "Daniel Aguiar", "numero": "14321", "cargo": "estadual"}, {"id": "danusa-lopes", "nome": "Danusa Lopes", "numero": "14077", "cargo": "estadual"}, {"id": "darlon-parana-pop", "nome": "Darlon Paraná Pop", "numero": "1444", "cargo": "federal"}, {"id": "delegado-eduardo-kruger", "nome": "Delegado Eduardo Kruger", "numero": "1415", "cargo": "federal"}, {"id": "guilherme-machado", "nome": "Dr. Guilherme Machado", "numero": "1442", "cargo": "federal"}, {"id": "yvis-de-oliveira", "nome": "Dra. Yvis", "numero": "1401", "cargo": "federal"}, {"id": "daymond-pires", "nome": "Dyamond Pires", "numero": "14141", "cargo": "estadual"}, {"id": "eduardo-nunes-gomes", "nome": "Eduardo Gomes", "numero": "14021", "cargo": "estadual"}, {"id": "manu-shtorach", "nome": "Emanuelle Shtorach", "numero": "1457", "cargo": "federal"}, {"id": "erica-de-freitas-goncalves", "nome": "Erica Gonçalves", "numero": "14011", "cargo": "estadual"}, {"id": "felipe-de-castilho", "nome": "Felipe de Castilho", "numero": "14111", "cargo": "estadual"}, {"id": "felipe-gambaro", "nome": "Felipe Gambaro", "numero": "1420", "cargo": "federal"}, {"id": "fernando-garbatchevski", "nome": "Fernando Garbatchevski", "numero": "1422", "cargo": "federal"}, {"id": "francyelly-engee", "nome": "Francyelly Engee", "numero": "14214", "cargo": "estadual"}, {"id": "gabriel-bertolucci", "nome": "Gabriel Bertolucci", "numero": "1400", "cargo": "federal"}, {"id": "gerusa-correa", "nome": "Gerusa Correa", "numero": "1456", "cargo": "federal"}, {"id": "glauberson-rocha", "nome": "Glauberson Rocha", "numero": "1499", "cargo": "federal"}, {"id": "graci-da-fauna-silvestre", "nome": "Graci da Faúna Silvestre", "numero": "14900", "cargo": "estadual"}, {"id": "graci-moreira", "nome": "Graci Moreira", "numero": "14714", "cargo": "estadual"}, {"id": "gustavo-camillo", "nome": "Gustavo Camillo", "numero": "14000", "cargo": "estadual"}, {"id": "ivo-arthur-goncalves", "nome": "Ivo Arthur", "numero": "14222", "cargo": "estadual"}, {"id": "jessica-this-do-autismo", "nome": "Jéssica This Machado", "numero": "1426", "cargo": "federal"}, {"id": "joao-gabriel", "nome": "João Gabriel", "numero": "14144", "cargo": "estadual"}, {"id": "jornalista-isaak-almeida", "nome": "Jornalista Isaak Almeida", "numero": "1477", "cargo": "federal"}, {"id": "kelven-alcantara", "nome": "Kelven Alcantara", "numero": "14500", "cargo": "estadual"}, {"id": "lucas-backes", "nome": "Lucas Backes", "numero": "14446", "cargo": "estadual"}, {"id": "lude-riesemberg", "nome": "Lude Riesemberg", "numero": "14041", "cargo": "estadual"}, {"id": "marcello-de-paula", "nome": "Marcello de Paula", "numero": "1407", "cargo": "federal"}, {"id": "mariane-mazzon", "nome": "Mari Mazzon", "numero": "14444", "cargo": "estadual"}, {"id": "mary-barreto", "nome": "Mary Barreto", "numero": "1430", "cargo": "federal"}, {"id": "marianny-thayla", "nome": "Mary Missão PCD", "numero": "1406", "cargo": "federal"}, {"id": "mateus-pepice", "nome": "Mateus Pepice", "numero": "14131", "cargo": "estadual"}, {"id": "matheus-manholer", "nome": "Matheus Manholer", "numero": "14333", "cargo": "estadual"}, {"id": "matheus-santos-moreira", "nome": "Matheus Moreira", "numero": "1443", "cargo": "federal"}, {"id": "matheus-zozoloto", "nome": "Matheus Zozoloto", "numero": "1410", "cargo": "federal"}, {"id": "mauricio-franciscon", "nome": "Mauricio Franciscon", "numero": "1446", "cargo": "federal"}, {"id": "tayna-vieia", "nome": "Naná Vieira", "numero": "1412", "cargo": "federal"}, {"id": "natelie-facco", "nome": "Natalie Facco", "numero": "14114", "cargo": "estadual"}, {"id": "odenilson-vicente", "nome": "Odenilson Vicente", "numero": "14100", "cargo": "estadual"}, {"id": "paulo-di-melo", "nome": "Paulo Di Melo", "numero": "14999", "cargo": "estadual"}, {"id": "pedro-deyrot", "nome": "Pedro Deyrot", "numero": "1414", "cargo": "federal"}, {"id": "yan-gaudard", "nome": "Prof. Yan Gaudard", "numero": "1441", "cargo": "federal"}, {"id": "raphael-lacerda", "nome": "Raphael Lacerda", "numero": "14914", "cargo": "estadual"}, {"id": "ricardo-cascavel-segura", "nome": "Ricardo Cascavel Mais Segura", "numero": "1445", "cargo": "federal"}, {"id": "rubens-nascimento", "nome": "Rubens Nascimento", "numero": "14123", "cargo": "estadual"}, {"id": "soldado-guedes", "nome": "Soldado Guedes", "numero": "1438", "cargo": "federal"}, {"id": "stuchi", "nome": "Stuchi", "numero": "14244", "cargo": "estadual"}, {"id": "thiago-maldonado", "nome": "Thiago Maldonado", "numero": "14700", "cargo": "estadual"}, {"id": "victor-moreira", "nome": "Victor Moreira", "numero": "1489", "cargo": "federal"}, {"id": "wagner-proenca-junior", "nome": "Wagner Jr.", "numero": "14555", "cargo": "estadual"}, {"id": "william-rocha", "nome": "Willian Rocha", "numero": "14014", "cargo": "estadual"}];
-  var CANDIDATOS = [FRANCA].concat(DEPUTADOS);
 
   var CITY_MAP = {"Abatiá": "Norte Pioneiro Paranaense", "Adrianópolis": "Curitiba Metropolitana e Litoral", "Agudos do Sul": "Curitiba Metropolitana e Litoral", "Almirante Tamandaré": "Curitiba Metropolitana e Litoral", "Altamira do Paraná": "Centro Oeste", "Alto Paraíso": "Noroeste Paranaense", "Alto Paraná": "Noroeste Paranaense", "Alto Piquiri": "Noroeste Paranaense", "Altônia": "Noroeste Paranaense", "Alvorada do Sul": "Norte Central Paranaense", "Amaporã": "Noroeste Paranaense", "Ampére": "Sudoeste Paranaense", "Anahy": "Oeste Paranaense", "Andirá": "Norte Pioneiro Paranaense", "Ângulo": "Norte Central Paranaense", "Antonina": "Curitiba Metropolitana e Litoral", "Antônio Olinto": "Sudeste Paranaense", "Apucarana": "Norte Central Paranaense", "Arapongas": "Norte Central Paranaense", "Arapoti": "Campos Gerais", "Arapuã": "Norte Central Paranaense", "Araruna": "Centro Oeste", "Araucária": "Curitiba Metropolitana e Litoral", "Ariranha do Ivaí": "Norte Central Paranaense", "Assaí": "Norte Pioneiro Paranaense", "Assis Chateaubriand": "Oeste Paranaense", "Astorga": "Norte Central Paranaense", "Atalaia": "Norte Central Paranaense", "Balsa Nova": "Curitiba Metropolitana e Litoral", "Bandeirantes": "Norte Pioneiro Paranaense", "Barbosa Ferraz": "Centro Oeste", "Barra do Jacaré": "Norte Pioneiro Paranaense", "Barracão": "Sudoeste Paranaense", "Bela Vista da Caroba": "Sudoeste Paranaense", "Bela Vista do Paraíso": "Norte Central Paranaense", "Bituruna": "Sudeste Paranaense", "Boa Esperança": "Centro Oeste", "Boa Esperança do Iguaçu": "Sudoeste Paranaense", "Boa Ventura de São Roque": "Centro-Sul Paranaense", "Boa Vista da Aparecida": "Oeste Paranaense", "Bocaiúva do Sul": "Curitiba Metropolitana e Litoral", "Bom Jesus do Sul": "Sudoeste Paranaense", "Bom Sucesso": "Norte Central Paranaense", "Bom Sucesso do Sul": "Sudoeste Paranaense", "Borrazópolis": "Norte Central Paranaense", "Braganey": "Oeste Paranaense", "Brasilândia do Sul": "Noroeste Paranaense", "Cafeara": "Norte Central Paranaense", "Cafelândia": "Oeste Paranaense", "Cafezal do Sul": "Noroeste Paranaense", "Califórnia": "Norte Central Paranaense", "Cambará": "Norte Pioneiro Paranaense", "Cambé": "Norte Central Paranaense", "Cambira": "Norte Central Paranaense", "Campina da Lagoa": "Centro Oeste", "Campina do Simão": "Centro-Sul Paranaense", "Campina Grande do Sul": "Curitiba Metropolitana e Litoral", "Campo Bonito": "Oeste Paranaense", "Campo do Tenente": "Curitiba Metropolitana e Litoral", "Campo Largo": "Curitiba Metropolitana e Litoral", "Campo Magro": "Curitiba Metropolitana e Litoral", "Campo Mourão": "Centro Oeste", "Cândido de Abreu": "Norte Central Paranaense", "Candói": "Centro-Sul Paranaense", "Cantagalo": "Centro-Sul Paranaense", "Capanema": "Sudoeste Paranaense", "Capitão Leônidas Marques": "Oeste Paranaense", "Carambeí": "Campos Gerais", "Carlópolis": "Norte Pioneiro Paranaense", "Cascavel": "Oeste Paranaense", "Castro": "Campos Gerais", "Catanduvas": "Oeste Paranaense", "Centenário do Sul": "Norte Central Paranaense", "Cerro Azul": "Curitiba Metropolitana e Litoral", "Céu Azul": "Oeste Paranaense", "Chopinzinho": "Sudoeste Paranaense", "Cianorte": "Noroeste Paranaense", "Cidade Gaúcha": "Noroeste Paranaense", "Clevelândia": "Centro-Sul Paranaense", "Colombo": "Curitiba Metropolitana e Litoral", "Colorado": "Norte Central Paranaense", "Congonhinhas": "Norte Pioneiro Paranaense", "Conselheiro Mairinck": "Norte Pioneiro Paranaense", "Contenda": "Curitiba Metropolitana e Litoral", "Corbélia": "Oeste Paranaense", "Cornélio Procópio": "Norte Pioneiro Paranaense", "Coronel Domingos Soares": "Centro-Sul Paranaense", "Coronel Vivida": "Sudoeste Paranaense", "Corumbataí do Sul": "Centro Oeste", "Cruz Machado": "Sudeste Paranaense", "Cruzeiro do Iguaçu": "Sudoeste Paranaense", "Cruzeiro do Oeste": "Noroeste Paranaense", "Cruzeiro do Sul": "Noroeste Paranaense", "Cruzmaltina": "Norte Central Paranaense", "Curitiba": "Curitiba Metropolitana e Litoral", "Curiúva": "Norte Pioneiro Paranaense", "Diamante do Norte": "Noroeste Paranaense", "Diamante do Sul": "Oeste Paranaense", "Diamante D'Oeste": "Oeste Paranaense", "Dois Vizinhos": "Sudoeste Paranaense", "Douradina": "Noroeste Paranaense", "Doutor Camargo": "Norte Central Paranaense", "Doutor Ulysses": "Curitiba Metropolitana e Litoral", "Enéas Marques": "Sudoeste Paranaense", "Engenheiro Beltrão": "Centro Oeste", "Entre Rios do Oeste": "Oeste Paranaense", "Esperança Nova": "Noroeste Paranaense", "Espigão Alto do Iguaçu": "Centro-Sul Paranaense", "Farol": "Centro Oeste", "Faxinal": "Norte Central Paranaense", "Fazenda Rio Grande": "Curitiba Metropolitana e Litoral", "Fênix": "Centro Oeste", "Fernandes Pinheiro": "Sudeste Paranaense", "Figueira": "Norte Pioneiro Paranaense", "Flor da Serra do Sul": "Sudoeste Paranaense", "Floraí": "Norte Central Paranaense", "Floresta": "Norte Central Paranaense", "Florestópolis": "Norte Central Paranaense", "Flórida": "Norte Central Paranaense", "Formosa do Oeste": "Oeste Paranaense", "Foz do Iguaçu": "Oeste Paranaense", "Foz do Jordão": "Centro-Sul Paranaense", "Francisco Alves": "Noroeste Paranaense", "Francisco Beltrão": "Sudoeste Paranaense", "General Carneiro": "Sudeste Paranaense", "Godoy Moreira": "Norte Central Paranaense", "Goioerê": "Centro Oeste", "Goioxim": "Centro-Sul Paranaense", "Grandes Rios": "Norte Central Paranaense", "Guaíra": "Oeste Paranaense", "Guairaçá": "Noroeste Paranaense", "Guamiranga": "Sudeste Paranaense", "Guapirama": "Norte Pioneiro Paranaense", "Guaporema": "Noroeste Paranaense", "Guaraci": "Norte Central Paranaense", "Guaraniaçu": "Oeste Paranaense", "Guarapuava": "Centro-Sul Paranaense", "Guaraqueçaba": "Curitiba Metropolitana e Litoral", "Guaratuba": "Curitiba Metropolitana e Litoral", "Honório Serpa": "Centro-Sul Paranaense", "Ibaiti": "Norte Pioneiro Paranaense", "Ibema": "Oeste Paranaense", "Ibiporã": "Norte Central Paranaense", "Icaraíma": "Noroeste Paranaense", "Iguaraçu": "Norte Central Paranaense", "Iguatu": "Oeste Paranaense", "Imbaú": "Campos Gerais", "Imbituva": "Sudeste Paranaense", "Inácio Martins": "Centro-Sul Paranaense", "Inajá": "Noroeste Paranaense", "Indianópolis": "Noroeste Paranaense", "Ipiranga": "Sudeste Paranaense", "Iporã": "Noroeste Paranaense", "Iracema do Oeste": "Oeste Paranaense", "Irati": "Sudeste Paranaense", "Iretama": "Centro Oeste", "Itaguajé": "Norte Central Paranaense", "Itaipulândia": "Oeste Paranaense", "Itambaracá": "Norte Pioneiro Paranaense", "Itambé": "Norte Central Paranaense", "Itapejara d'Oeste": "Sudoeste Paranaense", "Itaperuçu": "Curitiba Metropolitana e Litoral", "Itaúna do Sul": "Noroeste Paranaense", "Ivaí": "Sudeste Paranaense", "Ivaiporã": "Norte Central Paranaense", "Ivaté": "Noroeste Paranaense", "Ivatuba": "Norte Central Paranaense", "Jaboti": "Norte Pioneiro Paranaense", "Jacarezinho": "Norte Pioneiro Paranaense", "Jaguapitã": "Norte Central Paranaense", "Jaguariaíva": "Campos Gerais", "Jandaia do Sul": "Norte Central Paranaense", "Janiópolis": "Centro Oeste", "Japira": "Norte Pioneiro Paranaense", "Japurá": "Noroeste Paranaense", "Jardim Alegre": "Norte Central Paranaense", "Jardim Olinda": "Noroeste Paranaense", "Jataizinho": "Norte Pioneiro Paranaense", "Jesuítas": "Oeste Paranaense", "Joaquim Távora": "Norte Pioneiro Paranaense", "Jundiaí do Sul": "Norte Pioneiro Paranaense", "Juranda": "Centro Oeste", "Jussara": "Noroeste Paranaense", "Kaloré": "Norte Central Paranaense", "Lapa": "Curitiba Metropolitana e Litoral", "Laranjal": "Centro-Sul Paranaense", "Laranjeiras do Sul": "Centro-Sul Paranaense", "Leópolis": "Norte Pioneiro Paranaense", "Lidianópolis": "Norte Central Paranaense", "Lindoeste": "Oeste Paranaense", "Loanda": "Noroeste Paranaense", "Lobato": "Norte Central Paranaense", "Londrina": "Norte Central Paranaense", "Luiziana": "Centro Oeste", "Lunardelli": "Norte Central Paranaense", "Lupionópolis": "Norte Central Paranaense", "Mallet": "Sudeste Paranaense", "Mamborê": "Centro Oeste", "Mandaguaçu": "Norte Central Paranaense", "Mandaguari": "Norte Central Paranaense", "Mandirituba": "Curitiba Metropolitana e Litoral", "Manfrinópolis": "Sudoeste Paranaense", "Mangueirinha": "Centro-Sul Paranaense", "Manoel Ribas": "Norte Central Paranaense", "Marechal Cândido Rondon": "Oeste Paranaense", "Maria Helena": "Noroeste Paranaense", "Marialva": "Norte Central Paranaense", "Marilândia do Sul": "Norte Central Paranaense", "Marilena": "Noroeste Paranaense", "Mariluz": "Noroeste Paranaense", "Maringá": "Norte Central Paranaense", "Mariópolis": "Sudoeste Paranaense", "Maripá": "Oeste Paranaense", "Marmeleiro": "Sudoeste Paranaense", "Marquinho": "Centro-Sul Paranaense", "Marumbi": "Norte Central Paranaense", "Matelândia": "Oeste Paranaense", "Matinhos": "Curitiba Metropolitana e Litoral", "Mato Rico": "Centro-Sul Paranaense", "Mauá da Serra": "Norte Central Paranaense", "Medianeira": "Oeste Paranaense", "Mercedes": "Oeste Paranaense", "Mirador": "Noroeste Paranaense", "Miraselva": "Norte Central Paranaense", "Missal": "Oeste Paranaense", "Moreira Sales": "Centro Oeste", "Morretes": "Curitiba Metropolitana e Litoral", "Munhoz de Melo": "Norte Central Paranaense", "Nossa Senhora das Graças": "Norte Central Paranaense", "Nova Aliança do Ivaí": "Noroeste Paranaense", "Nova América da Colina": "Norte Pioneiro Paranaense", "Nova Aurora": "Oeste Paranaense", "Nova Cantu": "Centro Oeste", "Nova Esperança": "Norte Central Paranaense", "Nova Esperança do Sudoeste": "Sudoeste Paranaense", "Nova Fátima": "Norte Pioneiro Paranaense", "Nova Laranjeiras": "Centro-Sul Paranaense", "Nova Londrina": "Noroeste Paranaense", "Nova Olímpia": "Noroeste Paranaense", "Nova Prata do Iguaçu": "Sudoeste Paranaense", "Nova Santa Bárbara": "Norte Pioneiro Paranaense", "Nova Santa Rosa": "Oeste Paranaense", "Nova Tebas": "Norte Central Paranaense", "Novo Itacolomi": "Norte Central Paranaense", "Ortigueira": "Campos Gerais", "Ourizona": "Norte Central Paranaense", "Ouro Verde do Oeste": "Oeste Paranaense", "Paiçandu": "Norte Central Paranaense", "Palmas": "Centro-Sul Paranaense", "Palmeira": "Campos Gerais", "Palmital": "Centro-Sul Paranaense", "Palotina": "Oeste Paranaense", "Paraíso do Norte": "Noroeste Paranaense", "Paranacity": "Noroeste Paranaense", "Paranaguá": "Curitiba Metropolitana e Litoral", "Paranapoema": "Noroeste Paranaense", "Paranavaí": "Noroeste Paranaense", "Pato Bragado": "Oeste Paranaense", "Pato Branco": "Sudoeste Paranaense", "Paula Freitas": "Sudeste Paranaense", "Paulo Frontin": "Sudeste Paranaense", "Peabiru": "Centro Oeste", "Perobal": "Noroeste Paranaense", "Pérola": "Noroeste Paranaense", "Pérola d'Oeste": "Sudoeste Paranaense", "Piên": "Curitiba Metropolitana e Litoral", "Pinhais": "Curitiba Metropolitana e Litoral", "Pinhal de São Bento": "Sudoeste Paranaense", "Pinhalão": "Norte Pioneiro Paranaense", "Pinhão": "Centro-Sul Paranaense", "Piraí do Sul": "Campos Gerais", "Piraquara": "Curitiba Metropolitana e Litoral", "Pitanga": "Centro-Sul Paranaense", "Pitangueiras": "Norte Central Paranaense", "Planaltina do Paraná": "Noroeste Paranaense", "Planalto": "Sudoeste Paranaense", "Ponta Grossa": "Campos Gerais", "Pontal do Paraná": "Curitiba Metropolitana e Litoral", "Porecatu": "Norte Central Paranaense", "Porto Amazonas": "Curitiba Metropolitana e Litoral", "Porto Barreiro": "Centro-Sul Paranaense", "Porto Rico": "Noroeste Paranaense", "Porto Vitória": "Sudeste Paranaense", "Prado Ferreira": "Norte Central Paranaense", "Pranchita": "Sudoeste Paranaense", "Presidente Castelo Branco": "Norte Central Paranaense", "Primeiro de Maio": "Norte Central Paranaense", "Prudentópolis": "Sudeste Paranaense", "Quarto Centenário": "Centro Oeste", "Quatiguá": "Norte Pioneiro Paranaense", "Quatro Barras": "Curitiba Metropolitana e Litoral", "Quatro Pontes": "Oeste Paranaense", "Quedas do Iguaçu": "Centro-Sul Paranaense", "Querência do Norte": "Noroeste Paranaense", "Quinta do Sol": "Centro Oeste", "Quitandinha": "Curitiba Metropolitana e Litoral", "Ramilândia": "Oeste Paranaense", "Rancho Alegre": "Norte Pioneiro Paranaense", "Rancho Alegre D'Oeste": "Centro Oeste", "Realeza": "Sudoeste Paranaense", "Rebouças": "Sudeste Paranaense", "Renascença": "Sudoeste Paranaense", "Reserva": "Campos Gerais", "Reserva do Iguaçu": "Centro-Sul Paranaense", "Ribeirão Claro": "Norte Pioneiro Paranaense", "Ribeirão do Pinhal": "Norte Pioneiro Paranaense", "Rio Azul": "Sudeste Paranaense", "Rio Bom": "Norte Central Paranaense", "Rio Bonito do Iguaçu": "Centro-Sul Paranaense", "Rio Branco do Ivaí": "Norte Central Paranaense", "Rio Branco do Sul": "Curitiba Metropolitana e Litoral", "Rio Negro": "Curitiba Metropolitana e Litoral", "Rolândia": "Norte Central Paranaense", "Roncador": "Centro Oeste", "Rondon": "Noroeste Paranaense", "Rosário do Ivaí": "Norte Central Paranaense", "Sabáudia": "Norte Central Paranaense", "Salgado Filho": "Sudoeste Paranaense", "Salto do Itararé": "Norte Pioneiro Paranaense", "Salto do Lontra": "Sudoeste Paranaense", "Santa Amélia": "Norte Pioneiro Paranaense", "Santa Cecília do Pavão": "Norte Pioneiro Paranaense", "Santa Cruz de Monte Castelo": "Noroeste Paranaense", "Santa Fé": "Norte Central Paranaense", "Santa Helena": "Oeste Paranaense", "Santa Inês": "Norte Central Paranaense", "Santa Isabel do Ivaí": "Noroeste Paranaense", "Santa Izabel do Oeste": "Sudoeste Paranaense", "Santa Lúcia": "Oeste Paranaense", "Santa Maria do Oeste": "Centro-Sul Paranaense", "Santa Mariana": "Norte Pioneiro Paranaense", "Santa Mônica": "Noroeste Paranaense", "Santa Tereza do Oeste": "Oeste Paranaense", "Santa Terezinha de Itaipu": "Oeste Paranaense", "Santana do Itararé": "Norte Pioneiro Paranaense", "Santo Antônio da Platina": "Norte Pioneiro Paranaense", "Santo Antônio do Caiuá": "Noroeste Paranaense", "Santo Antônio do Paraíso": "Norte Pioneiro Paranaense", "Santo Antônio do Sudoeste": "Sudoeste Paranaense", "Santo Inácio": "Norte Central Paranaense", "São Carlos do Ivaí": "Noroeste Paranaense", "São Jerônimo da Serra": "Norte Pioneiro Paranaense", "São João": "Sudoeste Paranaense", "São João do Caiuá": "Noroeste Paranaense", "São João do Ivaí": "Norte Central Paranaense", "São João do Triunfo": "Sudeste Paranaense", "São Jorge do Ivaí": "Norte Central Paranaense", "São Jorge do Patrocínio": "Noroeste Paranaense", "São Jorge d'Oeste": "Sudoeste Paranaense", "São José da Boa Vista": "Norte Pioneiro Paranaense", "São José das Palmeiras": "Oeste Paranaense", "São José dos Pinhais": "Curitiba Metropolitana e Litoral", "São Manoel do Paraná": "Noroeste Paranaense", "São Mateus do Sul": "Sudeste Paranaense", "São Miguel do Iguaçu": "Oeste Paranaense", "São Pedro do Iguaçu": "Oeste Paranaense", "São Pedro do Ivaí": "Norte Central Paranaense", "São Pedro do Paraná": "Noroeste Paranaense", "São Sebastião da Amoreira": "Norte Pioneiro Paranaense", "São Tomé": "Noroeste Paranaense", "Sapopema": "Norte Pioneiro Paranaense", "Sarandi": "Norte Central Paranaense", "Saudade do Iguaçu": "Sudoeste Paranaense", "Sengés": "Campos Gerais", "Serranópolis do Iguaçu": "Oeste Paranaense", "Sertaneja": "Norte Pioneiro Paranaense", "Sertanópolis": "Norte Central Paranaense", "Siqueira Campos": "Norte Pioneiro Paranaense", "Sulina": "Sudoeste Paranaense", "Tamarana": "Norte Central Paranaense", "Tamboara": "Noroeste Paranaense", "Tapejara": "Noroeste Paranaense", "Tapira": "Noroeste Paranaense", "Teixeira Soares": "Sudeste Paranaense", "Telêmaco Borba": "Campos Gerais", "Terra Boa": "Centro Oeste", "Terra Rica": "Noroeste Paranaense", "Terra Roxa": "Oeste Paranaense", "Tibagi": "Campos Gerais", "Tijucas do Sul": "Curitiba Metropolitana e Litoral", "Toledo": "Oeste Paranaense", "Tomazina": "Norte Pioneiro Paranaense", "Três Barras do Paraná": "Oeste Paranaense", "Tunas do Paraná": "Curitiba Metropolitana e Litoral", "Tuneiras do Oeste": "Noroeste Paranaense", "Tupãssi": "Oeste Paranaense", "Turvo": "Centro-Sul Paranaense", "Ubiratã": "Centro Oeste", "Umuarama": "Noroeste Paranaense", "União da Vitória": "Sudeste Paranaense", "Uniflor": "Norte Central Paranaense", "Uraí": "Norte Pioneiro Paranaense", "Ventania": "Campos Gerais", "Vera Cruz do Oeste": "Oeste Paranaense", "Verê": "Sudoeste Paranaense", "Virmond": "Centro-Sul Paranaense", "Vitorino": "Sudoeste Paranaense", "Wenceslau Braz": "Norte Pioneiro Paranaense", "Xambrê": "Noroeste Paranaense"};
 
   var form = document.getElementById('formSolicitacao');
   var progresso = document.getElementById('progresso');
-  var selectEstadual = document.getElementById('candidatoEstadual');
-  var tipoMaterial = 'solo'; // 'solo' = so Alan Leal | 'combo' = Alan Leal + Franca/Estadual
-  var incluirFranca = false;
-
-  // ===== monta select de deputados estaduais (para o combo) =====
-  (function(){
-    DEPUTADOS.filter(function(c){ return c.cargo === 'estadual'; }).forEach(function(c){
-      var op = document.createElement('option');
-      op.value = c.id;
-      op.textContent = c.nome + (c.numero ? ' (' + c.numero + ')' : '');
-      selectEstadual.appendChild(op);
-    });
-
-    document.getElementById('erroCombo').style.display = 'none';
-    selectEstadual.addEventListener('change', function(){ document.getElementById('erroCombo').style.display = 'none'; });
-
-    // pre-seleciona via ?candidato=id na URL (util para linkar direto o combo com um estadual)
-    var params = new URLSearchParams(location.search);
-    var pre = params.get('candidato');
-    var preObj = DEPUTADOS.find(function(c){ return c.id === pre && c.cargo === 'estadual'; });
-    if(pre === 'luiz-franca'){
-      document.getElementById('opcaoCombo').click();
-      document.getElementById('opcaoIncluirFranca').click();
-    } else if(preObj){
-      document.getElementById('opcaoCombo').click();
-      selectEstadual.value = pre;
-    }
-  })();
-
-  document.getElementById('opcaoIncluirFranca').addEventListener('click', function(){
-    incluirFranca = !incluirFranca;
-    this.classList.toggle('selecionado', incluirFranca);
-    document.getElementById('erroCombo').style.display = 'none';
-  });
-
-  // ===== opcao solo / combo =====
-  var opcaoSolo = document.getElementById('opcaoSolo');
-  var opcaoCombo = document.getElementById('opcaoCombo');
-  var blocoCombo = document.getElementById('blocoCandidatoCombo');
-
-  opcaoSolo.addEventListener('click', function(){
-    opcaoSolo.classList.add('selecionado');
-    opcaoCombo.classList.remove('selecionado');
-    blocoCombo.style.display = 'none';
-    tipoMaterial = 'solo';
-  });
-  opcaoCombo.addEventListener('click', function(){
-    opcaoCombo.classList.add('selecionado');
-    opcaoSolo.classList.remove('selecionado');
-    blocoCombo.style.display = 'block';
-    tipoMaterial = 'combo';
-  });
-
 
   // ===== monta select de cidades =====
   (function(){
@@ -411,19 +318,12 @@
   }
 
   function validaPasso2(){
-    if(tipoMaterial === 'solo') return true;
-    var ok = !!(incluirFranca || selectEstadual.value);
-    document.getElementById('erroCombo').style.display = ok ? 'none' : 'block';
-    return ok;
-  }
-
-  function validaPasso3(){
     var ok = !!kitSelecionado;
     document.getElementById('erroKit').style.display = ok ? 'none' : 'block';
     return ok;
   }
 
-  function validaPasso4(){
+  function validaPasso3(){
     var ok = !!entregaSelecionada;
     document.getElementById('erroEntrega').style.display = ok ? 'none' : 'block';
     return ok;
@@ -458,7 +358,6 @@
     if(e.target.matches('[data-avancar]')){
       if(passoAtual===1 && !validaPasso1()) return;
       if(passoAtual===2 && !validaPasso2()) return;
-      if(passoAtual===3 && !validaPasso3()) return;
       mostraPasso(passoAtual+1);
     }
     if(e.target.matches('[data-voltar]')){
@@ -550,20 +449,13 @@
 
   form.addEventListener('submit', async function(e){
     e.preventDefault();
-    if(!validaPasso4()) return;
+    if(!validaPasso3()) return;
 
     var btn = document.getElementById('btnEnviar');
     btn.disabled = true;
     btn.textContent = 'Enviando...';
 
-    var candidatoTexto = 'Somente Alan Leal';
-    if(tipoMaterial === 'combo'){
-      var nomes = ['Alan Leal'];
-      var estadualObj = DEPUTADOS.find(function(c){ return c.id === selectEstadual.value; });
-      if(incluirFranca) nomes.push('Luiz França');
-      if(estadualObj) nomes.push(estadualObj.nome);
-      candidatoTexto = nomes.join(' + ');
-    }
+    var candidatoTexto = 'Alan Leal';
 
     var payload = {
       candidato: candidatoTexto,
