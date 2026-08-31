@@ -337,7 +337,7 @@ const CANDIDATOS = [
   },
   {
     id: "tayna-vieia", nome: "Naná Vieira", cargo: "federal", genero: "f",
-    cargoLabel: "Deputado Federal", numero: "1412", cidade: "São Mateus do Sul, PR", foto: "assets/candidatos/tayna-vieia.jpg",
+    cargoLabel: "Deputado Federal", cnpjCampanha: "68.707.709/0001-65", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.707.709/0001-65", numero: "1412", cidade: "São Mateus do Sul, PR", foto: "assets/candidatos/tayna-vieia.jpg",
     instagram: "https://www.instagram.com/nanarvieira",
     facebook: "https://www.facebook.com/share/1BUME7LEmj", tiktok: "", youtube: "",
     bio: "Naná Vieira, decoradora de eventos de São Mateus do Sul, casada, com participação em grupo de jovens da Igreja Católica. Defende segurança para mulheres, artes marciais como ferramenta de defesa pessoal, incentivo ao esporte e atenção às comunidades carentes e pequenas propriedades rurais.",
@@ -552,7 +552,7 @@ const CANDIDATOS = [
   },
   {
     id: "graci-moreira", nome: "Graci Moreira", cargo: "estadual", genero: "f",
-    cargoLabel: "Deputado Estadual", numero: "14714", cidade: "Paraná", foto: "assets/candidatos/graci-moreira.jpg",
+    cargoLabel: "Deputado Estadual", cnpjCampanha: "68.707.707/0001-76", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.707.707/0001-76", numero: "14714", cidade: "Paraná", foto: "assets/candidatos/graci-moreira.jpg",
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
     bio: "Em breve mais informações sobre a trajetória de Graci Moreira, suas bandeiras e o que pretende defender na Assembleia Legislativa do Paraná pela Missão Paraná."
@@ -706,7 +706,7 @@ const CANDIDATOS = [
     bandeiras: ["choque de inovação nos serviços públicos", "destravamento econômico de cidades com Áreas de Proteção Ambiental (APA)"]
   },
   {
-    id: "stuchi", nome: "Stuchi", cargo: "estadual",
+    id: "stuchi", nome: "Stuchi", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", cnpjCampanha: "68.578.204/0001-48", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.204/0001-48", numero: "14244", cidade: "Paraná", foto: "assets/candidatos/stuchi.jpg",
     instagram: "#",
     facebook: "", tiktok: "", youtube: "",
