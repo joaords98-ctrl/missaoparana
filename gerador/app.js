@@ -48,7 +48,7 @@ function applyStateOrDefaults(){
 
 async function init(){
   window.GERADOR_CANDIDATOS.forEach((c,i)=>{ const o=document.createElement('option'); o.value=i; o.textContent=`${c.name} — ${c.number}`; e.candidate.appendChild(o); });
-  e.candidate.value=Math.max(0,window.GERADOR_CANDIDATOS.findIndex(c=>c.slug==='wagner-jr'));
+  e.candidate.value=Math.max(0,window.GERADOR_CANDIDATOS.findIndex(c=>c.slug==='wagner-proenca-junior'));
   bind();
   templateImgs.feed=await loadImg('/gerador/assets/template-feed.jpg',false);
   templateImgs.story=await loadImg('/gerador/assets/template-story.jpg',false);
