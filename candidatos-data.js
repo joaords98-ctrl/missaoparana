@@ -326,7 +326,7 @@ const CANDIDATOS = [
   },
   {
     id: "mauricio-franciscon", nome: "Mauricio Franciscon", cargo: "federal",
-    cargoLabel: "Deputado Federal", cnpjCampanha: "68.578.231/0001-10", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.231/0001-10", numero: "1446", cidade: "Santa Izabel do Oeste, PR", foto: "assets/candidatos/mauricio-franciscon.jpg",
+    cargoLabel: "Deputado Federal", cnpjCampanha: "68.578.231/0001-10", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.231/0001-10", numero: "1446", cidade: "Francisco Beltrão, PR", foto: "assets/candidatos/mauricio-franciscon.jpg",
     instagram: "https://www.instagram.com/omauriciofranciscon",
     facebook: "", tiktok: "https://www.tiktok.com/@mauriciofranciscon", youtube: "https://www.youtube.com/@mauriciofranciscon",
     cnpj: "68.578.231/0001-10",

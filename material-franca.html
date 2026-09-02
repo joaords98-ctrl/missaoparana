@@ -257,6 +257,10 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
         <div class="bolinha"></div>
         <div><b>Retirar no diretório</b><span>Você mesmo busca o material no diretório do partido.</span></div>
       </div>
+      <div class="bloco-endereco" id="blocoEnderecoDiretorio" style="background:var(--preto-2);border:1px solid var(--linha);border-radius:12px;padding:14px 16px;margin-bottom:12px">
+        <div style="font-size:13.5px;color:var(--cinza-claro);margin-bottom:4px">📍 Endereço do diretório:</div>
+        <div style="font-size:14.5px;font-weight:700">R. Alberto Folloni, 1265 — Juvevê, Curitiba - PR, 80540-000</div>
+      </div>
       <div class="entrega-opcao" data-entrega="Solicitar entrega">
         <div class="bolinha"></div>
         <div><b>Solicitar entrega</b><span>A gente leva até você.</span></div>
@@ -480,10 +484,13 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
       document.getElementById('erroEntrega').style.display = 'none';
 
       var bloco = document.getElementById('blocoEndereco');
+      var blocoDiretorio = document.getElementById('blocoEnderecoDiretorio');
       if(entregaSelecionada === 'Solicitar entrega'){
         bloco.classList.add('aberto');
+        blocoDiretorio.classList.remove('aberto');
       } else {
         bloco.classList.remove('aberto');
+        blocoDiretorio.classList.add('aberto');
       }
     });
   });
