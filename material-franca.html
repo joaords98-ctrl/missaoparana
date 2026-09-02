@@ -272,15 +272,18 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
         <div class="campo">
           <label for="endereco">Endereço</label>
           <input type="text" id="endereco" placeholder="Rua, avenida...">
+          <div class="msg-erro">Informe o endereço.</div>
         </div>
         <div class="linha-2">
           <div class="campo">
             <label for="numero">Número</label>
             <input type="text" id="numero" inputmode="numeric">
+            <div class="msg-erro">Informe o número.</div>
           </div>
           <div class="campo">
             <label for="bairro">Bairro</label>
             <input type="text" id="bairro">
+            <div class="msg-erro">Informe o bairro.</div>
           </div>
         </div>
         <div class="linha-2">
@@ -442,7 +445,22 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   function validaPasso4(){
     var ok = !!entregaSelecionada;
     document.getElementById('erroEntrega').style.display = ok ? 'none' : 'block';
-    return ok;
+    if(!ok) return false;
+
+    if(entregaSelecionada === 'Solicitar entrega'){
+      var endereco = document.getElementById('endereco');
+      var numero = document.getElementById('numero');
+      var bairro = document.getElementById('bairro');
+      var enderecoOk = true;
+
+      if(!endereco.value.trim()){ endereco.classList.add('erro'); enderecoOk = false; } else endereco.classList.remove('erro');
+      if(!numero.value.trim()){ numero.classList.add('erro'); enderecoOk = false; } else numero.classList.remove('erro');
+      if(!bairro.value.trim()){ bairro.classList.add('erro'); enderecoOk = false; } else bairro.classList.remove('erro');
+
+      return enderecoOk;
+    }
+
+    return true;
   }
 
   document.getElementById('kitsGrid').addEventListener('click', function(e){
@@ -484,6 +502,12 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
 
   document.getElementById('cidade').addEventListener('change', function(){
     this.classList.remove('erro');
+  });
+
+  ['endereco', 'numero', 'bairro'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', function(){
+      this.classList.remove('erro');
+    });
   });
 
   document.getElementById('whatsapp').addEventListener('input', function(e){
