@@ -64,10 +64,10 @@
   .resumo-item .label{font-size:12.5px;color:var(--cinza-claro)}
 
   #mapa{width:100%;height:calc(100vh - 260px);min-height:480px}
-  .leaflet-popup-content-wrapper{background:var(--preto-2);color:var(--branco);border-radius:12px}
-  .leaflet-popup-tip{background:var(--preto-2)}
-  .popup-cidade{font-weight:800;font-size:15px;margin-bottom:4px}
-  .popup-total{color:var(--amarelo);font-weight:700;font-size:14px}
+  .leaflet-popup-content-wrapper{background:#fff;color:#161616;border-radius:12px}
+  .leaflet-popup-tip{background:#fff}
+  .popup-cidade{font-weight:800;font-size:15px;margin-bottom:4px;color:#161616}
+  .popup-total{color:#b8790a;font-weight:700;font-size:14px}
 
   .legenda{position:absolute;bottom:20px;left:20px;background:rgba(10,10,10,.92);backdrop-filter:blur(8px);
     border:1px solid var(--linha);border-radius:12px;padding:14px 18px;z-index:1000;font-size:12.5px;color:var(--cinza-claro)}
@@ -143,7 +143,7 @@
 
   var mapa = L.map('mapa', {scrollWheelZoom: true}).setView([VISAO_CIDADE.lat, VISAO_CIDADE.lng], VISAO_CIDADE.zoom);
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; OpenStreetMap &copy; CARTO',
     maxZoom: 18
   }).addTo(mapa);
@@ -193,10 +193,10 @@
         var marcador = L.circleMarker([coord[0], coord[1]], {
           radius: raioPorTotal(item.total),
           fillColor: '#F2A900',
-          color: '#F2A900',
-          weight: 1.5,
-          opacity: 0.9,
-          fillOpacity: 0.45
+          color: '#B8790A',
+          weight: 2,
+          opacity: 0.85,
+          fillOpacity: 0.55
         });
 
         marcador.bindPopup(
@@ -235,10 +235,10 @@
         var marcador = L.circleMarker([coord[0], coord[1]], {
           radius: raioPorTotal(item.total),
           fillColor: '#F2A900',
-          color: '#F2A900',
-          weight: 1.5,
-          opacity: 0.9,
-          fillOpacity: 0.5
+          color: '#B8790A',
+          weight: 2,
+          opacity: 0.85,
+          fillOpacity: 0.6
         });
 
         marcador.bindPopup(
