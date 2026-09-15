@@ -66,12 +66,12 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s;
     border-bottom:1px solid transparent;}
   nav.scrolled{background:rgba(10,10,10,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--linha);}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:74px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:.02em}
   .brand img{height:38px}
   .brand .pr{color:var(--amarelo)}
   .nav-links{display:flex;align-items:center;gap:30px}
-  .nav-links a{font-size:14.5px;font-weight:500;color:#d8d8d8;transition:color .15s}
+  .nav-links a{font-size:14.5px;font-weight:500;color:#d8d8d8;transition:color .15s;white-space:nowrap}
   .nav-links a:hover{color:var(--amarelo)}
   .btn{display:inline-block;font-weight:800;font-size:14.5px;border-radius:11px;padding:11px 22px;cursor:pointer;
     background:linear-gradient(180deg,var(--amarelo-claro),var(--amarelo));color:#1a1304;
@@ -171,7 +171,7 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   .foot-bottom{margin-top:46px;padding-top:22px;border-top:1px solid var(--linha);
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#6a6a6a;font-size:12.5px}
 
-  @media(max-width:860px){
+  @media(max-width:1100px){
     .nav-links{position:fixed;inset:74px 0 auto 0;background:rgba(10,10,10,.97);flex-direction:column;
       gap:0;padding:10px 0;border-bottom:1px solid var(--linha);transform:translateY(-130%);transition:transform .3s;height:auto}
     .nav-links.open{transform:translateY(0)}
