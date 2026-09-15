@@ -199,22 +199,118 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   var AVATAR_PADRAO = 'assets/img/img-d2433fe371.png';
 
   // ===================================================================
-  // CAMADA DE DADOS — hoje devolve zerado (mock). Em setembro, trocar
-  // buscarResultadosTSE() para consumir de fato os arquivos JSON oficiais
-  // do TSE (EA14/EA15/EA20), respeitando o limite de 100 req/s por IP.
-  // Estrutura esperada de retorno, por candidato-id:
-  //   { votos: 12345, percentual: 4.32, eleito: false }
+  // CAMADA DE DADOS — conexao real com o TSE (arquivo EA20, resultado
+  // unificado). Padrao de nome do arquivo: <uf>-c<CCCC>-e<ELEICAO>-u.json
+  // Ex: pr-c0003-e000123-u.json = resultado do PR, cargo Governador (0003),
+  // na eleicao de codigo 000123.
+  //
+  // *** PASSO OBRIGATORIO ANTES DE USAR DE VERDADE ***
+  // Os codigos de eleicao (e<ELEICAO>) mudam a cada pleito e o TSE só
+  // divulga o valor exato perto da eleicao. Pra descobrir o valor certo:
+  //   1. Abre resultados.tse.jus.br (ou resultados-sim.tse.jus.br durante
+  //      o simulado) num navegador
+  //   2. Filtra a aba Network do DevTools por "json"
+  //   3. Busca o resultado de Governador do Parana - a URL vai ser algo
+  //      tipo: https://resultados.tse.jus.br/oficial/ele2026/[NUMERO]/dados/pr/pr-c0003-e[NUMERO]-u.json
+  //   4. Copia o [NUMERO] de cada cargo e cola nas constantes abaixo
   // ===================================================================
+  var TSE_HOST = 'https://resultados.tse.jus.br';
+  var TSE_AMBIENTE = 'oficial'; // durante os simulados, pode ser outro nome — confirmar
+  var TSE_CICLO = 'ele2026';
+  var TSE_UF = 'pr';
+
+  // codigo da eleicao (e<ELEICAO>) por cargo — PREENCHER com o valor real
+  var TSE_ELEICAO = {
+    governador: '',
+    senador: '',
+    federal: '',
+    estadual: ''
+  };
+
+  var TSE_CARGO_CODIGO = {
+    governador: '0003',
+    senador: '0005',
+    federal: '0006',
+    estadual: '0007'
+  };
+
+  function tseUrlResultadoUf(cargo){
+    var eleicao = TSE_ELEICAO[cargo];
+    if(!eleicao) return null;
+    var eleicaoPad = String(eleicao).padStart(6, '0');
+    var cargoCod = TSE_CARGO_CODIGO[cargo];
+    return TSE_HOST + '/' + TSE_AMBIENTE + '/' + TSE_CICLO + '/' + eleicao + '/dados/' + TSE_UF +
+      '/' + TSE_UF + '-c' + cargoCod + '-e' + eleicaoPad + '-u.json';
+  }
+
+  // extrai {votos, percentual, eleito} de cada candidato do PR, de um arquivo EA20 ja carregado
+  function extrairResultadosDoArquivoEA20(json){
+    var porNumero = {};
+    var partidos = json.par || json.partidos || [];
+    partidos.forEach(function(partido){
+      var candidatos = partido.cand || partido.candidatos || [];
+      candidatos.forEach(function(cand){
+        var numero = String(cand.n || cand.numero || '');
+        if(!numero) return;
+        var situacao = (cand.st || cand.situacao || cand.e || '').toString().toLowerCase().trim();
+        // cuidado: "não eleito" contém a palavra "eleito" — por isso verificamos se a
+        // situação COMEÇA com "eleito" (cobre "Eleito", "Eleito por QP", "Eleito por média"),
+        // e nunca por indexOf simples (que classificaria "Não eleito" errado)
+        var eleito = situacao.indexOf('eleito') === 0 || situacao === 's';
+        porNumero[numero] = {
+          votos: Number(cand.vap || cand.votos || 0),
+          percentual: Number(cand.pvap || cand.percentual || 0),
+          eleito: eleito
+        };
+      });
+    });
+    return porNumero;
+  }
+
   async function buscarResultadosTSE(){
-    // TODO (setembro/2026): substituir pelo consumo real dos arquivos
-    // EA20 (resultado unificado) do TSE, usando os codigos de UF=PR e
-    // os candidatos/numeros já cadastrados em CANDIDATOS_RESULTADOS.
-    // Por enquanto, retorna estrutura vazia (apuração não iniciada).
+    var cargosComEleicaoConfigurada = Object.keys(TSE_ELEICAO).filter(function(c){ return TSE_ELEICAO[c]; });
+
+    if(cargosComEleicaoConfigurada.length === 0){
+      // ainda nao configurado (falta preencher TSE_ELEICAO acima) — mostra estrutura vazia
+      return {
+        apuracaoIniciada: false,
+        atualizadoEm: null,
+        secoesApuradasPct: 0,
+        resultados: {}
+      };
+    }
+
+    var resultados = {};
+    var maiorPercentualApurado = 0;
+    var algumaRespostaOk = false;
+
+    for(var i=0; i<cargosComEleicaoConfigurada.length; i++){
+      var cargo = cargosComEleicaoConfigurada[i];
+      var url = tseUrlResultadoUf(cargo);
+      if(!url) continue;
+      try{
+        var resp = await fetch(url);
+        if(!resp.ok) continue;
+        var json = await resp.json();
+        algumaRespostaOk = true;
+
+        var porNumero = extrairResultadosDoArquivoEA20(json);
+        CANDIDATOS_RESULTADOS.filter(function(c){ return c.cargo === cargo; }).forEach(function(c){
+          if(porNumero[c.numero]) resultados[c.id] = porNumero[c.numero];
+        });
+
+        var pctApurado = Number(json.pst || json.percentual_secoes_apuradas || 0);
+        if(pctApurado > maiorPercentualApurado) maiorPercentualApurado = pctApurado;
+      }catch(e){
+        console.error('Erro ao buscar resultado TSE (' + cargo + '):', e);
+      }
+    }
+
     return {
-      apuracaoIniciada: false,
-      atualizadoEm: null,
-      secoesApuradasPct: 0,
-      resultados: {} // { 'id-do-candidato': {votos, percentual, eleito} }
+      apuracaoIniciada: algumaRespostaOk,
+      atualizadoEm: algumaRespostaOk ? new Date().toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'}) : null,
+      secoesApuradasPct: maiorPercentualApurado,
+      resultados: resultados
     };
   }
 
