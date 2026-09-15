@@ -502,6 +502,7 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
     var ok = await salvarSolicitacao(payload);
 
     if(ok){
+      if(typeof fbq === 'function') fbq('track', 'Lead', {content_name: 'Material de Campanha', content_category: 'Alan Leal', value: 0});
       form.style.display = 'none';
       progresso.style.display = 'none';
       document.getElementById('telaSucesso').style.display = 'block';

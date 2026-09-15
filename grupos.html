@@ -309,6 +309,7 @@ $('form').addEventListener('submit',async e=>{e.preventDefault();let ok=true;
   if(!ok)return;
   const link=GROUPS[selectedRegion];const btn=$('btn');btn.disabled=true;btn.textContent='Enviando...';
   await salvarLead({nome,email,whatsapp:zap,profissao:prof,cidade:selectedCity,regiao:selectedRegion,como_ajudar:getAjuda()});
+  if(typeof fbq === 'function') fbq('track', 'Lead', {content_name: 'Grupo de Apoio', content_category: selectedRegion});
   $('grpName').textContent=selectedRegion;$('goLink').href=link;
   $('formWrap').style.display='none';$('success').classList.add('show');
   setTimeout(()=>{window.location.href=link;},2200);

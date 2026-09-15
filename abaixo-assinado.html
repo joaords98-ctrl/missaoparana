@@ -474,6 +474,7 @@ $('form').addEventListener('submit',async e=>{
     if(!r.ok) throw new Error('falha');
 
     TOTAL+=1; pintarContador();
+    if(typeof fbq === 'function') fbq('track', 'CompleteRegistration', {content_name: 'Abaixo-assinado', content_category: CAMPANHA.id});
     $('okNome').textContent=nome.split(' ')[0];
     $('okNum').textContent=TOTAL.toLocaleString('pt-BR');
     const url='https://missaoparana.com.br/abaixo-assinado.html';
