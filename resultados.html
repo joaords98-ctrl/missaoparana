@@ -85,7 +85,10 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
 
   .resumo-partido{padding:40px 0;border-bottom:1px solid var(--linha)}
   .resumo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  @media(max-width:760px){.resumo-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:760px){
+    .resumo-grid{grid-template-columns:repeat(2,1fr)}
+    #wrapRankingPartidos{grid-template-columns:1fr !important}
+  }
   .resumo-card{background:var(--preto-2);border:1px solid var(--linha);border-radius:16px;padding:24px 20px;text-align:center}
   .resumo-card .num{font-size:clamp(24px,4vw,34px);font-weight:900;color:var(--amarelo)}
   .resumo-card .label{font-size:13px;color:var(--cinza-claro);margin-top:4px}
@@ -179,6 +182,21 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   <h2>Câmara dos Deputados</h2>
   <p class="desc" id="descFederal">31 candidatos a Deputado Federal, ordenados por votação</p>
   <div class="lista-deputados" id="listaFederal"></div>
+</div></section>
+
+<section class="cargo-bloco"><div class="wrap">
+  <h2>Comparação entre partidos</h2>
+  <p class="desc">Total de votos de cada legenda no Paraná, para Deputado Federal e Estadual</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px" id="wrapRankingPartidos">
+    <div>
+      <h3 style="font-size:15px;color:var(--amarelo);margin-bottom:10px">Deputado Federal</h3>
+      <div id="rankingPartidosFederal"></div>
+    </div>
+    <div>
+      <h3 style="font-size:15px;color:var(--amarelo);margin-bottom:10px">Deputado Estadual</h3>
+      <div id="rankingPartidosEstadual"></div>
+    </div>
+  </div>
 </div></section>
 
 <section class="cargo-bloco" style="border-bottom:0"><div class="wrap">
@@ -305,6 +323,30 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
     return porNumero;
   }
 
+  // extrai o total de votos de CADA partido/federacao/coligacao (agremiacao), pra comparar
+  // o Missao com os demais. Usa o nivel de "agremiacao" (agr), que e como o TSE agrupa o
+  // resultado por legenda — cada agr ja vem com o total de votos dela (tvan) pronto.
+  function extrairRankingPartidos(payload){
+    var lista = [];
+    var cargos = payload.carg || [];
+    cargos.forEach(function(cargo){
+      var agremiacoes = cargo.agr || [];
+      agremiacoes.forEach(function(agr){
+        var votos = parseInt(agr.tvan || agr.tvtn || 0, 10) || 0;
+        var nome = agr.nm || agr.com || ('Partido ' + agr.n);
+        var nomeNormalizado = nome.toString().toLowerCase()
+          .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        lista.push({
+          nome: nome,
+          votos: votos,
+          ehMissao: nomeNormalizado.indexOf('missao') !== -1
+        });
+      });
+    });
+    lista.sort(function(a, b){ return b.votos - a.votos; });
+    return lista;
+  }
+
   async function buscarResultadosTSE(){
     var cargosComEleicaoConfigurada = Object.keys(TSE_ELEICAO).filter(function(c){ return TSE_ELEICAO[c]; });
 
@@ -314,11 +356,13 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
         apuracaoIniciada: false,
         atualizadoEm: null,
         secoesApuradasPct: 0,
-        resultados: {}
+        resultados: {},
+        partidosPorCargo: {}
       };
     }
 
     var resultados = {};
+    var partidosPorCargo = {};
     var maiorPercentualApurado = 0;
     var algumaRespostaOk = false;
 
@@ -338,6 +382,8 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
           if(porNumero[c.numero]) resultados[c.id] = porNumero[c.numero];
         });
 
+        partidosPorCargo[cargo] = extrairRankingPartidos(payload);
+
         var pctApurado = paraNumeroBR(payload.s && payload.s.pst);
         if(pctApurado > maiorPercentualApurado) maiorPercentualApurado = pctApurado;
       }catch(e){
@@ -349,7 +395,8 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
       apuracaoIniciada: algumaRespostaOk,
       atualizadoEm: algumaRespostaOk ? new Date().toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'}) : null,
       secoesApuradasPct: maiorPercentualApurado,
-      resultados: resultados
+      resultados: resultados,
+      partidosPorCargo: partidosPorCargo
     };
   }
 
@@ -386,6 +433,29 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
       '</div>' +
       '<div class="votos">' + fmtNum(votos) + '</div>' +
     '</a>';
+  }
+
+  // monta a lista comparativa de partidos (total de votos de cada legenda naquele cargo)
+  function rankingPartidosHTML(lista, apuracaoIniciada){
+    if(!apuracaoIniciada || !lista || lista.length === 0){
+      return '<div style="color:var(--cinza-claro);font-size:14px;padding:12px 0">Aguardando início da apuração...</div>';
+    }
+    var maiorVotos = lista[0].votos || 1;
+    return lista.slice(0, 15).map(function(p, i){
+      var pct = Math.round((p.votos / maiorVotos) * 100);
+      var cor = p.ehMissao ? 'var(--amarelo)' : '#3a3a3a';
+      return '<div style="display:flex;align-items:center;gap:10px;padding:8px 0;' +
+          (p.ehMissao ? 'font-weight:800' : '') + '">' +
+        '<div style="width:22px;color:var(--cinza-claro);font-size:13px;flex-shrink:0">' + (i+1) + 'º</div>' +
+        '<div style="flex:1;min-width:0">' +
+          '<div style="font-size:13.5px;margin-bottom:3px;' + (p.ehMissao ? 'color:var(--amarelo)' : '') + '">' + p.nome + '</div>' +
+          '<div style="height:8px;background:#1c1c1c;border-radius:4px;overflow:hidden">' +
+            '<div style="height:100%;width:' + pct + '%;background:' + cor + '"></div>' +
+          '</div>' +
+        '</div>' +
+        '<div style="font-size:14px;font-weight:800;flex-shrink:0;min-width:70px;text-align:right">' + fmtNum(p.votos) + '</div>' +
+      '</div>';
+    }).join('');
   }
 
   function renderiza(dados){
@@ -451,6 +521,11 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
       return linhaDeputado(c, resultados[c.id], i+1);
     }).join('');
     document.getElementById('descEstadual').textContent = estaduais.length + ' candidatos a Deputado Estadual, ordenados por votação';
+
+    // ranking de partidos (comparacao com outras legendas), Federal e Estadual
+    var partidosPorCargo = dados.partidosPorCargo || {};
+    document.getElementById('rankingPartidosFederal').innerHTML = rankingPartidosHTML(partidosPorCargo.federal, dados.apuracaoIniciada);
+    document.getElementById('rankingPartidosEstadual').innerHTML = rankingPartidosHTML(partidosPorCargo.estadual, dados.apuracaoIniciada);
   }
 
   async function atualizar(){
