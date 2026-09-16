@@ -156,6 +156,8 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
 <section class="resumo-partido"><div class="wrap">
   <div class="resumo-grid">
     <div class="resumo-card"><div class="num" id="resumoTotalVotos">–</div><div class="label">Votos do Missão no PR</div></div>
+    <div class="resumo-card"><div class="num" id="resumoVotosFederal">–</div><div class="label">Votos Dep. Federal</div></div>
+    <div class="resumo-card"><div class="num" id="resumoVotosEstadual">–</div><div class="label">Votos Dep. Estadual</div></div>
     <div class="resumo-card"><div class="num" id="resumoEleitos">–</div><div class="label">Candidatos eleitos</div></div>
     <div class="resumo-card"><div class="num" id="resumoApuradas">–</div><div class="label">Seções apuradas</div></div>
     <div class="resumo-card"><div class="num">14</div><div class="label">Número do partido</div></div>
@@ -414,6 +416,16 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
     document.getElementById('resumoTotalVotos').textContent = dados.apuracaoIniciada ? fmtNum(totalVotos) : '–';
     document.getElementById('resumoEleitos').textContent = dados.apuracaoIniciada ? totalEleitos : '–';
     document.getElementById('resumoApuradas').textContent = dados.apuracaoIniciada ? (dados.secoesApuradasPct.toFixed(1).replace('.', ',') + '%') : '–';
+
+    // total de votos separado por cargo (Federal e Estadual, cada um somado a parte)
+    var totalVotosPorCargo = { federal: 0, estadual: 0 };
+    CANDIDATOS_RESULTADOS.forEach(function(c){
+      if(totalVotosPorCargo[c.cargo] === undefined) return;
+      var r = resultados[c.id];
+      if(r) totalVotosPorCargo[c.cargo] += (r.votos || 0);
+    });
+    document.getElementById('resumoVotosFederal').textContent = dados.apuracaoIniciada ? fmtNum(totalVotosPorCargo.federal) : '–';
+    document.getElementById('resumoVotosEstadual').textContent = dados.apuracaoIniciada ? fmtNum(totalVotosPorCargo.estadual) : '–';
 
     // governador
     var governador = CANDIDATOS_RESULTADOS.find(function(c){ return c.cargo === 'governador'; });
