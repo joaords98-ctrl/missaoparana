@@ -155,7 +155,6 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
 
 <section class="resumo-partido"><div class="wrap">
   <div class="resumo-grid">
-    <div class="resumo-card"><div class="num" id="resumoTotalVotos">–</div><div class="label">Votos do Missão no PR</div></div>
     <div class="resumo-card"><div class="num" id="resumoVotosFederal">–</div><div class="label">Votos Dep. Federal</div></div>
     <div class="resumo-card"><div class="num" id="resumoVotosEstadual">–</div><div class="label">Votos Dep. Estadual</div></div>
     <div class="resumo-card"><div class="num" id="resumoEleitos">–</div><div class="label">Candidatos eleitos</div></div>
@@ -407,17 +406,15 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
       : 'Os dados oficiais começam a ser publicados às 17h do dia da eleição';
 
     // resumo do partido
-    var candidatosComVoto = CANDIDATOS_RESULTADOS.filter(function(c){ return c.cargo !== 'governador'; });
-    var totalVotos = 0, totalEleitos = 0;
-    candidatosComVoto.concat(CANDIDATOS_RESULTADOS.filter(function(c){return c.cargo==='governador';})).forEach(function(c){
+    var totalEleitos = 0;
+    CANDIDATOS_RESULTADOS.forEach(function(c){
       var r = resultados[c.id];
-      if(r){ totalVotos += (r.votos||0); if(r.eleito) totalEleitos++; }
+      if(r && r.eleito) totalEleitos++;
     });
-    document.getElementById('resumoTotalVotos').textContent = dados.apuracaoIniciada ? fmtNum(totalVotos) : '–';
     document.getElementById('resumoEleitos').textContent = dados.apuracaoIniciada ? totalEleitos : '–';
     document.getElementById('resumoApuradas').textContent = dados.apuracaoIniciada ? (dados.secoesApuradasPct.toFixed(1).replace('.', ',') + '%') : '–';
 
-    // total de votos separado por cargo (Federal e Estadual, cada um somado a parte)
+    // total de votos separado por cargo (Federal e Estadual, cada um somado a parte — o que importa de verdade)
     var totalVotosPorCargo = { federal: 0, estadual: 0 };
     CANDIDATOS_RESULTADOS.forEach(function(c){
       if(totalVotosPorCargo[c.cargo] === undefined) return;
