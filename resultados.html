@@ -220,9 +220,10 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   var TSE_UF = 'pr';
 
   // codigo da eleicao (e<ELEICAO>) por cargo — confirmado via DevTools no simulado
-  // codigo da eleicao no Parana — CONFIRMADO que Governador e Senador compartilham
-  // o mesmo codigo (21272). Bastante provavel que Federal e Estadual tambem usem
-  // esse mesmo numero (todos os cargos dentro de uma mesma UF costumam compartilhar).
+  // codigo da eleicao no Parana — CONFIRMADO que Governador, Senador e Deputado
+  // Federal compartilham o mesmo codigo (21272), testado com arquivos reais do
+  // TSE durante o simulado de 16/09/2026. Bastante provavel que Deputado
+  // Estadual tambem use esse mesmo numero (padrao muito consistente ate aqui).
   // Se algum cargo especifico vier com resultado vazio, confirmar o codigo dele
   // separado (mesmo processo: DevTools > Network > filtrar "jws").
   var TSE_ELEICAO_PR = '21272';
