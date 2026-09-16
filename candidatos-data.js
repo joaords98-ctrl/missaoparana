@@ -220,7 +220,7 @@ const CANDIDATOS = [
   {
     id: "soldado-guedes", nome: "Soldado Guedes", cargo: "federal",
     cargoLabel: "Deputado Federal", cnpjCampanha: "68.578.120/0001-04", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.120/0001-04", numero: "1438", cidade: "Curitiba, PR", foto: "assets/candidatos/soldado-guedes.jpg",
-    instagram: "https://www.instagram.com/soldadoguedes_diaadiapolicial/",
+    instagram: "https://www.instagram.com/diaadiapolicial/",
     facebook: "https://www.facebook.com/diadiapolicial13/", tiktok: "", youtube: "https://www.youtube.com/c/DiaadiaPolicial",
     cnpj: "68.578.120/0001-04",
     bio: "Anderson Luiz Guedes, o Soldado Guedes, é policial militar e produtor de conteúdo educacional e informativo. Ingressou na Polícia Militar do Paraná em 2016, completando 10 anos de dedicação à segurança pública em 2026. Atua no policiamento de rua na região sul de Curitiba, com foco no combate à criminalidade, no suporte a vítimas e na proteção à comunidade paranaense. É defensor da Polícia Militar e do endurecimento da legislação penal como caminhos para reduzir a criminalidade no país.\n\nAlém da atuação nas ruas, mantém um trabalho de destaque nas redes sociais, humanizando a rotina policial e mostrando a realidade das ocorrências — uma comunidade digital que já soma mais de 320 mil seguidores entre YouTube, Instagram e Facebook. É candidato a Deputado Federal pela Missão Paraná, com a segurança pública como principal bandeira.",
