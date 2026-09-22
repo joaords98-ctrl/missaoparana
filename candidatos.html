@@ -82,7 +82,7 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
     background:linear-gradient(180deg,var(--preto-3),#101010);border:1px solid rgba(242,169,0,.25);border-radius:22px;padding:34px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
   .gov:hover{border-color:rgba(242,169,0,.55);transform:translateY(-3px)}
   .gov::after{content:"";position:absolute;inset:0;background:radial-gradient(40vw 40vw at 90% 10%,rgba(242,169,0,.10),transparent 60%);pointer-events:none}
-  .gov-photo{position:relative;z-index:1}
+  .gov-photo{position:relative;z-index:1;display:block}
   .gov-photo img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:18px;border:2px solid rgba(242,169,0,.4)}
   .gov-badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#1a1304;background:var(--amarelo);padding:6px 14px;border-radius:999px;margin-bottom:14px}
   .gov-info{position:relative;z-index:1}
@@ -92,6 +92,14 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   .gov-info .bio{color:#d2d2d2;font-size:15px;max-width:54ch;margin-bottom:18px}
   .gov-cta{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--amarelo);border:1.5px solid var(--amarelo);border-radius:10px;padding:9px 18px;transition:all .15s}
   .gov-cta:hover{background:var(--amarelo);color:#1a1304}
+  .gov-duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+  .gov-duo .gov{grid-template-columns:1fr;text-align:center;padding:28px}
+  .gov-duo .gov-photo{max-width:200px;margin:0 auto}
+  .gov-duo .gov-info .bio{margin-left:auto;margin-right:auto}
+  .vice-teaser{display:flex;align-items:center;gap:10px;margin-top:16px;padding:12px 16px;background:rgba(242,169,0,.08);
+    border:1px solid rgba(242,169,0,.25);border-radius:12px;font-size:13.5px;font-weight:600;color:#e8d9ae;text-decoration:none;transition:background .15s,border-color .15s}
+  .vice-teaser:hover{background:rgba(242,169,0,.16);border-color:rgba(242,169,0,.45)}
+  .vice-teaser .foto-mini{width:34px;height:34px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1.5px solid rgba(242,169,0,.5)}
   /* grid de cards */
   .cgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
   .cc{display:block;background:var(--preto-3);border:1px solid var(--linha);border-radius:18px;padding:22px 20px;text-align:center;transition:background .2s,border-color .2s,transform .2s,color .2s;color:inherit}
@@ -126,6 +134,7 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   footer a{color:var(--amarelo)}
   @media(max-width:720px){
     .gov{grid-template-columns:1fr;gap:24px;text-align:center;padding:26px}
+    .gov-duo{grid-template-columns:1fr}
     .gov-photo{max-width:240px;margin:0 auto}
     .gov-info .bio{margin-left:auto;margin-right:auto}
     section.block{padding:46px 0}
@@ -190,27 +199,15 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
 
 <section class="block"><div class="wrap">
   <div class="sec-eyebrow">Governo do Estado</div>
-  <h2>Candidato a Governador.</h2>
-  <p class="sec-lead">Nosso nome para liderar a transformação do Paraná.</p>
-  <div id="gov-slot"></div>
-</div></section>
-
-<section class="block" style="background:var(--preto-2);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)"><div class="wrap">
-  <div class="sec-eyebrow">Vice-Governadoria</div>
-  <h2>Candidato a Vice-Governador.</h2>
-  <p class="sec-lead">Um vice de trabalho contínuo e dedicado ao mandato.</p>
-  <div id="vice-slot"></div>
+  <h2>Governador e Senador.</h2>
+  <p class="sec-lead">Nossos nomes para liderar a transformação do Paraná.</p>
+  <div class="gov-duo">
+    <div id="gov-slot"></div>
+    <div id="senador-featured-slot"></div>
+  </div>
 </div></section>
 
 <section class="block"><div class="wrap">
-  <div class="sec-eyebrow">Senado Federal</div>
-  <h2>Candidatos a Senador.</h2>
-  <p class="sec-lead">Nomes que vão representar o Paraná no Senado.</p>
-  <div class="cgrid" id="senador-slot"></div>
-  <p class="no-results" id="senador-no-results">Nenhum candidato a Senador encontrado com esse nome.</p>
-</div></section>
-
-<section class="block" style="background:var(--preto-2);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)"><div class="wrap">
   <div class="sec-eyebrow">Câmara dos Deputados</div>
   <h2>Candidatos a Deputado Federal.</h2>
   <p class="sec-lead">Nomes que vão levar a Missão a Brasília.</p>
@@ -1011,38 +1008,43 @@ const CANDIDATOS = [
     </a>`;
   }
 
-  function govHTML(c){
+  function govHTML(c, extraHTML){
     const primeiroParag = c.resumo || (c.bio||'').split('\n\n')[0];
-    return `<a class="gov" href="${linkDe(c)}" style="text-decoration:none">
-      <div class="gov-photo"><img src="${foto(c)}" alt="Foto de ${c.nome}"></div>
+    return `<div class="gov">
+      <a class="gov-photo" href="${linkDe(c)}"><img src="${foto(c)}" alt="Foto de ${c.nome}"></a>
       <div class="gov-info">
-        <span class="gov-badge">Candidato</span>
-        <h3>${c.nome}</h3>
-        <div class="cargo">Candidato a ${c.cargoLabel||''}</div>
-        <div class="cidade">${c.cidade||''}</div>
-        <p class="bio">${primeiroParag}</p>
-        <span class="gov-cta">Conhecer o candidato →</span>
+        <a href="${linkDe(c)}" style="text-decoration:none;color:inherit;display:block">
+          <span class="gov-badge">Candidato</span>
+          <h3>${c.nome}</h3>
+          <div class="cargo">Candidato a ${c.cargoLabel||''}</div>
+          <div class="cidade">${c.cidade||''}</div>
+          <p class="bio">${primeiroParag}</p>
+        </a>
+        <a class="gov-cta" href="${linkDe(c)}">Conhecer o candidato →</a>
+        ${extraHTML||''}
       </div>
-    </a>`;
+    </div>`;
   }
 
   const gov = CANDIDATOS.find(c=>c.cargo==='governador');
-  if(gov) document.getElementById('gov-slot').innerHTML = govHTML(gov);
   const vice = CANDIDATOS.find(c=>c.cargo==='vice');
-  if(vice){ var vs=document.getElementById('vice-slot'); if(vs) vs.innerHTML = govHTML(vice); }
+  const karen = CANDIDATOS.find(c=>c.cargo==='senador');
+  const viceTeaserHTML = vice ? `<a class="vice-teaser" href="${linkDe(vice)}">
+      <img class="foto-mini" src="${foto(vice)}" alt="">
+      <span>🤝 Conheça ${vice.nome}, candidato a Vice-Governador →</span>
+    </a>` : '';
+  if(gov) document.getElementById('gov-slot').innerHTML = govHTML(gov, viceTeaserHTML);
+  if(karen) document.getElementById('senador-featured-slot').innerHTML = govHTML(karen);
   document.getElementById('federal-slot').innerHTML =
     CANDIDATOS.filter(c=>c.cargo==='federal').map(cardHTML).join('');
   document.getElementById('estadual-slot').innerHTML =
     CANDIDATOS.filter(c=>c.cargo==='estadual').map(cardHTML).join('');
-  const senadorSlot = document.getElementById('senador-slot');
-  if(senadorSlot) senadorSlot.innerHTML =
-    CANDIDATOS.filter(c=>c.cargo==='senador').map(cardHTML).join('');
 
   const buscaInput = document.getElementById('buscaCandidato');
   if(buscaInput){
     buscaInput.addEventListener('input', function(){
       const termo = normaliza(this.value.trim());
-      ['federal','estadual','senador'].forEach(function(tipo){
+      ['federal','estadual'].forEach(function(tipo){
         const grid = document.getElementById(tipo+'-slot');
         const semResultado = document.getElementById(tipo+'-no-results');
         let algumVisivel = false;
@@ -1053,16 +1055,16 @@ const CANDIDATOS = [
         });
         if(semResultado) semResultado.style.display = (!algumVisivel && termo) ? 'block' : 'none';
       });
-      // Governador e vice também somem da busca quando não baterem o nome
-      [['gov-slot',gov],['vice-slot',vice]].forEach(function(par){
-        const slot = document.getElementById(par[0]);
-        const cand = par[1];
-        if(!slot || !cand) return;
-        const bate = !termo || normaliza(cand.nome).includes(termo);
-        slot.style.display = bate ? '' : 'none';
-        const secao = slot.closest('section');
-        if(secao) secao.style.display = bate ? '' : 'none';
-      });
+      // Governador e Senador dividem a mesma secao — cada card some individualmente,
+      // e a secao inteira so some se NENHUM dos dois bater a busca
+      const govBate = !gov || !termo || normaliza(gov.nome).includes(termo);
+      const karenBate = !karen || !termo || normaliza(karen.nome).includes(termo);
+      const govSlotEl = document.getElementById('gov-slot');
+      const senadorSlotEl = document.getElementById('senador-featured-slot');
+      if(govSlotEl) govSlotEl.style.display = govBate ? '' : 'none';
+      if(senadorSlotEl) senadorSlotEl.style.display = karenBate ? '' : 'none';
+      const secaoGovSenador = govSlotEl && govSlotEl.closest('section');
+      if(secaoGovSenador) secaoGovSenador.style.display = (govBate || karenBate) ? '' : 'none';
     });
   }
 </script>
