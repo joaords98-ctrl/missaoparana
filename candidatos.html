@@ -59,7 +59,16 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   .wm-rosas::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
     background-image:url('assets/img/img-e633cca8a1.png');background-size:240px;background-repeat:repeat;opacity:.04;
     -webkit-mask-image:linear-gradient(120deg,#000,transparent 70%);mask-image:linear-gradient(120deg,#000,transparent 70%);}
-  .phead .in{position:relative;z-index:2}
+  .phead .in{position:relative;z-index:2;display:grid;grid-template-columns:1fr 320px;gap:40px;align-items:center}
+  .hero-preview{background:rgba(18,18,18,.65);border:1px solid rgba(242,169,0,.28);border-radius:18px;padding:18px;backdrop-filter:blur(6px)}
+  .hero-preview-label{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--amarelo);margin-bottom:12px}
+  .hero-mini{display:flex;align-items:center;gap:12px;padding:8px;border-radius:12px;text-decoration:none;color:inherit;transition:background .15s}
+  .hero-mini:hover{background:rgba(242,169,0,.12)}
+  .hero-mini img{width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid rgba(242,169,0,.4);flex-shrink:0}
+  .hero-mini-info strong{display:block;font-size:14px;font-weight:700}
+  .hero-mini-info span{font-size:12px;color:var(--cinza-claro)}
+  .hero-mini + .hero-mini{margin-top:2px;border-top:1px solid rgba(255,255,255,.07);padding-top:14px}
+  @media(max-width:900px){.phead .in{grid-template-columns:1fr}.hero-preview{margin-top:8px}}
   .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amarelo);margin-bottom:16px}
   .eyebrow::before{content:"";width:30px;height:2px;background:var(--amarelo)}
   h1{font-size:clamp(32px,6vw,50px);line-height:1.06;font-weight:800;letter-spacing:-.02em;max-width:16ch}
@@ -186,16 +195,19 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   </div></nav>
 
 <header class="phead wm-rosas"><div class="wrap in">
-  <span class="eyebrow">Nossos nomes</span>
-  <h1>Os candidatos da <span class="hl">Missão</span> no Paraná.</h1>
-  <p>Conheça quem vai representar o movimento nas urnas — comprometidos com um Brasil melhor, do governo do estado às assembleias e ao Congresso. Clique em cada nome para conhecer a história.</p>
-  <div class="search-wrap">
-    <div class="search-box">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" id="buscaCandidato" placeholder="Buscar candidato pelo nome..." autocomplete="off">
+  <div class="phead-text">
+    <span class="eyebrow">Nossos nomes</span>
+    <h1>Os candidatos da <span class="hl">Missão</span> no Paraná.</h1>
+    <p>Conheça quem vai representar o movimento nas urnas — comprometidos com um Brasil melhor, do governo do estado às assembleias e ao Congresso. Clique em cada nome para conhecer a história.</p>
+    <div class="search-wrap">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="buscaCandidato" placeholder="Buscar candidato pelo nome..." autocomplete="off">
+      </div>
     </div>
+    <a href="material-franca.html" style="display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-weight:700;font-size:14.5px;color:var(--amarelo)">📦 Solicitar material de campanha de um candidato →</a>
   </div>
-  <a href="material-franca.html" style="display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-weight:700;font-size:14.5px;color:var(--amarelo)">📦 Solicitar material de campanha de um candidato →</a>
+  <div class="hero-preview" id="heroPreview"></div>
 </div></header>
 
 <section class="block"><div class="wrap">
@@ -1037,6 +1049,18 @@ const CANDIDATOS = [
     </a>` : '';
   if(gov) document.getElementById('gov-slot').innerHTML = govHTML(gov, viceTeaserHTML);
   if(karen) document.getElementById('senador-featured-slot').innerHTML = govHTML(karen);
+
+  const heroPreview = document.getElementById('heroPreview');
+  if(heroPreview && (gov || karen)){
+    function miniHTML(c){
+      if(!c) return '';
+      return `<a class="hero-mini" href="${linkDe(c)}">
+        <img src="${foto(c)}" alt="Foto de ${c.nome}">
+        <div class="hero-mini-info"><strong>${c.nome}</strong><span>${c.cargoLabel||''}${c.numero ? ' · Nº '+c.numero : ''}</span></div>
+      </a>`;
+    }
+    heroPreview.innerHTML = `<span class="hero-preview-label">Senador e Governador</span>${miniHTML(gov)}${miniHTML(karen)}`;
+  }
   document.getElementById('federal-slot').innerHTML =
     CANDIDATOS.filter(c=>c.cargo==='federal').map(cardHTML).join('');
   document.getElementById('estadual-slot').innerHTML =
