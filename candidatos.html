@@ -101,6 +101,14 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   .cc h3{font-size:17px;font-weight:700;margin-bottom:3px}
   .cc .cidade{color:var(--cinza-claro);font-size:13px;margin-bottom:12px;transition:color .2s}
   .cc:hover .cidade{color:#3a2c05}
+  .cc-numero{margin:2px 0 14px}
+  .cc-numero-label{display:block;font-size:10px;letter-spacing:.1em;font-weight:800;color:#8a8a8a;margin-bottom:7px;transition:color .2s}
+  .cc:hover .cc-numero-label{color:#5a4408}
+  .cc-digitos{display:flex;justify-content:center;gap:4px}
+  .cc-digitos span{min-width:24px;height:30px;padding:0 3px;display:flex;align-items:center;justify-content:center;
+    background:#1a1a1a;border:1.5px solid rgba(242,169,0,.35);border-radius:7px;font-weight:800;font-size:15px;
+    color:var(--amarelo);transition:background .2s,border-color .2s,color .2s}
+  .cc:hover .cc-digitos span{background:#1a1304;border-color:#1a1304}
   .cc .ver{display:inline-block;font-size:12.5px;font-weight:700;color:var(--amarelo);opacity:.85;transition:color .2s}
   .cc:hover .ver{color:#1a1304;opacity:1}
   .cc .ver::after{content:" →"}
@@ -987,11 +995,18 @@ const CANDIDATOS = [
   function linkDe(c){ return c.pagina && c.pagina.trim() ? c.pagina : ('c/'+encodeURIComponent(c.id)); }
   function normaliza(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
 
+  function digitosHTML(numero){
+    if(!numero) return '';
+    var digitos = String(numero).split('').map(function(d){ return `<span>${d}</span>`; }).join('');
+    return `<div class="cc-numero"><span class="cc-numero-label">NÚMERO NA URNA</span><div class="cc-digitos">${digitos}</div></div>`;
+  }
+
   function cardHTML(c){
     return `<a class="cc" href="${linkDe(c)}" data-nome="${normaliza(c.nome)}">
       <div class="cc-photo"><img src="${foto(c)}" alt="Foto de ${c.nome}" loading="lazy"></div>
       <h3>${c.nome}</h3>
-      <div class="cidade">${c.cidade||''}${c.numero ? ` · Nº ${c.numero}` : ''}</div>
+      <div class="cidade">${c.cidade||''}</div>
+      ${digitosHTML(c.numero)}
       <span class="ver">Ver perfil</span>
     </a>`;
   }
