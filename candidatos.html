@@ -93,14 +93,21 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   .gov-cta{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--amarelo);border:1.5px solid var(--amarelo);border-radius:10px;padding:9px 18px;transition:all .15s}
   .gov-cta:hover{background:var(--amarelo);color:#1a1304}
   /* grid de cards */
-  .cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
-  .cc{display:block;background:var(--preto-3);border:1px solid var(--linha);border-radius:18px;padding:22px 20px;text-align:center;transition:border-color .2s,transform .2s;color:inherit}
-  .cc:hover{border-color:rgba(242,169,0,.45);transform:translateY(-4px)}
-  .cc-photo img{width:112px;height:112px;object-fit:cover;border-radius:50%;border:2px solid rgba(242,169,0,.35);margin-bottom:14px}
+  .cgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+  .cc{display:block;background:var(--preto-3);border:1px solid var(--linha);border-radius:18px;padding:22px 20px;text-align:center;transition:background .2s,border-color .2s,transform .2s,color .2s;color:inherit}
+  .cc:hover{background:linear-gradient(180deg,var(--amarelo-claro),var(--amarelo));border-color:var(--amarelo);transform:translateY(-4px);color:#1a1304}
+  .cc-photo img{width:112px;height:112px;object-fit:cover;border-radius:50%;border:2px solid rgba(242,169,0,.35);margin-bottom:14px;transition:border-color .2s}
+  .cc:hover .cc-photo img{border-color:#1a1304}
   .cc h3{font-size:17px;font-weight:700;margin-bottom:3px}
-  .cc .cidade{color:var(--cinza-claro);font-size:13px;margin-bottom:12px}
-  .cc .ver{display:inline-block;font-size:12.5px;font-weight:700;color:var(--amarelo);opacity:.85}
+  .cc .cidade{color:var(--cinza-claro);font-size:13px;margin-bottom:12px;transition:color .2s}
+  .cc:hover .cidade{color:#3a2c05}
+  .cc .ver{display:inline-block;font-size:12.5px;font-weight:700;color:var(--amarelo);opacity:.85;transition:color .2s}
+  .cc:hover .ver{color:#1a1304;opacity:1}
   .cc .ver::after{content:" →"}
+  @media(max-width:1200px){.cgrid{grid-template-columns:repeat(4,1fr)}}
+  @media(max-width:920px){.cgrid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:680px){.cgrid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:420px){.cgrid{grid-template-columns:1fr}}
   .cta-band{position:relative;overflow:hidden;border-top:1px solid var(--linha);background:linear-gradient(120deg,#1a1408,#0a0a0a 60%);padding:64px 0;text-align:center}
   .cta-band::after{content:"";position:absolute;inset:0;background:radial-gradient(40vw 40vw at 85% 30%,rgba(242,169,0,.18),transparent 60%);pointer-events:none}
   .cta-band .in{position:relative;z-index:2;max-width:620px;margin:0 auto}
