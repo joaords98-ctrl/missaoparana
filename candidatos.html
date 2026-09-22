@@ -1019,6 +1019,7 @@ const CANDIDATOS = [
           <h3>${c.nome}</h3>
           <div class="cargo">Candidato a ${c.cargoLabel||''}</div>
           <div class="cidade">${c.cidade||''}</div>
+          ${digitosHTML(c.numero)}
           <p class="bio">${primeiroParag}</p>
         </a>
         <a class="gov-cta" href="${linkDe(c)}">Conhecer o candidato →</a>
