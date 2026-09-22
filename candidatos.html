@@ -59,7 +59,13 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   .wm-rosas::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
     background-image:url('assets/img/img-e633cca8a1.png');background-size:240px;background-repeat:repeat;opacity:.04;
     -webkit-mask-image:linear-gradient(120deg,#000,transparent 70%);mask-image:linear-gradient(120deg,#000,transparent 70%);}
-  .phead .in{position:relative;z-index:2}
+  .phead .in{position:relative;z-index:2;display:grid;grid-template-columns:1fr 380px;gap:40px;align-items:start}
+  .phead-gov .sec-eyebrow{font-size:11px}
+  .phead-gov h2{font-size:20px;margin:4px 0 14px}
+  .phead-gov #gov-senador-slot{grid-template-columns:repeat(2,1fr);gap:12px}
+  .phead-gov .cc{padding:16px 12px}
+  .phead-gov .cc h3{font-size:14.5px}
+  @media(max-width:900px){.phead .in{grid-template-columns:1fr}}
   .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amarelo);margin-bottom:16px}
   .eyebrow::before{content:"";width:30px;height:2px;background:var(--amarelo)}
   h1{font-size:clamp(32px,6vw,50px);line-height:1.06;font-weight:800;letter-spacing:-.02em;max-width:16ch}
@@ -192,14 +198,12 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
       </div>
     </div>
   </div>
+  <div class="phead-gov">
+    <div class="sec-eyebrow">Governo do Estado</div>
+    <h2>Governador e Senador.</h2>
+    <div class="cgrid" id="gov-senador-slot"></div>
+  </div>
 </div></header>
-
-<section class="block"><div class="wrap">
-  <div class="sec-eyebrow">Governo do Estado</div>
-  <h2>Governador e Senador.</h2>
-  <p class="sec-lead">Nossos nomes para liderar a transformação do Paraná.</p>
-  <div class="cgrid" id="gov-senador-slot"></div>
-</div></section>
 
 <section class="block"><div class="wrap">
   <div class="sec-eyebrow">Câmara dos Deputados</div>
