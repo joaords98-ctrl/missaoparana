@@ -32,7 +32,7 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
 <meta property="og:url" content="https://missaoparana.com.br/colinha-bertolucci.html">
 <meta property="og:title" content="Minha colinha: Bertolucci 1400 e Gustavo Camillo 14000">
 <meta property="og:description" content="Não é só número, é motivo. Veja por que votar e baixe a colinha com a dobrada estadual.">
-<meta property="og:image" content="https://missaoparana.com.br/assets/colinhas/og-colinha-bertolucci-camillo.jpg">
+<meta property="og:image" content="https://missaoparana.com.br/assets/colinhas/og-colinha-completa-camillo.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1080">
 <meta property="og:image:height" content="1350">
@@ -193,19 +193,23 @@ footer p+p{margin-top:6px}
   <ol class="urna">
     <li><span class="ordem">1º Deputado federal<small>Gabriel Bertolucci</small></span><span class="num">1400</span></li>
     <li><span class="ordem">2º Deputado estadual<small id="urnaNome">Gustavo Camillo</small></span><span class="num" id="urnaNum">14000</span></li>
+    <li><span class="ordem">3º Senadora<small>Karen Guerreiro, no 1º dos 2 votos para o Senado</small></span><span class="num">144</span></li>
+    <li><span class="ordem">4º Governador<small>Luiz França</small></span><span class="num">14</span></li>
+    <li><span class="ordem">5º Presidente<small>Renan Santos</small></span><span class="num">14</span></li>
   </ol>
   <p class="dica">Digite o número, confira a foto na tela e aperte CONFIRMA. Votação no dia 4 de outubro, das 8h às 17h.</p>
 </div></section>
 
 <section><div class="wrap">
   <h2>Leve e passe adiante</h2>
-  <p class="sub">Salve a colinha no celular e mande pra quem ainda não decidiu.</p>
-  <img class="colinha-img" id="colinhaImg" src="assets/colinhas/colinha-bertolucci-camillo.png" alt="Colinha: Gabriel Bertolucci 1400 e Gustavo Camillo 14000" width="1080" height="1350">
+  <p class="sub">A colinha completa, com todos os votos da Missão na ordem da urna. Salve no celular e mande pra quem ainda não decidiu.</p>
+  <img class="colinha-img" id="colinhaImg" src="assets/colinhas/colinha-completa-camillo.png" alt="Colinha completa da Missão" width="1080" height="1350">
   <div class="acoes">
     <a class="btn btn-zap" id="btnZap" href="#" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3z"/></svg>
       Mandar no WhatsApp com a imagem</a>
-    <a class="btn btn-amarelo" id="btnBaixar" href="assets/colinhas/colinha-bertolucci-camillo.png" download="colinha-bertolucci-camillo.png">Baixar a colinha</a>
+    <a class="btn btn-amarelo" id="btnBaixar" href="assets/colinhas/colinha-completa-camillo.png" download="colinha-completa-camillo.png">Baixar a colinha completa</a>
+    <a class="btn btn-contorno" id="btnBaixarDep" href="assets/colinhas/colinha-bertolucci-camillo.png" download="colinha-bertolucci-camillo.png">Baixar só a dos deputados</a>
     <button type="button" class="btn btn-contorno" id="btnCopiar">Copiar texto pros grupos</button>
     <p class="aviso" id="aviso" role="status" aria-live="polite"></p>
   </div>
@@ -221,8 +225,8 @@ footer p+p{margin-top:6px}
 (function(){
   var URL_PAG = 'https://missaoparana.com.br/colinha-bertolucci.html';
   var EST = {
-    camillo:{nome:'Gustavo Camillo',num:'14000',img:'assets/colinhas/colinha-bertolucci-camillo.png',pag:'https://missaoparana.com.br/colinha-bertolucci.html'},
-    mari:{nome:'Mari Mazzon',num:'14444',img:'assets/colinhas/colinha-bertolucci-mari.png',pag:'https://missaoparana.com.br/colinha-bertolucci-mari.html'}
+    camillo:{nome:'Gustavo Camillo',num:'14000',img:'assets/colinhas/colinha-completa-camillo.png',imgDep:'assets/colinhas/colinha-bertolucci-camillo.png',pag:'https://missaoparana.com.br/colinha-bertolucci.html'},
+    mari:{nome:'Mari Mazzon',num:'14444',img:'assets/colinhas/colinha-completa-mari.png',imgDep:'assets/colinhas/colinha-bertolucci-mari.png',pag:'https://missaoparana.com.br/colinha-bertolucci-mari.html'}
   };
   var TEXTO = [
     '🗳️ *MINHA COLINHA PRO DIA 4 DE OUTUBRO*',
@@ -253,6 +257,9 @@ footer p+p{margin-top:6px}
     '📲 *NA URNA:*',
     '1º Federal ➜ *1400*',
     '2º Estadual ➜ *14000* ou *14444*',
+    '3º Senadora Karen Guerreiro ➜ *144*',
+    '4º Governador Luiz França ➜ *14*',
+    '5º Presidente Renan Santos ➜ *14*',
     'Confira a foto e aperte CONFIRMA ✅',
     '',
     '👉 Colinha pra baixar: ' + URL_PAG,
@@ -263,7 +270,7 @@ footer p+p{margin-top:6px}
   var atual = 'camillo';
   function zapCurto(){
     var e = EST[atual];
-    return 'Minha colinha pro dia 4 de outubro 🗳️\n\n1º Federal: *Gabriel Bertolucci 1400*\n2º Estadual: *' + e.nome + ' ' + e.num + '*\n\nVeja os motivos e baixe a colinha: ' + e.pag;
+    return 'Minha colinha pro dia 4 de outubro 🗳️\n\n1º Federal: *Gabriel Bertolucci 1400*\n2º Estadual: *' + e.nome + ' ' + e.num + '*\n3º Senadora: *Karen Guerreiro 144*\n4º Governador: *Luiz França 14*\n5º Presidente: *Renan Santos 14*\n\nVeja os motivos e baixe a colinha: ' + e.pag;
   }
   function aplicar(chave){
     if(!EST[chave]) return;
@@ -273,9 +280,11 @@ footer p+p{margin-top:6px}
     document.getElementById('urnaNome').textContent = e.nome;
     document.getElementById('urnaNum').textContent = e.num;
     var img = document.getElementById('colinhaImg');
-    img.src = e.img; img.alt = 'Colinha: Gabriel Bertolucci 1400 e ' + e.nome + ' ' + e.num;
+    img.src = e.img; img.alt = 'Colinha completa: Bertolucci 1400, ' + e.nome + ' ' + e.num + ', Karen Guerreiro 144, Luiz França 14, Renan Santos 14';
     var bx = document.getElementById('btnBaixar');
     bx.href = e.img; bx.setAttribute('download', e.img.split('/').pop());
+    var bd = document.getElementById('btnBaixarDep');
+    bd.href = e.imgDep; bd.setAttribute('download', e.imgDep.split('/').pop());
     document.getElementById('btnZap').href = 'https://wa.me/?text=' + encodeURIComponent(zapCurto());
     prepararArquivo(chave);
   }
