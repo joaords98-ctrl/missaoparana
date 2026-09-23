@@ -193,9 +193,10 @@ footer p+p{margin-top:6px}
   <ol class="urna">
     <li><span class="ordem">1º Deputado federal<small>Gabriel Bertolucci</small></span><span class="num">1400</span></li>
     <li><span class="ordem">2º Deputado estadual<small id="urnaNome">Gustavo Camillo</small></span><span class="num" id="urnaNum">14000</span></li>
-    <li><span class="ordem">3º Senadora<small>Karen Guerreiro, no 1º dos 2 votos para o Senado</small></span><span class="num">144</span></li>
-    <li><span class="ordem">4º Governador<small>Luiz França</small></span><span class="num">14</span></li>
-    <li><span class="ordem">5º Presidente<small>Renan Santos</small></span><span class="num">14</span></li>
+    <li><span class="ordem">3º Senado, 1º voto<small>Karen Guerreiro</small></span><span class="num">144</span></li>
+    <li><span class="ordem">4º Senado, 2º voto<small>Escolha outro candidato. Repetir o 144 anula esse voto.</small></span><span class="num">?</span></li>
+    <li><span class="ordem">5º Governador<small>Luiz França</small></span><span class="num">14</span></li>
+    <li><span class="ordem">6º Presidente<small>Renan Santos</small></span><span class="num">14</span></li>
   </ol>
   <p class="dica">Digite o número, confira a foto na tela e aperte CONFIRMA. Votação no dia 4 de outubro, das 8h às 17h.</p>
 </div></section>
@@ -257,9 +258,10 @@ footer p+p{margin-top:6px}
     '📲 *NA URNA:*',
     '1º Federal ➜ *1400*',
     '2º Estadual ➜ *14000* ou *14444*',
-    '3º Senadora Karen Guerreiro ➜ *144*',
-    '4º Governador Luiz França ➜ *14*',
-    '5º Presidente Renan Santos ➜ *14*',
+    '3º Senado, 1º voto ➜ *144* (Karen Guerreiro)',
+    '4º Senado, 2º voto ➜ outro candidato. Não repita o 144, senão esse voto é anulado',
+    '5º Governador ➜ *14* (Luiz França)',
+    '6º Presidente ➜ *14* (Renan Santos)',
     'Confira a foto e aperte CONFIRMA ✅',
     '',
     '👉 Colinha pra baixar: ' + URL_PAG,
@@ -270,7 +272,7 @@ footer p+p{margin-top:6px}
   var atual = 'camillo';
   function zapCurto(){
     var e = EST[atual];
-    return 'Minha colinha pro dia 4 de outubro 🗳️\n\n1º Federal: *Gabriel Bertolucci 1400*\n2º Estadual: *' + e.nome + ' ' + e.num + '*\n3º Senadora: *Karen Guerreiro 144*\n4º Governador: *Luiz França 14*\n5º Presidente: *Renan Santos 14*\n\nVeja os motivos e baixe a colinha: ' + e.pag;
+    return 'Minha colinha pro dia 4 de outubro 🗳️\n\n1º Federal: *Gabriel Bertolucci 1400*\n2º Estadual: *' + e.nome + ' ' + e.num + '*\n3º Senado, 1º voto: *Karen Guerreiro 144*\n4º Senado, 2º voto: outro candidato (repetir o 144 anula)\n5º Governador: *Luiz França 14*\n6º Presidente: *Renan Santos 14*\n\nVeja os motivos e baixe a colinha: ' + e.pag;
   }
   function aplicar(chave){
     if(!EST[chave]) return;
@@ -280,7 +282,7 @@ footer p+p{margin-top:6px}
     document.getElementById('urnaNome').textContent = e.nome;
     document.getElementById('urnaNum').textContent = e.num;
     var img = document.getElementById('colinhaImg');
-    img.src = e.img; img.alt = 'Colinha completa: Bertolucci 1400, ' + e.nome + ' ' + e.num + ', Karen Guerreiro 144, Luiz França 14, Renan Santos 14';
+    img.src = e.img; img.alt = 'Colinha completa: Bertolucci 1400, ' + e.nome + ' ' + e.num + ', Karen Guerreiro 144 no 1º voto para o Senado, Luiz França 14, Renan Santos 14';
     var bx = document.getElementById('btnBaixar');
     bx.href = e.img; bx.setAttribute('download', e.img.split('/').pop());
     var bd = document.getElementById('btnBaixarDep');
