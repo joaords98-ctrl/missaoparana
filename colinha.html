@@ -530,9 +530,8 @@ footer p+p{margin-top:6px}
   function sobrenomeCurto(nome){ var p = nome.split(' '); return p.length>1 ? p[p.length-1] : nome; }
 
   // ===== textos de compartilhamento =====
-  function zapCurto(){
-    return 'Minha colinha pro dia 4 de outubro 🗳️\n\n1º Federal: *'+sel.federal.nome+' '+sel.federal.numero+'*\n2º Estadual: *'+sel.estadual.nome+' '+sel.estadual.numero+'*\n3º Senado, 1º voto: *Karen Guerreiro 144*\n4º Senado, 2º voto: outro candidato (repetir o 144 anula)\n5º Governador: *Luiz França 14*\n6º Presidente: *Renan Santos 14*\n\nMonte a sua também: ' + linkColinha();
-  }
+  // o texto que vai junto ao compartilhar e o mesmo do botao 'Copiar texto pros grupos'
+  function zapCurto(){ return textoGrupos(); }
   function linhaDeputado(ordem, cargo, c){
     var l = [ordem + ' ' + cargo + ' ➜ *' + c.numero + '* ' + c.nome];
     var fr = fraseColinha(c);
