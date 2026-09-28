@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '3577840195704424');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monte sua colinha | Missão Paraná</title>
+<meta name="description" content="Escolha seu deputado federal e estadual da Missão e gere sua colinha de voto com todos os números na ordem da urna. Baixe e compartilhe.">
+<link rel="canonical" href="https://missaoparana.com.br/colinha.html">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://missaoparana.com.br/colinha.html">
+<meta property="og:title" content="Monte sua colinha da Missão">
+<meta property="og:description" content="Escolha seus deputados e gere sua colinha com todos os votos da Missão na ordem da urna.">
+<meta property="og:image" content="https://missaoparana.com.br/assets/colinhas/og-colinha-completa-camillo-v5.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{--amarelo:#F2A900;--amarelo-claro:#FFC02E;--preto:#0a0a0a;--preto-2:#121212;--preto-3:#1a1a1a;
+ --cinza:#6E6E6E;--cinza-claro:#a6a6a6;--branco:#fff;--linha:rgba(255,255,255,.08);--tecla:#262626}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+ background:var(--preto);color:var(--branco);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
+.nav-in{max-width:640px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:16px}
+.brand img{height:28px}
+.brand .pr{color:var(--amarelo)}
+.nav-link{font-size:13.5px;color:#d8d8d8}
+:focus-visible{outline:3px solid var(--amarelo);outline-offset:3px;border-radius:6px}
+
+.hero{padding:30px 0 26px;border-bottom:1px solid var(--linha)}
+.cargo{color:var(--amarelo);font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.hero h1{font-size:clamp(26px,6vw,36px);font-weight:900;line-height:1.08;margin-top:6px}
+.hero p.lead{color:var(--cinza-claro);font-size:15px;margin-top:14px}
+
+section{padding:28px 0;border-bottom:1px solid var(--linha)}
+h2{font-size:clamp(20px,4.6vw,24px);font-weight:900;line-height:1.2;margin-bottom:4px}
+.sub{color:var(--cinza-claro);font-size:14px;margin-bottom:14px}
+
+.passo{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;
+ background:var(--amarelo);color:#1a1304;font-weight:900;font-size:14px;margin-right:8px;vertical-align:middle}
+
+.busca{position:relative;margin-bottom:12px}
+.busca input{width:100%;font:inherit;font-size:15px;background:var(--preto-2);color:var(--branco);border:1.5px solid var(--linha);
+ border-radius:12px;padding:12px 14px 12px 42px;outline:none}
+.busca input:focus{border-color:var(--amarelo)}
+.busca svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--cinza)}
+
+.lista{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-height:340px;overflow-y:auto;padding-right:4px}
+.lista button{font:inherit;cursor:pointer;text-align:left;background:var(--preto-2);color:var(--branco);
+ border:1.5px solid var(--linha);border-radius:12px;padding:9px 10px;display:flex;gap:9px;align-items:center;transition:border-color .15s,background .15s}
+.lista button img{width:38px;height:38px;border-radius:50%;object-fit:cover;flex:none;background:var(--amarelo)}
+.lista button strong{display:block;font-size:13.5px;line-height:1.2}
+.lista button small{color:var(--amarelo);font-size:12.5px;font-weight:700}
+.lista button[aria-pressed="true"]{border-color:var(--amarelo);background:rgba(242,169,0,.1)}
+.lista button:hover{border-color:rgba(242,169,0,.5)}
+.lista button.oculto{display:none}
+.vazio{color:var(--cinza-claro);font-size:14px;padding:14px 0;grid-column:1/-1;text-align:center}
+
+.selecionado{display:flex;align-items:center;gap:12px;background:rgba(242,169,0,.08);border:1.5px solid var(--amarelo);
+ border-radius:14px;padding:12px 14px;margin-bottom:12px}
+.selecionado img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none}
+.selecionado strong{display:block;font-size:15px}
+.selecionado small{color:var(--amarelo);font-weight:800;font-size:13px}
+.selecionado .trocar{margin-left:auto;font-size:13px;color:var(--cinza-claro);text-decoration:underline;cursor:pointer;background:none;border:0;font-family:inherit}
+
+.urna{list-style:none;display:grid;gap:8px}
+.urna li{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--preto-2);
+ border:1px solid var(--linha);border-radius:12px;padding:11px 14px}
+.urna li .ordem{font-weight:800;font-size:14px}
+.urna li .ordem small{display:block;color:var(--cinza-claro);font-weight:500;font-size:12.5px}
+.urna li .num{font-weight:900;font-size:22px;color:var(--amarelo);font-variant-numeric:tabular-nums;flex:none}
+
+.canvas-wrap{border-radius:16px;border:1px solid var(--linha);overflow:hidden;margin-bottom:14px;background:var(--preto-2);position:relative}
+canvas{width:100%;height:auto;display:block}
+.gerando{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(10,10,10,.85);color:var(--amarelo);font-weight:700;font-size:15px}
+.gerando.oculto{display:none}
+.acoes{display:grid;gap:10px}
+.btn{font:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;
+ padding:15px 20px;font-weight:800;font-size:15.5px;border:1.5px solid transparent;text-align:center;transition:filter .15s}
+.btn:hover{filter:brightness(1.08)}
+.btn:disabled{opacity:.45;cursor:not-allowed;filter:none}
+.btn-zap{background:#25D366;color:#062b14}
+.btn-amarelo{background:var(--amarelo);color:#1a1304}
+.btn-contorno{background:transparent;color:var(--branco);border-color:#3a3a3a}
+.btn svg{width:20px;height:20px;flex:none}
+.aviso{min-height:22px;text-align:center;color:var(--amarelo);font-size:14px;font-weight:700}
+
+footer{padding:26px 0 40px;color:var(--cinza);font-size:12.5px;text-align:center}
+footer p+p{margin-top:6px}
+@media (max-width:420px){.lista{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-in">
+  <a class="brand" href="index.html"><img src="assets/img/img-f610dd08ec.png" alt=""><span>Missão<span class="pr">Paraná</span></span></a>
+  <a class="nav-link" href="candidatos.html">Ver todos os candidatos</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="cargo">Reta final · 4 de outubro</div>
+  <h1>Monte a sua colinha da Missão.</h1>
+  <p class="lead">Escolha o seu deputado federal e o seu deputado estadual. Governador, Senador e Presidente já vêm prontos. Depois é só baixar a imagem e mandar pra quem ainda não decidiu.</p>
+</div></header>
+
+<main>
+<section><div class="wrap">
+  <h2><span class="passo">1</span>Seu deputado federal</h2>
+  <p class="sub">Vote em 1. Todos começam com 14.</p>
+  <div id="selFederal"></div>
+  <div class="busca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="buscaFederal" placeholder="Buscar pelo nome ou número..." autocomplete="off"></div>
+  <div class="lista" id="listaFederal" role="group" aria-label="Deputados federais"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2><span class="passo">2</span>Seu deputado estadual</h2>
+  <p class="sub">Vote em 1. Todos começam com 14.</p>
+  <div id="selEstadual"></div>
+  <div class="busca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="buscaEstadual" placeholder="Buscar pelo nome ou número..." autocomplete="off"></div>
+  <div class="lista" id="listaEstadual" role="group" aria-label="Deputados estaduais"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2><span class="passo">3</span>Na urna, nesta ordem</h2>
+  <ol class="urna">
+    <li><span class="ordem">1º Deputado federal<small id="urnaFedNome">Escolha acima</small></span><span class="num" id="urnaFedNum">—</span></li>
+    <li><span class="ordem">2º Deputado estadual<small id="urnaEstNome">Escolha acima</small></span><span class="num" id="urnaEstNum">—</span></li>
+    <li><span class="ordem">3º Senado, 1º voto<small>Karen Guerreiro</small></span><span class="num">144</span></li>
+    <li><span class="ordem">4º Senado, 2º voto<small>Outro candidato. Repetir o 144 anula esse voto.</small></span><span class="num">?</span></li>
+    <li><span class="ordem">5º Governador<small>Luiz França</small></span><span class="num">14</span></li>
+    <li><span class="ordem">6º Presidente<small>Renan Santos</small></span><span class="num">14</span></li>
+  </ol>
+</div></section>
+
+<section><div class="wrap">
+  <h2><span class="passo">4</span>Sua colinha pronta</h2>
+  <p class="sub">Salve no celular e mande pra quem ainda não decidiu.</p>
+  <div class="canvas-wrap">
+    <canvas id="colinha" width="1080" height="1350"></canvas>
+    <div class="gerando" id="gerando">Escolha os dois deputados acima pra gerar a sua colinha</div>
+  </div>
+  <div class="acoes">
+    <a class="btn btn-zap" id="btnZap" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3z"/></svg>
+      Mandar no WhatsApp com a imagem</a>
+    <button type="button" class="btn btn-amarelo" id="btnBaixar" disabled>Baixar a minha colinha</button>
+    <button type="button" class="btn btn-contorno" id="btnCopiar" disabled>Copiar texto pros grupos</button>
+    <p class="aviso" id="aviso" role="status" aria-live="polite"></p>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <p id="rodapeCnpj">PROPAGANDA ELEITORAL. Luiz França CNPJ 68.594.408/0001-72, Karen Guerreiro CNPJ 68.578.501/0001-93.</p>
+  <p>&copy; 2026 Missão Paraná, <a href="index.html" style="color:var(--amarelo)">missaoparana.com.br</a></p>
+</div></footer>
+
+<script src="candidatos-data.js"></script>
+<script>
+(function(){
+  var URL_PAG = 'https://missaoparana.com.br/colinha.html';
+
+  // ===== candidatos fixos =====
+  var FIXOS = {
+    senadora: { nome:'Karen Guerreiro', num:'144', foto:'assets/candidatos/karen-guerreiro.jpg', cnpj:'68.578.501/0001-93' },
+    governador: { nome:'Luiz França', num:'14', foto:'assets/candidatos/luiz-franca.jpg', cnpj:'68.594.408/0001-72' },
+    presidente: { nome:'Renan Santos', num:'14', foto:'assets/historia/renan-santos.jpg' }
+  };
+
+  var federais = CANDIDATOS.filter(function(c){ return c.cargo==='federal'; }).sort(function(a,b){ return a.nome.localeCompare(b.nome,'pt-BR'); });
+  var estaduais = CANDIDATOS.filter(function(c){ return c.cargo==='estadual'; }).sort(function(a,b){ return a.nome.localeCompare(b.nome,'pt-BR'); });
+  var sel = { federal:null, estadual:null };
+
+  function normaliza(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+
+  // ===== montagem das listas =====
+  function montarLista(tipo, lista, containerId){
+    var cont = document.getElementById(containerId);
+    cont.innerHTML = lista.map(function(c){
+      return '<button type="button" data-id="'+c.id+'" data-busca="'+normaliza(c.nome)+' '+c.numero+'" aria-pressed="false">' +
+        '<img src="'+c.foto+'" alt="" loading="lazy"><span><strong>'+c.nome+'</strong><small>'+c.numero+'</small></span></button>';
+    }).join('') + '<div class="vazio oculto" id="vazio'+tipo+'">Nenhum candidato com esse nome.</div>';
+    cont.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click', function(){ escolher(tipo, b.dataset.id); });
+    });
+  }
+  montarLista('Federal', federais, 'listaFederal');
+  montarLista('Estadual', estaduais, 'listaEstadual');
+
+  function filtrar(tipo, inputId, listaId){
+    document.getElementById(inputId).addEventListener('input', function(){
+      var termo = normaliza(this.value.trim());
+      var algum = false;
+      document.querySelectorAll('#'+listaId+' button').forEach(function(b){
+        var bate = !termo || b.dataset.busca.indexOf(termo) !== -1;
+        b.classList.toggle('oculto', !bate);
+        if(bate) algum = true;
+      });
+      document.getElementById('vazio'+tipo).classList.toggle('oculto', algum);
+    });
+  }
+  filtrar('Federal','buscaFederal','listaFederal');
+  filtrar('Estadual','buscaEstadual','listaEstadual');
+
+  function escolher(tipo, id){
+    var lista = tipo==='Federal' ? federais : estaduais;
+    var c = lista.find(function(x){ return x.id===id; });
+    if(!c) return;
+    sel[tipo.toLowerCase()] = c;
+    document.querySelectorAll('#lista'+tipo+' button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.id===id ? 'true':'false'); });
+    var box = document.getElementById('sel'+tipo);
+    box.innerHTML = '<div class="selecionado"><img src="'+c.foto+'" alt=""><span><strong>'+c.nome+'</strong><small>'+c.numero+'</small></span>' +
+      '<button type="button" class="trocar">trocar</button></div>';
+    box.querySelector('.trocar').addEventListener('click', function(){
+      document.getElementById('lista'+tipo).scrollIntoView({behavior:'smooth', block:'start'});
+    });
+    document.getElementById('urna'+(tipo==='Federal'?'Fed':'Est')+'Nome').textContent = c.nome;
+    document.getElementById('urna'+(tipo==='Federal'?'Fed':'Est')+'Num').textContent = c.numero;
+    if(typeof fbq === 'function') fbq('trackCustom', 'ColinhaEscolha', {cargo: tipo, candidato: c.nome});
+    atualizarTudo();
+  }
+
+  // ===== geracao da imagem (Canvas) =====
+  var canvas = document.getElementById('colinha');
+  var ctx = canvas.getContext('2d');
+  var cacheImg = {};
+  function carregarImg(src){
+    if(cacheImg[src]) return cacheImg[src];
+    cacheImg[src] = new Promise(function(res){
+      var im = new Image(); im.crossOrigin = 'anonymous';
+      im.onload = function(){ res(im); };
+      im.onerror = function(){ res(null); };
+      im.src = src;
+    });
+    return cacheImg[src];
+  }
+
+  function fonteCondensada(px){ return '400 '+px+'px "Bebas Neue", Impact, "Arial Narrow", "Arial Black", sans-serif'; }
+  function fonteNormal(px, peso){ return (peso||'400')+' '+px+'px "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif'; }
+
+  // escreve o texto reduzindo a fonte ate caber na largura maxima (protege contra fonte fallback mais larga)
+  function textoAjustado(texto, x, y, maxW, gerarFonte, pxBase, pxMin){
+    var px = pxBase;
+    ctx.font = gerarFonte(px);
+    while(ctx.measureText(texto).width > maxW && px > (pxMin||18)){ px -= 2; ctx.font = gerarFonte(px); }
+    ctx.fillText(texto, x, y);
+  }
+
+  function fotoQuadrada(im, x, y, tam, raio){
+    ctx.save();
+    ctx.beginPath(); ctx.roundRect(x, y, tam, tam, raio); ctx.closePath();
+    ctx.fillStyle = '#F2A900'; ctx.fill();
+    ctx.clip();
+    if(im){
+      var esc = Math.max(tam/im.width, tam/im.height);
+      var w = im.width*esc, h = im.height*esc;
+      ctx.drawImage(im, x + (tam-w)/2, y + (tam-h)/2 - tam*0.02, w, h);
+    }
+    ctx.restore();
+  }
+
+  function teclas(numero, x, y){
+    var W = 88, H = 66, GAP = 12;
+    String(numero).split('').forEach(function(d, i){
+      var tx = x + i*(W+GAP);
+      ctx.fillStyle = '#000'; ctx.beginPath(); ctx.roundRect(tx, y+6, W, H, 12); ctx.fill();
+      ctx.fillStyle = '#2a2a2a'; ctx.beginPath(); ctx.roundRect(tx, y, W, H, 12); ctx.fill();
+      ctx.strokeStyle = '#4a4a4a'; ctx.lineWidth = 2; ctx.beginPath(); ctx.roundRect(tx+1, y+1, W-2, H-2, 11); ctx.stroke();
+      ctx.fillStyle = '#fff'; ctx.font = fonteCondensada(56); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(d, tx + W/2, y + H/2 + 3);
+    });
+    ctx.textAlign = 'left';
+  }
+
+  function linhaCandidato(y, cargo, nome, numero, im){
+    var TAM = 150, X_FOTO = 56, X_TXT = 236;
+    fotoQuadrada(im, X_FOTO, y, TAM, 14);
+    ctx.fillStyle = '#F2A900'; ctx.font = fonteNormal(24,'800'); ctx.textBaseline = 'alphabetic';
+    ctx.fillText(cargo.toUpperCase(), X_TXT, y + 24);
+    ctx.fillStyle = '#fff';
+    textoAjustado(nome.toUpperCase(), X_TXT, y + 82, 1024 - X_TXT, fonteCondensada, 64, 34);
+    teclas(numero, X_TXT, y + 96);
+  }
+
+  function desenhar(){
+    var fed = sel.federal, est = sel.estadual;
+    var fontes = (document.fonts && document.fonts.load) ? document.fonts.load('400 64px "Bebas Neue"').catch(function(){}) : Promise.resolve();
+    return Promise.all([
+      fontes,
+      carregarImg('assets/img/img-f610dd08ec.png'),
+      carregarImg(fed.foto), carregarImg(est.foto),
+      carregarImg(FIXOS.senadora.foto), carregarImg(FIXOS.governador.foto), carregarImg(FIXOS.presidente.foto)
+    ]).then(function(r){
+      var logo=r[1], imFed=r[2], imEst=r[3], imSen=r[4], imGov=r[5], imPres=r[6];
+      ctx.clearRect(0,0,1080,1350);
+      ctx.fillStyle = '#0a0a0a'; ctx.fillRect(0,0,1080,1350);
+
+      // cabecalho
+      if(logo){ var lh = 92, lw = logo.width*(lh/logo.height); ctx.drawImage(logo, 56, 34, lw, lh); }
+      ctx.fillStyle = '#fff'; ctx.textAlign='left'; ctx.textBaseline='alphabetic';
+      textoAjustado('COLINHA DA MISSÃO', 166, 96, 1024 - 166, fonteCondensada, 72, 40);
+      ctx.fillStyle = '#c9c9c9'; ctx.font = fonteNormal(24);
+      ctx.fillText('4 de outubro, das 8h às 17h  |  Paraná', 166, 128);
+      ctx.fillStyle = '#F2A900'; ctx.fillRect(56, 158, 968, 3);
+
+      // linhas
+      var y = 182, PASSO = 182;
+      linhaCandidato(y, 'Deputado federal', fed.nome, fed.numero, imFed); y += PASSO;
+      linhaCandidato(y, 'Deputado estadual', est.nome, est.numero, imEst); y += PASSO;
+      linhaCandidato(y, 'Senado, 1º voto', FIXOS.senadora.nome, FIXOS.senadora.num, imSen); y += PASSO;
+
+      // senado 2o voto: caixa amarela contornada
+      ctx.strokeStyle = '#F2A900'; ctx.lineWidth = 3; ctx.beginPath(); ctx.roundRect(56, y-6, 968, 72, 14); ctx.stroke();
+      ctx.fillStyle = '#F2A900'; ctx.font = fonteNormal(24,'800'); ctx.fillText('SENADO, 2º VOTO', 76, y + 24);
+      ctx.fillStyle = '#fff'; ctx.font = fonteNormal(21); ctx.fillText('Escolha outro candidato. Repetir o 144 anula esse voto.', 76, y + 52);
+      y += 92;
+
+      linhaCandidato(y, 'Governador', FIXOS.governador.nome, FIXOS.governador.num, imGov); y += PASSO;
+      linhaCandidato(y, 'Presidente', FIXOS.presidente.nome, FIXOS.presidente.num, imPres); y += PASSO;
+
+      // rodape amarelo
+      var yR = 1188;
+      ctx.fillStyle = '#F2A900'; ctx.fillRect(0, yR, 1080, 1350-yR);
+      ctx.fillStyle = '#1a1304';
+      textoAjustado('NESSA ORDEM. CONFIRA A FOTO E APERTE CONFIRMA.', 56, yR + 58, 968, fonteCondensada, 46, 26);
+      var fCnpj = function(px){ return fonteNormal(px,'600'); };
+      var cnpjs = 'PROPAGANDA ELEITORAL  |  CNPJ: ' + sobrenomeCurto(fed.nome) + ' ' + (fed.cnpjCampanha||'') +
+        '  |  Karen Guerreiro ' + FIXOS.senadora.cnpj;
+      var cnpjs2 = 'Luiz França ' + FIXOS.governador.cnpj + '  |  ' + sobrenomeCurto(est.nome) + ' ' + (est.cnpjCampanha||'');
+      textoAjustado(cnpjs, 56, yR + 104, 968, fCnpj, 19, 13);
+      textoAjustado(cnpjs2, 56, yR + 134, 968, fCnpj, 19, 13);
+    });
+  }
+  function sobrenomeCurto(nome){ var p = nome.split(' '); return p.length>1 ? p[p.length-1] : nome; }
+
+  // ===== textos de compartilhamento =====
+  function zapCurto(){
+    return 'Minha colinha pro dia 4 de outubro 🗳️\n\n1º Federal: *'+sel.federal.nome+' '+sel.federal.numero+'*\n2º Estadual: *'+sel.estadual.nome+' '+sel.estadual.numero+'*\n3º Senado, 1º voto: *Karen Guerreiro 144*\n4º Senado, 2º voto: outro candidato (repetir o 144 anula)\n5º Governador: *Luiz França 14*\n6º Presidente: *Renan Santos 14*\n\nMonte a sua também: ' + URL_PAG;
+  }
+  function textoGrupos(){
+    return ['🗳️ *MINHA COLINHA PRO DIA 4 DE OUTUBRO*','',
+      '━━━━━━━━━━━━━━','📲 *NA URNA, NESSA ORDEM:*',
+      '1º Deputado federal ➜ *'+sel.federal.numero+'* ('+sel.federal.nome+')',
+      '2º Deputado estadual ➜ *'+sel.estadual.numero+'* ('+sel.estadual.nome+')',
+      '3º Senado, 1º voto ➜ *144* (Karen Guerreiro)',
+      '4º Senado, 2º voto ➜ outro candidato. Não repita o 144, senão esse voto é anulado',
+      '5º Governador ➜ *14* (Luiz França)',
+      '6º Presidente ➜ *14* (Renan Santos)',
+      'Confira a foto e aperte CONFIRMA ✅','',
+      '👉 Monte a sua colinha: ' + URL_PAG,'',
+      '🔁 *Manda pra 3 pessoas.* Voto consciente se espalha assim.'].join('\n');
+  }
+
+  // ===== estado geral =====
+  var arquivo = null;
+  var aviso = document.getElementById('aviso');
+  function atualizarTudo(){
+    var pronto = !!(sel.federal && sel.estadual);
+    document.getElementById('btnBaixar').disabled = !pronto;
+    document.getElementById('btnCopiar').disabled = !pronto;
+    document.getElementById('rodapeCnpj').textContent = 'PROPAGANDA ELEITORAL. Luiz França CNPJ 68.594.408/0001-72, Karen Guerreiro CNPJ 68.578.501/0001-93' +
+      (sel.federal ? ', ' + sel.federal.nome + ' CNPJ ' + (sel.federal.cnpjCampanha||'') : '') +
+      (sel.estadual ? ', ' + sel.estadual.nome + ' CNPJ ' + (sel.estadual.cnpjCampanha||'') : '') + '.';
+    if(!pronto){
+      var g = document.getElementById('gerando');
+      g.classList.remove('oculto');
+      g.textContent = sel.federal ? 'Agora escolha o deputado estadual' : (sel.estadual ? 'Agora escolha o deputado federal' : 'Escolha os dois deputados acima pra gerar a sua colinha');
+      return;
+    }
+    document.getElementById('gerando').textContent = 'Gerando a sua colinha...';
+    desenhar().then(function(){
+      document.getElementById('gerando').classList.add('oculto');
+      document.getElementById('btnZap').href = 'https://wa.me/?text=' + encodeURIComponent(zapCurto());
+      arquivo = null;
+      canvas.toBlob(function(b){ if(b) arquivo = new File([b], nomeArquivo(), {type:'image/png'}); }, 'image/png');
+      if(typeof fbq === 'function') fbq('trackCustom', 'ColinhaGerada', {federal: sel.federal.nome, estadual: sel.estadual.nome});
+    });
+  }
+  function nomeArquivo(){
+    return 'colinha-missao-' + sel.federal.id + '-' + sel.estadual.id + '.png';
+  }
+
+  document.getElementById('btnBaixar').addEventListener('click', function(){
+    if(!(sel.federal && sel.estadual)) return;
+    var a = document.createElement('a');
+    a.href = canvas.toDataURL('image/png'); a.download = nomeArquivo();
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    aviso.textContent = 'Colinha salva! Agora é só postar ou mandar no WhatsApp.';
+  });
+
+  document.getElementById('btnZap').addEventListener('click', function(ev){
+    if(!(sel.federal && sel.estadual)){ ev.preventDefault(); aviso.textContent = 'Escolha os dois deputados primeiro.'; return; }
+    var f = arquivo;
+    if(!(f instanceof File) || !navigator.canShare || !navigator.canShare({files:[f]})) return; // segue pro wa.me
+    ev.preventDefault();
+    var txt = zapCurto();
+    try { if(navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(txt).catch(function(){}); } catch(e){}
+    navigator.share({files:[f], text: txt}).then(function(){
+      aviso.textContent = 'Enviado. Se a legenda não apareceu, é só colar: o texto já está copiado.';
+    }).catch(function(err){
+      if(err && err.name === 'AbortError') return;
+      window.open(document.getElementById('btnZap').href, '_blank');
+    });
+  });
+
+  document.getElementById('btnCopiar').addEventListener('click', function(){
+    if(!(sel.federal && sel.estadual)) return;
+    var t = textoGrupos();
+    function ok(){ aviso.textContent = 'Texto copiado. Agora é só colar no grupo.'; }
+    function fallback(){
+      var ta = document.createElement('textarea'); ta.value = t; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); ok(); } catch(e){ aviso.textContent = 'Não deu para copiar automaticamente.'; }
+      document.body.removeChild(ta);
+    }
+    if(navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(ok, fallback); else fallback();
+  });
+
+  // pre-selecao via URL: colinha.html?f=alan-leal&e=gustavo-camillo
+  var q = new URLSearchParams(location.search);
+  if(q.get('f')) escolher('Federal', q.get('f'));
+  if(q.get('e')) escolher('Estadual', q.get('e'));
+  atualizarTudo();
+})();
+</script>
+</body>
+</html>
