@@ -221,7 +221,7 @@ footer p+p{margin-top:6px}
   var FIXOS = {
     senadora: { nome:'Karen Guerreiro', num:'144', foto:'assets/candidatos/karen-guerreiro.jpg', cnpj:'68.578.501/0001-93' },
     governador: { nome:'Luiz França', num:'14', foto:'assets/candidatos/luiz-franca.jpg', cnpj:'68.594.408/0001-72' },
-    presidente: { nome:'Renan Santos', num:'14', foto:'assets/historia/renan-santos.jpg' }
+    presidente: { nome:'Renan Santos', num:'14', foto:'assets/candidatos/renan-santos-colinha.png' }
   };
 
   var federais = CANDIDATOS.filter(function(c){ return c.cargo==='federal'; }).sort(function(a,b){ return a.nome.localeCompare(b.nome,'pt-BR'); });
@@ -272,6 +272,7 @@ footer p+p{margin-top:6px}
     }
     return out.trim();
   }
+  function cargoDe(c, casa){ return (c.genero === 'f' ? 'Deputada ' : 'Deputado ') + casa; }
   function temPropostas(c){ return c.propostasCandidato && c.propostasCandidato.length; }
   var FR = (typeof COLINHA_FRASES !== 'undefined') ? COLINHA_FRASES : {};
   function fraseColinha(c){ return (FR[c.numero] && FR[c.numero].frase) || ''; }
@@ -314,7 +315,7 @@ footer p+p{margin-top:6px}
     sel[tipo.toLowerCase()] = c;
     document.querySelectorAll('#lista'+tipo+' button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.id===id ? 'true':'false'); });
     var box = document.getElementById('sel'+tipo);
-    box.innerHTML = resumoHTML(c, tipo==='Federal' ? 'Deputado federal' : 'Deputado estadual');
+    box.innerHTML = resumoHTML(c, cargoDe(c, tipo==='Federal' ? 'federal' : 'estadual'));
     box.querySelector('.trocar').addEventListener('click', function(){
       document.getElementById('lista'+tipo).scrollIntoView({behavior:'smooth', block:'start'});
     });
@@ -461,8 +462,8 @@ footer p+p{margin-top:6px}
       ctx.fillText('Eleições 4 de outubro, das 8h às 17h', 178, 152);
       ctx.fillStyle = '#2e2e2e'; ctx.fillRect(56, 196, 968, 2);
 
-      blocoDeputado(236, 'Deputado federal', fed, r[2]);
-      blocoDeputado(716, 'Deputado estadual', est, r[3]);
+      blocoDeputado(236, cargoDe(fed,'federal'), fed, r[2]);
+      blocoDeputado(716, cargoDe(est,'estadual'), est, r[3]);
 
       var yR = 1188;
       ctx.fillStyle = '#F2A900'; ctx.fillRect(0, yR, 1080, 1350-yR);
@@ -500,8 +501,8 @@ footer p+p{margin-top:6px}
 
       // linhas
       var y = 182, PASSO = 182;
-      linhaCandidato(y, 'Deputado federal', fed.nome, fed.numero, imFed); y += PASSO;
-      linhaCandidato(y, 'Deputado estadual', est.nome, est.numero, imEst); y += PASSO;
+      linhaCandidato(y, cargoDe(fed,'federal'), fed.nome, fed.numero, imFed); y += PASSO;
+      linhaCandidato(y, cargoDe(est,'estadual'), est.nome, est.numero, imEst); y += PASSO;
       linhaCandidato(y, 'Senado, 1º voto', FIXOS.senadora.nome, FIXOS.senadora.num, imSen); y += PASSO;
 
       // senado 2o voto: caixa amarela contornada
