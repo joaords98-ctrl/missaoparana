@@ -211,11 +211,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://missaoparana.com.br/c/milena-mansur</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://missaoparana.com.br/c/lude-riesemberg</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -237,11 +232,6 @@
   </url>
   <url>
     <loc>https://missaoparana.com.br/c/rubens-nascimento</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://missaoparana.com.br/c/henrique-de-souza</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -367,6 +357,11 @@
   </url>
   <url>
     <loc>https://missaoparana.com.br/c/graci-da-fauna-silvestre</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://missaoparana.com.br/c/victor-moreira</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
