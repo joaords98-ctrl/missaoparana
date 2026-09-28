@@ -113,6 +113,10 @@ h2{font-size:clamp(20px,4.6vw,24px);font-weight:900;line-height:1.2;margin-botto
 .urna li .ordem small{display:block;color:var(--cinza-claro);font-weight:500;font-size:12.5px}
 .urna li .num{font-weight:900;font-size:22px;color:var(--amarelo);font-variant-numeric:tabular-nums;flex:none}
 
+.abas{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.abas button{font:inherit;cursor:pointer;background:var(--preto-2);color:var(--cinza-claro);border:1.5px solid var(--linha);
+ border-radius:12px;padding:10px 8px;font-weight:800;font-size:14px}
+.abas button[aria-pressed="true"]{border-color:var(--amarelo);color:var(--branco);background:rgba(242,169,0,.1)}
 .canvas-wrap{border-radius:16px;border:1px solid var(--linha);overflow:hidden;margin-bottom:14px;background:var(--preto-2);position:relative}
 canvas{width:100%;height:auto;display:block}
 .gerando{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(10,10,10,.85);color:var(--amarelo);font-weight:700;font-size:15px}
@@ -180,6 +184,10 @@ footer p+p{margin-top:6px}
 <section><div class="wrap">
   <h2><span class="passo">4</span>Sua colinha pronta</h2>
   <p class="sub">Salve no celular e mande pra quem ainda não decidiu.</p>
+  <div class="abas" role="group" aria-label="Formato da colinha">
+    <button type="button" data-modo="completa" aria-pressed="true">Colinha completa</button>
+    <button type="button" data-modo="deputados" aria-pressed="false">Só os deputados</button>
+  </div>
   <div class="canvas-wrap">
     <canvas id="colinha" width="1080" height="1350"></canvas>
     <div class="gerando" id="gerando">Escolha os dois deputados acima pra gerar a sua colinha</div>
@@ -201,6 +209,7 @@ footer p+p{margin-top:6px}
 </div></footer>
 
 <script src="candidatos-data.js"></script>
+<script src="colinhas-frases.js"></script>
 <script>
 (function(){
   var URL_PAG = 'https://missaoparana.com.br/colinha.html';
@@ -261,6 +270,19 @@ footer p+p{margin-top:6px}
     return out.trim();
   }
   function temPropostas(c){ return c.propostasCandidato && c.propostasCandidato.length; }
+  var FR = (typeof COLINHA_FRASES !== 'undefined') ? COLINHA_FRASES : {};
+  function fraseColinha(c){ return (FR[c.numero] && FR[c.numero].frase) || ''; }
+  // devolve [{titulo, descricao}] — prioriza os motivos da planilha; senao usa as propostas do site
+  function motivosDe(c){
+    var m = FR[c.numero] && FR[c.numero].motivos;
+    if(m && m.length){
+      return m.slice(0,3).map(function(t){
+        var i = t.indexOf(': ');
+        return i > 0 && i < 60 ? {titulo: t.slice(0,i), descricao: t.slice(i+2)} : {titulo: '', descricao: t};
+      });
+    }
+    return temPropostas(c) ? c.propostasCandidato.slice(0,3) : [];
+  }
   function linkPerfil(c){ return c.pagina && c.pagina.trim() ? c.pagina : ('c/' + c.id); }
   function resumoHTML(c, cargoLabel){
     var digitos = String(c.numero).split('').map(function(d){ return '<span class="tecla">'+d+'</span>'; }).join('');
@@ -269,12 +291,13 @@ footer p+p{margin-top:6px}
         '<div><div class="cargo">'+cargoLabel+'</div><h3>'+esc(c.nome)+'</h3>' +
         '<div class="teclas" aria-label="Número '+esc(c.numero)+'">'+digitos+'</div></div>' +
         '<button type="button" class="trocar">trocar</button></div>';
-    var bio = bioCurta(c, temPropostas(c) ? 240 : 420);
-    if(bio) h += '<p class="resumo-bio">' + esc(bio) + '</p>';
+    var mot = motivosDe(c);
+    var intro = fraseColinha(c) || bioCurta(c, mot.length ? 240 : 420);
+    if(intro) h += '<p class="resumo-bio">' + esc(intro) + '</p>';
     if(c.frase) h += '<p class="resumo-frase">“' + esc(c.frase) + '”</p>';
-    if(temPropostas(c)){
-      h += '<ul class="motivos">' + c.propostasCandidato.slice(0,3).map(function(p){
-        return '<li><b>'+esc(p.titulo)+'</b><span>'+esc(p.descricao)+'</span></li>';
+    if(mot.length){
+      h += '<ul class="motivos">' + mot.map(function(p){
+        return '<li>' + (p.titulo ? '<b>'+esc(p.titulo)+'</b>' : '') + '<span>'+esc(p.descricao)+'</span></li>';
       }).join('') + '</ul>';
     }
     h += '<a class="resumo-link" href="'+esc(linkPerfil(c))+'" target="_blank" rel="noopener">Ver perfil completo →</a></div>';
@@ -330,7 +353,7 @@ footer p+p{margin-top:6px}
     ctx.fillStyle = '#F2A900'; ctx.fill();
     ctx.clip();
     if(im){
-      var esc = Math.max(tam/im.width, tam/im.height);
+      var esc = Math.max(tam/im.width, tam/im.height) * 1.08; // leve zoom pra cobrir o deslocamento pra cima
       var w = im.width*esc, h = im.height*esc;
       ctx.drawImage(im, x + (tam-w)/2, y + (tam-h)/2 - tam*0.02, w, h);
     }
@@ -360,7 +383,95 @@ footer p+p{margin-top:6px}
     teclas(numero, X_TXT, y + 96);
   }
 
-  function desenhar(){
+  // quebra o texto em linhas que cabem na largura (maximo de N linhas; se passar, reduz a fonte)
+  function textoQuebrado(texto, x, y, maxW, gerarFonte, px, alturaLinha, maxLinhas){
+    function quebrar(tam){
+      ctx.font = gerarFonte(tam);
+      var palavras = texto.split(' '), linhas = [], atual = '';
+      palavras.forEach(function(p){
+        var teste = atual ? atual + ' ' + p : p;
+        if(ctx.measureText(teste).width > maxW && atual){ linhas.push(atual); atual = p; } else atual = teste;
+      });
+      if(atual) linhas.push(atual);
+      return linhas;
+    }
+    var tam = px, linhas = quebrar(tam);
+    while(linhas.length > maxLinhas && tam > 18){ tam -= 1; linhas = quebrar(tam); }
+    var lh = alturaLinha * (tam/px);
+    linhas.forEach(function(l, i){ ctx.fillText(l, x, y + i*lh); });
+  }
+
+  function teclasGrandes(numero, x, y){
+    var W = 98, H = 116, GAP = 11;
+    String(numero).split('').forEach(function(d, i){
+      var tx = x + i*(W+GAP);
+      ctx.fillStyle = '#000'; ctx.beginPath(); ctx.roundRect(tx, y+7, W, H, 14); ctx.fill();
+      ctx.fillStyle = '#2a2a2a'; ctx.beginPath(); ctx.roundRect(tx, y, W, H, 14); ctx.fill();
+      ctx.strokeStyle = '#4a4a4a'; ctx.lineWidth = 2; ctx.beginPath(); ctx.roundRect(tx+1, y+1, W-2, H-2, 13); ctx.stroke();
+      ctx.fillStyle = '#fff'; ctx.font = fonteCondensada(96); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(d, tx + W/2, y + H/2 + 5);
+    });
+    ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+  }
+
+  function fotoRetrato(im, x, y, w, h, raio){
+    ctx.save();
+    ctx.beginPath(); ctx.roundRect(x, y, w, h, raio); ctx.closePath();
+    ctx.fillStyle = '#F2A900'; ctx.fill(); ctx.clip();
+    if(im){
+      var esc = Math.max(w/im.width, h/im.height) * 1.08; // leve zoom pra cobrir o deslocamento pra cima
+      var iw = im.width*esc, ih = im.height*esc;
+      ctx.drawImage(im, x + (w-iw)/2, y + (h-ih)/2 - h*0.03, iw, ih);
+    }
+    ctx.restore();
+  }
+
+  function blocoDeputado(y, cargo, c, im){
+    var X_TXT = 390, MAXW = 1024 - X_TXT;
+    fotoRetrato(im, 56, y, 300, 380, 22);
+    ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.fillStyle = '#F2A900'; ctx.font = fonteNormal(28,'800');
+    ctx.fillText(cargo.toUpperCase(), X_TXT, y + 28);
+    ctx.fillStyle = '#fff';
+    textoAjustado(c.nome.toUpperCase(), X_TXT, y + 104, MAXW, fonteCondensada, 84, 40);
+    var fr = fraseColinha(c);
+    if(fr){
+      ctx.fillStyle = '#b9b9b9';
+      textoQuebrado(fr, X_TXT, y + 146, MAXW - 40, function(px){ return fonteNormal(px); }, 27, 32, 3);
+    }
+    teclasGrandes(c.numero, X_TXT, y + 250);
+  }
+
+  function desenharDeputados(){
+    var fed = sel.federal, est = sel.estadual;
+    var fontes = (document.fonts && document.fonts.load) ? document.fonts.load('400 64px "Bebas Neue"').catch(function(){}) : Promise.resolve();
+    return Promise.all([fontes, carregarImg('assets/img/img-f610dd08ec.png'), carregarImg(fed.foto), carregarImg(est.foto)]).then(function(r){
+      var logo = r[1];
+      ctx.clearRect(0,0,1080,1350);
+      ctx.fillStyle = '#0a0a0a'; ctx.fillRect(0,0,1080,1350);
+      if(logo){ var lh = 100, lw = logo.width*(lh/logo.height); ctx.drawImage(logo, 56, 40, lw, lh); }
+      ctx.fillStyle = '#fff'; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+      textoAjustado('MINHA COLINHA', 176, 116, 1024-176, fonteCondensada, 80, 40);
+      ctx.fillStyle = '#b9b9b9'; ctx.font = fonteNormal(27);
+      ctx.fillText('Eleições 4 de outubro, das 8h às 17h', 178, 152);
+      ctx.fillStyle = '#2e2e2e'; ctx.fillRect(56, 196, 968, 2);
+
+      blocoDeputado(236, 'Deputado federal', fed, r[2]);
+      blocoDeputado(716, 'Deputado estadual', est, r[3]);
+
+      var yR = 1188;
+      ctx.fillStyle = '#F2A900'; ctx.fillRect(0, yR, 1080, 1350-yR);
+      ctx.fillStyle = '#1a1304';
+      textoAjustado('DIGITE, CONFIRA A FOTO E APERTE CONFIRMA.', 56, yR + 64, 968, fonteCondensada, 56, 28);
+      textoAjustado('PROPAGANDA ELEITORAL  |  CNPJ ' + (fed.cnpjCampanha||'') + '  |  CNPJ ' + (est.cnpjCampanha||''),
+        56, yR + 112, 968, function(px){ return fonteNormal(px,'600'); }, 21, 13);
+    });
+  }
+
+  var modo = 'completa';
+  function desenhar(){ return modo === 'deputados' ? desenharDeputados() : desenharCompleta(); }
+
+  function desenharCompleta(){
     var fed = sel.federal, est = sel.estadual;
     var fontes = (document.fonts && document.fonts.load) ? document.fonts.load('400 64px "Bebas Neue"').catch(function(){}) : Promise.resolve();
     return Promise.all([
@@ -417,9 +528,12 @@ footer p+p{margin-top:6px}
   }
   function blocoCandidato(num, cargo, c){
     var linhas = ['━━━━━━━━━━━━━━', num + ' *' + cargo + '*', '*' + c.nome.toUpperCase() + ' ➜ ' + c.numero + '*', ''];
-    if(temPropostas(c)){
-      c.propostasCandidato.slice(0,3).forEach(function(p){ linhas.push('✅ *' + p.titulo + '.* ' + p.descricao); });
-    } else {
+    var fr = fraseColinha(c);
+    if(fr) linhas.push('_' + fr + '_', '');
+    var mot = motivosDe(c);
+    if(mot.length){
+      mot.forEach(function(p){ linhas.push('✅ ' + (p.titulo ? '*' + p.titulo + '.* ' : '') + p.descricao); });
+    } else if(!fr){
       var bio = bioCurta(c, 320);
       if(bio) linhas.push(bio);
     }
@@ -468,8 +582,16 @@ footer p+p{margin-top:6px}
     });
   }
   function nomeArquivo(){
-    return 'colinha-missao-' + sel.federal.id + '-' + sel.estadual.id + '.png';
+    return 'colinha-' + (modo === 'deputados' ? 'deputados-' : 'missao-') + sel.federal.id + '-' + sel.estadual.id + '.png';
   }
+
+  document.querySelectorAll('.abas button').forEach(function(b){
+    b.addEventListener('click', function(){
+      modo = b.dataset.modo;
+      document.querySelectorAll('.abas button').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      atualizarTudo();
+    });
+  });
 
   document.getElementById('btnBaixar').addEventListener('click', function(){
     if(!(sel.federal && sel.estadual)) return;
