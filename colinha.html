@@ -32,7 +32,9 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
 <meta property="og:url" content="https://missaoparana.com.br/colinha.html">
 <meta property="og:title" content="Monte sua colinha da Missão">
 <meta property="og:description" content="Escolha seus deputados e gere sua colinha com todos os votos da Missão na ordem da urna.">
-<meta property="og:image" content="https://missaoparana.com.br/assets/colinhas/og-colinha-completa-camillo-v5.jpg">
+<meta property="og:image" content="https://missaoparana.com.br/assets/og-missao.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -212,7 +214,8 @@ footer p+p{margin-top:6px}
 <script src="colinhas-frases.js"></script>
 <script>
 (function(){
-  var URL_PAG = 'https://missaoparana.com.br/colinha.html';
+  var URL_BASE = 'https://missaoparana.com.br/colinha.html';
+  function linkColinha(){ return sel.federal && sel.estadual ? URL_BASE + '?f=' + sel.federal.id + '&e=' + sel.estadual.id : URL_BASE; }
 
   // ===== candidatos fixos =====
   var FIXOS = {
@@ -442,10 +445,12 @@ footer p+p{margin-top:6px}
     teclasGrandes(c.numero, X_TXT, y + 250);
   }
 
-  function desenharDeputados(){
+  var desenhoAtual = 0;
+  function desenharDeputados(meu){
     var fed = sel.federal, est = sel.estadual;
     var fontes = (document.fonts && document.fonts.load) ? document.fonts.load('400 64px "Bebas Neue"').catch(function(){}) : Promise.resolve();
     return Promise.all([fontes, carregarImg('assets/img/img-f610dd08ec.png'), carregarImg(fed.foto), carregarImg(est.foto)]).then(function(r){
+      if(meu !== desenhoAtual) return false;
       var logo = r[1];
       ctx.clearRect(0,0,1080,1350);
       ctx.fillStyle = '#0a0a0a'; ctx.fillRect(0,0,1080,1350);
@@ -469,9 +474,9 @@ footer p+p{margin-top:6px}
   }
 
   var modo = 'completa';
-  function desenhar(){ return modo === 'deputados' ? desenharDeputados() : desenharCompleta(); }
+  function desenhar(){ var meu = ++desenhoAtual; return (modo === 'deputados' ? desenharDeputados(meu) : desenharCompleta(meu)).then(function(ok){ return ok !== false && meu === desenhoAtual; }); }
 
-  function desenharCompleta(){
+  function desenharCompleta(meu){
     var fed = sel.federal, est = sel.estadual;
     var fontes = (document.fonts && document.fonts.load) ? document.fonts.load('400 64px "Bebas Neue"').catch(function(){}) : Promise.resolve();
     return Promise.all([
@@ -480,6 +485,7 @@ footer p+p{margin-top:6px}
       carregarImg(fed.foto), carregarImg(est.foto),
       carregarImg(FIXOS.senadora.foto), carregarImg(FIXOS.governador.foto), carregarImg(FIXOS.presidente.foto)
     ]).then(function(r){
+      if(meu !== desenhoAtual) return false;
       var logo=r[1], imFed=r[2], imEst=r[3], imSen=r[4], imGov=r[5], imPres=r[6];
       ctx.clearRect(0,0,1080,1350);
       ctx.fillStyle = '#0a0a0a'; ctx.fillRect(0,0,1080,1350);
@@ -513,9 +519,9 @@ footer p+p{margin-top:6px}
       ctx.fillStyle = '#1a1304';
       textoAjustado('NESSA ORDEM. CONFIRA A FOTO E APERTE CONFIRMA.', 56, yR + 58, 968, fonteCondensada, 46, 26);
       var fCnpj = function(px){ return fonteNormal(px,'600'); };
-      var cnpjs = 'PROPAGANDA ELEITORAL  |  CNPJ: ' + sobrenomeCurto(fed.nome) + ' ' + (fed.cnpjCampanha||'') +
+      var cnpjs = 'PROPAGANDA ELEITORAL  |  CNPJ: ' + fed.nome + ' ' + (fed.cnpjCampanha||'') +
         '  |  Karen Guerreiro ' + FIXOS.senadora.cnpj;
-      var cnpjs2 = 'Luiz França ' + FIXOS.governador.cnpj + '  |  ' + sobrenomeCurto(est.nome) + ' ' + (est.cnpjCampanha||'');
+      var cnpjs2 = 'Luiz França ' + FIXOS.governador.cnpj + '  |  ' + est.nome + ' ' + (est.cnpjCampanha||'');
       textoAjustado(cnpjs, 56, yR + 104, 968, fCnpj, 19, 13);
       textoAjustado(cnpjs2, 56, yR + 134, 968, fCnpj, 19, 13);
     });
@@ -524,7 +530,7 @@ footer p+p{margin-top:6px}
 
   // ===== textos de compartilhamento =====
   function zapCurto(){
-    return 'Minha colinha pro dia 4 de outubro 🗳️\n\n1º Federal: *'+sel.federal.nome+' '+sel.federal.numero+'*\n2º Estadual: *'+sel.estadual.nome+' '+sel.estadual.numero+'*\n3º Senado, 1º voto: *Karen Guerreiro 144*\n4º Senado, 2º voto: outro candidato (repetir o 144 anula)\n5º Governador: *Luiz França 14*\n6º Presidente: *Renan Santos 14*\n\nMonte a sua também: ' + URL_PAG;
+    return 'Minha colinha pro dia 4 de outubro 🗳️\n\n1º Federal: *'+sel.federal.nome+' '+sel.federal.numero+'*\n2º Estadual: *'+sel.estadual.nome+' '+sel.estadual.numero+'*\n3º Senado, 1º voto: *Karen Guerreiro 144*\n4º Senado, 2º voto: outro candidato (repetir o 144 anula)\n5º Governador: *Luiz França 14*\n6º Presidente: *Renan Santos 14*\n\nMonte a sua também: ' + linkColinha();
   }
   function linhaDeputado(ordem, cargo, c){
     var l = [ordem + ' ' + cargo + ' ➜ *' + c.numero + '* ' + c.nome];
@@ -541,7 +547,7 @@ footer p+p{margin-top:6px}
       '4º Senado, 2º voto ➜ outro candidato (repetir o 144 anula)',
       '5º Governador ➜ *14* Luiz França',
       '6º Presidente ➜ *14* Renan Santos','',
-      '👉 Monte a sua: ' + URL_PAG]).join('\n');
+      '👉 Monte a sua: ' + linkColinha()]).join('\n');
   }
 
   // ===== estado geral =====
@@ -560,12 +566,15 @@ footer p+p{margin-top:6px}
       g.textContent = sel.federal ? 'Agora escolha o deputado estadual' : (sel.estadual ? 'Agora escolha o deputado federal' : 'Escolha os dois deputados acima pra gerar a sua colinha');
       return;
     }
-    document.getElementById('gerando').textContent = 'Gerando a sua colinha...';
-    desenhar().then(function(){
-      document.getElementById('gerando').classList.add('oculto');
+    arquivo = null; // descarta na hora a imagem da escolha anterior
+    var g = document.getElementById('gerando');
+    g.textContent = 'Gerando a sua colinha...'; g.classList.remove('oculto');
+    desenhar().then(function(atual){
+      if(!atual) return; // uma escolha mais nova ja esta sendo desenhada
+      g.classList.add('oculto');
       document.getElementById('btnZap').href = 'https://wa.me/?text=' + encodeURIComponent(zapCurto());
-      arquivo = null;
-      canvas.toBlob(function(b){ if(b) arquivo = new File([b], nomeArquivo(), {type:'image/png'}); }, 'image/png');
+      var meu = desenhoAtual;
+      canvas.toBlob(function(b){ if(b && meu === desenhoAtual) arquivo = new File([b], nomeArquivo(), {type:'image/png'}); }, 'image/png');
       if(typeof fbq === 'function') fbq('trackCustom', 'ColinhaGerada', {federal: sel.federal.nome, estadual: sel.estadual.nome});
     });
   }
