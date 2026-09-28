@@ -365,27 +365,29 @@ footer p+p{margin-top:6px}
     ctx.restore();
   }
 
-  function teclas(numero, x, y){
-    var W = 88, H = 66, GAP = 12;
-    String(numero).split('').forEach(function(d, i){
-      var tx = x + i*(W+GAP);
-      ctx.fillStyle = '#000'; ctx.beginPath(); ctx.roundRect(tx, y+6, W, H, 12); ctx.fill();
-      ctx.fillStyle = '#2a2a2a'; ctx.beginPath(); ctx.roundRect(tx, y, W, H, 12); ctx.fill();
-      ctx.strokeStyle = '#4a4a4a'; ctx.lineWidth = 2; ctx.beginPath(); ctx.roundRect(tx+1, y+1, W-2, H-2, 11); ctx.stroke();
-      ctx.fillStyle = '#fff'; ctx.font = fonteCondensada(56); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.fillText(d, tx + W/2, y + H/2 + 3);
+  function teclas(numero, x, y, S){
+    S = S || 1;
+    var W = 88*S, H = 66*S, GAP = 12*S, R = 12*S;
+    String(numero).split('').forEach(function(d, k){
+      var tx = x + k*(W+GAP);
+      ctx.fillStyle = '#000'; ctx.beginPath(); ctx.roundRect(tx, y+6*S, W, H, R); ctx.fill();
+      ctx.fillStyle = '#2a2a2a'; ctx.beginPath(); ctx.roundRect(tx, y, W, H, R); ctx.fill();
+      ctx.strokeStyle = '#4a4a4a'; ctx.lineWidth = 2; ctx.beginPath(); ctx.roundRect(tx+1, y+1, W-2, H-2, R-1); ctx.stroke();
+      ctx.fillStyle = '#fff'; ctx.font = fonteCondensada(56*S); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(d, tx + W/2, y + H/2 + 3*S);
     });
     ctx.textAlign = 'left';
   }
 
-  function linhaCandidato(y, cargo, nome, numero, im){
-    var TAM = 150, X_FOTO = 56, X_TXT = 236;
-    fotoQuadrada(im, X_FOTO, y, TAM, 14);
-    ctx.fillStyle = '#F2A900'; ctx.font = fonteNormal(24,'800'); ctx.textBaseline = 'alphabetic';
-    ctx.fillText(cargo.toUpperCase(), X_TXT, y + 24);
+  function linhaCandidato(y, cargo, nome, numero, im, S){
+    S = S || 1;
+    var TAM = 150*S, X_FOTO = 56, X_TXT = X_FOTO + TAM + 30*S;
+    fotoQuadrada(im, X_FOTO, y, TAM, 14*S);
+    ctx.fillStyle = '#F2A900'; ctx.font = fonteNormal(24*S,'800'); ctx.textBaseline = 'alphabetic';
+    ctx.fillText(cargo.toUpperCase(), X_TXT, y + 24*S);
     ctx.fillStyle = '#fff';
-    textoAjustado(nome.toUpperCase(), X_TXT, y + 82, 1024 - X_TXT, fonteCondensada, 64, 34);
-    teclas(numero, X_TXT, y + 96);
+    textoAjustado(nome.toUpperCase(), X_TXT, y + 82*S, 1024 - X_TXT, fonteCondensada, 64*S, 34);
+    teclas(numero, X_TXT, y + 96*S, S);
   }
 
   // quebra o texto em linhas que cabem na largura (maximo de N linhas; se passar, reduz a fonte)
@@ -453,6 +455,7 @@ footer p+p{margin-top:6px}
     var fontes = (document.fonts && document.fonts.load) ? document.fonts.load('400 64px "Bebas Neue"').catch(function(){}) : Promise.resolve();
     return Promise.all([fontes, carregarImg('assets/img/img-f610dd08ec.png'), carregarImg(fed.foto), carregarImg(est.foto)]).then(function(r){
       if(meu !== desenhoAtual) return false;
+      tamanhoCanvas(1080, 1350);
       var logo = r[1];
       ctx.clearRect(0,0,1080,1350);
       ctx.fillStyle = '#0a0a0a'; ctx.fillRect(0,0,1080,1350);
@@ -478,6 +481,10 @@ footer p+p{margin-top:6px}
   var modo = 'completa';
   function desenhar(){ var meu = ++desenhoAtual; return (modo === 'deputados' ? desenharDeputados(meu) : desenharCompleta(meu)).then(function(ok){ return ok !== false && meu === desenhoAtual; }); }
 
+  // padrao: story 1080x1920. O formato feed 1080x1350 (?formato=feed) e usado pra gerar as previas de link.
+  var FORMATO_FEED = /[?&]formato=feed/.test(location.search);
+  function tamanhoCanvas(w, h){ if(canvas.width !== w || canvas.height !== h){ canvas.width = w; canvas.height = h; } }
+
   function desenharCompleta(meu){
     var fed = sel.federal, est = sel.estadual;
     var fontes = (document.fonts && document.fonts.load) ? document.fonts.load('400 64px "Bebas Neue"').catch(function(){}) : Promise.resolve();
@@ -489,43 +496,54 @@ footer p+p{margin-top:6px}
     ]).then(function(r){
       if(meu !== desenhoAtual) return false;
       var logo=r[1], imFed=r[2], imEst=r[3], imSen=r[4], imGov=r[5], imPres=r[6];
-      ctx.clearRect(0,0,1080,1350);
-      ctx.fillStyle = '#0a0a0a'; ctx.fillRect(0,0,1080,1350);
+      var story = !FORMATO_FEED;
+      var W = 1080, H = story ? 1920 : 1350;
+      var S = story ? 1.18 : 1;          // escala dos elementos
+      var TOPO = story ? 150 : 34;       // no story, desce o topo pra fugir da barra do Instagram
+      tamanhoCanvas(W, H);
+      ctx.clearRect(0,0,W,H);
+      ctx.fillStyle = '#0a0a0a'; ctx.fillRect(0,0,W,H);
 
       // cabecalho
-      if(logo){ var lh = 92, lw = logo.width*(lh/logo.height); ctx.drawImage(logo, 56, 34, lw, lh); }
+      if(logo){ var lh = 92*S, lw = logo.width*(lh/logo.height); ctx.drawImage(logo, 56, TOPO, lw, lh); }
+      var xT = 56 + 110*S;
       ctx.fillStyle = '#fff'; ctx.textAlign='left'; ctx.textBaseline='alphabetic';
-      textoAjustado('COLINHA DA MISSÃO', 166, 96, 1024 - 166, fonteCondensada, 72, 40);
-      ctx.fillStyle = '#c9c9c9'; ctx.font = fonteNormal(24);
-      ctx.fillText('4 de outubro, das 8h às 17h  |  Paraná', 166, 128);
-      ctx.fillStyle = '#F2A900'; ctx.fillRect(56, 158, 968, 3);
+      textoAjustado('COLINHA DA MISSÃO', xT, TOPO + 62*S, 1024 - xT, fonteCondensada, 72*S, 40);
+      ctx.fillStyle = '#c9c9c9'; ctx.font = fonteNormal(24*S);
+      ctx.fillText('4 de outubro, das 8h às 17h  |  Paraná', xT, TOPO + 94*S);
+      ctx.fillStyle = '#F2A900'; ctx.fillRect(56, TOPO + 124*S, 968, 3);
 
       // linhas
-      var y = 182, PASSO = 182;
-      linhaCandidato(y, cargoDe(fed,'federal'), fed.nome, fed.numero, imFed); y += PASSO;
-      linhaCandidato(y, cargoDe(est,'estadual'), est.nome, est.numero, imEst); y += PASSO;
-      linhaCandidato(y, 'Senado, 1º voto', FIXOS.senadora.nome, FIXOS.senadora.num, imSen); y += PASSO;
+      var y = TOPO + 148*S, PASSO = 182*S;
+      linhaCandidato(y, cargoDe(fed,'federal'), fed.nome, fed.numero, imFed, S); y += PASSO;
+      linhaCandidato(y, cargoDe(est,'estadual'), est.nome, est.numero, imEst, S); y += PASSO;
+      linhaCandidato(y, 'Senado, 1º voto', FIXOS.senadora.nome, FIXOS.senadora.num, imSen, S); y += PASSO;
 
       // senado 2o voto: caixa amarela contornada
-      ctx.strokeStyle = '#F2A900'; ctx.lineWidth = 3; ctx.beginPath(); ctx.roundRect(56, y-6, 968, 72, 14); ctx.stroke();
-      ctx.fillStyle = '#F2A900'; ctx.font = fonteNormal(24,'800'); ctx.fillText('SENADO, 2º VOTO', 76, y + 24);
-      ctx.fillStyle = '#fff'; ctx.font = fonteNormal(21); ctx.fillText('Escolha outro candidato. Repetir o 144 anula esse voto.', 76, y + 52);
-      y += 92;
+      ctx.strokeStyle = '#F2A900'; ctx.lineWidth = 3; ctx.beginPath(); ctx.roundRect(56, y-6*S, 968, 72*S, 14*S); ctx.stroke();
+      ctx.fillStyle = '#F2A900'; ctx.font = fonteNormal(24*S,'800'); ctx.fillText('SENADO, 2º VOTO', 76, y + 24*S);
+      ctx.fillStyle = '#fff';
+      textoAjustado('Escolha outro candidato. Repetir o 144 anula esse voto.', 76, y + 52*S, 928, function(px){ return fonteNormal(px); }, 21*S, 14);
+      y += 92*S;
 
-      linhaCandidato(y, 'Governador', FIXOS.governador.nome, FIXOS.governador.num, imGov); y += PASSO;
-      linhaCandidato(y, 'Presidente', FIXOS.presidente.nome, FIXOS.presidente.num, imPres); y += PASSO;
+      linhaCandidato(y, 'Governador', FIXOS.governador.nome, FIXOS.governador.num, imGov, S); y += PASSO;
+      linhaCandidato(y, 'Presidente', FIXOS.presidente.nome, FIXOS.presidente.num, imPres, S); y += PASSO;
 
-      // rodape amarelo
-      var yR = 1188;
-      ctx.fillStyle = '#F2A900'; ctx.fillRect(0, yR, 1080, 1350-yR);
+      // rodape amarelo (no story, o texto fica acima da barra de resposta do Instagram)
+      var yR = story ? 1560 : 1188;
+      ctx.fillStyle = '#F2A900'; ctx.fillRect(0, yR, W, H-yR);
       ctx.fillStyle = '#1a1304';
-      textoAjustado('NESSA ORDEM. CONFIRA A FOTO E APERTE CONFIRMA.', 56, yR + 58, 968, fonteCondensada, 46, 26);
+      textoAjustado('NESSA ORDEM. CONFIRA A FOTO E APERTE CONFIRMA.', 56, yR + 58*S, 968, fonteCondensada, 46*S, 26);
       var fCnpj = function(px){ return fonteNormal(px,'600'); };
       var cnpjs = 'PROPAGANDA ELEITORAL  |  CNPJ: ' + fed.nome + ' ' + (fed.cnpjCampanha||'') +
         '  |  Karen Guerreiro ' + FIXOS.senadora.cnpj;
       var cnpjs2 = 'Luiz França ' + FIXOS.governador.cnpj + '  |  ' + est.nome + ' ' + (est.cnpjCampanha||'');
-      textoAjustado(cnpjs, 56, yR + 104, 968, fCnpj, 19, 13);
-      textoAjustado(cnpjs2, 56, yR + 134, 968, fCnpj, 19, 13);
+      textoAjustado(cnpjs, 56, yR + 104*S, 968, fCnpj, 19*S, 13);
+      textoAjustado(cnpjs2, 56, yR + 134*S, 968, fCnpj, 19*S, 13);
+      if(story){
+        ctx.font = fonteCondensada(40);
+        ctx.fillText('MONTE A SUA: MISSAOPARANA.COM.BR/COLINHA', 56, yR + 250);
+      }
     });
   }
   function sobrenomeCurto(nome){ var p = nome.split(' '); return p.length>1 ? p[p.length-1] : nome; }
