@@ -598,19 +598,58 @@ footer p+p{margin-top:6px}
     aviso.textContent = 'Colinha salva! Agora é só postar ou mandar no WhatsApp.';
   });
 
+  // gera o arquivo na hora, de forma sincrona, se o pre-gerado ainda nao ficou pronto
+  // (o navegador so abre o compartilhar se tudo acontecer dentro do proprio clique)
+  function arquivoAgora(){
+    if(arquivo instanceof File) return arquivo;
+    var dataUrl = canvas.toDataURL('image/png');
+    var bin = atob(dataUrl.split(',')[1]), bytes = new Uint8Array(bin.length);
+    for(var i=0;i<bin.length;i++) bytes[i] = bin.charCodeAt(i);
+    arquivo = new File([bytes], nomeArquivo(), {type:'image/png'});
+    return arquivo;
+  }
+  function baixarImagem(){
+    var a = document.createElement('a');
+    a.href = canvas.toDataURL('image/png'); a.download = nomeArquivo();
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  }
+
   document.getElementById('btnZap').addEventListener('click', function(ev){
-    if(!(sel.federal && sel.estadual)){ ev.preventDefault(); aviso.textContent = 'Escolha os dois deputados primeiro.'; return; }
-    var f = arquivo;
-    if(!(f instanceof File) || !navigator.canShare || !navigator.canShare({files:[f]})) return; // segue pro wa.me
     ev.preventDefault();
+    if(!(sel.federal && sel.estadual)){ aviso.textContent = 'Escolha os dois deputados primeiro.'; return; }
+    if(!document.getElementById('gerando').classList.contains('oculto')){ aviso.textContent = 'Espere a colinha terminar de ser gerada.'; return; }
+    var f = arquivoAgora();
     var txt = zapCurto();
-    try { if(navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(txt).catch(function(){}); } catch(e){}
-    navigator.share({files:[f], text: txt}).then(function(){
-      aviso.textContent = 'Enviado. Se a legenda não apareceu, é só colar: o texto já está copiado.';
-    }).catch(function(err){
-      if(err && err.name === 'AbortError') return;
-      window.open(document.getElementById('btnZap').href, '_blank');
-    });
+    var link = 'https://wa.me/?text=' + encodeURIComponent(txt);
+
+    // 1) CELULAR: menu de compartilhar do sistema, com a imagem anexada
+    if(navigator.canShare && navigator.share && navigator.canShare({files:[f]})){
+      try { if(navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(txt).catch(function(){}); } catch(e){}
+      navigator.share({files:[f], text: txt}).then(function(){
+        aviso.textContent = 'Enviado. Se a legenda não apareceu, é só colar: o texto já está copiado.';
+      }).catch(function(err){
+        if(err && err.name === 'AbortError') return;
+        baixarImagem(); window.open(link, '_blank');
+        aviso.textContent = 'A imagem foi salva. No WhatsApp, anexe a imagem pelo clipe 📎.';
+      });
+      return;
+    }
+
+    // 2) COMPUTADOR: o link do WhatsApp so leva texto. Entao a imagem vai pra area de
+    //    transferencia (e tambem e baixada, por garantia) e a pessoa cola no chat.
+    var copiou = false;
+    try {
+      if(navigator.clipboard && window.ClipboardItem && window.isSecureContext){
+        navigator.clipboard.write([new ClipboardItem({'image/png': f})]).catch(function(){});
+        copiou = true;
+      }
+    } catch(e){ copiou = false; }
+    if(!copiou) baixarImagem();
+    window.open(link, '_blank');
+    var mac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+    aviso.textContent = copiou
+      ? 'Colinha copiada! No WhatsApp, clique na conversa e aperte ' + (mac ? 'Cmd+V' : 'Ctrl+V') + ' pra anexar a imagem.'
+      : 'A imagem foi baixada. No WhatsApp, anexe pelo clipe 📎 (o texto já vai preenchido).';
   });
 
   document.getElementById('btnCopiar').addEventListener('click', function(){
