@@ -443,7 +443,7 @@ const COLINHA_FRASES = {
   ]
  },
  "14444": {
-  "nome": "Mari Mazzon",
+  "nome": "Mari Mazzon SOS 4 PATAS",
   "frase": "Fundadora do Instituto SOS 4 Patas Paraná. Da linha de frente da causa animal para a política.",
   "motivos": [
    "Fundo Estadual de Bem-Estar Animal.",

@@ -624,7 +624,7 @@ const CANDIDATOS = [
     bandeiras: ["Guaratuba e litoral como destino turístico", "hemodiálise local", "fim da situação de rua", "representatividade do litoral na ALEP"]
   },
   {
-    id: "mariane-mazzon", nome: "Mari Mazzon", cargo: "estadual", genero: "f",
+    id: "mariane-mazzon", nome: "Mari Mazzon SOS 4 PATAS", cargo: "estadual", genero: "f",
     cargoLabel: "Deputado Estadual", cnpjCampanha: "68.578.176/0001-69", propagandaEleitoral: "PROPAGANDA ELEITORAL • CNPJ 68.578.176/0001-69", numero: "14444", cidade: "Campo Largo, PR", foto: "assets/candidatos/mariane-mazzon.jpg",
     instagram: "https://www.instagram.com/marimazzon_",
     facebook: "https://www.facebook.com/share/1AxEA8v2Vc", tiktok: "https://www.tiktok.com/@mari.mazzon", youtube: "",
