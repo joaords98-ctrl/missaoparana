@@ -408,15 +408,16 @@ footer p+p{margin-top:6px}
     linhas.forEach(function(l, i){ ctx.fillText(l, x, y + i*lh); });
   }
 
-  function teclasGrandes(numero, x, y){
-    var W = 98, H = 116, GAP = 11;
-    String(numero).split('').forEach(function(d, i){
-      var tx = x + i*(W+GAP);
-      ctx.fillStyle = '#000'; ctx.beginPath(); ctx.roundRect(tx, y+7, W, H, 14); ctx.fill();
-      ctx.fillStyle = '#2a2a2a'; ctx.beginPath(); ctx.roundRect(tx, y, W, H, 14); ctx.fill();
-      ctx.strokeStyle = '#4a4a4a'; ctx.lineWidth = 2; ctx.beginPath(); ctx.roundRect(tx+1, y+1, W-2, H-2, 13); ctx.stroke();
-      ctx.fillStyle = '#fff'; ctx.font = fonteCondensada(96); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.fillText(d, tx + W/2, y + H/2 + 5);
+  function teclasGrandes(numero, x, y, S){
+    S = S || 1;
+    var W = 98*S, H = 116*S, GAP = 11*S, R = 14*S;
+    String(numero).split('').forEach(function(d, k){
+      var tx = x + k*(W+GAP);
+      ctx.fillStyle = '#000'; ctx.beginPath(); ctx.roundRect(tx, y+7*S, W, H, R); ctx.fill();
+      ctx.fillStyle = '#2a2a2a'; ctx.beginPath(); ctx.roundRect(tx, y, W, H, R); ctx.fill();
+      ctx.strokeStyle = '#4a4a4a'; ctx.lineWidth = 2; ctx.beginPath(); ctx.roundRect(tx+1, y+1, W-2, H-2, R-1); ctx.stroke();
+      ctx.fillStyle = '#fff'; ctx.font = fonteCondensada(96*S); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(d, tx + W/2, y + H/2 + 5*S);
     });
     ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
   }
@@ -433,20 +434,21 @@ footer p+p{margin-top:6px}
     ctx.restore();
   }
 
-  function blocoDeputado(y, cargo, c, im){
-    var X_TXT = 390, MAXW = 1024 - X_TXT;
-    fotoRetrato(im, 56, y, 300, 380, 22);
+  function blocoDeputado(y, cargo, c, im, S){
+    S = S || 1;
+    var FW = 300*S, FH = 380*S, X_TXT = 56 + FW + 34*S, MAXW = 1024 - X_TXT;
+    fotoRetrato(im, 56, y, FW, FH, 22*S);
     ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
-    ctx.fillStyle = '#F2A900'; ctx.font = fonteNormal(28,'800');
-    ctx.fillText(cargo.toUpperCase(), X_TXT, y + 28);
+    ctx.fillStyle = '#F2A900'; ctx.font = fonteNormal(28*S,'800');
+    ctx.fillText(cargo.toUpperCase(), X_TXT, y + 28*S);
     ctx.fillStyle = '#fff';
-    textoAjustado(c.nome.toUpperCase(), X_TXT, y + 104, MAXW, fonteCondensada, 84, 40);
+    textoAjustado(c.nome.toUpperCase(), X_TXT, y + 104*S, MAXW, fonteCondensada, 84*S, 40);
     var fr = fraseColinha(c);
     if(fr){
       ctx.fillStyle = '#b9b9b9';
-      textoQuebrado(fr, X_TXT, y + 146, MAXW - 40, function(px){ return fonteNormal(px); }, 27, 32, 3);
+      textoQuebrado(fr, X_TXT, y + 146*S, MAXW - 30, function(px){ return fonteNormal(px); }, 27*S, 32*S, 3);
     }
-    teclasGrandes(c.numero, X_TXT, y + 250);
+    teclasGrandes(c.numero, X_TXT, y + 250*S, S);
   }
 
   var desenhoAtual = 0;
@@ -455,26 +457,37 @@ footer p+p{margin-top:6px}
     var fontes = (document.fonts && document.fonts.load) ? document.fonts.load('400 64px "Bebas Neue"').catch(function(){}) : Promise.resolve();
     return Promise.all([fontes, carregarImg('assets/img/img-f610dd08ec.png'), carregarImg(fed.foto), carregarImg(est.foto)]).then(function(r){
       if(meu !== desenhoAtual) return false;
-      tamanhoCanvas(1080, 1350);
+      var story = !FORMATO_FEED;
+      var W = 1080, H = story ? 1920 : 1350;
+      var S = story ? 1.12 : 1;
+      var TOPO = story ? 150 : 40;
+      tamanhoCanvas(W, H);
       var logo = r[1];
-      ctx.clearRect(0,0,1080,1350);
-      ctx.fillStyle = '#0a0a0a'; ctx.fillRect(0,0,1080,1350);
-      if(logo){ var lh = 100, lw = logo.width*(lh/logo.height); ctx.drawImage(logo, 56, 40, lw, lh); }
+      ctx.clearRect(0,0,W,H);
+      ctx.fillStyle = '#0a0a0a'; ctx.fillRect(0,0,W,H);
+      if(logo){ var lh = 100*S, lw = logo.width*(lh/logo.height); ctx.drawImage(logo, 56, TOPO, lw, lh); }
+      var xT = 56 + 120*S;
       ctx.fillStyle = '#fff'; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
-      textoAjustado('MINHA COLINHA', 176, 116, 1024-176, fonteCondensada, 80, 40);
-      ctx.fillStyle = '#b9b9b9'; ctx.font = fonteNormal(27);
-      ctx.fillText('Eleições 4 de outubro, das 8h às 17h', 178, 152);
-      ctx.fillStyle = '#2e2e2e'; ctx.fillRect(56, 196, 968, 2);
+      textoAjustado('MINHA COLINHA', xT, TOPO + 76*S, 1024 - xT, fonteCondensada, 80*S, 40);
+      ctx.fillStyle = '#b9b9b9'; ctx.font = fonteNormal(27*S);
+      ctx.fillText('Eleições 4 de outubro, das 8h às 17h', xT + 2, TOPO + 112*S);
+      ctx.fillStyle = '#2e2e2e'; ctx.fillRect(56, TOPO + 156*S, 968, 2);
 
-      blocoDeputado(236, cargoDe(fed,'federal'), fed, r[2]);
-      blocoDeputado(716, cargoDe(est,'estadual'), est, r[3]);
+      var y1 = TOPO + 196*S;
+      var y2 = story ? y1 + 380*S + 150 : 716;
+      blocoDeputado(y1, cargoDe(fed,'federal'), fed, r[2], S);
+      blocoDeputado(y2, cargoDe(est,'estadual'), est, r[3], S);
 
-      var yR = 1188;
-      ctx.fillStyle = '#F2A900'; ctx.fillRect(0, yR, 1080, 1350-yR);
+      var yR = story ? 1560 : 1188;
+      ctx.fillStyle = '#F2A900'; ctx.fillRect(0, yR, W, H-yR);
       ctx.fillStyle = '#1a1304';
-      textoAjustado('DIGITE, CONFIRA A FOTO E APERTE CONFIRMA.', 56, yR + 64, 968, fonteCondensada, 56, 28);
+      textoAjustado('DIGITE, CONFIRA A FOTO E APERTE CONFIRMA.', 56, yR + 64*S, 968, fonteCondensada, 56*S, 28);
       textoAjustado('PROPAGANDA ELEITORAL  |  CNPJ ' + (fed.cnpjCampanha||'') + '  |  CNPJ ' + (est.cnpjCampanha||''),
-        56, yR + 112, 968, function(px){ return fonteNormal(px,'600'); }, 21, 13);
+        56, yR + 112*S, 968, function(px){ return fonteNormal(px,'600'); }, 21*S, 13);
+      if(story){
+        ctx.font = fonteCondensada(40);
+        ctx.fillText('MONTE A SUA: MISSAOPARANA.COM.BR/COLINHA', 56, yR + 250);
+      }
     });
   }
 
