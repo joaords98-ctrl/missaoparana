@@ -526,34 +526,22 @@ footer p+p{margin-top:6px}
   function zapCurto(){
     return 'Minha colinha pro dia 4 de outubro 🗳️\n\n1º Federal: *'+sel.federal.nome+' '+sel.federal.numero+'*\n2º Estadual: *'+sel.estadual.nome+' '+sel.estadual.numero+'*\n3º Senado, 1º voto: *Karen Guerreiro 144*\n4º Senado, 2º voto: outro candidato (repetir o 144 anula)\n5º Governador: *Luiz França 14*\n6º Presidente: *Renan Santos 14*\n\nMonte a sua também: ' + URL_PAG;
   }
-  function blocoCandidato(num, cargo, c){
-    var linhas = ['━━━━━━━━━━━━━━', num + ' *' + cargo + '*', '*' + c.nome.toUpperCase() + ' ➜ ' + c.numero + '*', ''];
+  function linhaDeputado(ordem, cargo, c){
+    var l = [ordem + ' ' + cargo + ' ➜ *' + c.numero + '* ' + c.nome];
     var fr = fraseColinha(c);
-    if(fr) linhas.push('_' + fr + '_', '');
-    var mot = motivosDe(c);
-    if(mot.length){
-      mot.forEach(function(p){ linhas.push('✅ ' + (p.titulo ? '*' + p.titulo + '.* ' : '') + p.descricao); });
-    } else if(!fr){
-      var bio = bioCurta(c, 320);
-      if(bio) linhas.push(bio);
-    }
-    if(linhas[linhas.length-1] !== '') linhas.push('');
-    return linhas;
+    if(fr) l.push('_' + fr + '_');
+    return l;
   }
   function textoGrupos(){
-    return ['🗳️ *MINHA COLINHA PRO DIA 4 DE OUTUBRO*','_Não é só número. É motivo._','']
-      .concat(blocoCandidato('1️⃣','DEPUTADO FEDERAL', sel.federal))
-      .concat(blocoCandidato('2️⃣','DEPUTADO ESTADUAL', sel.estadual))
-      .concat(['━━━━━━━━━━━━━━','📲 *NA URNA, NESSA ORDEM:*',
-      '1º Deputado federal ➜ *'+sel.federal.numero+'* ('+sel.federal.nome+')',
-      '2º Deputado estadual ➜ *'+sel.estadual.numero+'* ('+sel.estadual.nome+')',
-      '3º Senado, 1º voto ➜ *144* (Karen Guerreiro)',
-      '4º Senado, 2º voto ➜ outro candidato. Não repita o 144, senão esse voto é anulado',
-      '5º Governador ➜ *14* (Luiz França)',
-      '6º Presidente ➜ *14* (Renan Santos)',
-      'Confira a foto e aperte CONFIRMA ✅','',
-      '👉 Monte a sua colinha: ' + URL_PAG,'',
-      '🔁 *Manda pra 3 pessoas.* Voto consciente se espalha assim.']).join('\n');
+    return ['🗳️ *MINHA COLINHA PRO DIA 4 DE OUTUBRO*','']
+      .concat(linhaDeputado('1º','Federal', sel.federal))
+      .concat(linhaDeputado('2º','Estadual', sel.estadual))
+      .concat([
+      '3º Senado, 1º voto ➜ *144* Karen Guerreiro',
+      '4º Senado, 2º voto ➜ outro candidato (repetir o 144 anula)',
+      '5º Governador ➜ *14* Luiz França',
+      '6º Presidente ➜ *14* Renan Santos','',
+      '👉 Monte a sua: ' + URL_PAG]).join('\n');
   }
 
   // ===== estado geral =====
