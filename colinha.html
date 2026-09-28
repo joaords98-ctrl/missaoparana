@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<base href="/">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -215,7 +216,7 @@ footer p+p{margin-top:6px}
 <script>
 (function(){
   var URL_BASE = 'https://missaoparana.com.br/colinha.html';
-  function linkColinha(){ return sel.federal && sel.estadual ? URL_BASE + '?f=' + sel.federal.id + '&e=' + sel.estadual.id : URL_BASE; }
+  function linkColinha(){ return sel.federal && sel.estadual ? 'https://missaoparana.com.br/colinha/' + sel.federal.id + '/' + sel.estadual.id : URL_BASE; }
 
   // ===== candidatos fixos =====
   var FIXOS = {
@@ -667,8 +668,11 @@ footer p+p{margin-top:6px}
 
   // pre-selecao via URL: colinha.html?f=alan-leal&e=gustavo-camillo
   var q = new URLSearchParams(location.search);
-  if(q.get('f')) escolher('Federal', q.get('f'));
-  if(q.get('e')) escolher('Estadual', q.get('e'));
+  var mPath = location.pathname.match(/\/colinha\/([^\/]+)\/([^\/]+)/);
+  var preF = q.get('f') || (mPath && decodeURIComponent(mPath[1]));
+  var preE = q.get('e') || (mPath && decodeURIComponent(mPath[2]));
+  if(preF) escolher('Federal', preF);
+  if(preE) escolher('Estadual', preE);
   atualizarTudo();
 })();
 </script>

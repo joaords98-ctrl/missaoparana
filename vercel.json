@@ -2,17 +2,41 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/c", "destination": "/candidatos.html", "permanent": false },
-    { "source": "/c/", "destination": "/candidatos.html", "permanent": false }
+    {
+      "source": "/c",
+      "destination": "/candidatos.html",
+      "permanent": false
+    },
+    {
+      "source": "/c/",
+      "destination": "/candidatos.html",
+      "permanent": false
+    }
   ],
   "rewrites": [
-    { "source": "/candidato.html", "destination": "/api/candidato" },
-    { "source": "/candidato", "destination": "/api/candidato" },
-    { "source": "/c/:id", "destination": "/api/candidato?id=:id" }
+    {
+      "source": "/candidato.html",
+      "destination": "/api/candidato"
+    },
+    {
+      "source": "/candidato",
+      "destination": "/api/candidato"
+    },
+    {
+      "source": "/c/:id",
+      "destination": "/api/candidato?id=:id"
+    },
+    {
+      "source": "/colinha/:f/:e",
+      "destination": "/api/colinha?f=:f&e=:e"
+    }
   ],
   "functions": {
     "api/candidato.js": {
       "includeFiles": "{candidato-template.html,candidatos-data.js}"
+    },
+    "api/colinha.js": {
+      "includeFiles": "{colinha.html,candidatos-data.js}"
     }
   }
 }
