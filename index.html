@@ -92,7 +92,7 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   .hero-flag{position:absolute;inset:0;z-index:0;pointer-events:none;
     background-image:url('assets/img/img-ebfe50a0c9.jpg');background-size:cover;background-position:center right;
     opacity:.14;-webkit-mask-image:linear-gradient(90deg,transparent,#000 55%);mask-image:linear-gradient(90deg,transparent,#000 55%);}
-  .hero-in{position:relative;z-index:2;padding:120px 0 70px}
+  .hero-in{position:relative;z-index:2;padding-top:120px;padding-bottom:70px}
   .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.18em;
     text-transform:uppercase;color:var(--amarelo);margin-bottom:24px}
   .eyebrow::before{content:"";width:30px;height:2px;background:var(--amarelo);display:inline-block}
@@ -100,6 +100,18 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   h1 .hl{color:var(--amarelo)}
   .hero p.lead{margin:26px 0 36px;font-size:clamp(16px,2vw,19px);color:#d6d6d6;max-width:54ch}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .cola-voto{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 32px;max-width:860px}
+  .cola-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:16px 10px;
+    background:rgba(18,18,18,.72);border:1px solid rgba(242,169,0,.28);border-radius:14px;backdrop-filter:blur(6px);
+    text-decoration:none;color:inherit;transition:border-color .15s,transform .15s,background .15s}
+  .cola-item:hover{border-color:var(--amarelo);background:rgba(242,169,0,.1);transform:translateY(-3px)}
+  .cola-cargo{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--cinza-claro)}
+  .cola-num{display:flex;gap:4px}
+  .cola-num b{min-width:30px;height:38px;padding:0 4px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(180deg,var(--amarelo-claro),var(--amarelo));color:#1a1304;border-radius:8px;
+    font-size:21px;font-weight:900;box-shadow:0 4px 12px rgba(242,169,0,.3)}
+  .cola-num b.x{background:#1a1a1a;color:var(--amarelo);border:1.5px dashed rgba(242,169,0,.5);box-shadow:none}
+  .cola-nome{font-size:12.5px;font-weight:600;color:#e8e8e8}
   .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;color:#888;font-size:11px;
     letter-spacing:.2em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
   .scroll-hint .dot{width:5px;height:5px;border-radius:50%;background:var(--amarelo);animation:fall 1.6s infinite}
@@ -192,8 +204,10 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
     .wrap{padding:0 18px}
     .nav-in{height:64px}
     .brand{font-size:17px}.brand img{height:32px}
-    .hero-in{padding:104px 0 56px}
+    .hero-in{padding-top:104px;padding-bottom:56px}
     .hero-cta{flex-direction:column;align-items:stretch}
+    .cola-voto{grid-template-columns:repeat(2,1fr);gap:10px}
+    .cola-num b{min-width:26px;height:34px;font-size:18px}
     .hero-cta .btn{width:100%;text-align:center;padding:14px 20px}
     .eyebrow{margin-bottom:18px}
     .hero p.lead{margin:20px 0 28px}
@@ -249,13 +263,36 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
 <header class="hero" id="topo">
   <div class="hero-flag"></div>
   <div class="wrap hero-in">
-    <span class="eyebrow">O futuro é glorioso</span>
-    <h1>A <span class="hl">Missão</span> de criar um Brasil melhor.</h1>
-    <p class="lead">Existimos para reunir, organizar e potencializar quem vai construir o país que nossos pais e avós sonharam — e que a nossa geração vai transformar em realidade. No Paraná, essa missão começa pela sua região.</p>
+    <span class="eyebrow" id="contagemEleicao">Eleições 4 de outubro</span>
+    <h1>Vote nos candidatos do <span class="hl">Missão</span>.</h1>
+    <p class="lead">Chegou a hora. No dia 4 de outubro, é só lembrar de um número: <strong style="color:var(--amarelo)">14</strong>. Governador, Senador, deputados federais e estaduais — todos os nossos candidatos começam com 14.</p>
+
+    <div class="cola-voto">
+      <a class="cola-item" href="luiz-franca.html">
+        <span class="cola-cargo">Governador</span>
+        <span class="cola-num"><b>1</b><b>4</b></span>
+        <span class="cola-nome">Luiz Felipe França</span>
+      </a>
+      <a class="cola-item" href="c/karen-guerreiro">
+        <span class="cola-cargo">Senador</span>
+        <span class="cola-num"><b>1</b><b>4</b><b>4</b></span>
+        <span class="cola-nome">Karen Guerreiro</span>
+      </a>
+      <a class="cola-item" href="candidatos.html#federal-slot">
+        <span class="cola-cargo">Dep. Federal</span>
+        <span class="cola-num"><b>1</b><b>4</b><b class="x">?</b><b class="x">?</b></span>
+        <span class="cola-nome">Escolha o seu →</span>
+      </a>
+      <a class="cola-item" href="candidatos.html#estadual-slot">
+        <span class="cola-cargo">Dep. Estadual</span>
+        <span class="cola-num"><b>1</b><b>4</b><b class="x">?</b><b class="x">?</b><b class="x">?</b></span>
+        <span class="cola-nome">Escolha o seu →</span>
+      </a>
+    </div>
+
     <div class="hero-cta">
-      <a class="btn" href="grupos.html">Entrar no grupo da minha região</a>
-      <a class="btn btn-ghost" href="#movimento">Conhecer o movimento</a>
-      <a class="btn" href="material-franca.html">Quero material de campanha</a>
+      <a class="btn" href="candidatos.html">Ver todos os candidatos</a>
+      <a class="btn btn-ghost" href="grupos.html">Entrar no grupo da minha região</a>
     </div>
   </div>
   <div class="scroll-hint"><span>role para ver mais</span><span class="dot"></span></div>
@@ -393,6 +430,19 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
 </footer>
 
 <script>
+  // Contagem regressiva pro dia da eleicao (4 de outubro de 2026)
+  (function(){
+    var el = document.getElementById('contagemEleicao');
+    if(!el) return;
+    var hoje = new Date(); hoje.setHours(0,0,0,0);
+    var eleicao = new Date(2026, 9, 4); // mes e 0-indexado: 9 = outubro
+    var dias = Math.round((eleicao - hoje) / 86400000);
+    if(dias > 1) el.textContent = 'Faltam ' + dias + ' dias para a eleição';
+    else if(dias === 1) el.textContent = 'A eleição é amanhã';
+    else if(dias === 0) el.textContent = 'Hoje é dia de votar';
+    else el.textContent = 'Eleições 2026';
+  })();
+
   const nav=document.getElementById('nav');
   addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>20)});
   const burger=document.getElementById('burger'),links=document.getElementById('navLinks');
