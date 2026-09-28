@@ -100,7 +100,7 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   h1 .hl{color:var(--amarelo)}
   .hero p.lead{margin:26px 0 36px;font-size:clamp(16px,2vw,19px);color:#d6d6d6;max-width:54ch}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-  .cola-voto{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 32px;max-width:860px}
+  .cola-voto{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:0 0 32px;max-width:1040px}
   .cola-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:16px 10px;
     background:rgba(18,18,18,.72);border:1px solid rgba(242,169,0,.28);border-radius:14px;backdrop-filter:blur(6px);
     text-decoration:none;color:inherit;transition:border-color .15s,transform .15s,background .15s}
@@ -207,6 +207,7 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
     .hero-in{padding-top:104px;padding-bottom:56px}
     .hero-cta{flex-direction:column;align-items:stretch}
     .cola-voto{grid-template-columns:repeat(2,1fr);gap:10px}
+    .cola-presidente{grid-column:1/-1}
     .cola-num b{min-width:26px;height:34px;font-size:18px}
     .hero-cta .btn{width:100%;text-align:center;padding:14px 20px}
     .eyebrow{margin-bottom:18px}
@@ -265,9 +266,14 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   <div class="wrap hero-in">
     <span class="eyebrow" id="contagemEleicao">Eleições 4 de outubro</span>
     <h1>Vote nos candidatos do <span class="hl">Missão</span>.</h1>
-    <p class="lead">Chegou a hora. No dia 4 de outubro, é só lembrar de um número: <strong style="color:var(--amarelo)">14</strong>. Governador, Senador, deputados federais e estaduais — todos os nossos candidatos começam com 14.</p>
+    <p class="lead">Chegou a hora. No dia 4 de outubro, é só lembrar de um número: <strong style="color:var(--amarelo)">14</strong>. Presidente, Governador, Senador, deputados federais e estaduais — todos os nossos candidatos começam com 14.</p>
 
     <div class="cola-voto">
+      <a class="cola-item cola-presidente" href="historia.html">
+        <span class="cola-cargo">Presidente</span>
+        <span class="cola-num"><b>1</b><b>4</b></span>
+        <span class="cola-nome">Renan Santos</span>
+      </a>
       <a class="cola-item" href="luiz-franca.html">
         <span class="cola-cargo">Governador</span>
         <span class="cola-num"><b>1</b><b>4</b></span>
@@ -278,15 +284,15 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
         <span class="cola-num"><b>1</b><b>4</b><b>4</b></span>
         <span class="cola-nome">Karen Guerreiro</span>
       </a>
-      <a class="cola-item" href="candidatos.html#federal-slot">
+      <a class="cola-item" href="colinha.html">
         <span class="cola-cargo">Dep. Federal</span>
         <span class="cola-num"><b>1</b><b>4</b><b class="x">?</b><b class="x">?</b></span>
-        <span class="cola-nome">Escolha o seu →</span>
+        <span class="cola-nome">Monte sua colinha →</span>
       </a>
-      <a class="cola-item" href="candidatos.html#estadual-slot">
+      <a class="cola-item" href="colinha.html">
         <span class="cola-cargo">Dep. Estadual</span>
         <span class="cola-num"><b>1</b><b>4</b><b class="x">?</b><b class="x">?</b><b class="x">?</b></span>
-        <span class="cola-nome">Escolha o seu →</span>
+        <span class="cola-nome">Monte sua colinha →</span>
       </a>
     </div>
 
