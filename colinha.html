@@ -88,6 +88,23 @@ h2{font-size:clamp(20px,4.6vw,24px);font-weight:900;line-height:1.2;margin-botto
 .selecionado strong{display:block;font-size:15px}
 .selecionado small{color:var(--amarelo);font-weight:800;font-size:13px}
 .selecionado .trocar{margin-left:auto;font-size:13px;color:var(--cinza-claro);text-decoration:underline;cursor:pointer;background:none;border:0;font-family:inherit}
+.resumo{background:var(--preto-2);border:1.5px solid var(--amarelo);border-radius:16px;padding:16px;margin-bottom:14px}
+.resumo-topo{display:flex;gap:14px;align-items:center;margin-bottom:12px}
+.resumo-topo img{width:84px;height:104px;border-radius:12px;object-fit:cover;flex:none;background:var(--amarelo)}
+.resumo-topo h3{font-size:21px;font-weight:900;line-height:1.15}
+.resumo-topo .trocar{margin-left:auto;align-self:flex-start;font-size:13px;color:var(--cinza-claro);text-decoration:underline;cursor:pointer;background:none;border:0;font-family:inherit;flex:none}
+.teclas{display:flex;gap:6px;margin-top:8px}
+.tecla{width:34px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--tecla);border:1.5px solid #454545;
+ border-radius:8px;box-shadow:0 3px 0 #000;font-weight:900;font-size:22px;color:var(--branco);font-variant-numeric:tabular-nums}
+.resumo-bio{color:#d6d6d6;font-size:14.5px;margin-bottom:12px}
+.resumo-frase{border-left:3px solid var(--amarelo);padding-left:12px;font-style:italic;color:#e8e8e8;font-size:14.5px;margin-bottom:14px}
+.motivos{list-style:none;display:grid;gap:12px}
+.motivos li{padding-left:32px;position:relative;font-size:14.5px}
+.motivos li::before{content:"";position:absolute;left:0;top:2px;width:21px;height:21px;border-radius:50%;
+ background:var(--amarelo) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%231a1304' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/13px no-repeat}
+.motivos b{display:block;font-size:15px}
+.motivos span{color:#cfcfcf}
+.resumo-link{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:700;color:var(--amarelo)}
 
 .urna{list-style:none;display:grid;gap:8px}
 .urna li{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--preto-2);
@@ -230,6 +247,40 @@ footer p+p{margin-top:6px}
   filtrar('Federal','buscaFederal','listaFederal');
   filtrar('Estadual','buscaEstadual','listaEstadual');
 
+  function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  // pega as primeiras frases da bio ate um limite de caracteres, sem cortar no meio da frase
+  function bioCurta(c, limite){
+    if(/em breve/i.test(c.bio||'')) return ''; // bio provisoria nao entra na colinha
+    var p = (c.bio||'').split(/\n\n|\n/)[0].trim();
+    var frases = p.match(/[^.!?]+[.!?]+(\s|$)/g) || [p];
+    var out = '';
+    for(var i=0;i<frases.length;i++){
+      if(out && (out + frases[i]).length > limite) break;
+      out += frases[i];
+    }
+    return out.trim();
+  }
+  function temPropostas(c){ return c.propostasCandidato && c.propostasCandidato.length; }
+  function linkPerfil(c){ return c.pagina && c.pagina.trim() ? c.pagina : ('c/' + c.id); }
+  function resumoHTML(c, cargoLabel){
+    var digitos = String(c.numero).split('').map(function(d){ return '<span class="tecla">'+d+'</span>'; }).join('');
+    var h = '<div class="resumo">' +
+      '<div class="resumo-topo"><img src="'+esc(c.foto)+'" alt="'+esc(c.nome)+'">' +
+        '<div><div class="cargo">'+cargoLabel+'</div><h3>'+esc(c.nome)+'</h3>' +
+        '<div class="teclas" aria-label="Número '+esc(c.numero)+'">'+digitos+'</div></div>' +
+        '<button type="button" class="trocar">trocar</button></div>';
+    var bio = bioCurta(c, temPropostas(c) ? 240 : 420);
+    if(bio) h += '<p class="resumo-bio">' + esc(bio) + '</p>';
+    if(c.frase) h += '<p class="resumo-frase">“' + esc(c.frase) + '”</p>';
+    if(temPropostas(c)){
+      h += '<ul class="motivos">' + c.propostasCandidato.slice(0,3).map(function(p){
+        return '<li><b>'+esc(p.titulo)+'</b><span>'+esc(p.descricao)+'</span></li>';
+      }).join('') + '</ul>';
+    }
+    h += '<a class="resumo-link" href="'+esc(linkPerfil(c))+'" target="_blank" rel="noopener">Ver perfil completo →</a></div>';
+    return h;
+  }
+
   function escolher(tipo, id){
     var lista = tipo==='Federal' ? federais : estaduais;
     var c = lista.find(function(x){ return x.id===id; });
@@ -237,8 +288,7 @@ footer p+p{margin-top:6px}
     sel[tipo.toLowerCase()] = c;
     document.querySelectorAll('#lista'+tipo+' button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.id===id ? 'true':'false'); });
     var box = document.getElementById('sel'+tipo);
-    box.innerHTML = '<div class="selecionado"><img src="'+c.foto+'" alt=""><span><strong>'+c.nome+'</strong><small>'+c.numero+'</small></span>' +
-      '<button type="button" class="trocar">trocar</button></div>';
+    box.innerHTML = resumoHTML(c, tipo==='Federal' ? 'Deputado federal' : 'Deputado estadual');
     box.querySelector('.trocar').addEventListener('click', function(){
       document.getElementById('lista'+tipo).scrollIntoView({behavior:'smooth', block:'start'});
     });
@@ -365,9 +415,22 @@ footer p+p{margin-top:6px}
   function zapCurto(){
     return 'Minha colinha pro dia 4 de outubro 🗳️\n\n1º Federal: *'+sel.federal.nome+' '+sel.federal.numero+'*\n2º Estadual: *'+sel.estadual.nome+' '+sel.estadual.numero+'*\n3º Senado, 1º voto: *Karen Guerreiro 144*\n4º Senado, 2º voto: outro candidato (repetir o 144 anula)\n5º Governador: *Luiz França 14*\n6º Presidente: *Renan Santos 14*\n\nMonte a sua também: ' + URL_PAG;
   }
+  function blocoCandidato(num, cargo, c){
+    var linhas = ['━━━━━━━━━━━━━━', num + ' *' + cargo + '*', '*' + c.nome.toUpperCase() + ' ➜ ' + c.numero + '*', ''];
+    if(temPropostas(c)){
+      c.propostasCandidato.slice(0,3).forEach(function(p){ linhas.push('✅ *' + p.titulo + '.* ' + p.descricao); });
+    } else {
+      var bio = bioCurta(c, 320);
+      if(bio) linhas.push(bio);
+    }
+    if(linhas[linhas.length-1] !== '') linhas.push('');
+    return linhas;
+  }
   function textoGrupos(){
-    return ['🗳️ *MINHA COLINHA PRO DIA 4 DE OUTUBRO*','',
-      '━━━━━━━━━━━━━━','📲 *NA URNA, NESSA ORDEM:*',
+    return ['🗳️ *MINHA COLINHA PRO DIA 4 DE OUTUBRO*','_Não é só número. É motivo._','']
+      .concat(blocoCandidato('1️⃣','DEPUTADO FEDERAL', sel.federal))
+      .concat(blocoCandidato('2️⃣','DEPUTADO ESTADUAL', sel.estadual))
+      .concat(['━━━━━━━━━━━━━━','📲 *NA URNA, NESSA ORDEM:*',
       '1º Deputado federal ➜ *'+sel.federal.numero+'* ('+sel.federal.nome+')',
       '2º Deputado estadual ➜ *'+sel.estadual.numero+'* ('+sel.estadual.nome+')',
       '3º Senado, 1º voto ➜ *144* (Karen Guerreiro)',
@@ -376,7 +439,7 @@ footer p+p{margin-top:6px}
       '6º Presidente ➜ *14* (Renan Santos)',
       'Confira a foto e aperte CONFIRMA ✅','',
       '👉 Monte a sua colinha: ' + URL_PAG,'',
-      '🔁 *Manda pra 3 pessoas.* Voto consciente se espalha assim.'].join('\n');
+      '🔁 *Manda pra 3 pessoas.* Voto consciente se espalha assim.']).join('\n');
   }
 
   // ===== estado geral =====
