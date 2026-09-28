@@ -646,6 +646,13 @@ footer p+p{margin-top:6px}
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
   }
 
+  // celular/tablet usa o menu de compartilhar do sistema; computador usa area de transferencia
+  function ehCelular(){
+    if(navigator.userAgentData && typeof navigator.userAgentData.mobile === 'boolean' && navigator.userAgentData.mobile) return true;
+    if(/Android|iPhone|iPod|Mobile/i.test(navigator.userAgent)) return true;
+    return /Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1; // iPad se identifica como Mac
+  }
+
   document.getElementById('btnZap').addEventListener('click', function(ev){
     ev.preventDefault();
     if(!(sel.federal && sel.estadual)){ aviso.textContent = 'Escolha os dois deputados primeiro.'; return; }
@@ -655,7 +662,7 @@ footer p+p{margin-top:6px}
     var link = 'https://wa.me/?text=' + encodeURIComponent(txt);
 
     // 1) CELULAR: menu de compartilhar do sistema, com a imagem anexada
-    if(navigator.canShare && navigator.share && navigator.canShare({files:[f]})){
+    if(ehCelular() && navigator.canShare && navigator.share && navigator.canShare({files:[f]})){
       try { if(navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(txt).catch(function(){}); } catch(e){}
       navigator.share({files:[f], text: txt}).then(function(){
         aviso.textContent = 'Enviado. Se a legenda não apareceu, é só colar: o texto já está copiado.';
@@ -667,21 +674,32 @@ footer p+p{margin-top:6px}
       return;
     }
 
-    // 2) COMPUTADOR: o link do WhatsApp so leva texto. Entao a imagem vai pra area de
-    //    transferencia (e tambem e baixada, por garantia) e a pessoa cola no chat.
-    var copiou = false;
+    // 2) COMPUTADOR: nenhum site consegue pôr imagem direto no WhatsApp. A colinha vai pra
+    //    area de transferencia e o WhatsApp abre com o texto pronto: a pessoa so cola (Cmd/Ctrl+V).
+    //    O WhatsApp so abre DEPOIS da copia terminar: abrir antes tira o foco da pagina e o
+    //    navegador cancela a copia.
+    var mac = /Mac/.test(navigator.platform || '') || /Macintosh|Mac OS X/.test(navigator.userAgent);
+    var tecla = mac ? 'Cmd+V' : 'Ctrl+V';
+    var copia;
     try {
-      if(navigator.clipboard && window.ClipboardItem && window.isSecureContext){
-        navigator.clipboard.write([new ClipboardItem({'image/png': f})]).catch(function(){});
-        copiou = true;
+      copia = (navigator.clipboard && window.ClipboardItem && window.isSecureContext)
+        ? navigator.clipboard.write([new ClipboardItem({'image/png': f})])
+        : Promise.reject(new Error('sem suporte'));
+    } catch(e){ copia = Promise.reject(e); }
+    aviso.textContent = 'Copiando a colinha...';
+    copia.then(function(){ abrirZap(true); }, function(){ abrirZap(false); });
+    function abrirZap(copiou){
+      var janela = window.open(link, '_blank');
+      var msg = copiou
+        ? 'Colinha copiada! No WhatsApp, abra a conversa e aperte ' + tecla + ' pra colar a imagem. O texto já vai preenchido.'
+        : 'Não deu pra copiar a imagem automaticamente neste navegador. Use o botão "Baixar a minha colinha" e anexe pelo clipe 📎.';
+      aviso.textContent = msg;
+      if(!janela){
+        var a = document.createElement('a'); a.href = link; a.target = '_blank'; a.rel = 'noopener';
+        a.textContent = ' Abrir o WhatsApp →'; a.style.textDecoration = 'underline';
+        aviso.appendChild(a);
       }
-    } catch(e){ copiou = false; }
-    if(!copiou) baixarImagem();
-    window.open(link, '_blank');
-    var mac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
-    aviso.textContent = copiou
-      ? 'Colinha copiada! No WhatsApp, clique na conversa e aperte ' + (mac ? 'Cmd+V' : 'Ctrl+V') + ' pra anexar a imagem.'
-      : 'A imagem foi baixada. No WhatsApp, anexe pelo clipe 📎 (o texto já vai preenchido).';
+    }
   });
 
   document.getElementById('btnCopiar').addEventListener('click', function(){
