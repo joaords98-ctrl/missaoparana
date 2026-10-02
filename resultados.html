@@ -351,6 +351,7 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
           votos: nominais + legenda,
           nominais: nominais,
           legenda: legenda,
+          vagas: parseInt(agr.vag || 0, 10) || 0, // cadeiras pelo quociente (so proporcional / partido isolado ou federacao)
           ehMissao: nomeNormalizado.indexOf('missao') !== -1
         });
       });
@@ -460,7 +461,9 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
           (p.ehMissao ? 'font-weight:800' : '') + '">' +
         '<div style="width:22px;color:var(--cinza-claro);font-size:13px;flex-shrink:0">' + (i+1) + 'º</div>' +
         '<div style="flex:1;min-width:0">' +
-          '<div style="font-size:13.5px;margin-bottom:3px;' + (p.ehMissao ? 'color:var(--amarelo)' : '') + '">' + p.nome + '</div>' +
+          '<div style="font-size:13.5px;margin-bottom:3px;' + (p.ehMissao ? 'color:var(--amarelo)' : '') + '">' + p.nome +
+            (p.vagas > 0 ? ' <span style="font-size:11px;font-weight:800;padding:1px 7px;border-radius:10px;background:' + (p.ehMissao ? 'var(--amarelo)' : '#2a2a2a') + ';color:' + (p.ehMissao ? '#111' : 'var(--cinza-claro)') + ';margin-left:6px;vertical-align:middle">' + p.vagas + (p.vagas === 1 ? ' vaga' : ' vagas') + '</span>' : '') +
+          '</div>' +
           '<div style="height:8px;background:#1c1c1c;border-radius:4px;overflow:hidden">' +
             '<div style="height:100%;width:' + pct + '%;background:' + cor + '"></div>' +
           '</div>' +
