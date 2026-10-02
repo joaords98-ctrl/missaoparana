@@ -225,27 +225,23 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   //   - Percentuais vem como texto com VIRGULA ("8,10"), nao ponto
   //   - "% de secoes apuradas" fica em payload.s.pst
   //
-  // *** PASSO OBRIGATORIO ANTES DE USAR NO DIA OFICIAL ***
-  // O ambiente/ciclo abaixo estao configurados pro SIMULADO. No dia da
-  // eleicao de verdade, provavelmente muda pra TSE_AMBIENTE='oficial' e
-  // TSE_EXTRA_SEGMENTO='' (vazio) — confirmar abrindo resultados.tse.jus.br
-  // e repetindo o mesmo processo (DevTools > Network > filtrar "jws" ou
-  // "json") pra pegar a URL de verdade daquele dia.
+  // *** CONFIGURADO PRO DIA OFICIAL (04/10/2026) ***
+  // Ambiente oficial confirmado em 02/10/2026 pelo app do TSE
+  // (resultados.tse.jus.br/oficial/app/...#/eleicao/6257/uf/pr/...):
+  // os 4 cargos (Governador, Senador, Dep. Federal, Dep. Estadual) usam o
+  // mesmo codigo de eleicao 6257. Caminho oficial (conforme ele-c do TSE):
+  //   <host>/oficial/<ciclo>/<eleicao>/dados/<uf>/<uf>-c<cargo>-e<eleicao6>-u.jws
+  // Pra voltar ao simulado: host resultados-sim.tse.jus.br, ambiente
+  // 'simulado', extra 'simulado2026', eleicao '21272'.
   // ===================================================================
-  var TSE_HOST = 'https://resultados-sim.tse.jus.br';
-  var TSE_AMBIENTE = 'simulado';
-  var TSE_EXTRA_SEGMENTO = 'simulado2026'; // so existe no simulado; no dia oficial, provavelmente vazio
+  var TSE_HOST = 'https://resultados.tse.jus.br';
+  var TSE_AMBIENTE = 'oficial';
+  var TSE_EXTRA_SEGMENTO = ''; // so existia no simulado ('simulado2026'); vazio no oficial
   var TSE_CICLO = 'ele2026';
   var TSE_UF = 'pr';
 
-  // codigo da eleicao (e<ELEICAO>) por cargo — confirmado via DevTools no simulado
-  // codigo da eleicao no Parana — CONFIRMADO os 4 cargos (Governador, Senador,
-  // Deputado Federal e Deputado Estadual) compartilham o mesmo codigo (21272),
-  // testado com arquivos reais do TSE durante o simulado de 16/09/2026.
-  // No dia oficial (04/10/2026), repetir o mesmo processo de descoberta
-  // (DevTools > Network > filtrar "jws") pra confirmar o codigo daquele dia,
-  // que provavelmente sera diferente deste (usado so no ambiente de teste).
-  var TSE_ELEICAO_PR = '21272';
+  // codigo da eleicao (e<ELEICAO>) — oficial 2026, 1o turno, igual pros 4 cargos
+  var TSE_ELEICAO_PR = '6257';
 
   var TSE_ELEICAO = {
     governador: TSE_ELEICAO_PR,
