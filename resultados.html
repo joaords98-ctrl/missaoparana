@@ -320,21 +320,37 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   }
 
   // extrai o total de votos de CADA partido/federacao/coligacao (agremiacao), pra comparar
-  // o Missao com os demais. Usa o nivel de "agremiacao" (agr), que e como o TSE agrupa o
-  // resultado por legenda — cada agr ja vem com o total de votos dela (tvan) pronto.
+  // o Missao com os demais. Conforme a especificacao EA20 do TSE:
+  //   tvan = votos computados NOMINAIS   | tval = votos computados de LEGENDA
+  //   tvtn = votos validos NOMINAIS      | tvtl = votos validos de LEGENDA
+  // No nivel da agremiacao (agr) esses campos SO EXISTEM para federacao/coligacao
+  // (tp != 'i'). Para partido isolado (tp == 'i') eles vem dentro de cada par[].
+  // Por isso soma os par[] quando o agr nao traz o total. O que conta pro quociente
+  // eleitoral e nominal + legenda, entao o ranking usa a soma dos dois.
+  function somaCampo(obj, lista, campoA, campoB){
+    var v = parseInt(obj[campoA] || obj[campoB] || '', 10);
+    if(!isNaN(v)) return v;
+    return (lista || []).reduce(function(acc, p){
+      return acc + (parseInt(p[campoA] || p[campoB] || 0, 10) || 0);
+    }, 0);
+  }
   function extrairRankingPartidos(payload){
     var lista = [];
     var cargos = payload.carg || [];
     cargos.forEach(function(cargo){
       var agremiacoes = cargo.agr || [];
       agremiacoes.forEach(function(agr){
-        var votos = parseInt(agr.tvan || agr.tvtn || 0, 10) || 0;
+        var pars = agr.par || [];
+        var nominais = somaCampo(agr, pars, 'tvan', 'tvtn');
+        var legenda = somaCampo(agr, pars, 'tval', 'tvtl');
         var nome = agr.nm || agr.com || ('Partido ' + agr.n);
         var nomeNormalizado = nome.toString().toLowerCase()
           .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
         lista.push({
           nome: nome,
-          votos: votos,
+          votos: nominais + legenda,
+          nominais: nominais,
+          legenda: legenda,
           ehMissao: nomeNormalizado.indexOf('missao') !== -1
         });
       });
@@ -449,7 +465,10 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
             '<div style="height:100%;width:' + pct + '%;background:' + cor + '"></div>' +
           '</div>' +
         '</div>' +
-        '<div style="font-size:14px;font-weight:800;flex-shrink:0;min-width:70px;text-align:right">' + fmtNum(p.votos) + '</div>' +
+        '<div style="flex-shrink:0;min-width:84px;text-align:right">' +
+          '<div style="font-size:14px;font-weight:800">' + fmtNum(p.votos) + '</div>' +
+          '<div style="font-size:11px;color:var(--cinza-claro);white-space:nowrap">' + fmtNum(p.nominais) + ' nom. + ' + fmtNum(p.legenda) + ' leg.</div>' +
+        '</div>' +
       '</div>';
     }).join('');
   }
