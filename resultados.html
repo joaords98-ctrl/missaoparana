@@ -240,20 +240,21 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   var TSE_CICLO = 'ele2026';
   var TSE_UF = 'pr';
 
-  // codigos da eleicao (e<ELEICAO>) — oficial 2026, 1o turno. Como em 2022 (544/546),
-  // sao DOIS codigos: um pra eleicao federal (presidente, senador, dep. federal) e outro
-  // pra estadual (governador, dep. estadual). Confirmado em 04/10/2026 no Network do app
-  // do TSE: pr-c0001-e006257 (presidente) e /ele2026/6259/.../pr-c0003-e006259 (governador).
-  // ATENCAO: o hash #/eleicao/6257 na URL do app NAO muda ao trocar de cargo — nao serve
-  // de referencia pro estadual.
-  var TSE_ELEICAO_FEDERAL = '6257';
-  var TSE_ELEICAO_ESTADUAL = '6259';
+  // codigo da eleicao (e<ELEICAO>) — oficial 2026, 1o turno. Confirmado em 04/10/2026
+  // no Network do app do TSE (status 200):
+  //   /oficial/ele2026/6259/dados/pr/pr-c0006-e006259-u.jws  (dep. federal)
+  //   /oficial/ele2026/6259/dados/pr/pr-c0007-e006259-u.jws  (dep. estadual)
+  //   /oficial/ele2026/6259/dados/pr/pr-c0003-e006259-u.jws  (governador)
+  // Ou seja: 6259 e a eleicao de TODOS os cargos do Parana. 6257 e so a presidencial
+  // (nacional, pr-c0001-e006257), que o site nao usa. Com 6257, c0005/c0006/c0007 dao 404.
+  // ATENCAO: o hash #/eleicao/6257 na URL do app NAO muda ao trocar de cargo/UF.
+  var TSE_ELEICAO_PR = '6259';
 
   var TSE_ELEICAO = {
-    governador: TSE_ELEICAO_ESTADUAL,
-    senador: TSE_ELEICAO_FEDERAL,
-    federal: TSE_ELEICAO_FEDERAL,
-    estadual: TSE_ELEICAO_ESTADUAL
+    governador: TSE_ELEICAO_PR,
+    senador: TSE_ELEICAO_PR,
+    federal: TSE_ELEICAO_PR,
+    estadual: TSE_ELEICAO_PR
   };
 
   var TSE_CARGO_CODIGO = {
