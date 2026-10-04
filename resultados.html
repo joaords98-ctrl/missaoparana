@@ -375,6 +375,7 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
     if(cargosComEleicaoConfigurada.length === 0){
       // ainda nao configurado (falta preencher TSE_ELEICAO acima) — mostra estrutura vazia
       return {
+        dadosCarregados: false,
         apuracaoIniciada: false,
         atualizadoEm: null,
         secoesApuradasPct: 0,
@@ -414,7 +415,9 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
     }
 
     return {
-      apuracaoIniciada: algumaRespostaOk,
+      // dadosCarregados = conseguiu ler o TSE; apuracaoIniciada = ja ha secoes totalizadas
+      dadosCarregados: algumaRespostaOk,
+      apuracaoIniciada: algumaRespostaOk && maiorPercentualApurado > 0,
       atualizadoEm: algumaRespostaOk ? new Date().toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'}) : null,
       secoesApuradasPct: maiorPercentualApurado,
       resultados: resultados,
@@ -494,6 +497,9 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
     if(dados.apuracaoIniciada){
       statusBar.classList.add('ao-vivo');
       statusTexto.textContent = 'Apuração em andamento';
+    } else if(dados.dadosCarregados){
+      statusBar.classList.remove('ao-vivo');
+      statusTexto.textContent = 'Conectado ao TSE · aguardando início da apuração';
     } else {
       statusBar.classList.remove('ao-vivo');
       statusTexto.textContent = 'Apuração ainda não iniciada';
@@ -509,7 +515,7 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
       if(r && r.eleito) totalEleitos++;
     });
     document.getElementById('resumoEleitos').textContent = dados.apuracaoIniciada ? totalEleitos : '–';
-    document.getElementById('resumoApuradas').textContent = dados.apuracaoIniciada ? (dados.secoesApuradasPct.toFixed(1).replace('.', ',') + '%') : '–';
+    document.getElementById('resumoApuradas').textContent = dados.dadosCarregados ? (dados.secoesApuradasPct.toFixed(1).replace('.', ',') + '%') : '–';
 
     // total de votos separado por cargo (Federal e Estadual, cada um somado a parte — o que importa de verdade)
     var totalVotosPorCargo = { federal: 0, estadual: 0 };
@@ -518,15 +524,15 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
       var r = resultados[c.id];
       if(r) totalVotosPorCargo[c.cargo] += (r.votos || 0);
     });
-    document.getElementById('resumoVotosFederal').textContent = dados.apuracaoIniciada ? fmtNum(totalVotosPorCargo.federal) : '–';
-    document.getElementById('resumoVotosEstadual').textContent = dados.apuracaoIniciada ? fmtNum(totalVotosPorCargo.estadual) : '–';
+    document.getElementById('resumoVotosFederal').textContent = dados.dadosCarregados ? fmtNum(totalVotosPorCargo.federal) : '–';
+    document.getElementById('resumoVotosEstadual').textContent = dados.dadosCarregados ? fmtNum(totalVotosPorCargo.estadual) : '–';
     // votos de legenda do Missao (voto so no numero 14): campo tval do partido no EA20
     function legendaMissao(cargo){
       var m = ((dados.partidosPorCargo || {})[cargo] || []).filter(function(p){ return p.ehMissao; })[0];
       return m ? m.legenda : 0;
     }
-    document.getElementById('resumoLegendaFederal').textContent = dados.apuracaoIniciada ? fmtNum(legendaMissao('federal')) : '–';
-    document.getElementById('resumoLegendaEstadual').textContent = dados.apuracaoIniciada ? fmtNum(legendaMissao('estadual')) : '–';
+    document.getElementById('resumoLegendaFederal').textContent = dados.dadosCarregados ? fmtNum(legendaMissao('federal')) : '–';
+    document.getElementById('resumoLegendaEstadual').textContent = dados.dadosCarregados ? fmtNum(legendaMissao('estadual')) : '–';
 
     // governador
     var governador = CANDIDATOS_RESULTADOS.find(function(c){ return c.cargo === 'governador'; });
