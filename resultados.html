@@ -160,6 +160,8 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   <div class="resumo-grid">
     <div class="resumo-card"><div class="num" id="resumoVotosFederal">–</div><div class="label">Votos Dep. Federal</div></div>
     <div class="resumo-card"><div class="num" id="resumoVotosEstadual">–</div><div class="label">Votos Dep. Estadual</div></div>
+    <div class="resumo-card"><div class="num" id="resumoLegendaFederal">–</div><div class="label">Votos de legenda (Federal)</div></div>
+    <div class="resumo-card"><div class="num" id="resumoLegendaEstadual">–</div><div class="label">Votos de legenda (Estadual)</div></div>
     <div class="resumo-card"><div class="num" id="resumoEleitos">–</div><div class="label">Candidatos eleitos</div></div>
     <div class="resumo-card"><div class="num" id="resumoApuradas">–</div><div class="label">Seções apuradas</div></div>
     <div class="resumo-card"><div class="num">14</div><div class="label">Número do partido</div></div>
@@ -518,6 +520,13 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
     });
     document.getElementById('resumoVotosFederal').textContent = dados.apuracaoIniciada ? fmtNum(totalVotosPorCargo.federal) : '–';
     document.getElementById('resumoVotosEstadual').textContent = dados.apuracaoIniciada ? fmtNum(totalVotosPorCargo.estadual) : '–';
+    // votos de legenda do Missao (voto so no numero 14): campo tval do partido no EA20
+    function legendaMissao(cargo){
+      var m = (partidosPorCargo[cargo] || []).filter(function(p){ return p.ehMissao; })[0];
+      return m ? m.legenda : 0;
+    }
+    document.getElementById('resumoLegendaFederal').textContent = dados.apuracaoIniciada ? fmtNum(legendaMissao('federal')) : '–';
+    document.getElementById('resumoLegendaEstadual').textContent = dados.apuracaoIniciada ? fmtNum(legendaMissao('estadual')) : '–';
 
     // governador
     var governador = CANDIDATOS_RESULTADOS.find(function(c){ return c.cargo === 'governador'; });
