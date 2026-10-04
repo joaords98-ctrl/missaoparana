@@ -522,7 +522,7 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
     document.getElementById('resumoVotosEstadual').textContent = dados.apuracaoIniciada ? fmtNum(totalVotosPorCargo.estadual) : '–';
     // votos de legenda do Missao (voto so no numero 14): campo tval do partido no EA20
     function legendaMissao(cargo){
-      var m = (partidosPorCargo[cargo] || []).filter(function(p){ return p.ehMissao; })[0];
+      var m = ((dados.partidosPorCargo || {})[cargo] || []).filter(function(p){ return p.ehMissao; })[0];
       return m ? m.legenda : 0;
     }
     document.getElementById('resumoLegendaFederal').textContent = dados.apuracaoIniciada ? fmtNum(legendaMissao('federal')) : '–';
