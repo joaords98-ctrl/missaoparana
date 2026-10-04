@@ -240,14 +240,20 @@ src="https://www.facebook.com/tr?id=3577840195704424&ev=PageView&noscript=1"
   var TSE_CICLO = 'ele2026';
   var TSE_UF = 'pr';
 
-  // codigo da eleicao (e<ELEICAO>) — oficial 2026, 1o turno, igual pros 4 cargos
-  var TSE_ELEICAO_PR = '6257';
+  // codigos da eleicao (e<ELEICAO>) — oficial 2026, 1o turno. Como em 2022 (544/546),
+  // sao DOIS codigos: um pra eleicao federal (presidente, senador, dep. federal) e outro
+  // pra estadual (governador, dep. estadual). Confirmado em 04/10/2026 no Network do app
+  // do TSE: pr-c0001-e006257 (presidente) e /ele2026/6259/.../pr-c0003-e006259 (governador).
+  // ATENCAO: o hash #/eleicao/6257 na URL do app NAO muda ao trocar de cargo — nao serve
+  // de referencia pro estadual.
+  var TSE_ELEICAO_FEDERAL = '6257';
+  var TSE_ELEICAO_ESTADUAL = '6259';
 
   var TSE_ELEICAO = {
-    governador: TSE_ELEICAO_PR,
-    senador: TSE_ELEICAO_PR,
-    federal: TSE_ELEICAO_PR,
-    estadual: TSE_ELEICAO_PR
+    governador: TSE_ELEICAO_ESTADUAL,
+    senador: TSE_ELEICAO_FEDERAL,
+    federal: TSE_ELEICAO_FEDERAL,
+    estadual: TSE_ELEICAO_ESTADUAL
   };
 
   var TSE_CARGO_CODIGO = {
